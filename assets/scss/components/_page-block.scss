@@ -1,0 +1,53 @@
+.page-block {
+  &__heading {
+    margin-bottom: 25px;
+    @include typography(28px, 42px, 64px, 42px, 400, $f-heading, #1d1d1d);
+    text-align: center;
+    @include mq(tablet) {
+      margin-bottom: vw(55px);
+    }
+    @include mq(desktop-wide) {
+      margin-bottom: 55px;
+    }
+  }
+
+  &__banner {
+    position: relative;
+    height: 650px;
+    overflow: hidden;
+    @include mq(tablet) {
+      height: vw(750px);
+    }
+    @include mq(desktop-wide) {
+      height: 750px;
+    }
+    &:hover {
+      img {
+        transform: scale(1.05);
+      }
+    }
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      @include coverImage;
+      transition: transform .5s ease-in-out;
+    }
+    &::after {
+      height: 100%;
+      opacity: 1;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
+    }
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      text-align: center;
+      @include typography(50px, 74px, 64px, 64px, 400, $f-heading, $secondary);
+      letter-spacing: -0.04em;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+  }
+}

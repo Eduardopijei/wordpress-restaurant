@@ -1,0 +1,602 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: $background_color;
+  color: $text_color;
+  @include bodyText();
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+a,
+button {
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+button {
+  padding: 0;
+  appearance: none;
+  background-color: #0000;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+hr {
+  border-top: 1px solid rgba(112, 112, 112, 0.6);
+  border-bottom: 0;
+}
+
+ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+svg {
+  path {
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $accent;
+  outline: none;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+// customize jquery datepicker
+html {
+  .datepicker {
+    &-dropdown {
+      padding: 25px 23px;
+      margin-top: -11px;
+      border: 1px solid #4a4a4a;
+      box-shadow: none;
+      background: $background_color;
+      width: 335px !important;
+      font-size: 14px;
+      line-height: 36px;
+      box-sizing: border-box;
+
+      &::before,
+      &::after {
+        content: none;
+      }
+    }
+
+    &-panel>ul {
+      width: 280px;
+      margin-left: auto;
+      margin-right: auto;
+
+      >li {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &-panel>ul[data-view="week"]>li,
+    &-panel>ul[data-view="week"]>li:hover {
+      background-color: $background_color;
+      color: $c-black;
+      font-weight: 600;
+    }
+
+    &-panel>ul>li {
+      background-color: $background_color;
+      border-radius: 50%;
+      color: $c-black;
+      transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+
+      &:hover {
+        background-color: $accent;
+        color: $c-white;
+      }
+
+      &.disabled,
+      &.disabled:hover {
+        background-color: $background_color;
+        color: $c-white;
+      }
+
+      &.muted {
+        background-color: $background_color;
+        color: $primary;
+
+        &:hover {
+          background-color: $accent;
+          color: $c-white;
+        }
+      }
+
+      &.highlighted,
+      &.highlighted:hover {
+        background-color: $background_color;
+        color: $c-black;
+      }
+
+      &.picked,
+      &.picked:hover {
+        background-color: $accent;
+        color: $c-white;
+      }
+
+      &[data-view="month current"],
+      &[data-view="year current"],
+      &[data-view="years current"] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font: 600 14px/17.23px $f-text;
+        color: $primary;
+        text-transform: uppercase;
+        border-radius: 0;
+        width: 200px;
+
+        &:hover {
+          color: $c-white;
+        }
+
+        &.disabled {
+          pointer-events: none;
+        }
+      }
+
+      &[data-view="month prev"],
+      &[data-view="month next"] {
+        position: relative;
+        font-size: 0;
+
+        &::before {
+          position: absolute;
+          content: "";
+          display: inline-block;
+          width: 0;
+          height: 0;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      &[data-view="month prev"]::before {
+        border-style: solid;
+        border-width: 3.5px 8px 3.5px 0;
+        border-color: transparent #404040 transparent transparent;
+      }
+
+      &[data-view="month next"]::before {
+        border-style: solid;
+        border-width: 3.5px 0 3.5px 8px;
+        border-color: transparent transparent transparent #404040;
+      }
+    }
+  }
+}
+
+// Slick slider
+html {
+
+  .slick-next,
+  .slick-prev {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    transition: border 0.3s ease-in-out;
+
+    &:before {
+      content: none;
+    }
+  }
+
+  .slick-prev {
+    left: -43px;
+    border-width: 10.5px 21px 10.5px 0;
+    border-color: transparent #0d0d0d transparent transparent;
+
+    &:hover {
+      border-right-color: $accent;
+    }
+  }
+
+  .slick-next {
+    right: -43px;
+    border-width: 10.5px 0 10.5px 21px;
+    border-color: transparent transparent transparent #0d0d0d;
+
+    &:hover {
+      border-left-color: $accent;
+    }
+  }
+
+  .slick-dots {
+    position: static;
+    text-align: center;
+    margin-top: 18px;
+    line-height: 0;
+
+    @include mq(tablet) {
+      text-align: left;
+    }
+
+    li {
+      margin-left: 0;
+      margin-right: 6px;
+      width: auto;
+      height: auto;
+
+      button {
+        padding: 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #a0814c;
+        opacity: 0.7;
+        transition: background 0.3s ease-in-out;
+
+        &::before {
+          content: none;
+        }
+      }
+
+      &.slick-active button {
+        opacity: 1;
+      }
+    }
+  }
+
+  .color--cyan .slick-dots li.slick-active button {
+    background-color: $c-cyan;
+  }
+}
+
+
+// Custom JCF Style
+.jcf-select,
+.jcf-list li span {
+  display: block;
+  border: 1px solid #4a4a4a;
+  border-radius: 0;
+  background-color: #0000;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.jcf-select {
+  position: relative;
+  padding: 8px 15px;
+  font: 600 12px/24px $f-text;
+  letter-spacing: 0.12em;
+  color: #0d0d0d;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    right: 20px;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 4.5px 0 4.5px;
+    border-color: #404040 transparent transparent transparent;
+    transform: translateY(-50%);
+    transition: all 0.3s ease-in-out;
+  }
+
+  &.jcf-drop-active::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  &-drop {
+    position: absolute;
+    top: 42px;
+    left: -1px;
+    background-color: $background_color;
+    border: 1px solid #6b6969;
+    z-index: 1000;
+  }
+}
+
+.jcf-list {
+  li {
+    span {
+      display: block;
+      padding: 8px 24px;
+      font: 400 14px/24px $f-text;
+      border: none;
+      border-bottom: 1px solid #4a4a4a;
+      color: #333;
+      letter-spacing: 0.01em;
+      text-align: left;
+      transition: background 0.3s ease-in-out;
+
+      @include mq(tablet) {
+        &:hover {
+          background-color: #fbfae5;
+        }
+      }
+    }
+
+    // &:first-child {
+    //   display: none;
+    // }
+    // &:last-child span {
+    //   border: none;
+    // }
+  }
+
+  &-content {
+    display: block;
+    max-height: 173px !important;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $accent;
+      outline: none;
+    }
+  }
+}
+
+// GDPR
+#cookie-law-info-bar {
+  position: relative;
+  padding: 36px 25px 28px;
+  border: 1px solid #000;
+  width: 375px !important;
+
+  @include mq(tablet, max) {
+    left: 0 !important;
+    bottom: 0 !important;
+  }
+
+  @include mq(tablet) {
+    padding: 43px 25px 30px;
+    width: 445px !important;
+  }
+}
+
+.cli-bar {
+  &-message {
+    text-align: left;
+
+    p {
+      margin-bottom: 19px;
+      @include typography(12px, 14px, 21px, 21px, 400, $f-text, $primary);
+
+      a {
+        text-decoration: underline;
+        color: $primary;
+
+        &:hover {
+          color: $accent;
+        }
+      }
+    }
+  }
+
+  &-title {
+    margin-bottom: 10px;
+    @include typography(14px, 14px, 17.23px, 16.8px, 600, $f-text, #44382b);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+
+  &-close {
+    position: absolute;
+    top: 28px;
+    right: 23px;
+    width: 15px;
+    height: 15px;
+    @include svgBackground("<svg width='31' height='32' viewBox='0 0 31 32' fill='none' xmlns='http://www.w3.org/2000/svg'><line x1='29.5771' y1='30.9913' x2='1.2928' y2='2.70702' stroke='black' stroke-width='2'/><line x1='1.29289' y1='29.5771' x2='29.5772' y2='1.2928' stroke='black' stroke-width='2'/></svg>");
+    cursor: pointer;
+    transition: transform .5s ease-in-out;
+    will-change: transform;
+
+    @include mq(tablet) {
+      top: 32px;
+      right: 32px;
+      width: 28px;
+      height: 28px;
+
+      &:hover {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
+
+.cli-bar-btn_container {
+  margin-left: 0;
+}
+
+#wt-cli-accept-all-btn {
+  display: inline-block;
+  margin: 0;
+  padding: 6px 20px;
+  width: 100%;
+  font: 600 12px/28px $f-text;
+  letter-spacing: 3.6px;
+  border: 1px solid #212121;
+  background: $background_color;
+  color: #0d0d0d;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+
+  @include mq(tablet) {
+    &:hover {
+      background: $accent;
+      color: $secondary;
+    }
+  }
+}
+
+
+// Fancybox
+.fancybox {
+  &__container {
+    background-color: #0000;
+    z-index: 100000;
+  }
+
+  &__backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+
+    @include mq(tablet) {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  &__caption {
+    margin-top: 18px;
+    padding: 0;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: inherit;
+    z-index: 1000;
+
+    @include mq(tablet) {
+      margin-top: -50px;
+    }
+  }
+
+  &__content {
+    @include mq(tablet) {
+      &::after {
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 188px;
+        background: linear-gradient(0, #000000 0%, rgba(0, 0, 0, 0) 100%);
+      }
+    }
+  }
+
+  &__thumbs {
+    display: none;
+  }
+}
+
+.fancybox__button--close {
+  margin-top: 23px;
+  margin-right: 28px;
+  width: 25px;
+  height: 25px;
+
+  &:hover {
+    path {
+      stroke: $accent;
+    }
+  }
+
+  svg {
+    width: 25px;
+    height: 25px;
+
+    path {
+      transition: stroke .3s ease-in-out;
+    }
+  }
+}
+
+.fancybox__nav .carousel__button {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-radius: 0;
+  transition: border .3s ease-in-out;
+
+  &.is-prev {
+    left: 20px;
+    border-width: 8px 16px 8px 0;
+    border-color: #0000 #fff #0000 #0000;
+
+    @include mq(tablet) {
+      left: vw(80px);
+
+      &:hover {
+        border-right-color: $accent;
+      }
+    }
+
+    @include mq(desktop-wide) {
+      left: 80px;
+    }
+  }
+
+  &.is-next {
+    right: 20px;
+    border-width: 8px 0 8px 16px;
+    border-color: #0000 #0000 #0000 #fff;
+
+    @include mq(tablet) {
+      right: vw(80px);
+
+      &:hover {
+        border-left-color: $accent;
+      }
+    }
+
+    @include mq(desktop-wide) {
+      right: 80px;
+    }
+  }
+
+  svg {
+    display: none;
+  }
+}

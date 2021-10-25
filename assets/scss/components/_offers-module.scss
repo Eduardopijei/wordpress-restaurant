@@ -1,0 +1,58 @@
+.offers-module {
+  &__info {
+    text-align: center;
+    @include mq(tablet) {
+      margin: auto;
+      max-width: vw(780px);
+    }
+  }
+  &__heading {
+    margin-bottom: 15px;
+    @include typography(48px, 72px, 48px, 72px, 400, $f-heading, #1d1d1d);
+    letter-spacing: -0.03em;
+    @include mq(tablet) {
+      margin-bottom: vw(23px);
+    }
+
+    @include mq(desktop-wide) {
+      margin-bottom: 23px;
+    }
+  }
+  &__subheading {
+    margin-bottom: 20px;
+    letter-spacing: 0.45em;
+  }
+  &__desc {
+    margin-bottom: 40px;
+    @include mq(tablet) {
+      margin-bottom: vw(72px);
+    }
+    @include mq(desktop-wide) {
+      margin-bottom: 72px;
+    }
+  }
+  &__grid {
+    @include mq(tablet) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: vw(30px);
+    }
+    @include mq(desktop-wide) {
+      grid-gap: 30px;
+    }
+  }
+  &__btn {
+    min-width: 260px;
+    color: #0d0d0d;
+    &--wrapper {
+      margin-top: 30px;
+      text-align: center;
+      @include mq(tablet) {
+        margin-top: vw(90px);
+      }
+      @include mq(desktop-wide) {
+        margin-top: 90px;
+      }
+    }
+  }
+}

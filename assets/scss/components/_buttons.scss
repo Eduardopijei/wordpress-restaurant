@@ -1,0 +1,116 @@
+.btn {
+  display: inline-block;
+  padding: 6px 20px;
+  font: 600 12px/28px $f-text;
+  letter-spacing: 3.6px;
+  border: 1px solid #212121;
+  background: $background_color;
+  color: #0d0d0d;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  @include mq(tablet) {
+    &:hover {
+      background: $accent;
+      color: $secondary;
+    }
+  }
+  &.btn--accent {
+    background: $accent;
+    border-color: $accent;
+    color: $c-white;
+    @include mq(tablet) {
+      &:hover {
+        background: $background_color;
+        color: $primary;
+        border-color: $primary;
+      }
+    }
+  }
+  &.btn--outline {
+    border-color: $secondary;
+    background-color: #0000;
+    color: $secondary;
+    @include mq(tablet) {
+      &:hover {
+        background-color: $secondary;
+        color: $accent;
+      }
+    }
+  }
+}
+.cta {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+  font: 600 14px/16.8px $f-text;
+  letter-spacing: 0.3em;
+  text-align: center;
+  text-transform: uppercase;
+  color: $primary;
+  &::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    border-bottom: 1px solid $primary;
+    transform: scaleX(1);
+    transform-origin: 0% center;
+    transition: transform 0.3s ease-in-out;
+    @include mq(tablet) {
+      border-bottom-width: 1px;
+    }
+  }
+  @include mq(tablet) {
+    &:hover::after {
+      transform: scaleX(0);
+      transform-origin: 100% center;
+    }
+  }
+  &.cta-reverse {
+    &::after {
+      transform: scaleX(0);
+      transform-origin: 100% center;
+    }
+    @include mq(tablet) {
+      &:hover::after {
+        transform: scaleX(1);
+        transform-origin: 0 center;
+      }
+    }
+    &.active::after {
+      transform: scaleX(1);
+      transform-origin: 0 center;
+    }
+  }
+}
+.link {
+  position: relative;
+  display: inline-block;
+  font-size: 14px !important;
+  line-height: 21px !important;
+  color: $primary;
+  &::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    bottom: 4px;
+    width: 100%;
+    border-bottom: 1px solid $primary;
+    transform: scaleX(1);
+    transform-origin: 0% center;
+    transition: transform 0.3s ease-in-out;
+    @include mq(tablet) {
+      border-bottom-width: 1px;
+    }
+  }
+  @include mq(tablet) {
+    &:hover::after {
+      transform: scaleX(0);
+      transform-origin: 100% center;
+    }
+  }
+}

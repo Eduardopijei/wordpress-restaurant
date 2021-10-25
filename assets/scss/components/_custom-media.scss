@@ -1,0 +1,10 @@
+.custom-media {
+  .img-a-img {
+    &::before {
+      padding-top: 100vh;
+      @include mq(tablet) {
+        padding-top: 57.3%;
+      }
+    }
+  }
+}

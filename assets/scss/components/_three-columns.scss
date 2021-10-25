@@ -1,0 +1,38 @@
+.three-columns {
+    @include mq(tablet, max) {
+        text-align: center;
+    }
+    .row {
+        @include mq(tablet) {
+            display: grid;
+            grid-template-columns: vw(340px) auto;
+            grid-gap: vw(102px);
+        }
+        @include mq(desktop-wide) {
+            grid-gap: 102px;
+        }
+        .col-heading {
+            h3 {
+                @include typography(28px, 52px, 54px, 54px, 400, $f-heading, #0d0d0d);
+                letter-spacing: -0.04em;
+            }
+            @include mq(tablet, max) {
+                margin-bottom: 14px;
+            }
+            @include mq(tablet) {
+                text-align: right;
+            }
+        }
+        .col-content {
+            @include typography(12px, 14px, 28px, 32px, 400, $f-text, #0d0d0d);
+            @include mq(desktop) {
+                grid-column: 2 / 4;
+                column-count: 2;
+                column-gap: vw(78px);
+            }
+            @include mq(desktop-wide) {
+                column-gap: 78px;
+            }
+        }
+    }
+}

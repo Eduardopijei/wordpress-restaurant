@@ -1,0 +1,371 @@
+@import "utils/variables";
+@import "utils/mixins";
+@import "components/buttons";
+@import "components/offers-module";
+@import "components/loop-offers";
+@import "components/loop-culinary";
+@import "components/events-experiences";
+.block-editor-block-list__block {
+  overflow: hidden;
+}
+
+section a {
+  text-decoration: none;
+  pointer-events: none;
+}
+
+// Home Hero
+.home-hero {
+  position: relative;
+
+  &__bg {
+    width: 100%;
+  }
+
+  &__logo {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    max-width: 300px;
+    transform: translate(-50%, -50%);
+
+    &--text {
+      color: $secondary;
+      font-size: 42px;
+      white-space: nowrap;
+    }
+
+    &--img {
+      max-width: 200px;
+    }
+  }
+
+  .scroll-link {
+    position: absolute;
+    display: block;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    color: $secondary;
+  }
+
+  .btn-audio {
+    display: none;
+  }
+}
+
+// Responsive Spacer
+.responsive-spacer {
+  content: "Spacer";
+  width: 100%;
+  height: 50px;
+  background-color: lightgrey;
+}
+
+// Title Text Block
+.title-text {
+  &__title {}
+}
+
+// Media content Block
+.media-content {
+  .container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__media {
+    flex: 0 0 49%;
+    padding-right: 2%;
+
+    @include when-inside(".media-content--left") {
+      order: 1;
+    }
+  }
+
+  &__content {
+    flex: 0 0 49%;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  &__title {
+    color: $heading_color;
+  }
+
+  &__cta {
+    color: $accent;
+  }
+
+  .spa-logo,
+  .img-decor {
+    display: none;
+  }
+}
+
+// Custom Media
+.custom-media {
+  video {
+    width: 100%;
+  }
+}
+
+// Two columns
+.two-columns {
+  .row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+}
+
+// Dine + Drink
+.dine-drink {
+  &__medias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+}
+
+// Menus hours
+.menus-hours {
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+}
+
+.hover-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 645px;
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #b6b6b6;
+    background-blend-mode: multiply;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__inner {
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+  }
+
+  &__heading {
+    font-size: 42px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.17);
+    color: $secondary !important;
+  }
+
+  &__link {
+    margin: 0 10px;
+    color: $secondary !important;
+  }
+}
+
+.experience-gallery {
+  text-align: center;
+
+  &__heading h2 {
+    text-align: center !important;
+  }
+
+  &__cta {
+    margin: 10px auto;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &__item {
+    position: relative;
+    height: 300px;
+
+    &--image {
+      position: absolute;
+      @include coverImage();
+      height: 100% !important;
+    }
+
+    &--title {
+      position: absolute;
+      margin: 0;
+      width: 100%;
+      color: $secondary !important;
+      text-align: center;
+      z-index: 1;
+      bottom: 20px;
+    }
+
+    &--caption {
+      position: absolute;
+      padding: 10px 20px;
+      top: 15px;
+      right: 15px;
+      font: 600 9px/11.08px $f-text;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: $secondary;
+      background: $accent;
+    }
+
+    .insta-icon {
+      position: absolute;
+      bottom: 22px;
+      right: 22px;
+      line-height: 0;
+    }
+  }
+}
+
+.culinary-banner {
+  display: flex;
+
+  &__left {
+    flex: 0 0 50%;
+    padding: 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    text-align: right;
+  }
+
+  &__right {
+    @include mq(tablet) {
+      flex: 0 0 50%;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 19px;
+  }
+
+  &__content {
+    margin-left: auto;
+    max-width: 470px;
+
+    h6 {
+      color: #171717;
+      margin-bottom: 14px;
+    }
+  }
+
+  .scroll-link__wrapper {
+    display: block;
+    position: absolute;
+    bottom: 50px;
+  }
+
+  .scroll-link {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #181818;
+    letter-spacing: 0.25em;
+
+    svg {
+      margin-left: 20px;
+    }
+  }
+}
+
+.featured-culinary {
+  position: relative;
+  color: $secondary;
+
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: vw(320px);
+    background: linear-gradient(0, #000000 0%, rgba(121, 121, 121, 0) 100%);
+  }
+
+  &__content {
+    position: absolute;
+    left: 40px;
+    bottom: 45px;
+    z-index: 1;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__date {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $accent;
+    width: 100px;
+    height: 100px;
+
+    &--day {
+      @include typography(42px, 52px, 64px, 64px, 400, $f-heading, $secondary);
+      letter-spacing: -0.04em;
+    }
+
+    &--month {
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: $secondary;
+    }
+  }
+
+  &__title {
+    @include typography(32px, 52px, 32px, 52px, 400, $f-heading, $secondary);
+    margin-bottom: 15px;
+  }
+
+  &__excerpt {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+  }
+}
+
+.culinary-module__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.peoples {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}

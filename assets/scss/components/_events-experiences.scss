@@ -1,0 +1,35 @@
+.events-experiences {
+  &__heading {
+    margin-bottom: 28px;
+    text-align: center;
+    @include typography(32px, 52px, 64px, 64px, 400, $f-heading, #0d0d0d);
+    @include mq(tablet) {
+      margin-bottom: vw(43px);
+    }
+  }
+  &__grid {
+    @include mq(tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 22px;
+    }
+  }
+  &__cta--wrapper {
+    margin-top: 30px;
+    text-align: center;
+    @include mq(tablet) {
+      margin-top: vw(60px);
+    }
+  }
+  &__cta {
+    min-width: 276px;
+  }
+  .img-a-img {
+    &::before {
+      padding-top: 385px;
+      @include mq(tablet) {
+        padding-top: 122%;
+      }
+    }
+  }
+}

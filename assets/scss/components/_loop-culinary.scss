@@ -1,0 +1,202 @@
+.loop-culinary {
+  position: relative;
+  width: 100%;
+  @include mq(tablet) {
+    width: vw(584px);
+    @include when-inside(".culinary-module") {
+      padding: 0 3px;
+    }
+  }
+  @include mq(tablet, max) {
+    @include when-inside(".culinary-module-grid") {
+      margin-bottom: 45px;
+    }
+    @include when-inside('.events-experiences') {
+      margin-bottom: 35px;
+
+    }
+  }
+  &__image {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    height: 580px;
+    pointer-events: none;
+    @include mq(tablet) {
+      height: vw(730px);
+    }
+    @include mq(desktop-wide) {
+      height: 730px;
+    }
+    &::after {
+      background: linear-gradient(0, #000000 0%, rgba(5, 5, 5, 0) 100%);
+    }
+    &:hover {
+      .loop-culinary__bg {
+        transform: scale(1.05);
+      }
+    }
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include coverImage();
+    transition: transform 0.5s ease-in-out;
+  }
+  &__link {
+    display: block;
+  }
+  &__title {
+    position: absolute;
+    left: 0;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    @include typography(14px, 16px, 16.8px, 19.7px, 600, $f-text, $secondary);
+    z-index: 2;
+    pointer-events: none;
+    @include mq(tablet) {
+      bottom: vw(40px);
+    }
+    @include mq(desktop-wide) {
+      bottom: 40px;
+    }
+    @include when-inside('.events-experiences') {
+      @include typography(12px, 16px, 14.77px, 19.7px, 600, $f-text, $secondary);
+    }
+  }
+  &__category {
+    position: absolute;
+    padding: 10px 25px;
+    top: 20px;
+    right: 20px;
+    font: 600 10px/12.31px $f-text;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    background: $accent;
+    color: $secondary;
+    @include mq(tablet) {
+      top: vw(25px);
+      right: vw(20px);
+      padding: vw(10px) vw(25px);
+    }
+    @include mq(desktop-wide) {
+      top: 25px;
+      right: 20px;
+      padding: 10px 25px;
+    }
+  }
+  &__content {
+    margin-top: 22px;
+    text-align: center;
+    @include mq(tablet, max) {
+      padding: 0 20px;
+    }
+    @include mq(tablet) {
+      margin-top: vw(24px);
+    }
+    @include mq(desktop-wide) {
+      margin-top: 24px;
+    }
+    @include when-inside('.events-experiences') {
+      @include mq(tablet, max) {
+        margin-top: 17px;
+      }
+    }
+  }
+  &__excerpt {
+    @include typography(14px, 16px, 20px, 24px, 400, $f-text, $primary);
+    @include when-inside('.culinary-module') {
+      @include typography(12px, 14px, 18px, 24px, 400, $f-text, $primary);
+    }
+  }
+  &-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background: url("../images/gradient-line.svg") no-repeat top center,
+      url("../images/gradient-line.svg") no-repeat bottom center;
+    min-height: 400px;
+    @include mq(tablet) {
+      min-height: vw(730px);
+    }
+    @include mq(desktop-wide) {
+      min-height: 730px;
+    }
+    &:not(.half) {
+      grid-column: 1/3;
+    }
+    &__heading {
+      margin-bottom: 14px;
+      @include typography(42px, 58px, 44px, 52px, 400, $f-heading, $primary);
+      @include mq(tablet) {
+        margin-bottom: vw(28px);
+      }
+    }
+    &__content {
+      @include mq(tablet) {
+        max-width: vw(400px);
+        margin: 0 auto;
+      }
+      h6 {
+        margin-bottom: 8px;
+        color: #0d0d0d;
+        @include mq(tablet, max) {
+          font-size: 11px;
+        }
+      }
+    }
+    &__cta {
+      margin-top: 32px;
+      @include mq(tablet) {
+        margin-top: vw(80px);
+      }
+      @include mq(desktop-wide) {
+        margin-top: 80px;
+      }
+    }
+  }
+  &__date {
+    position: absolute;
+    top: 23px;
+    left: 23px;
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $accent;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+    @include when-inside('.events-experiences') {
+      width: 80px;
+      height: 75px;
+    }
+    @include mq(tablet) {
+      top: 40px;
+      left: 40px;
+      width: 110px;
+      height: 110px;
+    }
+    &--day {
+      @include typography(42px, 52px, 64px, 64px, 400, $f-heading, $secondary);
+      letter-spacing: -0.04em;
+      @include when-inside('.events-experiences') {
+        @include typography(22px, 52px, 30px, 64px, 400, $f-heading, $secondary);
+      }
+    }
+    &--month {
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      @include typography(10px, 14px, 12.31px, 17.23px, 600, $f-text, $secondary);
+    }
+  }
+  &__cta--wrapper {
+    margin-top: 10px;
+    text-align: center;
+  }
+}

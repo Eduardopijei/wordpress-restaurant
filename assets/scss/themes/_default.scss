@@ -1,0 +1,72 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the common parts in all application
+// -----------------------------------------------------------------------------
+// Custom Color Classes
+.text-primary {
+  color: $primary;
+}
+.bg-primary {
+  background-color: $primary;
+}
+.text-secondary {
+  color: $secondary;
+}
+.bg-secondary {
+  background-color: $secondary;
+}
+
+.v-hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+// Custom Container
+.container {
+  margin: auto;
+  padding: 0 20px;
+  @include mq(tablet) {
+    padding: 0 vw(120px);
+  }
+  // @include mq(desktop-wide) {
+  //   padding: 0;
+  //   max-width: 1200px;
+  // }
+}
+
+.container-fluid {
+  margin: auto;
+  padding: 0 20px;
+  width: 100%;
+}
+// Overlay
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1500;
+  cursor: pointer;
+}
+
+.wpcf7 .ajax-loader {
+  display: none;
+}
+
+.gradient-overlay {
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: calc(100% / 3);
+    pointer-events: none;
+    background: linear-gradient(0, #3c3c3c 0%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0.25;
+    z-index: 1;
+  }
+}

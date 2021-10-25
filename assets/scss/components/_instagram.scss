@@ -1,0 +1,53 @@
+.instagram-feed {
+  #sb_instagram {
+    display: flex;
+    flex-direction: column-reverse;
+    #sbi_load {
+      @include mq(tablet) {
+        margin-bottom: vw(40px);
+        text-align: left;
+      }
+      @include mq(desktop-wide) {
+        margin-bottom: 40px;
+      }
+      .sbi_follow_btn {
+        margin-bottom: 30px;
+        @include mq(tablet) {
+          margin-left: vw(40px);
+        }
+        @include mq(desktop-wide) {
+          margin-left: 40px;
+        }
+        a {
+          display: flex;
+          margin: 0;
+          padding: 0;
+          font: 600 14px/17.23px $f-text;
+          letter-spacing: 0.3em;
+          text-transform: uppercase;
+          align-items: center;
+          color: #0D0D0D;
+          background-color: #0000;
+          flex-direction: row-reverse;
+          transition: .3s ease-in-out;
+          &:hover {
+            box-shadow: none;
+            color: $accent;
+          }
+          svg {
+            width: 22px;
+            height: 22px;
+            margin: 0 0 0 10px;
+            @include mq(tablet) {
+              width: 25px;
+              height: 25px;
+            }
+          }
+        }
+      }
+    }
+    .sbi_photo_wrap {
+      padding: 0 2px;
+    }
+  }
+}

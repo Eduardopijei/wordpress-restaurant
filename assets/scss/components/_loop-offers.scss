@@ -1,0 +1,85 @@
+.loop-offer {
+  position: relative;
+  text-align: center;
+  @include mq(tablet, max) {
+    margin-bottom: 40px;
+    margin-left: -20px;
+    width: calc(100% + 40px);
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__image {
+    line-height: 0;
+    cursor: pointer;
+    img {
+      transition: transform .5s ease-in-out;
+    }
+    &:hover {
+      img {
+        transform: scale(1.05);
+      }
+    }
+    .img-a-img::before {
+      padding-top: 500px;
+      @include mq(tablet) {
+        padding-top: 124.78%;
+      }
+      @include mq(desktop-wide) {
+        padding-top: 730px;
+      }
+    }
+  }
+  &__category {
+    display: none;
+    @include mq(tablet) {
+      display: block;
+      position: absolute;
+      top: vw(30px);
+      right: vw(30px);
+      padding: vw(10px) vw(20px);
+      font: 500 10px/11.34px $f-text;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      background: $accent;
+      color: $secondary;
+      z-index: 1;
+    }
+    @include mq(desktop-wide) {
+      padding: 10px 20px;
+      top: 30px;
+      right: 30px;
+    }
+  }
+  &__btn {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    color: #0d0d0d;
+  }
+  &__content {
+    @include mq(tablet, max) {
+      padding: 0 20px;
+    }
+  }
+  &__title {
+    margin: 37px 0 13px;
+    font: 600 16px/18.14px $f-text;
+    letter-spacing: 0.3em;
+    color: #0d0d0d;
+    @include mq(tablet) {
+      margin: vw(44px) 0 vw(18px);
+    }
+    @include mq(desktop-wide) {
+      margin: 44px 0 18px;
+    }
+  }
+  &__excerpt {
+    color: #0d0d0d;
+    @include typography(13px, 16px, 20px, 24px, 400, $f-text, #0d0d0d);
+    @include mq(tablet) {
+      margin: 0 auto;
+      max-width: vw(430px);
+    }
+  }
+}

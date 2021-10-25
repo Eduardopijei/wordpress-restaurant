@@ -1,0 +1,292 @@
+.rooms-carousel {
+  margin: 10px 0;
+}
+
+.room-carousel {
+  position: relative;
+
+  .slick-arrow {
+    border-radius: 50%;
+    border: none;
+    background: $secondary;
+    transition: background .3s ease-in-out;
+    z-index: 1;
+
+    @include mq(tablet) {
+      width: 30px;
+      height: 30px;
+
+      &:hover {
+        background: $accent;
+      }
+    }
+
+    &:focus {
+      background: $accent;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      left: 50%;
+      top: 50%;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      transition: border 0.3s ease-in-out;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .slick-prev {
+    @include mq(tablet) {
+      left: vw(40px);
+
+      &:hover::after,
+      &:focus::after {
+        border-right-color: $secondary;
+      }
+    }
+
+    @include mq(desktop-wide) {
+      left: 40px;
+    }
+
+    &::after {
+      left: 45%;
+      border-width: 5px 10px 5px 0;
+      border-color: transparent #2F2F2F transparent transparent;
+    }
+  }
+
+  .slick-next {
+    @include mq(tablet) {
+      right: vw(40px);
+
+      &:hover::after,
+      &:focus::after {
+        border-left-color: $secondary;
+      }
+    }
+
+    @include mq(desktop-wide) {
+      right: 40px;
+    }
+
+    &::after {
+      left: 55%;
+      border-width: 5px 0 5px 10px;
+      border-color: transparent transparent transparent #2F2F2F;
+    }
+  }
+  &__images {
+    @include mq(tablet, max) {
+      margin-bottom: 0 !important;
+    }
+    .slick-dots {
+      margin-top: -30px;
+      margin-bottom: 30px;
+      li button {
+        background: $secondary;
+      }
+    }
+  }
+  &__image {
+    height: 720px !important;
+    @include mq(tablet) {
+      height: vw(640px);
+    }
+
+    @include mq(desktop-wide) {
+      height: 640px;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(0, #000000 0%, rgba(0, 0, 0, 0) 100%);
+      opacity: 0.25;
+    }
+
+    &::after {
+      top: 0;
+      bottom: auto;
+      background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+      opacity: 0.5;
+      height: 395px
+    }
+
+    img {
+      @include coverImage();
+    }
+  }
+
+  &__size {
+    position: absolute;
+    top: 27px;
+    right: 20px;
+    z-index: 3;
+    @include typography(16px, 16px, 19.2px, 19.7px, 600, $f-text, $secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+
+    @include mq(tablet) {
+      top: vw(30px);
+      right: vw(38px);
+    }
+
+    @include mq(desktop-wide) {
+      top: 30px;
+      right: 38px;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    @include mq(tablet, max) {
+      display: flex;
+      top: 0;
+      bottom: auto;
+      left: 50%;
+      height: 100%;
+      padding: 0 20px;
+      align-items: center;
+      text-align: center;
+      transform: translateX(-50%);
+    }
+    @include mq(tablet) {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: vw(40px);
+    }
+
+    @include mq(desktop) {
+      padding: 40px;
+    }
+  }
+  &__info {
+    width: 100%
+  }
+
+  &__heading {
+    @include typography(50px, 62px, 64px, 64px, 400, $f-heading, $secondary);
+
+    @include mq(tablet) {
+      margin-bottom: vw(30px);
+    }
+
+    @include mq(desktop-wide) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__tags {
+    font: 600 11px/13.54px $f-text;
+    color: $secondary;
+    letter-spacing: 0.25em;
+  }
+
+  .button-groups {
+    display: flex;
+    @include mq(tablet, max) {
+      position: absolute;
+      left: 50%;
+      bottom: 43px;
+      width: 100%;
+      max-width: 320px;
+      flex-direction: column;
+      transform: translateX(-50%);
+    }
+    .btn {
+      font: 600 12px/28px $f-text;
+      @include mq(tablet, max) {
+        margin-bottom: 12px;
+      }
+      @include mq(tablet) {
+        font-size: 11px;
+        margin: 0 vw(6.5px);
+        min-width: vw(225px);
+      }
+
+      @include mq(desktop) {
+        margin: 0 6.5px;
+        min-width: 225px;
+      }
+    }
+
+    .btn-toggle-slider {
+      position: relative;
+
+      &::after {
+        display: none;
+        position: absolute;
+        left: 50%;
+        content: '';
+        width: 0;
+        height: 0;
+        border-width: 0 13px 15px 13px;
+        border-style: solid;
+        border-color: transparent transparent $secondary transparent;
+        opacity: 0;
+        transform: translateX(-50%);
+        transition: opacity .3s ease-in-out;
+
+        @include mq(tablet) {
+          display: block;
+          bottom: vw(-45px);
+        }
+
+        @include mq(desktop-wide) {
+          bottom: -45px;
+        }
+
+        @include when-inside('.rooms--open') {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.room-slider {
+  &__wrapper {
+    display: none;
+    padding: 10px 0;
+    @include mq(tablet, max) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      padding: 55px 20px 40px;
+      background-color: #1A1A1B;
+      overflow: auto;
+      z-index: 9999;
+    }
+  }
+  > .slick-dots {
+    text-align: center;
+    @include mq(tablet) {
+      margin-top: vw(50px);
+    }
+    @include mq(desktop-wide) {
+      margin-top: 50px;
+    }
+  }
+}
+.btn-close__rooms {
+  position: absolute;
+  top: 17px;
+  right: 24px;
+  @include mq(tablet) {
+    display: none;
+  }
+}

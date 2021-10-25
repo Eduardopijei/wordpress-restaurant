@@ -1,0 +1,277 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+// Footer styles
+.footer {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  @include mq(tablet, max) {
+    background: #1b1a1f !important;
+  }
+  &-top {
+    text-align: center;
+  }
+  &-logo {
+    display: inline-block;
+    margin: 80px auto;
+    @include mq(tablet) {
+      margin: vw(200px) auto;
+    }
+    @include mq(desktop-wide) {
+      margin: 200px auto;
+    }
+    img {
+      width: 245px;
+      @include mq(tablet) {
+        width: vw(420px);
+      }
+      @include mq(desktop-wide) {
+        width: 420px;
+      }
+    }
+    &__wrapper {
+      @include mq(tablet, max) {
+        border-bottom: 0.75px solid #8e8e8e;
+      }
+    }
+  }
+  &-regional {
+    position: relative;
+    &__inner {
+      margin: 80px auto 70px;
+      @include mq(tablet) {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      @include mq(tablet-wide) {
+        &::before,
+        &::after {
+          position: absolute;
+          content: "";
+          top: 50%;
+          width: vw(230px);
+          border-top: 1px solid #8e8e8e;
+          transform: translateY(-50%);
+        }
+        &::before {
+          left: 0;
+        }
+        &::after {
+          right: 0;
+        }
+      }
+      @include mq(desktop-wide) {
+        max-width: 900px;
+      }
+    }
+    &__links {
+      @include mq(tablet, max) {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+    }
+    &__link {
+      margin-bottom: 12px;
+      font: 400 16px/19.7px $f-text;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: $secondary;
+      pointer-events: none;
+      @include mq(tablet) {
+        margin: 0 10px;
+        @include button-underline(1px, $secondary);
+      }
+    }
+  }
+  &-main {
+    @include mq(tablet) {
+      display: flex;
+      text-align: left;
+      margin: vw(120px) auto;
+      justify-content: space-between;
+    }
+    @include mq(desktop-wide) {
+      margin: 120px auto;
+    }
+  }
+  &-item {
+    margin-bottom: 70px;
+    @include mq(tablet) {
+      margin-bottom: 0;
+    }
+    &__title {
+      margin-bottom: 1em;
+      @include typography(14px, 12px, 17.23px, 14.77px, 600, $f-text, $secondary);
+    }
+    &__content {
+      color: $secondary;
+      p {
+        font: 400 14px/24px $f-text;
+        color: $secondary;
+        letter-spacing: 0.01em;
+      }
+      a {
+        color: $secondary;
+        @include button-underline(1px, $secondary);
+      }
+    }
+  }
+  &-contact {
+    @include mq(tablet) {
+      margin-right: vw(70px);
+    }
+    @include mq(desktop-wide) {
+      margin-right: 70px;
+    }
+  }
+  &-address {
+    @include mq(tablet) {
+      margin-right: vw(40px);
+    }
+    @include mq(desktop-wide) {
+      margin-right: 40px;
+    }
+  }
+  &-partners {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include mq(tablet, max) {
+      flex-direction: column;
+    }
+    @include mq(tablet) {
+      justify-content: space-between;
+      margin-bottom: vw(120px);
+    }
+    @include mq(desktop-wide) {
+      margin-bottom: 120px;
+    }
+    &__link {
+      display: inline-block;
+      @include mq(tablet) {
+        img {
+          transition: transform .3s ease-in-out;
+        }
+        &:hover {
+          img {
+            transform: scale(0.95);
+          }
+        }
+      }
+      @include mq(tablet, max) {
+        margin-bottom: 50px;
+      }
+    }
+    .divider {
+      @include mq(tablet, max) {
+        width: 200%;
+        margin-left: -20px;
+        margin-bottom: 40px;
+        border-bottom: 0.75px solid #8e8e8e;
+      }
+      @include mq(tablet) {
+        width: 0;
+        border-left: 1px solid #8e8e8e;
+        height: vw(85px);
+      }
+      @include mq(desktop-wide) {
+        height: 85px;
+      }
+    }
+  }
+  .social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include mq(tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 18px 20px;
+    }
+    .social-link {
+      margin: 0 20px;
+      transition: transform 0.3s ease-in-out;
+      @include mq(tablet) {
+        margin: 0;
+      }
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+  &-menu {
+    margin-bottom: 80px;
+    @include mq(tablet) {
+      max-width: vw(360px);
+      margin-bottom: 0;
+      margin-right: vw(50px);
+      column-count: 2;
+      column-gap: vw(50px);
+    }
+    @include mq(desktop-wide) {
+      margin-right: 50px;
+    }
+    .nav-link {
+      margin-bottom: 1em;
+      @include bodyText(small);
+      @include button-underline(1px, $secondary);
+      color: $secondary;
+    }
+  }
+  &-bottom {
+    padding: 0 20px 80px;
+    text-align: center;
+    background: #1b1a1f;
+    @include mq(tablet) {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      border-top: 1px solid #2c293f;
+      justify-content: space-between;
+      text-align: left;
+      background: #181626;
+    }
+    &__links {
+      @include mq(tablet, max) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    &__link {
+      margin-bottom: 1em;
+      letter-spacing: 0.02em;
+      @include typography(14px, 12px, 26px, 24px, 400, $f-text, $secondary);
+      @include button-underline(1px, $secondary);
+      padding-bottom: 0 !important;
+      @include mq(tablet) {
+        margin-bottom: 0;
+        margin-right: 10px;
+      }
+    }
+    &__copyright {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      @include mq(tablet) {
+        flex-direction: row;
+      }
+      .divider {
+        display: none;
+        color: $c-white;
+        @include mq(tablet) {
+          margin: 0 10px;
+          display: inline-block;
+        }
+      }
+      .copyright {
+        color: $secondary;
+      }
+    }
+  }
+}

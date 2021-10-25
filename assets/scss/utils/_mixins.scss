@@ -1,0 +1,280 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+// Global Media Query
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if ($type == min) {
+      $width: $width + 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+// Media query for mobile
+@mixin mq_mobile(
+  $deviceMinWidth,
+  $deviceMaxWidth,
+  $devicePixelRatio,
+  $orientation: all
+) {
+  @if $orientation == all {
+    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth) and (-webkit-device-pixel-ratio: $devicePixelRatio) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
+    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (orientation:#{$orientation}) {
+      @content;
+    }
+  }
+}
+
+@mixin mq_iphoneX($orientation: all) {
+  $deviceMinWidth: 375px;
+  $deviceMaxWidth: 767px;
+  $devicePixelRatio: 3;
+  @include mq_mobile(
+    $deviceMinWidth,
+    $deviceMaxWidth,
+    $devicePixelRatio,
+    $orientation
+  ) {
+    @content;
+  }
+}
+
+@mixin mq_s9($orientation: all) {
+  $deviceMinWidth: 360px;
+  $deviceMaxWidth: 767px;
+  $devicePixelRatio: 4;
+  @include mq_mobile(
+    $deviceMinWidth,
+    $deviceMaxWidth,
+    $devicePixelRatio,
+    $orientation
+  ) {
+    @content;
+  }
+}
+
+@mixin orientation($direction) {
+  $orientation-landscape: "(orientation:landscape)";
+  $orientation-portrait: "(orientation:portrait)";
+
+  @if $direction == landscape {
+    @media #{$orientation-landscape} {
+      @content;
+    }
+  }
+  @if $direction == portrait {
+    @media #{$orientation-portrait} {
+      @content;
+    }
+  }
+}
+
+@mixin mq_mobile_landscape() {
+  @include when-inside('.mobile') {
+    @include orientation(landscape) {
+      @content;      
+    }
+  }
+}
+
+@mixin customScrollBar($width: 5px, $color: $accent) {
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+  
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: $color;
+    outline: none;
+  }
+}
+
+// Typography mixins
+@mixin typography(
+  $mobile-font-size,
+  $desktop-font-size,
+  $mobile-lineheight,
+  $desktop-lineheight,
+  $font-weight: 400,
+  $font-family: $f-heading,
+  $color: $heading_color
+) {
+  color: $color;
+  font-size: fs($mobile-font-size, $desktop-font-size);
+  font-family: $font-family;
+  font-weight: $font-weight;
+  line-height: fs($mobile-lineheight, $desktop-lineheight);
+  @include mq(desktop-wide) {
+    font-size: $desktop-font-size;
+    line-height: $desktop-lineheight;
+  }
+}
+
+@mixin heading1() {
+  @include typography(44px, 72px, 44px, 87px);
+  letter-spacing: -0.02em;
+  @include mq(tablet) {
+    letter-spacing: -0.03em;
+  }
+}
+@mixin heading2() {
+  @include typography(32px, 62px, 36px, 78px);
+  letter-spacing: -0.02em;
+  @include mq(tablet) {
+    letter-spacing: -0.03em;
+  }
+}
+@mixin heading3() {
+  @include typography(28px, 52px, 44px, 69px);
+  letter-spacing: -0.02em;
+  @include mq(tablet) {
+    letter-spacing: -0.03em;
+  }
+}
+@mixin heading4() {
+  @include typography(24px, 42px, 28px, 28px);
+  letter-spacing: -0.02em;
+  @include mq(tablet) {
+    letter-spacing: -0.03em;
+  }
+}
+@mixin heading5() {
+  @include typography(18px, 30px, 64px, 64px);
+  letter-spacing: -0.02em;
+  @include mq(tablet) {
+    letter-spacing: -0.03em;
+  }
+}
+@mixin heading6() {
+  @include typography(12px, 14px, 14.77px, 17.23px, 600, $f-text);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+@mixin bodyText($size: normal) {
+  @include typography(12px, 14px, 18px, 21px, 400, $f-text, $text-color);
+  @if $size == small {
+    font-size: 12px !important;
+    font-weight: 600;
+    line-height: 14.77px !important;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+}
+
+@mixin buttonText($size: normal) {
+  @include bodyText($size);
+  font-weight: 600;
+}
+
+// list style
+@mixin listStyle() {
+  ul {
+    margin-top: 2em;
+    li {
+      position: relative;
+      margin-bottom: 1em;
+      padding-left: 20px;
+      &::before {
+        display: block;
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        background-color: #a0814c;
+        transform: translateY(-50%);
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+@mixin pseudo-elements() {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin svgBackground($svg) {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,#{$svg}");
+}
+
+@mixin coverImage() {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@mixin when-inside($classes...) {
+  @each $class in $classes {
+    #{$class} & {
+      @content;
+    }
+  }
+}
+
+@mixin button-underline($height: 1px, $color: #000) {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 3px;
+  &::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    border-bottom: $height solid $color;
+    transform: scaleX(0);
+    transform-origin: 100% center;
+    transition: transform 0.3s ease-in-out;
+  }
+  @include mq(tablet) {
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: 0% center;
+    }
+  }
+}
+
+@mixin square-dot() {
+  &::after {
+    display: inline-block;
+    margin-left: 10px;
+    content: "";
+    width: 5px;
+    height: 5px;
+    background: #2c2828;
+    transform: translateY(-50%);
+  }
+}
+
+@mixin adminbar-offset() {
+  top: 0;
+  @include when-inside(".admin-bar") {
+    top: 32px;
+    @media screen and (max-width: 782px) {
+      top: 46px;
+    }
+  }
+}

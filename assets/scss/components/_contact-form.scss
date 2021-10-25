@@ -1,0 +1,131 @@
+.contact-form,
+.booking-popup {
+  &__heading {
+    margin-bottom: 20px;
+    text-align: center;
+    @include mq(tablet) {
+      margin-bottom: vw(56px);
+    }
+  }
+  &__inner {
+    @include mq(tablet) {
+      margin: 0 auto;
+      padding: 0;
+      max-width: 680px;
+    }
+    @include mq(tablet-wide) {
+      max-width: 810px;
+    }
+  }
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .form-col {
+    padding: 6px;
+    flex: 0 0 100%;
+    max-width: 355px;
+    @include mq(tablet) {
+      flex: 0 0 50%;
+      padding: 20px 10px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font: 400 14px/21px $f-text;
+      color: #0d0d0d;
+    }
+  }
+  .form-control {
+    display: block;
+    padding: 12px 15px;
+    font: 600 12px/24px $f-text;
+    letter-spacing: 0.12em;
+    color: #0d0d0d;
+    text-transform: uppercase;
+    border: 1px solid #212121;
+    border-radius: 0;
+    background-color: #0000;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+  }
+  .form-control {
+    &::placeholder {
+      color: #0d0d0d;
+    }
+    &:focus {
+      border-color: $accent;
+    }
+    &.wpcf7-not-valid {
+      border-color: $c-red;
+    }
+  }
+  .wpcf7-not-valid + .jcf-select {
+    border-color: $c-red;
+  }
+  .form-submit {
+    margin-top: 46px;
+    text-align: center;
+    @include mq(tablet) {
+      margin-top: 50px;
+    }
+  }
+  input[type="submit"] {
+    appearance: none;
+    min-width: 230px;
+    cursor: pointer;
+  }
+  // CF7 styles
+  .wpcf7-not-valid-tip {
+    margin-top: 8px;
+    font: 400 14px/21px $f-text;
+    color: $primary;
+  }
+  .wpcf7 form .wpcf7-response-output {
+    padding: 14px 20px;
+    font: 600 12px/14.4px $f-text;
+  }
+  //
+  .event-date,
+  .second-event-date {
+    position: relative;
+    display: block;
+    &::after {
+      position: absolute;
+      content: "";
+      top: 17px;
+      right: 15px;
+      width: 12px;
+      height: 14px;
+      background-image: url("data:image/svg+xml;utf8,<svg width='12' height='14' viewBox='0 0 12 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M11.4887 0.5H0.708984V13.5H11.4887V0.5Z' stroke='%230d0d0d'/><path d='M11.9033 0H0.294434V5H11.9033V0Z' fill='black'/><path d='M11.4887 0.5H0.708984V4.5H11.4887V0.5Z' stroke='%230d0d0d'/></svg>");
+      background-position: center;
+      background-repeat: no-repeat;
+      pointer-events: none;
+    }
+  }
+  .jcf-select{
+    padding: 12px 15px;
+    &::after {
+      right: 15px;
+      border-top-color: #0d0d0d;
+    }
+    &-drop {
+      top: 40px;
+    }
+  }
+  .jcf-list li {
+    span {
+    font: 400 12px/24px $f-text;
+    color: #333;
+    letter-spacing: 0.01em;
+    text-transform: initial;
+    }
+    &:last-child {
+      span {
+        border-bottom: none;
+      }
+    }
+  }
+}

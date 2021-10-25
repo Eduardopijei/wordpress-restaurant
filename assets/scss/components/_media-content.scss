@@ -1,0 +1,700 @@
+.media-content {
+  &.media-content-intro {
+    padding: 0 0 45px;
+
+    @include mq(tablet) {
+      padding: vw(75px) 0 vw(35px);
+    }
+
+    @include mq(desktop-wide) {
+      padding: 75px 0 35px;
+    }
+  }
+
+  &.media-content-spa {
+    padding: 50px 0 100px;
+
+    @include mq(tablet) {
+      padding: vw(180px) 0;
+      background: url("../images/spa-bg.svg") no-repeat top;
+      background-size: vw(1268px);
+    }
+
+    @include mq(desktop-wide) {
+      padding: 180px 0;
+    }
+  }
+
+  &.media-content-map {
+    position: relative;
+    padding: 70px 0 130px;
+
+    @include mq(tablet) {
+      padding: 0 0 vw(210px);
+    }
+
+    @include mq_mobile_landscape {
+      padding-top: 70px;
+    }
+
+    @include mq(desktop-wide) {
+      padding-bottom: 210px;
+    }
+
+    .container {
+      align-items: flex-end;
+
+      @include mq(tablet, max) {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+      }
+
+      @include mq(tablet) {
+        min-height: vw(1136px);
+      }
+
+      @include mq(desktop-wide) {
+        min-height: 1136px;
+      }
+    }
+  }
+
+  &.media-content-post {
+    .container {
+      @include mq(tablet) {
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .container {
+    @include mq(tablet) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__media {
+    position: relative;
+    margin-left: -20px;
+    width: calc(100% + 40px);
+    height: 500px;
+
+    @include mq(tablet) {
+      margin-left: 0;
+      margin-right: vw(94px);
+      width: vw(585px);
+      height: vw(795px);
+      flex-shrink: 0;
+    }
+
+    @include mq(desktop-wide) {
+      height: 795px;
+    }
+
+    @include when-inside(".media-content--left") {
+      order: 1;
+
+      @include mq(tablet) {
+        margin-right: 0;
+      }
+    }
+
+    @include when-inside(".media-content-intro") {
+      @include mq(tablet, max) {
+        margin-bottom: 50px;
+        height: 550px;
+      }
+
+      @include mq(tablet) {
+        height: vw(780px);
+      }
+
+      @include mq(desktop-wide) {
+        height: 780px;
+      }
+    }
+
+    @include when-inside(".media-content-spa") {
+      margin-bottom: 75px;
+      height: 540px;
+
+      @include mq(tablet) {
+        margin-bottom: 0;
+        width: vw(626px);
+        height: vw(792px);
+      }
+
+      @include mq(desktop-wide) {
+        height: 792px;
+      }
+    }
+
+    @include when-inside(".media-content-map") {
+      position: inherit;
+      width: 300px;
+      height: 611px;
+
+      @include mq(tablet, max) {
+        margin-top: 10px;
+        margin-right: auto;
+      }
+
+      @include mq(tablet) {
+        width: auto;
+      }
+
+      &--inner {
+        @include mq(tablet) {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: vw(572px);
+          height: vw(1136px);
+        }
+
+        @include mq(desktop-wide) {
+          width: 572px;
+          height: 1136px;
+        }
+      }
+    }
+
+    @include when-inside(".media-content-tab") {
+      @include mq(tablet, max) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    }
+
+    @include when-inside(".media-content-post") {
+      @include mq(tablet, max) {
+        margin-bottom: vw(30px, $viewport-sm);
+      }
+    }
+
+    .img-a-img::before {
+      padding-top: 500px;
+
+      @include mq(tablet) {
+        padding-top: 136%;
+      }
+
+      @include mq(desktop-wide) {
+        padding-top: 795px;
+      }
+
+      @include when-inside(".media-content-intro") {
+        padding-top: 550px;
+
+        @include mq(tablet) {
+          padding-top: 133.56%;
+        }
+
+        @include mq(desktop-wide) {
+          padding-top: 780px;
+        }
+      }
+
+      @include when-inside(".media-content-spa") {
+        padding-top: 540px;
+
+        @include mq(tablet) {
+          padding-top: 126.5%;
+        }
+
+        @include mq(desktop-wide) {
+          padding-top: 792px;
+        }
+      }
+
+      @include when-inside(".media-content-map") {
+        padding-top: 611px;
+
+        @include mq(tablet) {
+          padding-top: 198.6%;
+        }
+
+        @include mq(desktop-wide) {
+          padding-top: 1136px;
+        }
+      }
+
+      @include when-inside(".media-content-post") {
+        @include mq(tablet) {
+          padding-top: 125%;
+        }
+
+        @include mq(desktop-wide) {
+          padding-top: 700px;
+        }
+      }
+    }
+
+    img:not(.img-decor, .spa-logo),
+    video {
+      @include coverImage();
+    }
+
+    .img-decor {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transition: all 0.5s ease-in-out;
+
+      @include mq(tablet) {
+        bottom: vw(-26px);
+        width: vw(284px);
+      }
+
+      @include mq(desktop-wide) {
+        bottom: -26px;
+        width: 284px;
+      }
+
+      @include when-inside(".media-content--left") {
+        right: auto;
+        transform: none;
+
+        @include mq(tablet) {
+          left: vw(-65px);
+        }
+
+        @include mq(desktop-wide) {
+          left: -65px;
+        }
+      }
+    }
+
+    .spa-logo {
+      position: absolute;
+      left: 30px;
+      bottom: 30px;
+      width: 100px;
+      z-index: 3;
+
+      @include mq(tablet) {
+        bottom: vw(50px);
+        left: vw(50px);
+        width: vw(172px);
+      }
+
+      @include mq(desktop-wide) {
+        bottom: 50px;
+        left: 50px;
+        width: 172px;
+      }
+    }
+  }
+
+  &__content {
+    text-align: center;
+    width: 100%;
+
+    @include mq(tablet) {
+      max-width: 100%;
+
+      @include when-inside(".media-content--left") {
+        margin-right: vw(100px);
+      }
+    }
+
+    @include when-inside(".media-content-intro") {
+      max-width: 100%;
+
+      @include mq(tablet) {
+        text-align: right;
+      }
+    }
+
+    @include when-inside(".media-content-map") {
+      text-align: left;
+
+      @include mq(tablet) {
+        margin-bottom: vw(100px);
+        margin-left: auto;
+        max-width: vw(560px);
+      }
+
+      @include mq(desktop-wide) {
+        margin-bottom: 100px;
+      }
+    }
+
+    @include when-inside(".media-content-post") {
+      @include mq(tablet) {
+        max-width: vw(450px);
+      }
+    }
+  }
+
+  &__title {
+    letter-spacing: -0.04em;
+
+    @include mq(tablet) {
+      margin-bottom: vw(24px);
+    }
+
+    @include mq(desktop-wide) {
+      margin-bottom: 24px;
+    }
+
+    @include when-inside(".media-content-intro") {
+      letter-spacing: -0.03em;
+      margin-bottom: 42px;
+      @include typography(50px, 81px, 46px, 72px);
+
+      @include mq(tablet) {
+        margin-bottom: vw(30px);
+      }
+
+      @include mq(desktop-wide) {
+        margin-bottom: 30px;
+      }
+    }
+
+    @include when-inside(".media-content-spa") {
+      @include typography(42px, 66px, 40px, 64px, 400, $f-heading, #2f2f2f);
+      letter-spacing: -0.04em;
+      @include mq(tablet, max) {
+        margin-bottom: svw(16px);
+      }
+    }
+
+    @include when-inside(".media-content-map") {
+      margin-bottom: 15px;
+      @include typography(42px, 81px, 40px, 81px);
+
+      @include mq(tablet) {
+        margin-bottom: vw(23px);
+      }
+
+      @include mq(desktop-wide) {
+        margin-bottom: 23px;
+      }
+    }
+
+    @include when-inside(".media-content-tab") {
+      @include typography(42px, 60px, 40px, 64px, 400, $f-heading, #2f2f2f);
+
+      @include mq(tablet, max) {
+        margin-bottom: 20px;
+      }
+    }
+
+    @include when-inside(".media-content-post") {
+      margin-bottom: 30px;
+      @include typography(48px, 60px, 64px, 64px, 400, $f-heading, $heading_color);
+
+      @include mq(tablet) {
+        margin-bottom: vw(30px);
+      }
+
+      @include mq(desktop-wide) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: vw(10px, $viewport-sm);
+    letter-spacing: 0.45em;
+
+    @include mq(tablet) {
+      margin-bottom: vw(10px);
+    }
+
+    @include when-inside(".media-content-intro") {
+      color: #232323;
+    }
+
+    @include when-inside(".media-content-map") {
+      @include typography(10px, 16px, 18px, 19.7px, 600, $f-text, #232323);
+    }
+
+    @include when-inside(".media-content-post") {
+      font: 600 12px/14.77px $f-text;
+      letter-spacing: 0.25em;
+      color: #181818;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+
+    @include mq(tablet) {
+      margin: auto;
+      margin-bottom: vw(100px);
+      max-width: vw(365px);
+    }
+
+    @include when-inside(".media-content-intro") {
+      margin-bottom: 40px;
+
+      @include mq(tablet) {
+        margin-right: 0;
+        margin-bottom: vw(35px);
+        max-width: vw(520px);
+
+        p {
+          @include square-dot();
+        }
+      }
+    }
+
+    @include when-inside(".media-content-spa") {
+      @include mq(tablet) {
+        margin-bottom: vw(40px);
+        max-width: vw(420px);
+      }
+
+      @include mq(tablet) {
+        margin-bottom: 40px;
+      }
+    }
+
+    @include when-inside(".media-content-map") {
+      @include mq(tablet) {
+        margin-bottom: vw(40px);
+        max-width: vw(550px);
+      }
+
+      @include mq(tablet) {
+        margin-bottom: 40px;
+      }
+    }
+
+    @include when-inside('.media-content-tab') {
+      h6 {
+        color: #212121;
+      }
+    }
+
+    @include when-inside(".media-content-post") {
+      margin-bottom: 0;
+
+      @include mq(tablet) {
+        max-width: vw(450px);
+      }
+    }
+
+    p {
+      letter-spacing: 0.01em;
+
+      @include when-inside(".media-content-map") {
+        color: #333;
+      }
+    }
+  }
+
+  &__links {
+    margin: auto;
+    max-width: 310px;
+
+    @include when-inside(".media-content-map") {
+      max-width: 330px;
+    }
+
+    @include mq(tablet) {
+      display: grid;
+      margin-right: 0;
+      max-width: vw(480px);
+
+      @include when-inside(".media-content-map") {
+        max-width: vw(560px);
+      }
+    }
+
+    @include mq(tablet-wide) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mq(desktop-wide) {
+      max-width: 480px;
+    }
+  }
+
+  &__link {
+    display: block;
+    font-weight: 600;
+
+    &:hover {
+      color: #FAF6EF;
+    }
+    &.dead-link {
+      pointer-events: none;
+    }
+    &:not(:nth-child(1)) {
+      border-top-width: 0;
+    }
+
+    @include mq(tablet) {
+      font-weight: 400;
+      &:nth-child(1),
+      &:nth-child(2) {
+        border-top-width: 1px;
+      }
+      &:nth-child(n+3) {
+        border-top-width: 0;
+      }
+
+      &:hover {
+        border-color: $accent;
+      }
+    }
+
+    @include mq(tablet-wide) {
+      &:nth-child(even) {
+        border-left-width: 0;
+      }
+    }
+
+    @include when-inside(".media-content-intro") {
+      @include mq(tablet) {
+        font-size: 11px;
+      }
+    }
+
+    @include when-inside(".media-content-map") {
+      color: #181818;
+
+      @include mq(tablet) {
+        font-size: 10px;
+        line-height: 12.31px;
+        padding: vw(17px) vw(10px);
+        letter-spacing: 0.25em;
+      }
+      @include mq(desktop-wide) {
+        padding: 17px 10px;
+      }
+    }
+  }
+
+  &__cta {
+    color: $accent;
+    font-weight: 600;
+
+    &::after {
+      border-color: $accent;
+    }
+
+    @include mq(tablet, max) {
+      font-size: 11px;
+      line-height: 11px;
+    }
+  }
+
+  &__btn {
+    min-width: 230px;
+
+    @include mq(tablet) {
+      margin-top: vw(25px);
+    }
+    @include when-inside(".media-content-post") {
+      @include mq(tablet, max) {
+        margin-top: vw(30px, $viewport-sm);
+      }
+    }
+  }
+
+  &-spa__links {
+    display: flex;
+    margin: vw(15px, $viewport-sm) 0;
+    flex-direction: column;
+    align-items: center;
+
+    @include mq(tablet) {
+      margin-bottom: vw(36px);
+    }
+
+    @include mq(desktop-wide) {
+      margin-bottom: 36px;
+    }
+  }
+
+  &-spa__link {
+    margin-bottom: 15px;
+    @include heading6();
+    color: #0d0d0d;
+    &.dead-link {
+      pointer-events: none;
+    }
+
+    &:hover {
+      color: #353535;
+    }
+
+    @include mq(tablet) {
+      margin-bottom: vw(20px);
+      color: #868686;
+    }
+
+    @include mq(desktop-wide) {
+      margin-bottom: 20px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.media-content-tab {
+  &__links {
+    display: flex;
+  }
+
+  &__link {
+    display: flex;
+    padding: 10px;
+    flex: 0 0 50%;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    color: #181818;
+    border-bottom: 1px solid #4d4d4d;
+
+    @include mq(tablet) {
+      padding: vw(40px) vw(20px) vw(50px);
+    }
+
+    &.active {
+      border: 1px solid #4d4d4d;
+      border-bottom: none;
+
+      &:first-child {
+        border-left: 0;
+      }
+
+      &:last-child {
+        border-right: 0;
+      }
+    }
+
+    @include mq(tablet) {
+      &:hover {
+        color: $accent;
+      }
+    }
+  }
+
+  &__content {
+    display: none;
+
+    @include mq(tablet) {
+      padding: vw(86px) 0 vw(138px);
+    }
+
+    @include mq(desktop-wide) {
+      padding: 86px 0 138px;
+    }
+
+    &.active {
+      display: block;
+    }
+  }
+}

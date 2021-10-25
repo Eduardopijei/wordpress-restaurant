@@ -1,0 +1,70 @@
+.custom-blockquote {
+  text-align: center;
+  &.has-media {
+    .container {
+      @include mq(tablet) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  &__image {
+    margin-bottom: 84px;
+    @include mq(tablet) {
+      margin-bottom: 0;
+      margin-right: vw(120px);
+      flex: 0 0 vw(557px);
+    }
+    .img-a-img:before {
+      padding-top: 142.8%;
+      @include mq(tablet) {
+        padding-top: 126.7%;
+      }
+      @include mq(desktop-wide) {
+        padding-top: 700px;
+      }
+    }
+  }
+  &__content {
+    @include when-inside(".has-media") {
+      @include mq(tablet) {
+        max-width: vw(485px);
+      }
+    }
+  }
+  &__text {
+    margin-bottom: 20px;
+    @include typography(32px, 68px, 35px, 68px, 400, $f-heading, $heading_color);
+    @include mq(tablet) {
+      margin: 0 auto vw(50px);
+      max-width: vw(954px);
+    }
+    @include when-inside(".has-media") {
+      @include typography(32px, 48px, 38px, 54px, 400, $f-heading, $heading_color);
+      letter-spacing: -0.02em;
+    }
+  }
+  &__name {
+    margin-bottom: 7px;
+    text-transform: uppercase;
+    @include typography(12px, 14px, 14.77px, 17.23px, 600, $f-text, #181818);
+    letter-spacing: 0.25em;
+    @include mq(tablet, max) {
+      font-size: 11px;
+      line-height: 13.2px;
+      @include when-inside(".has-media") {
+        font-size: 12px;
+        line-height: 14.4px;
+      }
+    }
+    @include mq(tablet) {
+      margin-bottom: vw(6px);
+    }
+  }
+  &__role {
+    font-size: 12px !important;
+    line-height: 21px !important;
+    letter-spacing: 0.02em;
+  }
+}

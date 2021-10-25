@@ -1,0 +1,23 @@
+.title-text {
+  .container {
+    @include mq(tablet) {
+      display: flex;
+    }
+  }
+  &__title {
+    margin-bottom: 20px;
+    @include typography(32px, 32px, 38.4px, 38.4px);
+    @include mq(tablet) {
+      margin-right: vw(80px);
+      margin-bottom: 0;
+      width: vw(480px);
+      text-align: right;
+      flex-shrink: 0;
+    }
+  }
+  &__text {
+    @include mq(tablet) {
+      max-width: vw(500px);
+    }
+  }
+}

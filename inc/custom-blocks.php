@@ -1,0 +1,409 @@
+<?php
+// Custom ACF Blocks
+add_action('acf/init', 'my_acf_init_block_types');
+function my_acf_init_block_types() {
+
+    // Check function exists.
+    if( function_exists('acf_register_block_type') ) {
+
+        // Register Hero Block
+        acf_register_block_type(array(
+            'name'              => 'home_hero',
+            'title'             => __('Home Hero'),
+            'description'       => __('Home Hero'),
+            'render_template'   => 'template-parts/blocks/home-hero/home-hero.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'cover-image',
+            'keywords'          => array( 'hero', 'image', 'video' ),
+        ));
+
+        // Register Responsive Spacer Block
+        acf_register_block_type(array(
+            'name'              => 'responsive_spacer',
+            'title'             => __('Responsive Spacer'),
+            'description'       => __('Responsive Spacer'),
+            'render_template'   => 'template-parts/blocks/responsive-spacer/responsive-spacer.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'image-flip-vertical',
+            'keywords'          => array( 'responsive', 'spacer' ),
+        ));
+
+        // Register Title Text Block
+        acf_register_block_type(array(
+            'name'              => 'title_text',
+            'title'             => __('Title Text'),
+            'description'       => __('Title Text'),
+            'render_template'   => 'template-parts/blocks/title-text/title-text.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'heading',
+            'keywords'          => array( 'title', 'text' ),
+        ));
+        
+        // Register Media Content Block
+        acf_register_block_type(array(
+            'name'              => 'media_content',
+            'title'             => __('Media Content'),
+            'description'       => __('Media Content'),
+            'render_template'   => 'template-parts/blocks/media-content/media-content.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'align-pull-left',
+            'keywords'          => array( 'media', 'content' ),
+        ));
+
+        // Register Custom Blockquote Block
+        acf_register_block_type(array(
+            'name'              => 'custom_blockquote',
+            'title'             => __('Blockquote'),
+            'description'       => __('Blockquote'),
+            'render_template'   => 'template-parts/blocks/custom-blockquote/custom-blockquote.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'format-quote',
+            'keywords'          => array( 'quote' ),
+        ));
+
+        // Register Custom Image Block
+        acf_register_block_type(array(
+            'name'              => 'custom_media',
+            'title'             => __('Media'),
+            'description'       => __('Media'),
+            'render_template'   => 'template-parts/blocks/custom-media/custom-media.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'format-image',
+            'keywords'          => array( 'media' ),
+        ));
+
+        // Register Custom Wysiwig Block
+        acf_register_block_type(array(
+            'name'              => 'custom_wysiwig',
+            'title'             => __('Wysiwig'),
+            'description'       => __('Wysiwig'),
+            'render_template'   => 'template-parts/blocks/custom-wysiwig/custom-wysiwig.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'media-text',
+            'keywords'          => array( 'wysiwig' ),
+        ));
+
+        // Register Two Columns Block
+        acf_register_block_type(array(
+            'name'              => 'two_columns',
+            'title'             => __('Two Columns'),
+            'description'       => __('Two Columns'),
+            'render_template'   => 'template-parts/blocks/two-columns/two-columns.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'columns',
+            'keywords'          => array( 'two columns' ),
+        ));
+
+        // Register Accordion Block
+        acf_register_block_type(array(
+            'name'              => 'accordion',
+            'title'             => __('Accordion'),
+            'description'       => __('Accordion'),
+            'render_template'   => 'template-parts/blocks/accordion/accordion.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'list-view',
+            'keywords'          => array( 'accordion' ),
+        ));
+
+        // Register Slider Block
+        acf_register_block_type(array(
+            'name'              => 'slider',
+            'title'             => __('Slider'),
+            'description'       => __('Slider'),
+            'render_template'   => 'template-parts/blocks/slider/slider.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'slides',
+            'keywords'          => array( 'slides' ),
+        ));
+
+        // Contact Form Block
+        acf_register_block_type(array(
+            'name'              => 'contact_form',
+            'title'             => __('Contact form'),
+            'description'       => __('Contact form'),
+            'render_template'   => 'template-parts/blocks/contact-form/contact-form.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'forms',
+            'keywords'          => array( 'contact form' ),
+        ));
+        
+        // Tab Slider Block
+        acf_register_block_type(array(
+            'name'              => 'tab_slider',
+            'title'             => __('Tab Slider'),
+            'description'       => __('Tab Slider'),
+            'render_template'   => 'template-parts/blocks/tab-slider/tab-slider.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'slides',
+            'keywords'          => array( 'tab', 'slider', 'tab slider' ),
+        ));
+
+        // Post Slider Block
+        acf_register_block_type(array(
+            'name'              => 'post_slider',
+            'title'             => __('Post Slider'),
+            'description'       => __('Post Slider'),
+            'render_template'   => 'template-parts/blocks/post-slider/post-slider.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'slides',
+            'keywords'          => array( 'post', 'slider', 'post slider' ),
+        ));
+
+
+        // General Tab Block
+        acf_register_block_type(array(
+            'name'              => 'general_tab',
+            'title'             => __('General Tab'),
+            'description'       => __('General Tab'),
+            'render_template'   => 'template-parts/blocks/general-tab/general-tab.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'admin-page',
+            'keywords'          => array( 'tab', 'general', 'general tab' ),
+        ));
+
+        // Media Content Intro
+        acf_register_block_type(array(
+            'name'              => 'media_content_intro',
+            'title'             => __('Media Content Intro'),
+            'description'       => __('Media Content Intro'),
+            'render_template'   => 'template-parts/blocks/media-content-intro/media-content-intro.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'align-pull-left',
+            'keywords'          => array( 'media', 'content', 'intro'),
+        ));
+        
+        // Media Content Map
+        acf_register_block_type(array(
+            'name'              => 'media_content_map',
+            'title'             => __('Media Content Map'),
+            'description'       => __('Media Content Map'),
+            'render_template'   => 'template-parts/blocks/media-content-map/media-content-map.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'align-pull-left',
+            'keywords'          => array( 'media', 'content', 'map'),
+        ));
+
+        // Hover Carousel
+        acf_register_block_type(array(
+            'name'              => 'hover_carousel',
+            'title'             => __('Hover Carousel'),
+            'description'       => __('Hover Carousel'),
+            'render_template'   => 'template-parts/blocks/hover-carousel/hover-carousel.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'slides',
+            'keywords'          => array( 'hover', 'carousel'),
+        ));
+
+        // Media Content Spa
+        acf_register_block_type(array(
+            'name'              => 'media_content_spa',
+            'title'             => __('Media Content Spa'),
+            'description'       => __('Media Content Spa'),
+            'render_template'   => 'template-parts/blocks/media-content-spa/media-content-spa.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'align-pull-left',
+            'keywords'          => array( 'media', 'content', 'spa'),
+        ));
+
+        // Experience Gallery
+        acf_register_block_type(array(
+            'name'              => 'experience_gallery',
+            'title'             => __('Experience Gallery'),
+            'description'       => __('Experience Gallery'),
+            'render_template'   => 'template-parts/blocks/experience-gallery/experience-gallery.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'align-pull-left',
+            'keywords'          => array( 'experience', 'gallery'),
+        ));
+
+        // Offers
+        acf_register_block_type(array(
+            'name'              => 'offers',
+            'title'             => __('Offers'),
+            'description'       => __('Offers'),
+            'render_template'   => 'template-parts/blocks/offers/offers.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'media-text',
+            'keywords'          => array( 'offers' ),
+        ));
+
+        // Culinary
+        acf_register_block_type(array(
+            'name'              => 'culinary',
+            'title'             => __('Culinary'),
+            'description'       => __('Culinary'),
+            'render_template'   => 'template-parts/blocks/culinary/culinary.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'food',
+            'keywords'          => array( 'culinary' ),
+        ));
+
+        // General Hero
+        acf_register_block_type(array(
+            'name'              => 'general_hero',
+            'title'             => __('General Hero'),
+            'description'       => __('General Hero'),
+            'render_template'   => 'template-parts/blocks/general-hero/general-hero.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'cover-image',
+            'keywords'          => array( 'hero' ),
+        ));
+
+        // Media Content Tab
+        acf_register_block_type(array(
+            'name'              => 'media_content_tab',
+            'title'             => __('Media Content Tab'),
+            'description'       => __('Media Content Tab'),
+            'render_template'   => 'template-parts/blocks/media-content-tab/media-content-tab.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'align-pull-left',
+            'keywords'          => array( 'media', 'content', 'tab'),
+        ));
+
+        // Culinary Banner
+        acf_register_block_type(array( 
+            'name'              => 'culinary_banner',
+            'title'             => __('Culinary Banner'),
+            'description'       => __('Culinary Banner'),
+            'render_template'   => 'template-parts/blocks/culinary-banner/culinary-banner.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'align-pull-left',
+            'keywords'          => array( 'culinary', 'tab' ),
+        ));
+
+        // Culinary Grid
+        acf_register_block_type(array( 
+            'name'              => 'culinary_grid',
+            'title'             => __('Culinary Grid'),
+            'description'       => __('Culinary Grid'),
+            'render_template'   => 'template-parts/blocks/culinary-grid/culinary-grid.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'food',
+            'keywords'          => array( 'culinary', 'grid'),
+        ));
+
+        // Events & Experiences
+        acf_register_block_type(array( 
+            'name'              => 'events_experiences',
+            'title'             => __('Events Experiences'),
+            'description'       => __('Events Experiences'),
+            'render_template'   => 'template-parts/blocks/events-experiences/events-experiences.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'columns',
+            'keywords'          => array( 'events', 'experiences'),
+        ));
+
+        // Rooms Hero
+        acf_register_block_type(array( 
+            'name'              => 'rooms_hero',
+            'title'             => __('Rooms Hero'),
+            'description'       => __('Rooms Hero'),
+            'render_template'   => 'template-parts/blocks/rooms-hero/rooms-hero.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'cover-image',
+            'keywords'          => array( 'rooms', 'hero'),
+        ));
+
+        // Three Columns Block
+        acf_register_block_type(array( 
+            'name'              => 'three_columns',
+            'title'             => __('Three Columns'),
+            'description'       => __('Three Columns'),
+            'render_template'   => 'template-parts/blocks/three-columns/three-columns.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'menu-alt3',
+            'keywords'          => array( 'three', 'column'),
+        ));
+
+        // Rooms Carousel
+        acf_register_block_type(array( 
+            'name'              => 'rooms_carousel',
+            'title'             => __('Rooms Carousel'),
+            'description'       => __('Rooms Carousel'),
+            'render_template'   => 'template-parts/blocks/rooms-carousel/rooms-carousel.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'building',
+            'keywords'          => array( 'rooms', 'carousel'),
+        ));
+
+        // Spa Hero
+        acf_register_block_type(array( 
+            'name'              => 'spa_hero',
+            'title'             => __('Spa Hero'),
+            'description'       => __('Spa Hero'),
+            'render_template'   => 'template-parts/blocks/spa-hero/spa-hero.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'cover-image',
+            'keywords'          => array( 'spa', 'hero'),
+        ));
+
+        // Hover Carousel Alt
+        acf_register_block_type(array( 
+            'name'              => 'hover_carousel_alt',
+            'title'             => __('Hover Carousel Alt'),
+            'description'       => __('Hover Carousel Alt'),
+            'render_template'   => 'template-parts/blocks/hover-carousel-alt/hover-carousel-alt.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'slides',
+            'keywords'          => array( 'hover', 'carousel'),
+        ));
+
+        // Post
+        acf_register_block_type(array( 
+            'name'              => 'media-content-post',
+            'title'             => __('Media Content Post'),
+            'description'       => __('Media Content Post'),
+            'render_template'   => 'template-parts/blocks/media-content-post/media-content-post.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'align-pull-right',
+            'keywords'          => array( 'media', 'content', 'post'),
+        ));
+
+        // People Slider
+        acf_register_block_type(array( 
+            'name'              => 'people_slider',
+            'title'             => __('People Slider'),
+            'description'       => __('People Slider'),
+            'render_template'   => 'template-parts/blocks/people-slider/people-slider.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'slides',
+            'keywords'          => array( 'people', 'slider'),
+        ));
+
+        // Post Two Columns
+        acf_register_block_type(array( 
+            'name'              => 'post_two_cols',
+            'title'             => __('Post Two Columns'),
+            'description'       => __('Post Two Columns'),
+            'render_template'   => 'template-parts/blocks/post-two-cols/post-two-cols.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'embed-post',
+            'keywords'          => array( 'post', 'two'),
+        ));
+
+        // Page 
+        acf_register_block_type(array( 
+            'name'              => 'page_block',
+            'title'             => __('Page Block'),
+            'description'       => __('Page Block'),
+            'render_template'   => 'template-parts/blocks/page-block/page-block.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'admin-page',
+            'keywords'          => array( 'page' ),
+        ));
+    }
+}
+
+
+function custom_block_categories( $categories ) {
+	return array_merge(
+		$categories,
+		[
+			[
+				'slug'  => 'waldorf-blocks',
+				'title' => 'Waldorf Blocks',
+			],
+		]
+	);
+}
+add_action( 'block_categories', 'custom_block_categories', 10, 2 );

@@ -1,0 +1,88 @@
+.spa-hero {
+  position: relative;
+  @include mq(tablet, max) {
+    margin-bottom: 50px;
+  }
+  .home-hero {
+    @include mq(tablet, max) {
+      height: 460px;
+    }
+    &::after {
+      background: linear-gradient(180deg, #FAF6EF 0%, rgba(250, 246, 239, 0) 100%);
+      @include mq(tablet, max) {
+        content: none;
+      }
+    }
+  }
+  &__inner {
+    margin-top: -210px;
+    @include mq(tablet) {
+      margin-top: 0;
+      position: absolute;
+      width: 100%;
+      z-index: 2;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+  }
+  .treatment {
+    position: relative;
+    margin: 0 auto;
+    width: 315px;
+    @include mq(tablet) {
+      margin-right: 0;
+      width: vw(380px);
+    }
+    img {
+      transition: transform .5s ease-in-out;
+    }
+    &:hover {
+      img {
+        transform: scale(1.05);
+      }
+      .treatment-title {
+        color: $accent;
+      }
+    }
+    &-caption {
+      position: absolute;
+      padding: 10px;
+      top: 20px;
+      right: 20px;
+      background-color: $accent;
+      text-transform: uppercase;
+      @include typography(10px, 12px, 12.31px, 14.77px, 600, $f-text, $secondary);
+      letter-spacing: 0.3em;
+      z-index: 2;
+    }
+    &-title {
+      position: absolute;
+      display: block;
+      width: 100%;
+      left: 0;
+      bottom: 30px;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 0.2em;
+      color: $secondary;
+      font-weight: 600;
+      z-index: 2;
+      @include mq(tablet) {
+        position: static;
+        margin-top: vw(24px);
+        color: #181818;
+        letter-spacing: 0.25em;
+      }
+      @include mq(desktop-wide) {
+        margin-top: 24px;
+      }
+    }
+    .img-a-img::before {
+      padding-top: 124%;
+      @include mq(tablet) {
+        padding-top: 129%;
+      }
+    }
+  }
+}

@@ -1,0 +1,204 @@
+.loop-room {
+  padding: 0 6px;
+  @include mq(tablet, max) {
+    margin-bottom: 15px;
+    padding: 0;
+    background-color: $background-color;
+  }
+
+  &__slider {
+    position: relative;
+  }
+
+  .slick-dots {
+    position: absolute;
+    margin: 0;
+    bottom: 10px;
+    left: 15px;
+    z-index: 2;
+    text-align: left;
+    @include mq(tablet) {
+      bottom: 18px;
+      left: 27px;
+    }
+
+    li button {
+      background-color: $secondary;
+      @include mq(tablet, max) {
+        width: 4.6px;
+        height: 4.6px;
+      }
+    }
+  }
+
+  &__slides {
+    margin-bottom: 0 !important;
+
+    @include mq(tablet) {
+      margin-bottom: vw(40px) !important;
+    }
+
+    @include mq(desktop-wide) {
+      margin-bottom: 40px !important;
+    }
+  }
+
+  &__slide {
+    height: 260px !important;
+    @include mq(tablet) {
+      height: vw(340px) !important;
+    }
+
+    @include mq(desktop-wide) {
+      height: 340px !important;
+    }
+
+    &::after {
+      height: 50%;
+      opacity: 0.4
+    }
+
+    img {
+      @include coverImage();
+    }
+  }
+
+  &__size {
+    position: absolute;
+    bottom: 8px;
+    right: 20px;
+    @include typography(10px, 11px, 12px, 13.54px, 500, $f-text, $secondary);
+    letter-spacing: 0.25em;
+    z-index: 2;
+
+    @include mq(tablet) {
+      bottom: vw(17px);
+      right: vw(35px);
+    }
+
+    @include mq(desktop-wide) {
+      bottom: 17px;
+      right: 35px;
+    }
+  }
+
+  &__bedroom {
+    position: absolute;
+    padding: 5px 10px;
+    top: 11px;
+    right: 10px;
+    font: 600 10px/12px $f-text;
+    color: $secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    background-color: #a0814c;
+
+    @include mq(tablet) {
+      padding: 10px;
+      top: vw(20px);
+      right: vw(18px);
+    }
+
+    @include mq(desktop-wide) {
+      top: 20px;
+      right: 18px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    letter-spacing: 0.25em;
+    color: #181818;
+
+    @include mq(tablet) {
+      margin-bottom: vw(11px);
+    }
+
+    @include mq(desktop) {
+      margin-bottom: 11px;
+    }
+  }
+  &__excerpt {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+  }
+
+  .button-groups {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    @include mq(tablet, max) {
+      font-size: 10px;
+      line-height: 12px;
+      flex-direction: row-reverse;
+    }
+    @include mq(tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: vw(18px);
+    }
+
+    @include mq(desktop-wide) {
+      margin-top: 18px;
+    }
+
+    .btn {
+      font: 600 10px/12.31px $f-text;
+      flex:  0 0 50%;
+      letter-spacing: 0.2em;
+      @include mq(tablet, max) {
+        padding: 10px 5px;
+      }
+      @include mq(tablet) {
+        font-size: 10px;
+        line-height: 28px;
+        letter-spacing: 0.1em;
+      }
+      @include mq(desktop-wide) {
+        font-size: 11px;
+        letter-spacing: 0.3em;
+      }
+
+      @include mq_mobile_landscape() {
+        letter-spacing: 1px;
+      }
+    }
+  }
+
+  .btn-amentities {
+    border: none;
+
+    &:hover {
+      background-color: #0000;
+      color: $accent;
+    }
+  }
+  &__content {
+    @include mq(tablet, max) {
+      padding: 25px 12px 20px;
+    }
+  }
+  &__matterport {
+    position: absolute;
+    top: svw(12px);
+    left: svw(12px);
+    @include mq(tablet) {
+      top: vw(20px);
+      left: vw(27px);
+    }
+    @include mq(desktop-wide) {
+      top: 20px;
+      left: 27px;
+    }
+    svg {
+      transition: transform .3s ease-in-out;
+      will-change: transform;
+    }
+    &:hover svg {
+      transform: scale(1.1);
+    }
+  }
+}

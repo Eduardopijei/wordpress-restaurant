@@ -1,0 +1,97 @@
+.accordions {
+  text-align: center;
+  &-heading {
+    padding: 0 20px;
+    margin-bottom: 45px;
+    letter-spacing: -0.03em;
+    @include mq(tablet) {
+      margin-bottom: vw(57px);
+    }
+  }
+  h3.accordions-heading {
+    @include typography(32px, 52px, 28px, 68px, 400, $f-heading, $heading_color);
+  }
+  h6.accordions-heading {
+    @include typography(14px, 16px, 17.23px, 19.7px, 600, $f-text, #212121);
+    letter-spacing: 0.2em;
+  }
+  .container {
+    @include mq(tablet, max) {
+      padding: 0;
+    }
+  }
+}
+.accordion {
+  margin-bottom: 14px;
+  @include mq(tablet) {
+    margin-bottom: 20px;
+  }
+  border: 1px solid #4a4a4a;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &-title {
+    position: relative;
+    padding: 15px 40px 15px 15px;
+    font: 600 14px/17.23px $f-text;
+    letter-spacing: 0.25em;
+    color: #181818;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    @include mq(tablet) {
+      padding: 11px 15px;
+      &:hover {
+        background-color: $accent;
+      }
+    }
+    &::before,
+    &::after {
+      position: absolute;
+      top: 50%;
+      content: "";
+      background-color: $c-black;
+      transform: translateY(-50%);
+      transition: transform 0.3s ease-in-out;
+      will-change: transform;
+    }
+    &::before {
+      width: 10px;
+      height: 2px;
+      right: 20px;
+    }
+    &::after {
+      width: 2px;
+      height: 10px;
+      right: 24px;
+    }
+    &.active {
+      &::after {
+        transform: translateY(-50%) rotate(90deg);
+      }
+    }
+  }
+  &-content {
+    display: none;
+    padding: 35px 15px;
+    &__inner {
+      @include mq(tablet) {
+        margin: auto;
+        max-width: vw(607px);
+      }
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      margin-bottom: 16px;
+    }
+    @include listStyle();
+    ul {
+      margin: 30px auto 0;
+      max-width: 350px;
+      text-align: left;
+    }
+  }
+}

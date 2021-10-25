@@ -1,0 +1,595 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+// Header styles
+.header {
+  position: fixed;
+  padding: 20px 30px;
+  width: 100%;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+  z-index: 10;
+  @include adminbar-offset();
+
+  @include mq(tablet) {
+    padding: vw(26px) vw(30px);
+  }
+
+  @include mq(desktop-wide) {
+    padding: 26px 30px;
+  }
+
+  &:not(.sticky).header--light {
+    background-color: #0000;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: vw(194px);
+    background: linear-gradient(180deg, #000000 0%, rgba(35, 35, 35, 0.526042) 47.92%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0.4;
+    z-index: -1;
+
+    @include mq(tablet) {
+      background: linear-gradient(180deg,
+          #faf6ef 0%,
+          rgba(250, 246, 239, 0) 100%);
+    }
+
+    @include when-inside(".header--light") {
+      background: linear-gradient(180deg,
+          #000000 0%,
+          rgba(35, 35, 35, 0.526042) 47.92%,
+          rgba(0, 0, 0, 0) 100%);
+      opacity: 0.6;
+    }
+  }
+
+  &.sticky {
+    background-color: $background_color;
+
+    &::after {
+      content: none;
+    }
+
+    @include mq(tablet, max) {
+      background-color: #0000;
+      &::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 90px;
+        background: linear-gradient(180deg,
+            #090909 0%,
+            rgba(79, 79, 79, 0) 93.03%,
+            rgba(120, 120, 120, 0) 100%);
+        z-index: -1;
+      }
+    }
+
+    @include mq(tablet) {
+      background: $background_color;
+      border-bottom: 1px solid $border_color;
+      padding: 20px;
+    }
+
+    @include mq(desktop-wide) {
+      padding: vw(20px);
+    }
+
+    @include when-inside(".admin-bar") {
+      @media screen and (max-width: 600px) {
+        top: 0;
+      }
+    }
+  }
+
+  &.header--room.sticky {
+    background-color: $background_color;
+    border-bottom: 1px solid $primary;
+    &::after {
+      content: none;
+    }
+    .hamburger span {
+      border-color: $primary;
+    }
+  }
+  
+  &-cta.btn {
+    position: relative;
+    margin-left: auto;
+    border-color: $accent;
+    font-weight: 600;
+    color: #343331;
+    @include mq(tablet, max) {
+      display: none !important  ;
+    }
+    @include when-inside(".mobile") {
+      @include orientation(landscape) {
+        width: 200px;
+        font-size: 10px;
+      }
+    }
+
+    @include mq(tablet) {
+      display: block;
+      width: 280px;
+    }
+
+    svg {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+
+      rect {
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    &:hover {
+      rect:first-child {
+        stroke: $c-white;
+      }
+
+      rect:last-child {
+        fill: $c-white;
+      }
+    }
+  }
+
+  &-cta--mobile.btn {
+    position: fixed;
+    padding: 11px 20px;
+    left: 50%;
+    bottom: 0;
+    background: #A98442;
+    color: $c-white;
+    border: none;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 10;
+
+    @include mq(phablet) {
+      width: auto;
+      min-width: 375px;
+    }
+
+    @include mq(tablet) {
+      display: none !important;
+    }
+  }
+
+  &.header--booking {
+    background-color: $background_color !important;
+    @include mq(tablet, max) {
+      border-bottom: 1px solid;
+    }
+    &::after {
+      content: none;
+    }
+    .header-nav {
+      justify-content: space-between;
+    }
+    .hamburger span {
+      border-color: $primary;
+    }
+    .logo-link {
+      @include mq(tablet, max) {
+        img:not(.header-logo__scroll) {
+          display: none !important;
+        }
+        .header-logo__scroll {
+          display: block !important;
+        }
+      }
+      @include mq_mobile_landscape() {
+        top: 15px;
+        img:not(.header-logo__scroll) {
+          display: none !important;
+        }
+        .header-logo__scroll {
+          display: block !important;
+        }
+      }
+      @include mq(tablet) {
+        img:not(.header-logo) {
+          display: none !important;
+        }
+        .header-logo {
+          display: block !important;
+        }
+      }
+    }
+  }
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  @include mq(tablet, max) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .logo-link {
+    transition: none;
+
+    @include mq(tablet) {
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 300px;
+    }
+
+    @include when-inside(".sticky") {
+      position: static;
+      transform: none;
+
+      @include mq(tablet) {
+        margin-left: 30px;
+      }
+    }
+
+    .header-logo {
+      display: none;
+
+      @include mq(tablet) {
+        display: block;
+
+        @include when-inside(".sticky") {
+          display: none;
+        }
+      }
+    }
+
+    .header-logo__scroll {
+      display: none;
+
+      @include mq(tablet) {
+        @include when-inside(".sticky") {
+          display: block;
+        }
+      }
+    }
+
+    .header-logo__scroll--white {
+      @include mq(tablet) {
+        display: none;
+        @include when-inside(".sticky") {
+          display: none;
+        }
+      }
+      @include mq(tablet, max) {
+        display: none;
+        @include when-inside('.sticky:not(.header--room)') {
+          display: block;
+        }
+      }
+    }
+    .header-logo__mobile {
+      @include mq(tablet) {
+        display: none;
+      }
+      @include when-inside('.sticky') {
+        display: none;
+      }
+    }
+    .header-logo__mobile--dark {
+      display: none;
+      @include mq(tablet, max) {
+        @include when-inside('.sticky') {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.header-menu {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: -webkit-fill-available;
+  background-color: $background_color;
+  background-position: center right;
+  background-repeat: no-repeat;
+  transition: all 0.5s ease-in-out;
+  transform: translateY(-200%);
+  z-index: 100;
+  @include adminbar-offset();
+  @include mq(tablet, max) {
+    top: 0 !important;
+    overflow: auto;
+  }
+  @include mq_mobile_landscape() {
+    height: 100vh;
+  }
+
+  @include mq(tablet) {
+    width: vw(1000px);
+    max-height: 100vh;
+    background-image: url("../images/menu-bg.svg");
+    box-shadow: 29px 0px 53px rgba(0, 0, 0, 0.1);
+    transition: all 1s ease-in-out cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translateX(-100%);
+    overflow: auto;
+    @include customScrollBar();
+  }
+
+  @include mq(tablet) {
+    background-position: center right vw(-70px);
+  }
+
+  @include mq(desktop-wide) {
+    background-position: center right -70px;
+  }
+
+  @include when-inside(".header--open") {
+    transform: none;
+  }
+
+  &__top {
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+
+    @include mq(tablet, max) {
+      justify-content: space-between;
+      flex-direction: row-reverse;
+    }
+
+    @include mq(tablet) {
+      padding: 30px;
+      padding: vw(30px);
+    }
+
+    @include mq(desktop-wide) {
+      padding: 30px;
+    }
+  }
+
+  .divider {
+    display: none;
+    margin: 0 30px;
+    width: 1px;
+    height: 52px;
+    background-color: $c-black;
+
+    @include mq(tablet) {
+      display: block;
+    }
+  }
+
+  .menu-main-menu-container {
+    text-align: right;
+    padding: 45px 50px 45px 35px;
+
+    @include mq(tablet) {
+      padding: vw(40px) vw(170px);
+    }
+
+    @include mq(desktop-wide) {
+      padding: 40px 170px;
+    }
+  }
+
+  a {
+    @include mq(tablet) {
+      &:hover {
+        color: $accent !important;
+      }
+    }
+  }
+
+  .current-menu-item>a {
+    color: $accent !important;
+  }
+
+  .nav-link {
+    display: inline-block;
+
+    &--main {
+      >a {
+        @include typography(36px, 84px, 50px, 84px, 400, $f-heading, #2f2f2f);
+        letter-spacing: 0.01em;
+      }
+
+      .dropdown-toggle {
+        position: relative;
+
+        .arrow {
+          position: absolute;
+          content: "";
+          top: 50%;
+          right: -27px;
+          width: 0;
+          height: 0;
+          border-width: 11px 5.5px 0 5.5px;
+          border-style: solid;
+          border-color: #a0814c transparent transparent transparent;
+          transform: translateY(-50%);
+          transition: transform 0.3s ease-in-out;
+
+          @include mq(tablet) {
+            right: vw(-34px);
+            border-width: 16px 8px 0 8px;
+          }
+
+          @include mq(desktop-wide) {
+            right: -34px;
+          }
+        }
+
+        &.dropdown--open .arrow {
+          transform: translateY(-50%) rotate(-180deg);
+        }
+      }
+
+      .dropdown-menu {
+        display: none;
+        padding: 20px 0;
+
+        @include mq(tablet) {
+          padding: vw(53px) 0 vw(37px);
+        }
+
+        .dropdown-item {
+          display: inline-block;
+          margin-bottom: 1em;
+          @include typography(11px,
+            14px,
+            13.54px,
+            17.23px,
+            600,
+            $f-text,
+            $primary);
+          text-transform: uppercase;
+          letter-spacing: 0.48em;
+        }
+      }
+    }
+
+    &--secondary__first {
+      margin-top: 44px;
+
+      @include mq(tablet) {
+        margin-top: vw(40px);
+      }
+
+      @include mq(desktop-wide) {
+        margin-top: 40px;
+      }
+    }
+
+    &--secondary a {
+      margin-bottom: 1em;
+      @include typography(11px, 14px, 13.54px, 17.23px, 600, $f-text, $primary);
+      text-transform: uppercase;
+      letter-spacing: 0.48em;
+    }
+
+    &--icon a {
+      padding-right: 20px;
+      @include typography(11px, 13px, 17px, 17px, 600, $f-text, #434343);
+      text-transform: uppercase;
+      letter-spacing: 0.48em;
+      background-repeat: no-repeat;
+      background-position: right;
+    }
+
+    &--chat a {
+      margin-top: 44px;
+      background-image: $menu-chat;
+
+      @include mq(tablet) {
+        margin-top: vw(40px);
+      }
+
+      @include mq(desktop-wide) {
+        margin-top: 40px;
+      }
+    }
+
+    &--phone a {
+      background-image: $menu-phone;
+      margin-top: 30px;
+      @include mq(tablet) {
+        margin-top: vw(400px);
+      }
+      @include mq(desktop-wide) {
+        margin-top: 400px;
+      }
+    }
+  }
+
+  // .nav-link--main ~ .nav-link--secondary {
+  //   @include mq(tablet) {
+  //     margin-top: vw(40px);
+  //   }
+  // }
+}
+
+.hamburger {
+  span {
+    display: block;
+    margin-bottom: 7px;
+    width: 40px;
+    border: 1px solid $secondary;
+    transform-origin: left;
+
+    @include mq(tablet) {
+      border-color: $primary;
+      @include when-inside(':not(.header--dark)') {
+        border-color: $secondary;
+      }
+    }
+
+    @include when-inside('.header--dark') {
+      @include mq(tablet) {
+        border-color: $primary;
+      }
+    }
+
+    @include when-inside(".sticky") {
+      @include mq(tablet) {
+        border-color: $primary;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &:hover {
+    span {
+      &:first-child {
+        animation: 1s animationWidth 0s ease-in-out alternate infinite;
+      }
+
+      &:last-child {
+        animation: 1s animationWidth 0.3s ease-in-out alternate infinite;
+      }
+    }
+  }
+
+  &-close {
+    transition: transform .5s ease-in-out;
+
+    &:hover {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.booking-popup__close {
+  display: none;
+  transition: transform .5s ease-in-out;
+  @include when-inside('.header--booking') {
+    @include mq(tablet) {
+      display: block;
+    }
+  }
+  &:hover {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animationWidth {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0.5);
+  }
+}

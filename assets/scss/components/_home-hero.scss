@@ -1,0 +1,222 @@
+.home-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  @include mq(tablet, max) {
+    margin-bottom: 10px;
+    @include when-inside('.general-hero') {
+      @include orientation(portrait) {
+        height: vw(590px, $viewport-sm);
+      }
+    }
+  }
+  &::before,
+  &::after {
+    @include pseudo-elements();
+    z-index: 1;
+  }
+  &::before {
+    background-color: $primary;
+    opacity: 0.25;
+  }
+
+  &::after {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+      180deg,
+      #faf6ef 0%,
+      rgba(250, 246, 239, 0.676259) 0.01%,
+      rgba(250, 246, 239, 0) 90.94%
+    );
+    transform: rotate(-180deg);
+    opacity: 0;
+    @include mq(tablet) {
+      height: vw(390px);
+      opacity: 0.75;
+    }
+    @include when-inside(".general-hero") {
+      background: linear-gradient(
+        180deg,
+        #faf6ef 0%,
+        rgba(250, 246, 239, 0) 100%
+      );
+      @include mq(tablet) {
+        height: vw(466px);
+      }
+    }
+  }
+  &__bg {
+    @include coverImage();
+  }
+  &__logo {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    @include mq(tablet, max) {
+      display: block;
+    }
+    &--text {
+      @include typography(61px, 68px, 61px, 68px);
+      color: $c-white;
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+    }
+    &--img {
+      margin-top: -40px;
+      width: 240px;
+      max-width: none;
+      @include mq(tablet) {
+        margin-top: 0;
+        width: vw(410px);
+      }
+      @include mq(desktop-wide) {
+        width: 410px;
+      }
+    }
+  }
+  .scroll-link {
+    position: relative;
+    display: inline-block;
+    @include heading6();
+    letter-spacing: 0.45em;
+    color: $c-white;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      color: $primary;
+    }
+    &__wrapper {
+      position: absolute;
+      display: block;
+      bottom: 56px;
+      left: 50%;
+      z-index: 2;
+      transform: translateX(-50%);
+      @include mq(tablet) {
+        bottom: vw(70px);
+      }
+    }
+  }
+  .line {
+    position: absolute;
+    content: "";
+    bottom: -10px;
+    left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+    @include mq(tablet) {
+      bottom: 0;
+      transform: translate(-50%, 50%);
+    }
+    &-top,
+    &-bottom {
+      position: relative;
+      display: block;
+      width: 100%;
+      @include mq(tablet) {
+        height: vw(40px);
+      }
+      @include mq(desktop-wide) {
+        height: 40px;
+      }
+      &::before {
+        @include pseudo-elements();
+        height: 0;
+      }
+    }
+    &-top {
+      @include mq(tablet, max) {
+        height: 40px;
+      }
+      &::before {
+        background: $c-white;
+        animation: height 0.3s linear 0s 1 forwards;
+      }
+    }
+    &-bottom {
+      @include mq(tablet, max) {
+        height: 10px;
+      }
+      &::before {
+        background: #d1b37e;
+        animation: height 0.3s linear 0.3s 1 forwards;
+      }
+    }
+  }
+  .btn-audio {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    appearance: none;
+    z-index: 2;
+    &--mute {
+      display: none;
+    }
+    &.mute {
+      .btn-audio--play {
+        display: none;
+      }
+      .btn-audio--mute {
+        display: block;
+      }
+    }
+  }
+}
+.general-hero {
+  &__content {
+    position: relative;
+    padding: 0 20px;
+    z-index: 2;
+    @include mq(tablet) {
+      margin-top: -10vh;
+    }
+    &--inner {
+      margin: 0 auto;
+      text-align: center;
+      @include mq(tablet) {
+        max-width: vw(620px);
+      }
+    }
+  }
+  &__text {
+    h1,
+    h2 {
+      margin: 0 auto 47px;
+      @include mq(tablet) {
+        max-width: vw(560px);
+      }
+    }
+    h6 {
+      margin-bottom: 15px;
+      color: #212121;
+      @include mq(tablet, max) {
+        font-size: 10px;
+      }
+      @include mq(tablet) {
+        margin-bottom: 18px;
+      }
+    }
+  }
+}
+
+@keyframes height {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}

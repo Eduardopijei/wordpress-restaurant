@@ -1,0 +1,41 @@
+// -----------------------------------------------------------------------------
+// This file contains all @font-face declarations, if any.
+// -----------------------------------------------------------------------------
+
+// Proxima Nova
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../fonts/ProximaNova/ProximaNova-Light.woff2') format('woff2'),
+      url('../fonts/ProximaNova/ProximaNova-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../fonts/ProximaNova/ProximaNova-Bold.woff2') format('woff2'),
+      url('../fonts/ProximaNova/ProximaNova-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+// Louize
+@font-face {
+  font-family: 'Louize';
+  src: url('../fonts/Louize/Louize-Italic.woff2') format('woff2'),
+      url('../fonts/Louize/Louize-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Louize';
+  src: url('../fonts/Louize/Louize.woff2') format('woff2'),
+      url('../fonts/Louize/Louize.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
