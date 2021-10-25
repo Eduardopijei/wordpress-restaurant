@@ -16,25 +16,19 @@
     z-index: 1;
   }
   &::before {
-    background-color: $primary;
-    opacity: 0.25;
+    background-color: $c-black;
+    opacity: 0.18;
   }
 
   &::after {
     top: auto;
     bottom: 0;
     left: 0;
-    background: linear-gradient(
-      180deg,
-      #faf6ef 0%,
-      rgba(250, 246, 239, 0.676259) 0.01%,
-      rgba(250, 246, 239, 0) 90.94%
-    );
-    transform: rotate(-180deg);
-    opacity: 0;
+    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+    transform: rotate(180deg);
     @include mq(tablet) {
       height: vw(390px);
-      opacity: 0.75;
+      opacity: 0.12;
     }
     @include when-inside(".general-hero") {
       background: linear-gradient(

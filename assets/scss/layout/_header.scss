@@ -104,12 +104,15 @@
   
   &-cta.btn {
     position: relative;
-    margin-left: auto;
     border-color: $accent;
     font-weight: 600;
-    color: #343331;
     @include mq(tablet, max) {
       display: none !important  ;
+    }
+    @include mq(tablet) {
+      display: block;
+      margin-left: vw(40px);
+      width: 280px;
     }
     @include when-inside(".mobile") {
       @include orientation(landscape) {
@@ -117,31 +120,8 @@
         font-size: 10px;
       }
     }
-
-    @include mq(tablet) {
-      display: block;
-      width: 280px;
-    }
-
-    svg {
-      position: absolute;
-      top: 50%;
-      right: 20px;
-      transform: translateY(-50%);
-
-      rect {
-        transition: all 0.3s ease-in-out;
-      }
-    }
-
-    &:hover {
-      rect:first-child {
-        stroke: $c-white;
-      }
-
-      rect:last-child {
-        fill: $c-white;
-      }
+    @include mq(desktop-wide) {
+      margin-left: 40px;
     }
   }
 
@@ -221,19 +201,8 @@
 
   .logo-link {
     transition: none;
-
-    @include mq(tablet) {
-      position: absolute;
-      top: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      max-width: 300px;
-    }
-
     @include when-inside(".sticky") {
-      position: static;
-      transform: none;
-
+      
       @include mq(tablet) {
         margin-left: 30px;
       }
@@ -292,6 +261,23 @@
       }
     }
   }
+
+  .main-menu__wrapper {
+    margin-left: auto;
+  }
+  &__menus {
+    display: flex;
+    align-items: center;
+    .nav-item {
+      margin: 0 10px;
+    }
+    .nav-link {
+      @include buttonText();
+      @include buttonUnderline(1px, $c-white);
+      padding-bottom: 0;
+      color: $c-white;
+    }
+  }
 }
 
 .header-menu {
@@ -315,7 +301,7 @@
   }
 
   @include mq(tablet) {
-    width: vw(1000px);
+    width: vw(1155px);
     max-height: 100vh;
     background-image: url("../images/menu-bg.svg");
     box-shadow: 29px 0px 53px rgba(0, 0, 0, 0.1);
@@ -369,23 +355,23 @@
     }
   }
 
-  .menu-main-menu-container {
+  .menu-mobile-menu-container {
     text-align: right;
     padding: 45px 50px 45px 35px;
 
     @include mq(tablet) {
-      padding: vw(40px) vw(170px);
+      padding: vw(40px) vw(187px);
     }
 
     @include mq(desktop-wide) {
-      padding: 40px 170px;
+      padding: 40px 187px;
     }
   }
 
   a {
     @include mq(tablet) {
       &:hover {
-        color: $accent !important;
+        color: $secondary !important;
       }
     }
   }
@@ -399,8 +385,8 @@
 
     &--main {
       >a {
-        @include typography(36px, 84px, 50px, 84px, 400, $f-heading, #2f2f2f);
-        letter-spacing: 0.01em;
+        @include typography(40px, 85px, 52px, 99px, 400, $f-heading, $primary);
+        letter-spacing: 0;
       }
 
       .dropdown-toggle {
@@ -415,7 +401,7 @@
           height: 0;
           border-width: 11px 5.5px 0 5.5px;
           border-style: solid;
-          border-color: #a0814c transparent transparent transparent;
+          border-color: $secondary transparent transparent transparent;
           transform: translateY(-50%);
           transition: transform 0.3s ease-in-out;
 
@@ -445,15 +431,12 @@
         .dropdown-item {
           display: inline-block;
           margin-bottom: 1em;
-          @include typography(11px,
-            14px,
-            13.54px,
-            17.23px,
-            600,
-            $f-text,
-            $primary);
+          @include typography(12px, 14px, 4px, 7px, 700, $f-text, $accent);
           text-transform: uppercase;
-          letter-spacing: 0.48em;
+          letter-spacing: 0.23em;
+          @include mq(tablet) {
+            letter-spacing: 0.41em;
+          }
         }
       }
     }
@@ -476,46 +459,8 @@
       text-transform: uppercase;
       letter-spacing: 0.48em;
     }
-
-    &--icon a {
-      padding-right: 20px;
-      @include typography(11px, 13px, 17px, 17px, 600, $f-text, #434343);
-      text-transform: uppercase;
-      letter-spacing: 0.48em;
-      background-repeat: no-repeat;
-      background-position: right;
-    }
-
-    &--chat a {
-      margin-top: 44px;
-      background-image: $menu-chat;
-
-      @include mq(tablet) {
-        margin-top: vw(40px);
-      }
-
-      @include mq(desktop-wide) {
-        margin-top: 40px;
-      }
-    }
-
-    &--phone a {
-      background-image: $menu-phone;
-      margin-top: 30px;
-      @include mq(tablet) {
-        margin-top: vw(400px);
-      }
-      @include mq(desktop-wide) {
-        margin-top: 400px;
-      }
-    }
   }
 
-  // .nav-link--main ~ .nav-link--secondary {
-  //   @include mq(tablet) {
-  //     margin-top: vw(40px);
-  //   }
-  // }
 }
 
 .hamburger {
@@ -523,25 +468,25 @@
     display: block;
     margin-bottom: 7px;
     width: 40px;
-    border: 1px solid $secondary;
+    border: 1px solid $c-white;
     transform-origin: left;
 
     @include mq(tablet) {
-      border-color: $primary;
+      border-color: $c-black;
       @include when-inside(':not(.header--dark)') {
-        border-color: $secondary;
+        border-color: $c-white;
       }
     }
 
     @include when-inside('.header--dark') {
       @include mq(tablet) {
-        border-color: $primary;
+        border-color: $c-black;
       }
     }
 
     @include when-inside(".sticky") {
       @include mq(tablet) {
-        border-color: $primary;
+        border-color: $c-black;
       }
     }
 

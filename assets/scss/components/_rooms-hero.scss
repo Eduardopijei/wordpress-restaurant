@@ -174,7 +174,7 @@
   &__link {
     @include bodyText(small);
     color: $secondary;
-    @include button-underline(1px, $secondary);
+    @include buttonUnderline(1px, $secondary);
     opacity: 0.25;
     @include when-inside('.rooms-nav--fixed') {
       color: $primary;

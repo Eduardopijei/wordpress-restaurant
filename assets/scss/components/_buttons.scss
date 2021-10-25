@@ -1,11 +1,11 @@
 .btn {
   display: inline-block;
   padding: 6px 20px;
-  font: 600 12px/28px $f-text;
+  font: 700 12px/28px $f-text;
   letter-spacing: 3.6px;
-  border: 1px solid #212121;
+  border: 1px solid $border_color;
   background: $background_color;
-  color: #0d0d0d;
+  color: $primary;
   text-align: center;
   text-transform: uppercase;
   transition: all 0.3s ease-in-out;

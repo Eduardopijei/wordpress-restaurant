@@ -174,9 +174,10 @@
   }
 }
 
-@mixin buttonText($size: normal) {
-  @include bodyText($size);
-  font-weight: 600;
+@mixin buttonText() {
+  font: 700 12px/28px $f-text;
+  letter-spacing: 3.6px;
+  text-transform: uppercase;
 }
 
 // list style
@@ -233,7 +234,7 @@
   }
 }
 
-@mixin button-underline($height: 1px, $color: #000) {
+@mixin buttonUnderline($height: 1px, $color: #000) {
   position: relative;
   display: inline-block;
   padding-bottom: 3px;

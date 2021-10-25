@@ -51,7 +51,7 @@
     transition: opacity 0.3s ease-in-out;
     white-space: nowrap;
     opacity: 0.25;
-    @include button-underline(1px, #181818);
+    @include buttonUnderline(1px, #181818);
     &:hover,
     &.active {
       opacity: 1;

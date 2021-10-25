@@ -84,7 +84,7 @@
       pointer-events: none;
       @include mq(tablet) {
         margin: 0 10px;
-        @include button-underline(1px, $secondary);
+        @include buttonUnderline(1px, $secondary);
       }
     }
   }
@@ -117,7 +117,7 @@
       }
       a {
         color: $secondary;
-        @include button-underline(1px, $secondary);
+        @include buttonUnderline(1px, $secondary);
       }
     }
   }
@@ -219,7 +219,7 @@
     .nav-link {
       margin-bottom: 1em;
       @include bodyText(small);
-      @include button-underline(1px, $secondary);
+      @include buttonUnderline(1px, $secondary);
       color: $secondary;
     }
   }
@@ -247,7 +247,7 @@
       margin-bottom: 1em;
       letter-spacing: 0.02em;
       @include typography(14px, 12px, 26px, 24px, 400, $f-text, $secondary);
-      @include button-underline(1px, $secondary);
+      @include buttonUnderline(1px, $secondary);
       padding-bottom: 0 !important;
       @include mq(tablet) {
         margin-bottom: 0;

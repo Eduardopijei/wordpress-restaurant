@@ -49,7 +49,18 @@
 					<img src="<?php echo $logo_mobile_dark; ?>" alt="Madrona" class="header-logo__mobile--dark">
 				<?php endif; ?>
 			</a>
-			<button class="btn header-cta btn-modal" data-target="#modal-booking">
+			<?php 
+			wp_nav_menu( array(
+				'menu' => 'Main Menu',
+				'depth'           => 1, // 1 = no dropdowns, 2 = with dropdowns.
+				'container'       => 'div',
+				'container_class' => 'main-menu__wrapper',
+				'menu_class'      => 'header-nav__menus',
+				'fallback_cb'     => false,
+				'walker'          => new WP_Bootstrap_Navwalker(),
+			) );
+			?>
+			<button class="btn btn--accent header-cta btn-modal" data-target="#modal-booking">
 				Check Availability
 			</button>
 			<button class="booking-popup__close">
@@ -79,7 +90,7 @@
 			</div>
 			<?php 
 			wp_nav_menu( array(
-				'menu' => 'Main Menu',
+				'menu' => 'Mobile Menu',
 				'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
 				'container'       => 'div',
 				'menu_class'      => 'menu-items',
