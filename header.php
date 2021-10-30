@@ -69,9 +69,9 @@
 					<line x1="1.46967" y1="24.4706" x2="24.9528" y2="0.987486" stroke="black" stroke-width="1.5"/>
 				</svg>
 			</button>
-			<button class="btn header-cta--mobile btn-modal" data-target="#modal-booking">
+			<!-- <button class="btn header-cta--mobile btn-modal" data-target="#modal-booking">
 				CHECK AVAILABILITY
-			</button>
+			</button> -->
 		</nav>
 		<div class="header-menu" id="main-nav">
 			<div class="header-menu__top">

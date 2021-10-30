@@ -76,17 +76,10 @@ add_filter('widget_text', 'do_shortcode');
 //add_filter( 'the_content', 'shortcode_unautop',100 );
 
 // Image Sizes
-add_image_size('slide-image', 1209, 665, true);
-add_image_size('offer-image', 585, 730, true);
-add_image_size('offer-image-2x', 1170, 1460, true);
-add_image_size('taxonomy-image', 612, 612, true);
-add_image_size('taxonomy-image-2x', 1224, 1224, true);
-add_image_size('room-slider-big', 1440, 640, true);
-add_image_size('room-slider-big-2x', 2880, 1280, true);
-add_image_size('room-slider-small', 560, 340, true);
-add_image_size('room-slider-small-2x', 1120, 680, true);
-add_image_size('people-slider', 465, 600, true);
-add_image_size('people-slider-2x', 930, 1200, true);
+add_image_size( 'two-images-big', 630, 984, true );
+add_image_size( 'two-images-big-2x', 1260, 1968, true );
+add_image_size( 'two-images-small', 440, 620, true );
+add_image_size( 'two-images-small', 880, 1240, true );
 //show_admin_bar(false);
 //define( 'WPCF7_AUTOP', false );
 

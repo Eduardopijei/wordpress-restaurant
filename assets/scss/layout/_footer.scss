@@ -4,23 +4,46 @@
 
 // Footer styles
 .footer {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: $accent;
   @include mq(tablet, max) {
-    background: #1b1a1f !important;
+    text-align: center;
   }
   &-top {
+    position: relative;
     text-align: center;
   }
   &-logo {
     display: inline-block;
-    margin: 80px auto;
+    margin: 90px auto 102px;
     @include mq(tablet) {
-      margin: vw(200px) auto;
+      margin: vw(123px) auto vw(95px);
     }
     @include mq(desktop-wide) {
-      margin: 200px auto;
+      margin: 123px auto 95px;
+    }
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      transition: all .3s ease-in-out;
+      @include mq(tablet) {
+        width: vw(230px);
+        border-bottom: 1px solid $c-white;
+        top: 50%;
+        transform: translateY(-50%) scaleX(0);
+      }
+    }
+    &::before {
+      left: 0;
+      transform-origin: left;
+    }
+    &::after {
+      right: 0;
+      transform-origin: right;
+    }
+    &.animation-end::before,
+    &.animation-end::after {
+      transform: translateY(-50%) scaleX(1);
     }
     img {
       width: 245px;
@@ -37,66 +60,11 @@
       }
     }
   }
-  &-regional {
-    position: relative;
-    &__inner {
-      margin: 80px auto 70px;
-      @include mq(tablet) {
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      @include mq(tablet-wide) {
-        &::before,
-        &::after {
-          position: absolute;
-          content: "";
-          top: 50%;
-          width: vw(230px);
-          border-top: 1px solid #8e8e8e;
-          transform: translateY(-50%);
-        }
-        &::before {
-          left: 0;
-        }
-        &::after {
-          right: 0;
-        }
-      }
-      @include mq(desktop-wide) {
-        max-width: 900px;
-      }
-    }
-    &__links {
-      @include mq(tablet, max) {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-      }
-    }
-    &__link {
-      margin-bottom: 12px;
-      font: 400 16px/19.7px $f-text;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: $secondary;
-      pointer-events: none;
-      @include mq(tablet) {
-        margin: 0 10px;
-        @include buttonUnderline(1px, $secondary);
-      }
-    }
-  }
   &-main {
     @include mq(tablet) {
       display: flex;
       text-align: left;
-      margin: vw(120px) auto;
       justify-content: space-between;
-    }
-    @include mq(desktop-wide) {
-      margin: 120px auto;
     }
   }
   &-item {
@@ -106,53 +74,60 @@
     }
     &__title {
       margin-bottom: 1em;
-      @include typography(14px, 12px, 17.23px, 14.77px, 600, $f-text, $secondary);
+      @include typography(14px, 12px, 14px, 12px, 600, $f-text, $c-white);
+      letter-spacing: 0.3em;
     }
     &__content {
-      color: $secondary;
+      color: $c-white;
       p {
-        font: 400 14px/24px $f-text;
-        color: $secondary;
-        letter-spacing: 0.01em;
+        font: 400 14px/26px $f-text;
+        color: $c-white;
+        @include mq(tablet, max) {
+          line-height: 24px;
+          letter-spacing: 0.01em;
+        }
       }
       a {
-        color: $secondary;
-        @include buttonUnderline(1px, $secondary);
+        line-height: 1;
+        color: $c-white;
+        @include buttonUnderline(1px, $c-white);
       }
     }
   }
   &-contact {
     @include mq(tablet) {
-      margin-right: vw(70px);
-    }
-    @include mq(desktop-wide) {
-      margin-right: 70px;
+      margin-right: vw(35px);
     }
   }
   &-address {
     @include mq(tablet) {
-      margin-right: vw(40px);
-    }
-    @include mq(desktop-wide) {
-      margin-right: 40px;
+      margin-right: vw(32px);
     }
   }
   &-partners {
-    display: flex;
     align-items: center;
-    justify-content: center;
     @include mq(tablet, max) {
-      flex-direction: column;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 54px 30px;
     }
     @include mq(tablet) {
+      display: flex;
+      padding: vw(112px) vw(90px) vw(80px) vw(80px);
       justify-content: space-between;
-      margin-bottom: vw(120px);
     }
     @include mq(desktop-wide) {
-      margin-bottom: 120px;
+      padding-top: 112px;
+      padding-bottom: 80px;
     }
     &__link {
       display: inline-block;
+      @include mq(tablet, max) {
+        &:nth-child(5) {
+          grid-column: 1/3;
+        }
+      }
       @include mq(tablet) {
         img {
           transition: transform .3s ease-in-out;
@@ -162,9 +137,6 @@
             transform: scale(0.95);
           }
         }
-      }
-      @include mq(tablet, max) {
-        margin-bottom: 50px;
       }
     }
     .divider {
@@ -184,57 +156,55 @@
       }
     }
   }
-  .social-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @include mq(tablet) {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 18px 20px;
+  .social-items {
+    @include mq(tablet, max) {
+      column-count: 2;
     }
+    
     .social-link {
-      margin: 0 20px;
-      transition: transform 0.3s ease-in-out;
-      @include mq(tablet) {
-        margin: 0;
-      }
-      &:hover {
-        transform: scale(1.2);
-      }
+      margin-bottom: 1em;
+      font: 700 12px/1 $f-text;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: $c-white;
+      @include buttonUnderline(1px, $c-white);
     }
   }
   &-menu {
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     @include mq(tablet) {
-      max-width: vw(360px);
+      flex-grow: 1;
+      max-width: vw(610px);
       margin-bottom: 0;
-      margin-right: vw(50px);
-      column-count: 2;
-      column-gap: vw(50px);
+      margin-right: vw(38px);
+      column-count: 3;
+      column-gap: vw(30px);
     }
     @include mq(desktop-wide) {
-      margin-right: 50px;
+      max-width: 610px;
+      column-gap: 30px;
     }
     .nav-link {
       margin-bottom: 1em;
-      @include bodyText(small);
-      @include buttonUnderline(1px, $secondary);
-      color: $secondary;
+      font: 700 12px/1 $f-text;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: $c-white;
+      @include buttonUnderline(1px, $c-white);
     }
   }
   &-bottom {
-    padding: 0 20px 80px;
+    border-bottom: 10px solid $primary;
+    padding: 45px 20px 40px;
     text-align: center;
-    background: #1b1a1f;
     @include mq(tablet) {
       padding: 20px;
       display: flex;
       align-items: center;
-      border-top: 1px solid #2c293f;
       justify-content: space-between;
       text-align: left;
-      background: #181626;
+      background-color: $primary;
+      border-bottom: 0;
     }
     &__links {
       @include mq(tablet, max) {
@@ -246,8 +216,8 @@
     &__link {
       margin-bottom: 1em;
       letter-spacing: 0.02em;
-      @include typography(14px, 12px, 26px, 24px, 400, $f-text, $secondary);
-      @include buttonUnderline(1px, $secondary);
+      @include typography(14px, 12px, 26px, 24px, 400, $f-text, $c-white);
+      @include buttonUnderline(1px, $c-white);
       padding-bottom: 0 !important;
       @include mq(tablet) {
         margin-bottom: 0;
@@ -270,7 +240,7 @@
         }
       }
       .copyright {
-        color: $secondary;
+        color: $c-white;
       }
     }
   }

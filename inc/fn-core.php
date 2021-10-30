@@ -237,7 +237,6 @@ function am_add_css( ) {
     global $am_option;
     // external CSS
     $am_links = array(
-        'https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap',
         'https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css',
         'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css',
         'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css',

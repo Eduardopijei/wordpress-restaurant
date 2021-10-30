@@ -123,43 +123,29 @@
 }
 
 @mixin heading1() {
-  @include typography(44px, 72px, 44px, 87px);
+  @include typography(44px, 60px, 44px, 87px);
   letter-spacing: -0.02em;
-  @include mq(tablet) {
-    letter-spacing: -0.03em;
-  }
 }
 @mixin heading2() {
-  @include typography(32px, 62px, 36px, 78px);
-  letter-spacing: -0.02em;
-  @include mq(tablet) {
-    letter-spacing: -0.03em;
-  }
+  @include typography(32px, 54px, 36px, 78px);
 }
 @mixin heading3() {
-  @include typography(28px, 52px, 44px, 69px);
-  letter-spacing: -0.02em;
-  @include mq(tablet) {
-    letter-spacing: -0.03em;
-  }
+  @include typography(28px, 48px, 44px, 69px, 700, $f-text);
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 @mixin heading4() {
-  @include typography(24px, 42px, 28px, 28px);
-  letter-spacing: -0.02em;
-  @include mq(tablet) {
-    letter-spacing: -0.03em;
-  }
+  @include typography(24px, 42px, 28px, 28px, 700, $f-text);
+  letter-spacing: 2.1px;
 }
 @mixin heading5() {
-  @include typography(18px, 30px, 64px, 64px);
-  letter-spacing: -0.02em;
-  @include mq(tablet) {
-    letter-spacing: -0.03em;
-  }
+  @include typography(18px, 24px, 64px, 35px, 400, $f-text);
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
 @mixin heading6() {
-  @include typography(12px, 14px, 14.77px, 17.23px, 600, $f-text);
-  letter-spacing: 0.3em;
+  @include typography(12px, 14px, 14.77px, 24px, 700, $f-text);
+  letter-spacing: 1.68px;
   text-transform: uppercase;
 }
 

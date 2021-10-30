@@ -3,6 +3,60 @@
     "title": "Theme Settings",
     "fields": [
         {
+            "key": "field_617af499b2c75",
+            "label": "Newsletter",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_617af4a2b2c76",
+            "label": "Heading",
+            "name": "n_heading",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_617af4adb2c77",
+            "label": "Form",
+            "name": "n_form",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_614eb5b73d56d",
             "label": "Header",
             "name": "",
@@ -257,7 +311,7 @@
         {
             "key": "field_61767e31f827f",
             "label": "Logo",
-            "name": "logo",
+            "name": "f_logo",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -412,6 +466,42 @@
                     "mime_types": ""
                 }
             ]
+        },
+        {
+            "key": "field_617ca489715e5",
+            "label": "Links",
+            "name": "links",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_617ca490715e6",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                }
+            ]
         }
     ],
     "location": [
@@ -431,5 +521,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635157261
+    "modified": 1635558569
 }
