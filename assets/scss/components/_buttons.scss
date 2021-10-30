@@ -22,8 +22,9 @@
     color: $c-white;
     @include mq(tablet) {
       &:hover {
-        background-color: $background_color;
-        color: $primary;
+        border-color: $accent;
+        background-color: $accent;
+        color: $c-white;
       }
     }
   }
@@ -39,13 +40,14 @@
     }
   }
   &.btn--outline {
-    border-color: $secondary;
+    border-color: $primary;
     background-color: #0000;
-    color: $secondary;
+    color: $primary;
     @include mq(tablet) {
       &:hover {
-        background-color: $secondary;
-        color: $accent;
+        background-color: $accent;
+        border-color: $accent;
+        color: $c-white;
       }
     }
   }

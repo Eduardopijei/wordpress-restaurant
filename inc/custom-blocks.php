@@ -28,6 +28,18 @@ function my_acf_init_block_types() {
             'keywords'          => array( 'responsive', 'spacer' ),
         ));
         
+        // Register Media Content Two Images Block
+        acf_register_block_type(array(
+            'name'              => 'media_content_two_images',
+            'title'             => __('Media Content Two Images'),
+            'description'       => __('Media Content Two Images'),
+            'render_template'   => 'template-parts/blocks/media-content-two-images/media-content-two-images.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'align-pull-left',
+            'keywords'          => array( 'media', 'content', 'two', 'images' ),
+        ));
+
+        /*********************************** ****************************************/
 
         // Register Title Text Block
         acf_register_block_type(array(

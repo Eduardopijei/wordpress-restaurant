@@ -79,7 +79,7 @@ add_filter('widget_text', 'do_shortcode');
 add_image_size( 'two-images-big', 630, 984, true );
 add_image_size( 'two-images-big-2x', 1260, 1968, true );
 add_image_size( 'two-images-small', 440, 620, true );
-add_image_size( 'two-images-small', 880, 1240, true );
+add_image_size( 'two-images-small-2x', 880, 1240, true );
 //show_admin_bar(false);
 //define( 'WPCF7_AUTOP', false );
 

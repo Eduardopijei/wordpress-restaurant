@@ -30,24 +30,9 @@ $nextId = get_field('next_section_id');
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <?php if ($bg_video) : ?>
-        <video autoplay playsinline class="home-hero__bg" muted preload="metadata" src="<?php echo $bg_video; ?>" poster="<?php echo $bg; ?>">
+        <video loop autoplay playsinline class="home-hero__bg" muted preload="metadata" src="<?php echo $bg_video; ?>" poster="<?php echo $bg; ?>">
             <source src="<?php echo $bg_video; ?>" type="video/mp4">
         </video>
-        <button class="btn-audio">
-            <span class="btn-audio--play">
-                <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect y="4" width="4" height="11" fill="white"/>
-                    <rect x="6" width="4" height="15" fill="white"/>
-                    <rect x="12" y="2" width="4" height="13" fill="white"/>
-                </svg>
-            </span>
-            <span class="btn-audio--mute">
-                <svg width="10" height="15" viewBox="0 0 10 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="4" height="15" fill="white"/>
-                    <rect x="6" width="4" height="15" fill="white"/>
-                </svg>
-            </span>
-        </button>
     <?php else: ?>
         <img src="<?php echo $bg; ?>" alt="" class="home-hero__bg">
     <?php endif; ?>
@@ -57,15 +42,17 @@ $nextId = get_field('next_section_id');
             <img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" class="home-hero__logo--img a-up">
         </div>
     <?php endif; ?>
+    <button class="btn btn--accent home-hero__cta btn-modal" data-target="#modal-booking">
+        Check Availability
+    </button>
     <?php if ($nextId) : ?>
         <div class="scroll-link__wrapper">
             <a href="#<?php echo $nextId; ?>" class="scroll-link a-down">
-                Take Me There
+                <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="29" cy="29" r="28.5" stroke="white"/>
+                    <path d="M29.349 36.3374L23.2972 25.8555L35.4007 25.8555L29.349 36.3374Z" fill="white"/>
+                </svg>
             </a>
-        </div>
-        <div class="line">
-           <span class="line-top"></span> 
-           <span class="line-bottom"></span> 
         </div>
     <?php endif; ?>
 </section>

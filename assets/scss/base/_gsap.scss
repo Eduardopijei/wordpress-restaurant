@@ -61,8 +61,8 @@
 .img-a-img img,
 .img-a-up .img-a-img img {
   width: 100%;
-  // -webkit-clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-  // clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
 }
 
 .img-a-img img {

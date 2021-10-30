@@ -30,23 +30,21 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: vw(194px);
+    height: vw(192px);
     background: linear-gradient(180deg, #000000 0%, rgba(35, 35, 35, 0.526042) 47.92%, rgba(0, 0, 0, 0) 100%);
     opacity: 0.4;
     z-index: -1;
 
     @include mq(tablet) {
+      height: vw(157px);
       background: linear-gradient(180deg,
           #faf6ef 0%,
           rgba(250, 246, 239, 0) 100%);
     }
 
     @include when-inside(".header--light") {
-      background: linear-gradient(180deg,
-          #000000 0%,
-          rgba(35, 35, 35, 0.526042) 47.92%,
-          rgba(0, 0, 0, 0) 100%);
-      opacity: 0.6;
+      background: linear-gradient(180deg, #3F526F 0%, rgba(0, 0, 0, 0) 100%);
+      opacity: 0.32;
     }
   }
 
@@ -194,6 +192,7 @@
 .header-nav {
   display: flex;
   align-items: center;
+  width: 100%;
   @include mq(tablet, max) {
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -212,11 +211,18 @@
       display: none;
 
       @include mq(tablet) {
+        margin-left: vw(30px);
         display: block;
 
         @include when-inside(".sticky") {
           display: none;
         }
+        @include when-inside('.home') {
+          display: none;
+        }
+      }
+      @include mq(desktop-wide) {
+        margin-left: 30px;
       }
     }
 
@@ -264,6 +270,9 @@
 
   .main-menu__wrapper {
     margin-left: auto;
+    @include mq(tablet, max) {
+      display: none;
+    }
   }
   &__menus {
     display: flex;
@@ -276,6 +285,12 @@
       @include buttonUnderline(1px, $c-white);
       padding-bottom: 0;
       color: $c-white;
+      @include when-inside('.sticky') {
+        color: $accent;
+        &::after {
+          border-color: $accent;
+        }
+      }
     }
   }
 }

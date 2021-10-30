@@ -128,6 +128,7 @@
 }
 @mixin heading2() {
   @include typography(32px, 54px, 36px, 78px);
+  font-style: italic;
 }
 @mixin heading3() {
   @include typography(28px, 48px, 44px, 69px, 700, $f-text);

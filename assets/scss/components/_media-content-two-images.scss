@@ -1,0 +1,112 @@
+.media-two-images {
+  position: relative;
+  z-index: 1;
+  @include mq(tablet, max) {
+    margin-top: -50px;
+  }
+  .container {
+    @include mq(tablet) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  .images {
+    position: relative;
+    @include mq(tablet) {
+      margin-top: vw(-290px);
+      margin-left: vw(-80px);
+    }
+    @include mq(desktop-wide) {
+      margin-top: -290px;
+      margin-left: -80px;
+    }
+    img {
+      display: block;
+    }
+    .image-first {
+      display: none;
+      @include mq(tablet) {
+        display: block;
+        width: vw(630px);
+        height: vw(984px);
+      }
+      @include mq(desktop-wide) {
+        width: 630px;
+        height: 984px;
+      }
+    }
+    .image-second {
+      @include mq(tablet, max) {
+        img {
+          margin: 0 auto;
+        }
+      }
+      @include mq(tablet) {
+        position: absolute;
+        right: vw(-169px);
+        bottom: vw(-170px);
+        width: vw(440px);
+        height: vw(620px);
+      }
+      @include mq(desktop-wide) {
+        right: -169px;
+        bottom: -170px;
+        width: 440px;
+        height: 620px;
+      }
+    }
+  }
+
+  .content {
+    padding: 40px 0 75px;
+    @include mq(tablet, max) {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+    @include mq(tablet) {
+      padding: vw(140px) 0 vw(170px);
+      text-align: right;
+      max-width: vw(380px);
+    }
+    .sub-heading {
+      margin-bottom: 18px;
+      letter-spacing: 0;
+      @include mq(tablet) {
+        margin-bottom: vw(60px);
+      }
+    }
+    .heading {
+      margin-bottom: 23px;
+      order: -1;
+      @include typography(48px, 59px, 44px, 53px);
+      @include mq(tablet) {
+        margin-bottom: vw(60px);
+      }
+    }
+    .desc {
+      margin-bottom: 25px;
+      @include mq(tablet) {
+        margin-bottom: vw(60px);
+      }
+      p:not(:last-child) {
+        margin-bottom: 1em;
+      }
+    }
+    .buttons {
+      @include mq(tablet) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      a {
+        width: 100%;
+        max-width: 312px;
+        @include mq(tablet) {
+          max-width: vw(312px);
+        }
+      }
+    }
+  }
+}
