@@ -56,5 +56,16 @@
       max-width: vw(476px);
     }
   }
+  .btn {
+    @include mq(tablet, max) {
+      margin-bottom: 10px
+    }
+  }
   @include listStyle();
+  .cta {
+    color: $c-gray-26;
+    &::after {
+      border-color: $c-black;
+    }
+  }
 }

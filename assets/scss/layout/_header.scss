@@ -5,7 +5,7 @@
 // Header styles
 .header {
   position: fixed;
-  padding: 20px 30px;
+  padding: 15px 25px;
   width: 100%;
   left: 0;
   transition: all 0.3s ease-in-out;
@@ -57,17 +57,16 @@
 
     @include mq(tablet, max) {
       background-color: #0000;
+
       &::after {
         position: absolute;
         content: "";
         top: 0;
         left: 0;
         width: 100%;
-        height: 90px;
-        background: linear-gradient(180deg,
-            #090909 0%,
-            rgba(79, 79, 79, 0) 93.03%,
-            rgba(120, 120, 120, 0) 100%);
+        height: 73px;
+        background: linear-gradient(180deg, #333333 0%, rgba(26, 26, 26, 0.29) 100%);
+        opacity: 0.9;
         z-index: -1;
       }
     }
@@ -92,32 +91,38 @@
   &.header--room.sticky {
     background-color: $background_color;
     border-bottom: 1px solid $primary;
+
     &::after {
       content: none;
     }
+
     .hamburger span {
       border-color: $primary;
     }
   }
-  
+
   &-cta.btn {
     position: relative;
     border-color: $accent;
     font-weight: 600;
+
     @include mq(tablet, max) {
-      display: none !important  ;
+      display: none !important;
     }
+
     @include mq(tablet) {
       display: block;
       margin-left: vw(40px);
       width: 280px;
     }
+
     @include when-inside(".mobile") {
       @include orientation(landscape) {
         width: 200px;
         font-size: 10px;
       }
     }
+
     @include mq(desktop-wide) {
       margin-left: 40px;
     }
@@ -145,42 +150,109 @@
     }
   }
 
+  &-post {
+    position: absolute;
+    display: none;
+
+    @include mq(tablet) {
+      display: block;
+      left: vw(120px);
+      bottom: vw(125px);
+    }
+
+    @include mq(desktop-wide) {
+      left: 120px;
+      bottom: 125px;
+    }
+
+    &__tag {
+      margin-bottom: 16px;
+    }
+
+    &__image {
+      overflow: hidden;
+
+      @include mq(tablet) {
+        width: vw(300px);
+      }
+
+      &::after {
+        opacity: 0.45 !important;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+      }
+
+      img {
+        display: block;
+        transition: all .5s ease-in-out;
+      }
+    }
+
+    &__title {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: $c-white;
+      z-index: 1;
+
+      @include mq(tablet) {
+        bottom: vw(30px);
+      }
+    }
+  }
+
   &.header--booking {
     background-color: $background_color !important;
+
     @include mq(tablet, max) {
       border-bottom: 1px solid;
     }
+
     &::after {
       content: none;
     }
+
     .header-nav {
       justify-content: space-between;
     }
+
     .hamburger span {
       border-color: $primary;
     }
+
     .logo-link {
       @include mq(tablet, max) {
         img:not(.header-logo__scroll) {
           display: none !important;
         }
+
         .header-logo__scroll {
           display: block !important;
         }
       }
+
       @include mq_mobile_landscape() {
         top: 15px;
+
         img:not(.header-logo__scroll) {
           display: none !important;
         }
+
         .header-logo__scroll {
           display: block !important;
         }
       }
+
       @include mq(tablet) {
         img:not(.header-logo) {
           display: none !important;
         }
+
         .header-logo {
           display: block !important;
         }
@@ -193,6 +265,7 @@
   display: flex;
   align-items: center;
   width: 100%;
+
   @include mq(tablet, max) {
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -200,8 +273,9 @@
 
   .logo-link {
     transition: none;
+
     @include when-inside(".sticky") {
-      
+
       @include mq(tablet) {
         margin-left: 30px;
       }
@@ -217,10 +291,12 @@
         @include when-inside(".sticky") {
           display: none;
         }
+
         @include when-inside('.home') {
           display: none;
         }
       }
+
       @include mq(desktop-wide) {
         margin-left: 30px;
       }
@@ -239,27 +315,34 @@
     .header-logo__scroll--white {
       @include mq(tablet) {
         display: none;
+
         @include when-inside(".sticky") {
           display: none;
         }
       }
+
       @include mq(tablet, max) {
         display: none;
+
         @include when-inside('.sticky:not(.header--room)') {
           display: block;
         }
       }
     }
+
     .header-logo__mobile {
       @include mq(tablet) {
         display: none;
       }
+
       @include when-inside('.sticky') {
         display: none;
       }
     }
+
     .header-logo__mobile--dark {
       display: none;
+
       @include mq(tablet, max) {
         @include when-inside('.sticky') {
           display: block;
@@ -270,23 +353,29 @@
 
   .main-menu__wrapper {
     margin-left: auto;
+
     @include mq(tablet, max) {
       display: none;
     }
   }
+
   &__menus {
     display: flex;
     align-items: center;
+
     .nav-item {
       margin: 0 10px;
     }
+
     .nav-link {
       @include buttonText();
       @include buttonUnderline(1px, $c-white);
       padding-bottom: 0;
       color: $c-white;
+
       @include when-inside('.sticky') {
         color: $accent;
+
         &::after {
           border-color: $accent;
         }
@@ -307,10 +396,12 @@
   transform: translateY(-200%);
   z-index: 100;
   @include adminbar-offset();
+
   @include mq(tablet, max) {
     top: 0 !important;
     overflow: auto;
   }
+
   @include mq_mobile_landscape() {
     height: 100vh;
   }
@@ -323,14 +414,6 @@
     transform: translateX(-100%);
     overflow: auto;
     @include customScrollBar();
-  }
-
-  @include mq(tablet) {
-    background-position: center right vw(-70px);
-  }
-
-  @include mq(desktop-wide) {
-    background-position: center right -70px;
   }
 
   @include when-inside(".header--open") {
@@ -448,6 +531,7 @@
           @include typography(12px, 14px, 4px, 7px, 700, $f-text, $accent);
           text-transform: uppercase;
           letter-spacing: 0.23em;
+
           @include mq(tablet) {
             letter-spacing: 0.41em;
           }
@@ -469,12 +553,23 @@
 
     &--secondary a {
       margin-bottom: 1em;
-      @include typography(11px, 14px, 13.54px, 17.23px, 600, $f-text, $primary);
+      @include typography(11px, 14px, 13.54px, 17.23px, 600, $f-text, $accent);
       text-transform: uppercase;
-      letter-spacing: 0.48em;
+      letter-spacing: 0.41em;
     }
   }
 
+  .mt-90 {
+    margin-top: 40px;
+
+    @include mq(tablet) {
+      margin-top: vw(60px);
+    }
+
+    @include mq(tablet) {
+      margin-top: 60px;
+    }
+  }
 }
 
 .hamburger {
@@ -487,6 +582,7 @@
 
     @include mq(tablet) {
       border-color: $c-black;
+
       @include when-inside(':not(.header--dark)') {
         border-color: $c-white;
       }
@@ -533,11 +629,13 @@
 .booking-popup__close {
   display: none;
   transition: transform .5s ease-in-out;
+
   @include when-inside('.header--booking') {
     @include mq(tablet) {
       display: block;
     }
   }
+
   &:hover {
     transform: rotate(360deg);
   }

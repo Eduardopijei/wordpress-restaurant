@@ -3,13 +3,13 @@
   &-heading {
     padding: 0 20px;
     margin-bottom: 45px;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     @include mq(tablet) {
-      margin-bottom: vw(57px);
+      margin-bottom: vw(47px);
     }
   }
   h3.accordions-heading {
-    @include typography(32px, 52px, 28px, 68px, 400, $f-heading, $heading_color);
+    @include typography(32px, 52px, 28px, 68px, 400, $f-heading, $c-gray-2f);
   }
   h6.accordions-heading {
     @include typography(14px, 16px, 17.23px, 19.7px, 600, $f-text, #212121);
@@ -43,6 +43,11 @@
       padding: 11px 15px;
       &:hover {
         background-color: $accent;
+        color: $c-white;
+        &::before,
+        &::after {
+          background-color: $c-white;
+        }
       }
     }
     &::before,
@@ -86,7 +91,12 @@
     h4,
     h5 {
       margin-bottom: 16px;
+      color: $c-gray-2f;
     }
+    h4 {
+      @include typography(26px, 30px, 28px, 64px, 400, $f-heading, $c-gray-2f);
+    }
+
     @include listStyle();
     ul {
       margin: 30px auto 0;

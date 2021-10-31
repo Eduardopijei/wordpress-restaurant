@@ -1,0 +1,51 @@
+.two-columns-alt {
+  text-align: center;
+  h2 {
+    margin-bottom: 25px;
+    @include mq(tablet) {
+      margin-bottom: vw(40px);
+    }
+    @include mq(desktop-wide) {
+      margin-bottom: 40px;
+    }
+  }
+  .row {
+    @include mq(tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: vw(30px);
+    }
+    @include mq(desktop-wide) {
+      grid-gap: 30px;
+    }
+    .col {
+      @include mq(tablet, max) {
+        margin-bottom: 20px;
+      }
+      img {
+        margin-bottom: 10px;
+        display: block;
+        width: 100%;
+        @include mq(tablet) {
+          margin-bottom: vw(45px);
+        }
+        @include mq(desktop-wide) {
+          margin-bottom: 45px;
+        }
+      }
+      h6 {
+        margin: 20px 0;
+        font: 700 14px/1 $f-text;
+        color: $c-gray-18;
+        letter-spacing: 0.25em;
+      }
+      p {
+        color: $c-gray-48;
+      }
+      .cta {
+        margin-top: 20px;  
+        letter-spacing: 0.25em; 
+      }
+    }
+  }
+}

@@ -6,10 +6,10 @@ jQuery(document).ready(function() {
   initAnchor();
 
   // isElementExist helper
-  // isElementExist(".img-a", anImgRightOnScrollVewportChecker);
-  // isElementExist(".img-a-left", anImgLeftOnScrollVewportChecker);
-  // isElementExist(".img-a-up", anImgUpOnScrollVewportChecker);
-  // isElementExist(".img-a-video", anImgRightOnScrollVewportCheckerAndVideo);
+  isElementExist(".img-a", anImgRightOnScrollVewportChecker);
+  isElementExist(".img-a-left", anImgLeftOnScrollVewportChecker);
+  isElementExist(".img-a-up", anImgUpOnScrollVewportChecker);
+  isElementExist(".img-a-video", anImgRightOnScrollVewportCheckerAndVideo);
   isElementExist(".scroll-link", myScrollLink);
   isElementExist(".a-bg-up", blockHeight, [".a-bg-up"]);
   isElementExist(".a-bg-down", blockHeight, [".a-bg-down"]);

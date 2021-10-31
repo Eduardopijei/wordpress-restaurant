@@ -88,6 +88,8 @@ add_image_size( 'offer-module', 570, 700, true );
 add_image_size( 'offer-module-2x', 1140, 1400, true );
 add_image_size( 'post-module', 570, 425, true );
 add_image_size( 'post-module-2x', 570, 850, true );
+add_image_size( 'slide-image', 1210, 665, true );
+add_image_size( 'slide-image-2x', 2420, 1330, true );
 
 //show_admin_bar(false);
 //define( 'WPCF7_AUTOP', false );

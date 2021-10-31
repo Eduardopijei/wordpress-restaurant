@@ -3,8 +3,16 @@
   &__heading {
     margin-bottom: 20px;
     text-align: center;
+    @include typography(42px, 64px, 40px, 64px, 400, $f-heading, $c-gray-2f);
+
+    font-style: normal;
+
     @include mq(tablet) {
-      margin-bottom: vw(56px);
+      margin-bottom: vw(63px);
+    }
+
+    @include mq(desktop-wide) {
+      margin-bottom: 63px;
     }
   }
   &__inner {
@@ -14,7 +22,7 @@
       max-width: 680px;
     }
     @include mq(tablet-wide) {
-      max-width: 810px;
+      max-width: 820px;
     }
   }
   .form-row {
@@ -28,7 +36,7 @@
     max-width: 355px;
     @include mq(tablet) {
       flex: 0 0 50%;
-      padding: 20px 10px;
+      padding: 6px 5px;
     }
     
     label {
@@ -80,12 +88,12 @@
   // CF7 styles
   .wpcf7-not-valid-tip {
     margin-top: 8px;
-    font: 400 14px/21px $f-text;
+    font: 400 12px/21px $f-text;
     color: $primary;
   }
   .wpcf7 form .wpcf7-response-output {
-    padding: 14px 20px;
-    font: 600 12px/14.4px $f-text;
+    padding: 12px 20px;
+    font: 700 12px/14.4px $f-text;
   }
   //
   .event-date,
@@ -127,5 +135,15 @@
         border-bottom: none;
       }
     }
+  }
+}
+.contact-form {
+  padding-top: 50px;
+  border-top: 1px solid $border-color;
+  @include mq(tablet) {
+    padding-top: vw(90px);
+  }
+  @include mq(desktop-wide) {
+    padding-top: 90px;
   }
 }

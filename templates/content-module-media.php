@@ -3,9 +3,13 @@ $video = $args['video'];
 $image = $args['image']; 
 $is = $args['image_size'];
 $is_2x = $args['image_size_2x'];
-if( $image ) : 
-    $image_url = $image['sizes']['image_size'];
-    $image_url_2x = $image['sizes']['image_size_2x'];
+if( $image ):  
+    if( $is || $is_2x  ) : 
+        $image_url = $image['sizes']['image_size'];
+        $image_url_2x = $image['sizes']['image_size_2x'];
+    else: 
+        $image_url = $image['url'];
+    endif;
 endif;
 ?>
 <?php if ($video) : ?>

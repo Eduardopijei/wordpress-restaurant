@@ -234,7 +234,7 @@ html {
   .slick-prev {
     left: -43px;
     border-width: 10.5px 21px 10.5px 0;
-    border-color: transparent #0d0d0d transparent transparent;
+    border-color: transparent $primary transparent transparent;
 
     &:hover {
       border-right-color: $accent;
@@ -244,7 +244,7 @@ html {
   .slick-next {
     right: -43px;
     border-width: 10.5px 0 10.5px 21px;
-    border-color: transparent transparent transparent #0d0d0d;
+    border-color: transparent transparent transparent $primary;
 
     &:hover {
       border-left-color: $accent;
@@ -272,7 +272,7 @@ html {
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background-color: #a0814c;
+        background-color: $primary;
         opacity: 0.7;
         transition: background 0.3s ease-in-out;
 
@@ -357,7 +357,7 @@ html {
 
       @include mq(tablet) {
         &:hover {
-          background-color: #fbfae5;
+          background-color: #fffdf9;
         }
       }
     }
@@ -599,4 +599,8 @@ html {
   svg {
     display: none;
   }
+}
+
+.wpcf7-spinner {
+  position: absolute;
 }

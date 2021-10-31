@@ -24,17 +24,15 @@ if( !empty($block['align']) ) {
 $direction = get_field('content_direction');
 $image = get_field('image');
 $video = get_field('video');
-$heading = get_field('heading');
-$text = get_field('text');
-$cta = get_field('cta');
 if ($direction == true) $className .= ' media-content--left';
+$className .= ' ' . get_field('vertical_direction') ?: 'middle';
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <div class="container">
         <?php if ($image || $video) : ?>
             <div class="media-content__media">
                 <?php 
-                    get_template_part( 'templates/content-modules', 'image', array(
+                    get_template_part( 'templates/content-module', 'media', array(
                         'image' => $image,
                         'video' => $video
                     ) );
@@ -42,21 +40,9 @@ if ($direction == true) $className .= ' media-content--left';
             </div>
         <?php endif; ?>
         <div class="media-content__content">
-            <?php if ($heading) : ?>
-                <h2 class="media-content__title a-up"><?php echo $heading; ?></h2>
-            <?php endif; ?>
-            <?php if ($text) : ?>
-                <div class="media-content__text a-up a-delay-1">
-                    <?php echo $text; ?>
-                </div>
-            <?php endif; ?>
-            <?php if ($cta) : ?>
-                <a href="<?php echo $cta['url']; ?>" 
-                    class="cta media-content__cta a-up a-delay-2" 
-                    target="<?php echo $cta['target']; ?>">
-                    <?php echo $cta['title']; ?>
-                </a>
-            <?php endif; ?>
+            <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'heading', 'o' => 'f', 't' => 'h2', 'tc' => 'media-content__title a-up' ) ); ?>
+            <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'text', 'o' => 'f', 't' => 'div', 'tc' => 'media-content__text a-up a-delay-1' ) ); ?>
+            <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'cta', 'o' => 'f', 'c' => 'btn btn--primary media-content__btn a-up a-delay-2' ) ); ?>
         </div>
     </div>
 </section>

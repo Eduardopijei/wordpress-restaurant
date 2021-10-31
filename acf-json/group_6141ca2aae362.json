@@ -3,6 +3,25 @@
     "title": "Block : Custom Wysiwig",
     "fields": [
         {
+            "key": "field_617ecb56e20a9",
+            "label": "ID",
+            "name": "id",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_6141cd0803533",
             "label": "Content",
             "name": "content",
@@ -176,5 +195,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635147976
+    "modified": 1635699550
 }

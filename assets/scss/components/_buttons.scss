@@ -4,7 +4,7 @@
   font: 700 12px/28px $f-text;
   letter-spacing: 3.6px;
   border: 1px solid $border_color;
-  background: $background_color;
+  background-color: $background_color;
   color: $primary;
   text-align: center;
   text-transform: uppercase;
@@ -12,7 +12,7 @@
   cursor: pointer;
   @include mq(tablet) {
     &:hover {
-      background: $accent;
+      background-color: $accent;
       color: $secondary;
     }
   }
@@ -22,19 +22,19 @@
     color: $c-white;
     @include mq(tablet) {
       &:hover {
-        border-color: $accent;
-        background-color: $accent;
-        color: $c-white;
+        border-color: $primary;
+        background-color: #0000;
+        color: $primary;
       }
     }
   }
   &.btn--accent {
-    background: $accent;
+    background-color: $accent;
     border-color: $accent;
     color: $c-white;
     @include mq(tablet) {
       &:hover {
-        background: $background_color;
+        background-color: $background_color;
         color: $accent;
       }
     }
@@ -50,6 +50,15 @@
         color: $c-white;
       }
     }
+  }
+}
+.btn-booking {
+  background-image: $booking;
+  background-repeat: no-repeat;
+  background-position: top 13px right 20px;
+  min-width: 240px;
+  &:hover {
+    background-image: $booking-hover;
   }
 }
 .cta {

@@ -98,6 +98,20 @@
 				'walker'          => new WP_Bootstrap_Navwalker(),
 			) );
 			?>
+			<?php if( $featured_posts = get_field( 'featured_post', 'option' ) ): 
+			foreach( $featured_posts as $post ): ?>
+			<div class="header-post">
+				<h6 class="header-post__tag">Featured</h6>
+				<a href="<?php echo get_the_permalink( $post ); ?>">
+					<div class="header-post__image gradient-overlay">
+						<?php $featured_image = get_the_post_thumbnail_url( $post ); ?>
+						<img src="<?php echo $featured_image; ?>" alt="<?php echo get_the_title( $post ); ?>">
+					</div>
+					<h6 class="header-post__title"><?php echo get_the_title( $post ); ?></h6>
+				</a>
+			</div>
+			<?php endforeach;
+			endif; ?>
 		</div>
 	</header>
 	<!-- End Header -->

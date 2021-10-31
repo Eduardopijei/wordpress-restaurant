@@ -23,14 +23,14 @@
         },
         {
             "key": "field_613659606b3f6",
-            "label": "Content Direction",
+            "label": "Horizontal Direction",
             "name": "content_direction",
             "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -39,6 +39,32 @@
             "ui": 1,
             "ui_on_text": "Left",
             "ui_off_text": "Right"
+        },
+        {
+            "key": "field_617edb03ca48d",
+            "label": "Vertical Direction",
+            "name": "vertical_direction",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "top": "Top",
+                "middle": "Middle",
+                "bottom": "Bottom"
+            },
+            "default_value": "middle",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_6136593a6b3f1",
@@ -53,7 +79,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "url",
+            "return_format": "array",
             "preview_size": "medium",
             "library": "all",
             "min_width": "",
@@ -87,7 +113,7 @@
             "key": "field_613659466b3f3",
             "label": "Heading",
             "name": "heading",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -98,9 +124,9 @@
             },
             "default_value": "",
             "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": "br"
         },
         {
             "key": "field_6136594b6b3f4",
@@ -154,5 +180,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635147985
+    "modified": 1635704414
 }
