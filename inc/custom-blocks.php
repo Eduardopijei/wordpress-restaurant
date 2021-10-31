@@ -49,6 +49,17 @@ function my_acf_init_block_types() {
             'icon'              => 'format-image',
             'keywords'          => array( 'content', 'background' ),
         ));
+
+        // Register Two Columns Alt
+        acf_register_block_type(array(
+            'name'              => 'two_columns_alt',
+            'title'             => __('Two Columns Alt'),
+            'description'       => __('Two Columns Alt'),
+            'render_template'   => 'template-parts/blocks/two-columns-alt/two-columns-alt.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'columns',
+            'keywords'          => array( 'two', 'columns' ),
+        ));
         /*********************************** ****************************************/
 
         // Register Title Text Block
