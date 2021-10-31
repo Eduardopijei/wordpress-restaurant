@@ -4,11 +4,11 @@
   padding-top: 90px;
 
   @include mq(tablet) {
-    padding-top: vw(80px);
+    padding-top: vw(148px);
   }
 
   @include mq(desktop-wide) {
-    padding-top: 80px;
+    padding-top: 148px;
   }
 
   .container {
@@ -30,22 +30,22 @@
     z-index: 1;
 
     @include mq(tablet) {
-      margin-bottom: vw(62px);
+      margin-bottom: vw(105px);
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
     }
 
     @include mq(desktop-wide) {
-      margin-bottom: 62px;
+      margin-bottom: 105px;
     }
   }
 
   &__heading {
-    @include typography(60px, 72px, 60px, 72px);
-    color: #1d1d1d;
+    @include typography(60px, 71px, 60px, 72px);
+    letter-spacing: -0.01em;
 
     @include mq(tablet, max) {
-      margin-bottom: 45px;
+      margin-bottom: 27px;
       text-align: center;
     }
   }
@@ -56,23 +56,28 @@
     }
 
     @include mq(tablet) {
-      margin-left: 30px;
-      max-width: vw(800px);
+      margin-left: vw(64px);
+      max-width: vw(580px);
+    }
+    @include mq(desktop-wide) {
+      margin-left: 64px;
+      max-width: 580px;
     }
   }
 
   &__subheading {
-    margin-bottom: 10px;
-    letter-spacing: 0.45em;
-    color: #232323;
+    margin-bottom: 40px;
+    @include mq(tablet) {
+      margin-bottom: 10px;
+    }
   }
 
   &__text {
-    @include square-dot();
-    color: #333;
-
+    font-size: 12px;
+    line-height: 21px;
+    color: #444;
     @include mq(tablet, max) {
-      margin-bottom: 73px;
+      display: none;
     }
   }
 
@@ -82,7 +87,10 @@
     z-index: 1;
 
     @include mq(tablet) {
-      margin-bottom: vw(70px);
+      margin-bottom: vw(30px);
+    }
+    @include mq(desktop-wide) {
+      margin-bottom: 30px;
     }
   }
 
@@ -145,13 +153,16 @@
 
   &__filter {
     @include heading6();
-    color: #0d0d0d;
+    color: #C4C4C4;
 
     @include mq(tablet) {
       margin: 0 vw(10px);
     }
-
+    &:hover {
+      color: $c-gray-18;
+    }
     &.active {
+      color: $c-gray-18;
       &::after {
         transform: scaleX(1);
       }
@@ -160,10 +171,32 @@
 
   &__slider {
     padding-top: 10px;
-    border-top: 1px solid $primary;
+    border-top: 1px solid $c-gray-18;
 
     @include mq(tablet) {
-      border-color: #bba888;
+      padding-top: 0;
+      border-top: none;
+    }
+    .slick-arrow {
+      top: -45px;
+      border: none;
+      width: auto;
+      height: auto;
+      path {
+        transition: stroke .3s ease-in-out;
+      }
+      &:hover {
+        path {
+          stroke: $primary;
+        }
+      }
+    }
+    .slick-prev {
+      left: 35px;
+      transform: scaleX(-1);
+    }
+    .slick-next {
+      right: 35px;
     }
   }
 

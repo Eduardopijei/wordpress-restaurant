@@ -52,10 +52,6 @@ $cta = get_field('cta');
         <div class="culinary-module__center a-up a-delay-3">
             <div class="culinary-module__filters">
                 <?php foreach ($terms as $term) : ?>
-                    <?php 
-                        $image = get_field('image', 'culinary_time' . '_' . $term->term_id); 
-                        $img_src = $image['sizes']['taxonomy-image'];
-                        ?>
                     <a href="#" class="cta cta-reverse culinary-module__filter" 
                         data-id="<?php echo $term->term_id; ?>"
                         data-filter=".<?php echo $term->slug; ?>"
@@ -76,12 +72,6 @@ $cta = get_field('cta');
             </div>
         </div>
         <?php endif; ?>
-        <div class="culinary-module__bg" style="background-image: url(<?php echo $img_src; ?>)">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
     </div>
     <?php 
     $args = array(

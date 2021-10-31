@@ -1,0 +1,36 @@
+.card-offer {
+  position: relative;
+  @include mq(tablet, max) {
+    margin: 0 5px;
+  }
+  &__image {
+    overflow: hidden;
+    &:hover {
+      img {
+        transform: scale(1.05);
+      }
+    }
+  }
+  &__bg {
+    display: block;
+    transition: transform .5s ease-in-out;
+  }
+  &__title {
+    position: absolute;
+    left: 0;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    @include typography(12px, 12px, 14px, 14px, 700, $f-text, $c-white);
+    letter-spacing: 0.19em;
+    text-transform: uppercase;
+    z-index: 1;
+    @include mq(tablet) {
+      bottom: vw(64px);
+      letter-spacing: 0.3em;
+    }
+    @include mq(desktop-wide) {
+      bottom: 64px;
+    }
+  }
+}

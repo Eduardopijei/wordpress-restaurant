@@ -39,6 +39,16 @@ function my_acf_init_block_types() {
             'keywords'          => array( 'media', 'content', 'two', 'images' ),
         ));
 
+        // Register Content Background Block
+        acf_register_block_type(array(
+            'name'              => 'content_background',
+            'title'             => __('Content Background'),
+            'description'       => __('Content Background'),
+            'render_template'   => 'template-parts/blocks/content-background/content-background.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'format-image',
+            'keywords'          => array( 'content', 'background' ),
+        ));
         /*********************************** ****************************************/
 
         // Register Title Text Block

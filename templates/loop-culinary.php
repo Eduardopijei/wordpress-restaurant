@@ -2,12 +2,12 @@
 $is_home = $args['is_home_module'];
 $id = get_the_ID();
 $image = get_field('image', $id);
-$img_src = $image['sizes']['offer-image'];
-$img_src_2x = $image['sizes']['offer-image-2x'];
+$img_src = $image['sizes']['single-culinary'];
+$img_src_2x = $image['sizes']['single-culinary-2x'];
 $title = get_the_title( $id );
 $cta = get_field('cta', $id);
 if( $is_home == true): 
-    $excerpt = get_field( 'description', $id ); 
+    $excerpt = get_field( 'description', $id ) ?: get_the_excerpt( $id ); 
 else:
     $excerpt = get_the_excerpt( $id ); 
 endif;

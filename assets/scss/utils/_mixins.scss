@@ -145,7 +145,7 @@
   text-transform: uppercase;
 }
 @mixin heading6() {
-  @include typography(12px, 14px, 14.77px, 24px, 700, $f-text);
+  @include typography(12px, 14px, 14.77px, 17.07px, 700, $f-text);
   letter-spacing: 1.68px;
   text-transform: uppercase;
 }

@@ -5,9 +5,9 @@
     <div class="container">
       <div class="newsletter-inner">
         <?php if( $heading = get_field( 'n_heading', 'options' ) ): ?>
-          <h3 class="newsletter-heading"><?php echo $heading; ?></h3>
+          <h3 class="newsletter-heading a-up"><?php echo $heading; ?></h3>
         <?php endif; ?>
-        <div class="newsletter-form">
+        <div class="newsletter-form a-up a-delay-1">
           <input type="text" class="form-control" placeholder="Your Email">
           <input type="submit" class="btn btn--accent form-submit" value="Stay Connected">
         </div>

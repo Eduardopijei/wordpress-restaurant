@@ -17,19 +17,15 @@ jQuery(document).ready(function() {
   isElementExist(".tab", initTab);
   isElementExist(".post-slider", initPostSlider);
   isElementExist(".menus-hours", initMenusHours);
-  isElementExist(".highlights", initHighlights);
   isElementExist(".media-content-accordion", initMediaContentAccordion);
   isElementExist(".media-content-tab", initMediaContentTab);
-  isElementExist(".hover-carousel", initHoverCarousel);
-  isElementExist(".hover-carousel__slider", initHoverCarouselSlider);
-  isElementExist(".hover-carousel-alt", initHoverCarousel);
-  isElementExist(".experience-gallery", initExperienceGallery);
   isElementExist(".culinary-module", initCulinaryModule);
   isElementExist(".rooms-carousel", initRoomsCarousel);
   isElementExist(".btn-amentities", loadAjaxAmentites);
   isElementExist(".people-slider", initPeopleSlider);
   isElementExist(".booking-popup", initBookingPopup);
   isElementExist("#sbi_images", initInstagramSlider);
+  isElementExist(".offers-module", initOffersModule);
 
   // viewportCheckerAnimate function
   viewportCheckerAnimate(".a-bg-up", "_animate");
@@ -43,8 +39,6 @@ jQuery(document).ready(function() {
   viewportCheckerAnimate(".a-right", "fadeInRight");
   viewportCheckerAnimate(".a-op", "fade");
   viewportCheckerAnimate(".a-b-up", "beforeHeightUp");
-
-  windowResize(initHighlights);
 
   $(document).on("click", ".img-a-img picture", function() {
     $(this).parent().addClass("active");
@@ -414,19 +408,6 @@ function initMenusHours() {
   });
 }
 
-// Init Highlights
-function initHighlights() {
-  if (window.matchMedia("(max-width: 768px)").matches) {
-    $(".highlights-grid").slick({
-      rows: 3,
-      dots: true,
-      arrows: false,
-    });
-  } else {
-    // $(".highlights-grid").slick("destroy");
-  }
-}
-
 // Init Media
 function initMediaContentAccordion() {
   $(".media-content__accordion--heading").on("click", function() {
@@ -442,97 +423,34 @@ function initMediaContentAccordion() {
   });
 }
 
-// Init Hover Carousel
-function initHoverCarousel() {
-  function hoverCarousel($this) {
-    let $parent = $this.closest(".hover-section");
-    let index = $this.attr("data-index");
-    if ($this.hasClass("active")) return false;
-    $(".hover-section__link.active", $parent).removeClass("active");
-    $this.addClass("active");
-    $(".hover-section__image.active", $parent).removeClass("active");
-    $(`.hover-section__image[data-index=${index}]`, $parent).addClass("active");
-    if ($('.hover-section__cta').length) {
-      $(".hover-section__cta", $parent).attr("href", $this.attr("href"));
-      $(".hover-section__cta", $parent).attr("target", $this.attr("target"));
-      $(".hover-section__cta", $parent).html($this.html());
-    }
-  }
-  $(".hover-section__link").on("mouseenter", function() {
-    if (window.matchMedia("(min-width: 769px)").matches) {
-      hoverCarousel($(this));
-      return false;
-    }
-  });
-
-  $(".hover-section__link").on("click, touchend", function() {
-    if (window.matchMedia("(max-width: 768px)").matches) {
-      hoverCarousel($(this));
-      return false;
-    }
-  });
-
-  $('.hover-section__select').on('change', function() {
-    let $parent = $(this).closest('.hover-section');
-    let index = $(this).val();
-    $('.hover-section__link.active', $parent).removeClass('active');
-    $('.hover-section__image.active', $parent).removeClass('active');
-    $(`.hover-section__link[data-index=${index}]`, $parent).addClass('active');
-    $(`.hover-section__image[data-index=${index}]`, $parent).addClass('active');
-  });
-}
-
-// Init Hover Carousel Slider
-function initHoverCarouselSlider() {
-  $(".hover-carousel__slider").slick({
-    arrows: false,
-    dots: true,
-    slidesToShow: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-  });
-}
-
-// Init Experience Gallery
-function initExperienceGallery() {
-  let $carousel = $(".experience-gallery__items");
-  if (window.matchMedia("(max-width: 768px)").matches) {
-    if (!$carousel.hasClass("slick-initialized")) {
-      $carousel.slick({
-        arrows: false,
-        dots: false,
-        centerMode: true,
-        centerPadding: "30px",
-        slidesToShow: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-      });
-    }
-  } else {
-    if ($carousel.hasClass("slick-initialized")) {
-      $carousel.slick("unslick");
-    }
-  }
-  windowResize(initExperienceGallery);
-}
-
 // Init culinary module
 function initCulinaryModule() {
   let $slider = $(".culinary-module__slider");
   if ($slider.length) {
     $slider.slick({
-      arrows: false,
+      arrows: true,
       dots: false,
       autoplay: true,
       autoplaySpeed: 3000,
       variableWidth: true,
       centerMode: true,
+      prevArrow: `<button class="slick-arrow slick-prev"><svg width="49" height="11" viewBox="0 0 49 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 6L49 6" stroke="#191919" stroke-width="2"/>
+      <path d="M44.1699 10.6788C44.3824 9.52314 44.9222 8.45281 45.7252 7.59495C46.5281 6.73708 47.5604 6.12775 48.6995 5.83936" stroke="#191919" stroke-width="2"/>
+      <path d="M44.1699 1C44.3827 2.1555 44.9226 3.22566 45.7255 4.08347C46.5284 4.94128 47.5606 5.55072 48.6995 5.83941" stroke="#191919" stroke-width="2"/>
+      </svg></button>`,
+      nextArrow: `<button class="slick-arrow slick-next"><svg width="49" height="11" viewBox="0 0 49 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 6L49 6" stroke="#191919" stroke-width="2"/>
+      <path d="M44.1699 10.6788C44.3824 9.52314 44.9222 8.45281 45.7252 7.59495C46.5281 6.73708 47.5604 6.12775 48.6995 5.83936" stroke="#191919" stroke-width="2"/>
+      <path d="M44.1699 1C44.3827 2.1555 44.9226 3.22566 45.7255 4.08347C46.5284 4.94128 47.5606 5.55072 48.6995 5.83941" stroke="#191919" stroke-width="2"/>
+      </svg></button>`,
       responsive: [{
-        breakpoint: 769,
+        breakpoint: 768,
         settings: {
+          arrows: false,
           slidesToShow: 1,
           variableWidth: false,
-          centerMode: false,
+          centerPadding: '30px'
         },
       }, ],
     });
@@ -565,6 +483,28 @@ function initCulinaryModule() {
       $slider.slick("slickUnfilter");
     }
   });
+}
+
+// Init Offers module
+function initOffersModule() {
+  let $slider = $('.offers-module__grid');
+  if (window.matchMedia('(max-width: 768px)').matches) {
+    if (!$slider.hasClass("slick-initialized")) {
+      $slider.slick({
+        arrows: false,
+        dots: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        centerMode: true,
+        centerPadding: '30px',
+      });
+    }
+  } else {
+    if ($slider.hasClass("slick-initialized")) {
+      $slider.slick('unslick');
+    }
+  }
+  windowResize(initOffersModule);
 }
 
 // Init Media Content Tab

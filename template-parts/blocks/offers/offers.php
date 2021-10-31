@@ -29,30 +29,26 @@ $offers = get_field('offers');
 $cta = get_field('cta');
 ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
-    <div class="container">
-        <div class="offers-module__info">
-            <?php if ($heading) : ?>
-                <h2 class="offers-module__heading a-up"><?php echo $heading; ?></h2>
-            <?php endif; ?>
-            <?php if( $sub_heading ): ?>
-                <h6 class="offers-module__subheading a-up a-delay-1"><?php echo $sub_heading; ?></h6>
-            <?php endif; ?>
-            <?php if( $desc ): ?>
-                <p class="offers-module__desc a-up a-delay-2">
-                    <?php echo $desc; ?>
-                </p>
-            <?php endif; ?>
+    <div class="title-text offers-module__info">
+        <div class="container">
+            <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'heading', 'o' => 'f', 't' => 'h2', 'tc' => 'offers-module__heading', 'w' => 'div', 'wc' => 'title-text__title a-up' ) ); ?>  
+            <div class="title-text__text a-up a-delay-1">
+            <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'sub_heading', 'o' => 'f', 't' => 'h6', 'tc' => 'offers-module__subheading' ) ); ?>  
+            <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'description', 'o' => 'f', 't' => 'p', 'tc' => 'offers-module__desc' ) ); ?>  
+            </div>
         </div>
+    </div>
+    <div class="container">
         <?php if ($offers) : ?>
         <div class="offers-module__grid">
-            <?php foreach ($offers as $post) :  
-                get_template_part( 'templates/loop', 'offer', array('post' => $post));
+            <?php foreach ($offers as $post) : 
+                get_template_part( 'templates/card', 'offer', array( 'post' => $post ) );
             endforeach; ?>
         </div>
         <?php endif; ?>
         <?php if ($cta) : ?>
             <div class="offers-module__btn--wrapper a-up">
-                <a href="<?php echo $cta['url']; ?>" class="btn offers-module__btn" target="<?php echo $cta['target']; ?>">
+                <a href="<?php echo $cta['url']; ?>" class="btn btn--primary offers-module__btn" target="<?php echo $cta['target']; ?>">
                     <?php echo $cta['title']; ?>
                 </a>
             </div>

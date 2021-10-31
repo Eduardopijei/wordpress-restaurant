@@ -318,7 +318,6 @@
   @include mq(tablet) {
     width: vw(1155px);
     max-height: 100vh;
-    background-image: url("../images/menu-bg.svg");
     box-shadow: 29px 0px 53px rgba(0, 0, 0, 0.1);
     transition: all 1s ease-in-out cubic-bezier(0.215, 0.61, 0.355, 1);
     transform: translateX(-100%);

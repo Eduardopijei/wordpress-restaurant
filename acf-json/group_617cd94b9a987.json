@@ -1,9 +1,9 @@
 {
-    "key": "group_61522da3c7593",
-    "title": "Block : Offers",
+    "key": "group_617cd94b9a987",
+    "title": "Block : Content + Background",
     "fields": [
         {
-            "key": "field_61522e9b15fd9",
+            "key": "field_617cd96b1b723",
             "label": "ID",
             "name": "id",
             "type": "text",
@@ -22,28 +22,9 @@
             "maxlength": ""
         },
         {
-            "key": "field_61522da915fd6",
+            "key": "field_617cd9711b724",
             "label": "Heading",
             "name": "heading",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": "br"
-        },
-        {
-            "key": "field_61714f1e4f2d6",
-            "label": "Sub Heading",
-            "name": "sub_heading",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -60,10 +41,10 @@
             "maxlength": ""
         },
         {
-            "key": "field_61714f274f2d7",
+            "key": "field_617cd9761b725",
             "label": "Description",
             "name": "description",
-            "type": "textarea",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -74,15 +55,15 @@
             },
             "default_value": "",
             "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
-            "key": "field_61522db115fd7",
-            "label": "Offers",
-            "name": "offers",
-            "type": "relationship",
+            "key": "field_617cd97e1b726",
+            "label": "CTAs",
+            "name": "ctas",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -91,23 +72,34 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "offer"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "elements": "",
-            "min": "",
-            "max": "",
-            "return_format": "id"
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_617cd9941b727",
+                    "label": "CTA",
+                    "name": "cta",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                }
+            ]
         },
         {
-            "key": "field_61522dc315fd8",
-            "label": "CTA",
-            "name": "cta",
-            "type": "link",
+            "key": "field_617cd99b1b728",
+            "label": "Background",
+            "name": "background",
+            "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -116,10 +108,19 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array"
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         },
         {
-            "key": "field_61525e10fa1dc",
+            "key": "field_617cd9a51b729",
             "label": "Style",
             "name": "",
             "type": "accordion",
@@ -136,7 +137,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_61525e16fa1dd",
+            "key": "field_617cd9ac1b72a",
             "label": "Gradient Opacity",
             "name": "gradient_opacity",
             "type": "range",
@@ -150,7 +151,7 @@
             },
             "default_value": "",
             "min": 25,
-            "max": "",
+            "max": 100,
             "step": 25,
             "prepend": "",
             "append": ""
@@ -161,7 +162,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/offers"
+                "value": "acf\/content-background"
             }
         ]
     ],
@@ -173,5 +174,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635692426
+    "modified": 1635572772
 }
