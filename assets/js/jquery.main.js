@@ -433,7 +433,6 @@ function initCulinaryModule() {
       autoplay: true,
       autoplaySpeed: 3000,
       variableWidth: true,
-      centerMode: true,
       prevArrow: `<button class="slick-arrow slick-prev"><svg width="49" height="11" viewBox="0 0 49 11" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 6L49 6" stroke="#191919" stroke-width="2"/>
       <path d="M44.1699 10.6788C44.3824 9.52314 44.9222 8.45281 45.7252 7.59495C46.5281 6.73708 47.5604 6.12775 48.6995 5.83936" stroke="#191919" stroke-width="2"/>
@@ -445,11 +444,13 @@ function initCulinaryModule() {
       <path d="M44.1699 1C44.3827 2.1555 44.9226 3.22566 45.7255 4.08347C46.5284 4.94128 47.5606 5.55072 48.6995 5.83941" stroke="#191919" stroke-width="2"/>
       </svg></button>`,
       responsive: [{
-        breakpoint: 768,
+        breakpoint: 769,
         settings: {
           arrows: false,
           slidesToShow: 1,
+          slidesToScroll: 1,
           variableWidth: false,
+          centerMode: true,
           centerPadding: '30px'
         },
       }, ],

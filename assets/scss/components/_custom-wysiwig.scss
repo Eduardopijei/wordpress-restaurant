@@ -1,7 +1,7 @@
 .custom-wysiwig {
   h1 {
     margin-bottom: 35px;
-
+    @include typography(44px, 96px, 44px, 87px);
     @include mq(tablet) {
       margin-bottom: vw(30px);
     }
@@ -9,7 +9,7 @@
 
   h2 {
     margin-bottom: 35px;
-
+    @include typography(32px, 68px, 36px, 78px);
     @include mq(tablet) {
       margin-bottom: vw(35px);
     }
@@ -17,7 +17,7 @@
 
   h3 {
     margin-bottom: 35px;
-
+    @include typography(28px, 44px, 44px, 69px);
     @include mq(tablet) {
       margin-bottom: vw(50px);
     }
@@ -25,7 +25,7 @@
 
   h4 {
     margin-bottom: 30px;
-
+    @include typography(24px, 32px, 28px, 32px);
     @include mq(tablet) {
       margin-bottom: vw(45px);
     }
@@ -42,7 +42,7 @@
   h6 {
     margin: 0 auto 30px;
     max-width: 250px;
-    
+
     @include mq(tablet) {
       max-width: none;
       margin-bottom: vw(11px);
@@ -61,9 +61,11 @@
     @include mq(tablet) {
       min-width: 240px;
     }
+
     &-outline {
       border-color: $c-gray-21;
       color: $c-black;
+
       &:hover {
         border-color: $primary;
         background-color: $primary;
@@ -83,8 +85,22 @@
 
   .link {
     color: $c-black;
+
     &::after {
       border-color: $c-black;
     }
+  }
+}
+
+#page-info {
+  h1 {
+    @include mq(tablet, max) {
+      font-size: 44px;
+      color: $c-black !important;
+    }
+  }
+  p {
+    font-size: 12px;
+    line-height: 21px;
   }
 }

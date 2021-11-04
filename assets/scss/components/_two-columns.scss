@@ -5,30 +5,39 @@
       display: flex;
     }
   }
+
   .col {
     padding: 0;
+
     @include mq(tablet) {
       padding: 0 vw(70px);
       flex: 0 0 50%;
     }
+
     @include mq(desktop-wide) {
       padding: 0 70px;
     }
+
     &-left {
       margin-bottom: 70px;
+
       @include mq(tablet) {
         margin-bottom: 0;
       }
     }
-    a:not(.btn,.cta,.link) {
+
+    a:not(.btn, .cta, .link) {
       color: $primary;
+
       &:hover {
         color: $accent;
       }
     }
   }
+
   .line {
     display: none;
+
     @include mq(tablet) {
       display: block;
       position: absolute;
@@ -40,6 +49,7 @@
       background-color: $c-black;
     }
   }
+
   h1,
   h2,
   h3,
@@ -48,22 +58,32 @@
   h6 {
     margin-bottom: 1em;
   }
+
   h6 {
     color: #181818;
   }
+
   p {
+    color: $c-black;
     @include mq(tablet) {
       max-width: vw(476px);
     }
   }
+
   .btn {
-    @include mq(tablet, max) {
-      margin-bottom: 10px
+    margin-bottom: 10px;
+    max-width: 325px;
+    width: 100%;
+    @include mq(desktop) {
+      max-width: 230px
     }
   }
+
   @include listStyle();
+
   .cta {
     color: $c-gray-26;
+
     &::after {
       border-color: $c-black;
     }

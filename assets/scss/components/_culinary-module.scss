@@ -41,7 +41,7 @@
   }
 
   &__heading {
-    @include typography(60px, 71px, 60px, 72px);
+    @include typography(50px, 71px, 60px, 72px);
     letter-spacing: -0.01em;
 
     @include mq(tablet, max) {
@@ -177,11 +177,15 @@
       padding-top: 0;
       border-top: none;
     }
+    .slick-track  { 
+      display: flex;
+    }
     .slick-arrow {
-      top: -45px;
+      top: vw(-45px);
       border: none;
       width: auto;
       height: auto;
+      z-index: 2;
       path {
         transition: stroke .3s ease-in-out;
       }

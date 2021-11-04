@@ -26,9 +26,12 @@
       position: absolute;
       content: '';
       transition: all .3s ease-in-out;
+      bottom: 60px;
+      width: svw(78px);
+      transform: scaleX(0);
+      border-bottom: 1px solid $c-white;
       @include mq(tablet) {
         width: vw(230px);
-        border-bottom: 1px solid $c-white;
         top: 50%;
         transform: translateY(-50%) scaleX(0);
       }
@@ -43,7 +46,10 @@
     }
     &.animation-end::before,
     &.animation-end::after {
-      transform: translateY(-50%) scaleX(1);
+      transform: scaleX(1);
+      @include mq(tablet) {
+        transform: translateY(-50%) scaleX(1);
+      }
     }
     img {
       width: 245px;
@@ -65,6 +71,10 @@
       display: flex;
       text-align: left;
       justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    @include mq(desktop) {
+      flex-wrap: nowrap;
     }
   }
   &-item {
@@ -96,12 +106,22 @@
   }
   &-contact {
     @include mq(tablet) {
+      flex: 0 0 calc(100% / 3);
+    }
+    @include mq(desktop) {
+      flex: auto;
       margin-right: vw(35px);
     }
   }
   &-address {
     @include mq(tablet) {
+      flex: 0 0 calc(100% / 3);
+      padding-left: vw(15px);
+    }
+    @include mq(desktop) {
+      flex: auto;
       margin-right: vw(32px);
+      padding-left: 0;
     }
   }
   &-partners {
@@ -156,11 +176,20 @@
       }
     }
   }
+  &-social {
+    @include mq(tablet) {
+      flex: 0 0 calc(100% / 3);
+      padding-left: vw(15px);
+    }
+    @include mq(desktop) {
+      flex: auto;
+      padding-left: 0;
+    }
+  }
   .social-items {
     @include mq(tablet, max) {
       column-count: 2;
     }
-    
     .social-link {
       margin-bottom: 1em;
       font: 700 12px/1 $f-text;
@@ -173,12 +202,16 @@
   &-menu {
     margin-bottom: 40px;
     @include mq(tablet) {
-      flex-grow: 1;
-      max-width: vw(610px);
-      margin-bottom: 0;
-      margin-right: vw(38px);
+      flex: 0 0 100%;
+      margin-bottom: 20px;
       column-count: 3;
       column-gap: vw(30px);
+    }
+    @include mq(desktop) {
+      flex-grow: 1;
+      max-width: vw(610px);
+      margin-right: vw(38px);
+      margin-bottom: 0;
     }
     @include mq(desktop-wide) {
       max-width: 610px;
@@ -189,8 +222,8 @@
       font: 700 12px/1 $f-text;
       text-transform: uppercase;
       letter-spacing: 0.3em;
-      color: $c-white;
-      @include buttonUnderline(1px, $c-white);
+      color: #f9f9f9;
+      @include buttonUnderline(1px, #f9f9f9);
     }
   }
   &-bottom {

@@ -20,3 +20,7 @@
       ((100vw - #{$mobile-viewport}) / #{$viewport-diff})
   );
 }
+// Calculate heightPercent
+@function hp($width, $height) {
+  @return ($height / $width) * 100%;
+}

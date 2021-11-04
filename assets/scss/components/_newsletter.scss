@@ -25,6 +25,7 @@
     text-transform: none;
     @include mq(tablet, max) {
       margin: 0 -20px 20px -20px;
+      color: #0f0f0f;
     }
   }
   &-form {
@@ -52,6 +53,7 @@
   }
   .form-submit {
     letter-spacing: 0;
+    appearance: none;
     @include typography(8px, 12px, 30px, 38px, 700, $f-text, $c-white);
     @include mq(tablet, max) {
       padding: 0 20px;

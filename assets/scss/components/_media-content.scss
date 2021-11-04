@@ -67,11 +67,32 @@
       }
     }
   }
-
+  &.top {
+    .container {
+      @include mq(tablet) {
+        align-items: flex-start;
+      }
+    }
+  }
+  &.bottom {
+    .container {
+      @include mq(tablet) {
+        align-items: flex-end;
+      }
+    }
+  }
+  &.no-padding {
+    .container {
+      @include mq(tablet) {
+        padding: 0;
+      }
+    }
+  }
   .container {
     @include mq(tablet) {
       display: flex;
       align-items: center;
+
     }
   }
 
@@ -91,6 +112,18 @@
 
     @include mq(desktop-wide) {
       height: 795px;
+    }
+
+    @include when-inside(".no-padding") {
+      @include mq(tablet) {
+        margin-right: vw(65px);
+        width: vw(728px);
+        height: vw(850px);
+      }
+      @include mq(desktop-wide) {
+        margin-right: 65px;
+        height: 850px;
+      }
     }
 
     @include when-inside(".media-content--left") {
@@ -131,36 +164,6 @@
       }
     }
 
-    @include when-inside(".media-content-map") {
-      position: inherit;
-      width: 300px;
-      height: 611px;
-
-      @include mq(tablet, max) {
-        margin-top: 10px;
-        margin-right: auto;
-      }
-
-      @include mq(tablet) {
-        width: auto;
-      }
-
-      &--inner {
-        @include mq(tablet) {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: vw(572px);
-          height: vw(1136px);
-        }
-
-        @include mq(desktop-wide) {
-          width: 572px;
-          height: 1136px;
-        }
-      }
-    }
-
     @include when-inside(".media-content-tab") {
       @include mq(tablet, max) {
         margin-top: 20px;
@@ -178,11 +181,11 @@
       padding-top: 500px;
 
       @include mq(tablet) {
-        padding-top: 136%;
+        padding-top: hp(730, 850);
       }
 
       @include mq(desktop-wide) {
-        padding-top: 795px;
+        padding-top: 850px;
       }
 
       @include when-inside(".media-content-intro") {
@@ -295,7 +298,7 @@
       text-align: center;
     }
     @include mq(tablet) {
-      max-width: 100%;
+      max-width: vw(520px);
 
       @include when-inside(".media-content--left") {
         margin-right: vw(100px);
@@ -333,8 +336,8 @@
 
   &__title {
     margin-bottom: 30px;
+    @include typography(42px, 66px, 42px, 66px, 400, $f-heading, $c-gray-18);
     letter-spacing: -0.04em;
-    color: $c-gray-18;
     font-style: normal;
 
     @include when-inside(".media-content-intro") {
@@ -471,12 +474,12 @@
       }
     }
     h6 {
-      color: $c-gray-21;
+      color: $c-gray-18;
       margin-bottom: 30px;
     }
     p {
       letter-spacing: 0.01em;
-
+      color: $c-black;
       @include when-inside(".media-content-map") {
         color: #333;
       }

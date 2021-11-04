@@ -86,6 +86,9 @@
     @include mq(tablet) {
       display: none;
     }
+    @include when-inside('.mobile') {
+      bottom: 60px;
+    }
   }
   .scroll-link {
     position: relative;

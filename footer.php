@@ -125,7 +125,7 @@
   </div>
 </div>
 <!-- Booking Popup -->
-<div class="booking-popup">
+<!-- <div class="booking-popup">
   <div class="booking-popup__inner">
     <div class="booking-popup__links">
       <a href="#" class="booking-popup__link cta cta-reverse active">Stay</a>
@@ -175,6 +175,6 @@
       <a href="#" class="link" id="booking_cancel">Modify or Cancel</a>
     </div>
   </div>
-</div>
+</div> -->
 <?php wp_footer(); ?>
 

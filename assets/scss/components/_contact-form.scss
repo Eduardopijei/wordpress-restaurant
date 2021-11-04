@@ -6,7 +6,9 @@
     @include typography(42px, 64px, 40px, 64px, 400, $f-heading, $c-gray-2f);
 
     font-style: normal;
-
+    @include mq(tablet, max) {
+      font-size: $c-gray-0d;
+    }
     @include mq(tablet) {
       margin-bottom: vw(63px);
     }
@@ -43,25 +45,27 @@
       display: block;
       margin-bottom: 7px;
       font: 400 14px/21px $f-text;
-      color: #0d0d0d;
+      color: $c-gray-0d;
     }
   }
   .form-control {
     display: block;
     padding: 12px 15px;
-    font: 600 12px/24px $f-text;
+    font: 700 12px/24px $f-text;
     letter-spacing: 0.12em;
-    color: #0d0d0d;
+    color: $c-gray-0d;
     text-transform: uppercase;
     border: 1px solid #212121;
     border-radius: 0;
     background-color: #0000;
     width: 100%;
     transition: all 0.3s ease-in-out;
-  }
-  .form-control {
+    @include mq(tablet, max) {
+      font-size: 11px;
+      color: $c-gray-18;
+    }
     &::placeholder {
-      color: #0d0d0d;
+      color: $c-gray-18;
     }
     &:focus {
       border-color: $accent;
@@ -117,7 +121,7 @@
     padding: 12px 15px;
     &::after {
       right: 15px;
-      border-top-color: #0d0d0d;
+      border-top-color: $c-gray-0d;
     }
     &-drop {
       top: 40px;

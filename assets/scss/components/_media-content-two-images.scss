@@ -73,6 +73,10 @@
     .sub-heading {
       margin-bottom: 18px;
       letter-spacing: 0;
+      @include mq(tablet, max) {
+        font-size: 14px;
+        line-height: 16px;
+      }
       @include mq(tablet) {
         margin-bottom: vw(60px);
       }
@@ -80,7 +84,7 @@
     .heading {
       margin-bottom: 23px;
       order: -1;
-      @include typography(48px, 59px, 44px, 53px);
+      @include typography(48px, 59px, 52px, 64px);
       @include mq(tablet) {
         margin-bottom: vw(60px);
       }
@@ -92,6 +96,10 @@
       }
       p:not(:last-child) {
         margin-bottom: 1em;
+        @include mq(tablet, max) {
+          font-size: 14px;
+          line-height: 21px;
+        } 
       }
     }
     .buttons {

@@ -21,7 +21,7 @@
     bottom: 15px;
     width: 100%;
     text-align: center;
-    @include typography(12px, 12px, 14px, 14px, 700, $f-text, $c-white);
+    @include typography(12px, 14px, 12px, 14px, 700, $f-text, $c-white);
     letter-spacing: 0.19em;
     text-transform: uppercase;
     z-index: 1;

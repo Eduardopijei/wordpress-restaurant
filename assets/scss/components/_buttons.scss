@@ -50,6 +50,17 @@
         color: $c-white;
       }
     }
+    &__dark {
+      border-color: $c-black;
+      color: $c-black;
+      @include mq(tablet) {
+        &:hover {
+          background-color: $primary;
+          border-color: $primary;
+          color: $c-white;
+        }
+      }
+    }
   }
 }
 .btn-booking {
@@ -65,7 +76,7 @@
   position: relative;
   display: inline-block;
   padding-bottom: 5px;
-  font: 600 14px/16.8px $f-text;
+  font: 700 14px/16.8px $f-text;
   letter-spacing: 0.3em;
   text-align: center;
   text-transform: uppercase;

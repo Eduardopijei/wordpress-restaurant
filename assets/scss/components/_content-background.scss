@@ -89,14 +89,14 @@
       max-width: 490px;
     }
     a {
-      &:not(:nth-child(1)) {
-        border-top-width: 0;
-      }
-
+      font-size: 10px;
+      line-height: 28px;
+      letter-spacing: 3.6px;
       @include mq(tablet) {
         border-color: $c-gray-21;
         background-color: $c-white;
         color: $c-black;
+        letter-spacing: 2.6px;
         &:nth-child(1),
         &:nth-child(2) {
           border-top-width: 1px;
@@ -114,6 +114,7 @@
         &:nth-child(even) {
           border-left-width: 0;
         }
+        
       }
     }
   }

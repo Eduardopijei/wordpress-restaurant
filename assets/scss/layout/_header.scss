@@ -104,7 +104,7 @@
   &-cta.btn {
     position: relative;
     border-color: $accent;
-    font-weight: 600;
+    font-weight: 700;
 
     @include mq(tablet, max) {
       display: none !important;
@@ -112,8 +112,12 @@
 
     @include mq(tablet) {
       display: block;
-      margin-left: vw(40px);
+      margin-left: auto;
+    }
+
+    @include mq(desktop) {
       width: 280px;
+      margin-left: vw(40px);
     }
 
     @include when-inside(".mobile") {
@@ -163,6 +167,10 @@
     @include mq(desktop-wide) {
       left: 120px;
       bottom: 125px;
+    }
+
+    @include when-inside('.mobile') {
+      display: none;
     }
 
     &__tag {
@@ -354,7 +362,7 @@
   .main-menu__wrapper {
     margin-left: auto;
 
-    @include mq(tablet, max) {
+    @include mq(desktop, max) {
       display: none;
     }
   }
@@ -453,10 +461,10 @@
   }
 
   .menu-mobile-menu-container {
-    text-align: right;
-    padding: 45px 50px 45px 35px;
+    padding: 43px 50px 40px 35px;
 
     @include mq(tablet) {
+      text-align: right;
       padding: vw(40px) vw(187px);
     }
 
@@ -493,7 +501,7 @@
           position: absolute;
           content: "";
           top: 50%;
-          right: -27px;
+          left: -20px;
           width: 0;
           height: 0;
           border-width: 11px 5.5px 0 5.5px;
@@ -503,6 +511,7 @@
           transition: transform 0.3s ease-in-out;
 
           @include mq(tablet) {
+            left: auto;
             right: vw(-34px);
             border-width: 16px 8px 0 8px;
           }
@@ -553,7 +562,7 @@
 
     &--secondary a {
       margin-bottom: 1em;
-      @include typography(11px, 14px, 13.54px, 17.23px, 600, $f-text, $accent);
+      @include typography(12px, 14px, 13.54px, 17.23px, 600, $f-text, $accent);
       text-transform: uppercase;
       letter-spacing: 0.41em;
     }

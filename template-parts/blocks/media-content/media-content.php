@@ -26,6 +26,7 @@ $image = get_field('image');
 $video = get_field('video');
 if ($direction == true) $className .= ' media-content--left';
 $className .= ' ' . get_field('vertical_direction') ?: 'middle';
+$className .= (get_field('content_padding') == false) ? ' no-padding' : '';
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <div class="container">

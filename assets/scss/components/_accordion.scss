@@ -10,6 +10,9 @@
   }
   h3.accordions-heading {
     @include typography(32px, 52px, 28px, 68px, 400, $f-heading, $c-gray-2f);
+    @include mq(tablet, max) {
+      color: $c-gray-08
+    }
   }
   h6.accordions-heading {
     @include typography(14px, 16px, 17.23px, 19.7px, 600, $f-text, #212121);
@@ -33,9 +36,8 @@
   &-title {
     position: relative;
     padding: 15px 40px 15px 15px;
-    font: 600 14px/17.23px $f-text;
-    letter-spacing: 0.25em;
-    color: #181818;
+    @include typography(12px, 14px, 12px, 17.23px, 700, $f-text, $c-gray-18);
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -94,7 +96,10 @@
       color: $c-gray-2f;
     }
     h4 {
-      @include typography(26px, 30px, 28px, 64px, 400, $f-heading, $c-gray-2f);
+      @include typography(22px, 30px, 28px, 64px, 400, $f-heading, $c-gray-2f);
+      @include mq(tablet ,max) {
+        color: $c-gray-08;
+      }
     }
 
     @include listStyle();
@@ -102,6 +107,11 @@
       margin: 30px auto 0;
       max-width: 350px;
       text-align: left;
+      li {
+        @include mq(tablet, max) {
+          text-align: left !important;
+        }
+      }
     }
   }
 }

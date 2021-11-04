@@ -6,7 +6,7 @@
   }
   &__heading {
     margin-bottom: 20px;
-    @include typography(48px, 84px, 48px, 75px);
+    @include typography(42px, 84px, 42px, 75px);
     letter-spacing: -0.04em;
     @include mq(tablet) {
       margin-bottom: 15px;
