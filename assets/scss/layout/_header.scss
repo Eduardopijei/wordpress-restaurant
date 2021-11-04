@@ -127,33 +127,30 @@
       }
     }
 
+
     @include mq(desktop-wide) {
       margin-left: 40px;
     }
   }
 
   &-cta--mobile.btn {
-    position: fixed;
-    padding: 11px 20px;
-    left: 50%;
-    bottom: 0;
-    background: #A98442;
-    color: $c-white;
-    border: none;
-    transform: translateX(-50%);
-    width: 100%;
-    z-index: 10;
-
-    @include mq(phablet) {
-      width: auto;
-      min-width: 375px;
-    }
+    margin-top: 80px;
+    width: 300px;
 
     @include mq(tablet) {
-      display: none !important;
+      display: none;
     }
   }
-
+  &-social {
+    margin-top: 50px;
+    a,
+    span {
+      font: 700 12px/1 $f-text;
+      letter-spacing: 0.23em;
+      color: $primary;
+      text-transform: uppercase;
+    }
+  }
   &-post {
     position: absolute;
     display: none;
@@ -460,7 +457,7 @@
     }
   }
 
-  .menu-mobile-menu-container {
+  .menu-mobile__wrapper {
     padding: 43px 50px 40px 35px;
 
     @include mq(tablet) {

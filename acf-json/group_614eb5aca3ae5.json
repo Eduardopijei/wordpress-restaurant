@@ -248,7 +248,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_617684f692812",
@@ -263,7 +263,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 }
             ]
         },
@@ -521,5 +521,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635558569
+    "modified": 1636010179
 }

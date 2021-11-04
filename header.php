@@ -88,16 +88,42 @@
 				</a>
 				<?php endif; ?>
 			</div>
-			<?php 
-			wp_nav_menu( array(
-				'menu' => 'Mobile Menu',
-				'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
-				'container'       => 'div',
-				'menu_class'      => 'menu-items',
-				'fallback_cb'     => false,
-				'walker'          => new WP_Bootstrap_Navwalker(),
-			) );
-			?>
+			<div class="menu-mobile__wrapper">
+				<?php 
+				wp_nav_menu( array(
+					'menu' => 'Mobile Menu',
+					'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+					'container'       => 'div',
+					'menu_class'      => 'menu-items',
+					'fallback_cb'     => false,
+					'walker'          => new WP_Bootstrap_Navwalker(),
+				) );
+				?>
+				<?php if( have_rows( 'header_social', 'options' ) ): 
+					while( have_rows( 'header_social', 'options' ) ) : the_row(); 
+					$instagram = get_sub_field( 'instagram' );
+					$facebook = get_sub_field('facebook'); ?>
+					<div class="header-social">
+						<?php if( $instagram ): ?>
+						<a href="<?php echo $instagram; ?>" class="" target="_blank">
+							Instagram
+						</a>
+						<?php endif; ?>
+						<?php if( $facebook && $instagram ): ?>
+							<span>//</span>
+						<?php endif; ?>
+						<?php if ($facebook) : ?>
+						<a href="<?php echo $facebook; ?>" class="" target="_blank">
+							Facebook
+						</a>
+						<?php endif; ?>
+					</div>
+				<?php endwhile;
+				endif; ?>
+				<button class="btn btn--accent header-cta--mobile btn-modal" data-target="#modal-booking">
+					Check Availability
+				</button>
+			</div>
 			<?php if( $featured_posts = get_field( 'featured_post', 'option' ) ): 
 			foreach( $featured_posts as $post ): ?>
 			<div class="header-post">
