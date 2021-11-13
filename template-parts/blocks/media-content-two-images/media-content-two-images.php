@@ -10,7 +10,7 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = get_field('id') ? get_field('id') : 'media-content-two-images-' . $block['id'];
+$id = get_field('id') ? get_field('id') : 'media-two-images-' . $block['id'];
 
 // Create class attribute allowing for custom "className" and "align" values.
 $className = 'media-two-images';

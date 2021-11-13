@@ -61,7 +61,7 @@
 			) );
 			?>
 			<button class="btn btn--accent header-cta btn-modal" data-target="#modal-booking">
-				Check Availability
+				Come Stay!
 			</button>
 			<button class="booking-popup__close">
 				<svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -121,7 +121,7 @@
 				<?php endwhile;
 				endif; ?>
 				<button class="btn btn--accent header-cta--mobile btn-modal" data-target="#modal-booking">
-					Check Availability
+					Come Stay!
 				</button>
 			</div>
 			<?php if( $featured_posts = get_field( 'featured_post', 'option' ) ): 

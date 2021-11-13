@@ -60,6 +60,17 @@ function my_acf_init_block_types() {
             'icon'              => 'columns',
             'keywords'          => array( 'two', 'columns' ),
         ));
+
+        // Register Two Columns Alt
+        acf_register_block_type(array(
+            'name'              => 'boston_module',
+            'title'             => __('Boston'),
+            'description'       => __('Boston'),
+            'render_template'   => 'template-parts/blocks/boston/boston.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'align-pull-right',
+            'keywords'          => array( 'boston' ),
+        ));
         /*********************************** ****************************************/
 
         // Register Title Text Block

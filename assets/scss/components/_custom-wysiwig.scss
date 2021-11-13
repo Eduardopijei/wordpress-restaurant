@@ -10,6 +10,7 @@
   h2 {
     margin-bottom: 35px;
     @include typography(32px, 68px, 36px, 78px);
+    font-style: normal;
     @include mq(tablet) {
       margin-bottom: vw(35px);
     }
@@ -58,6 +59,7 @@
   }
 
   .btn {
+    min-width: 275px;
     @include mq(tablet) {
       min-width: 240px;
     }

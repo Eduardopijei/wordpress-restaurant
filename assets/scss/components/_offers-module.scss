@@ -16,6 +16,7 @@
   &__subheading {
     margin-bottom: 17px;
     letter-spacing: 0;
+    letter-spacing: 0.15em;
     @include mq(tablet) {
       letter-spacing: 0.25em;
     }

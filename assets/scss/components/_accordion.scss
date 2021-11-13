@@ -26,10 +26,14 @@
 }
 .accordion {
   margin-bottom: 14px;
+  border: 1px solid #4a4a4a;
+  @include mq(tablet, max) {
+    border-left: 0;
+    border-right: 0;
+  }
   @include mq(tablet) {
     margin-bottom: 20px;
   }
-  border: 1px solid #4a4a4a;
   &:last-child {
     margin-bottom: 0;
   }

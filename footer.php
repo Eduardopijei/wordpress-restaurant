@@ -63,6 +63,9 @@
             <?php while (have_rows('social', 'option')) : the_row();  
             if( $link = get_sub_field('link') ) :?>
               <li class="social-item">
+                <?php if( get_row_index() % 2 == 0 ): ?>
+                  <span class="divider">//</span>
+                <?php endif; ?>
                 <a href="<?php echo $link['url']; ?>" class="social-link" target="_blank">
                   <?php echo $link['title']; ?>
                 </a>
@@ -77,7 +80,9 @@
       <?php endif; ?>
     </div>
   </div>
-  <?php if( have_rows( 'partners', 'option' ) ): ?>
+  <?php 
+  $count = count(get_field('partners', 'option'));
+  if( have_rows( 'partners', 'option' ) ): ?>
   <div class="footer-partners a-up a-delay-2">
     <?php while( have_rows( 'partners', 'option' ) ): the_row( );
       $link = get_sub_field( 'link' );
@@ -85,6 +90,9 @@
       <a href="<?php echo $link; ?>" class="footer-partners__link" target="_blank">
         <img src="<?php echo $logo; ?>" alt="">
       </a>
+      <?php if (get_row_index() == $count - 2) : ?>
+        <span class="divider"></span>
+      <?php endif; ?>
     <?php endwhile; ?> 
   </div>
   <?php endif; ?>

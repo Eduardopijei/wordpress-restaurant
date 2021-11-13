@@ -73,11 +73,27 @@
         align-items: flex-start;
       }
     }
+    .media-content__content {
+      @include mq(tablet) {
+        padding-top: vw(50px);
+      }
+      @include mq(desktop-wide) {
+        padding-top: 50px;
+      }
+    }
   }
   &.bottom {
     .container {
       @include mq(tablet) {
         align-items: flex-end;
+      }
+    }
+    .media-content__content {
+      @include mq(tablet) {
+        padding-bottom: vw(50px);
+      }
+      @include mq(desktop-wide) {
+        padding-bottom: 50px;
       }
     }
   }

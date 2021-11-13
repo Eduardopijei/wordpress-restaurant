@@ -61,6 +61,7 @@
 
   h6 {
     color: #181818;
+    letter-spacing: 0.25em;
   }
 
   p {
@@ -86,6 +87,36 @@
 
     &::after {
       border-color: $c-black;
+    }
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    .link {
+      @include typography(12px, 14px, 21px, 21px, 400, $f-text, $c-gray-18);
+      @include mq(tablet) {
+        color: $c-black;
+      }
+      &::after {
+        content: none;
+      }
+    }
+    .separater {
+      width: 1px;
+      height: 24px;
+      margin: 0 15px;
+      background-color: $c-gray-18;
+      @include mq(tablet) {
+        margin: 0 26px 0 32px;
+        height: 32px
+      }
+    }
+    .cta {
+      @include typography(12px, 14px, 12px, 14px, 700, $f-text, $c-gray-18);
+      @include mq(tablet) {
+        font-style: italic;
+      }
     }
   }
 }

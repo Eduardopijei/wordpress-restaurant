@@ -67,7 +67,7 @@
 			<?php $bg_url_2x = $image['sizes'][$image_size_2x]; ?>
 			<img <?php echo $class; ?> 
 				src="<?php echo $bg_url; ?>" 
-				srcset="<?php echo $bg_url_2x; ?> 2x" 
+				<?php if( $bg_url_2x ): ?>srcset="<?php echo $bg_url_2x; ?> 2x"<?php endif; ?>
 				alt="<?php echo $image['alt']; ?>" 
 				title="<?php echo $image['title'] ?>">
 		<?php if( $ww ): ?>

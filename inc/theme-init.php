@@ -78,18 +78,27 @@ add_filter('widget_text', 'do_shortcode');
 // Image Sizes
 add_image_size( 'two-images-big', 630, 984, true );
 add_image_size( 'two-images-big-2x', 1260, 1968, true );
+
 add_image_size( 'two-images-small', 440, 620, true );
 add_image_size( 'two-images-small-2x', 880, 1240, true );
+
 add_image_size( 'culinary-slider', 442, 663, true );
 add_image_size( 'culinary-slider-2x', 884, 1326, true );
+
 add_image_size( 'single-culinary', 584, 729, true );
 add_image_size( 'single-culinary-2x', 1168, 1458, true );
+
 add_image_size( 'offer-module', 570, 700, true );
 add_image_size( 'offer-module-2x', 1140, 1400, true );
+
 add_image_size( 'post-module', 570, 425, true );
 add_image_size( 'post-module-2x', 570, 850, true );
+
 add_image_size( 'slide-image', 1210, 665, true );
 add_image_size( 'slide-image-2x', 2420, 1330, true );
+
+add_image_size( 'boston-module', 500, 600, true );
+add_image_size( 'boston-module-2x', 1000, 1200, true );
 
 //show_admin_bar(false);
 //define( 'WPCF7_AUTOP', false );

@@ -264,3 +264,41 @@
     }
   }
 }
+
+
+
+@mixin triangle($direction, $color, $width, $height) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+  @if $direction == bottom {
+    border-width: $height $width/2 0 $width/2;
+    border-top-color: $color;
+  }
+  @else if $direction == top {
+    border-width: 0 $width/2 $height $width/2;
+    border-bottom-color: $color;
+  }
+  @else if $direction == left {
+    border-width: $height/2 $width $height/2 0;
+    border-right-color: $color;
+  }
+  @else {
+    border-width: $height/2 0 $height/2 $width;
+    border-left-color: $color;
+  }
+}
+
+
+@mixin element-hidden() {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+@mixin element-show() {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transition: all .3s ease-in-out;
+}

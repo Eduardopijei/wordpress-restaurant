@@ -152,6 +152,7 @@
   }
 
   &__filter {
+    padding-bottom: 0;
     @include heading6();
     color: #C4C4C4;
 
@@ -160,6 +161,9 @@
     }
     &:hover {
       color: $c-gray-18;
+    }
+    &::after {
+      content: none;
     }
     &.active {
       color: $c-gray-18;
@@ -196,6 +200,7 @@
       }
     }
     .slick-prev {
+      display: none !important;
       left: 35px;
       transform: scaleX(-1);
     }

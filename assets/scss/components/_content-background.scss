@@ -45,13 +45,16 @@
     text-align: center;
     @include mq(tablet) {
       text-align: right;
-      max-width: vw(600px);
+      width: vw(600px);
     }
   }
   &__heading {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     @include typography(42px, 79px, 42px, 72px, 400, $f-heading);
     letter-spacing: -0.04em;
+    @include mq(tablet, max) {
+      font-style: normal;
+    }
     @include mq(tablet) {
       margin-bottom: vw(30px);
       color: $c-white;
@@ -63,6 +66,7 @@
   }
   &__description {
     margin-bottom: 40px;
+    letter-spacing: 0.2em;
     @include mq(tablet) {
       margin-bottom: 0;
       color: $c-white;
@@ -92,6 +96,11 @@
       font-size: 10px;
       line-height: 28px;
       letter-spacing: 3.6px;
+      @include mq(tablet, max) {
+        &:not(:first-child) {
+          margin-top: -1px;
+        }
+      }
       @include mq(tablet) {
         border-color: $c-gray-21;
         background-color: $c-white;
