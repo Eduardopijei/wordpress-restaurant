@@ -204,6 +204,17 @@ function my_acf_init_block_types() {
             'icon'              => 'building',
             'keywords'          => array( 'rooms', 'carousel'),
         ));
+
+        // Tab Slider Block
+        acf_register_block_type(array(
+            'name'              => 'tab_slider',
+            'title'             => __('Tab Slider'),
+            'description'       => __('Tab Slider'),
+            'render_template'   => 'template-parts/blocks/tab-slider/tab-slider.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'slides',
+            'keywords'          => array( 'tab', 'slider', 'tab slider' ),
+        ));
         /*********************************** ****************************************/
 
         // Register Title Text Block
@@ -240,19 +251,6 @@ function my_acf_init_block_types() {
             'keywords'          => array( 'media' ),
         ));
 
-        
-        
-        // Tab Slider Block
-        acf_register_block_type(array(
-            'name'              => 'tab_slider',
-            'title'             => __('Tab Slider'),
-            'description'       => __('Tab Slider'),
-            'render_template'   => 'template-parts/blocks/tab-slider/tab-slider.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'slides',
-            'keywords'          => array( 'tab', 'slider', 'tab slider' ),
-        ));
-
         // Post Slider Block
         acf_register_block_type(array(
             'name'              => 'post_slider',
@@ -263,7 +261,6 @@ function my_acf_init_block_types() {
             'icon'              => 'slides',
             'keywords'          => array( 'post', 'slider', 'post slider' ),
         ));
-
 
         // General Tab Block
         acf_register_block_type(array(

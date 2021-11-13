@@ -45,19 +45,30 @@
   &-link {
     position: relative;
     margin: 0 10px;
-    @include typography(12px, 14.4px, 14.4px, 16.8px, 600, $f-text, #181818);
+    @include typography(12px, 14px, 14.4px, 14px, 700, $f-text, #B6B6B6);
     text-transform: uppercase;
     letter-spacing: 0.25em;
-    transition: opacity 0.3s ease-in-out;
     white-space: nowrap;
-    opacity: 0.25;
-    @include buttonUnderline(1px, #181818);
+    &::after {
+        position: absolute;
+        content: '';
+        left: 50%;
+        bottom: -20px;
+        width: 6px;
+        height: 6px;
+        background-color: transparent;
+        border-radius: 50%;
+        transform: translateX(-50%);
+    }
     &:hover,
     &.active {
-      opacity: 1;
+      color: $primary;
     }
-    &.active::after {
-      transform: scaleX(1);
+    &.active {
+      color: $primary;
+      &::after {
+        background-color: $primary;
+      }
     }
   }
   &-selects {

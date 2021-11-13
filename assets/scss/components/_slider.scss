@@ -85,15 +85,15 @@
     @include mq(tablet) {
       margin-bottom: 15px;
     }
-    @include when-inside(".tab") {
-      @include typography(12px, 14px, 14.4px, 16.8px, 700, $f-text, #181818);
-    }
   }
   &-desc {
     color: $c-gray-0d;
     letter-spacing: 0.01em;
     @include mq(tablet, max) {
       letter-spacing: 0.02em;
+    }
+    @include when-inside('.tab') {
+      @include typography(12px, 14px, 18px, 21px, 400, $f-text, $c-black);
     }
   }
 }
