@@ -71,6 +71,118 @@ function my_acf_init_block_types() {
             'icon'              => 'align-pull-right',
             'keywords'          => array( 'boston' ),
         ));
+        
+        // Register Media Content Block
+        acf_register_block_type(array(
+            'name'              => 'media_content',
+            'title'             => __('Media Content'),
+            'description'       => __('Media Content'),
+            'render_template'   => 'template-parts/blocks/media-content/media-content.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'align-pull-left',
+            'keywords'          => array( 'media', 'content' ),
+        ));
+        
+        // Register Custom Wysiwig Block
+        acf_register_block_type(array(
+            'name'              => 'custom_wysiwig',
+            'title'             => __('Wysiwig'),
+            'description'       => __('Wysiwig'),
+            'render_template'   => 'template-parts/blocks/custom-wysiwig/custom-wysiwig.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'media-text',
+            'keywords'          => array( 'wysiwig' ),
+        ));
+
+        // Register Two Columns Block
+        acf_register_block_type(array(
+            'name'              => 'two_columns',
+            'title'             => __('Two Columns'),
+            'description'       => __('Two Columns'),
+            'render_template'   => 'template-parts/blocks/two-columns/two-columns.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'columns',
+            'keywords'          => array( 'two columns' ),
+        ));
+
+        // Contact Form Block
+        acf_register_block_type(array(
+            'name'              => 'contact_form',
+            'title'             => __('Contact form'),
+            'description'       => __('Contact form'),
+            'render_template'   => 'template-parts/blocks/contact-form/contact-form.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'forms',
+            'keywords'          => array( 'contact form' ),
+        ));
+        
+        // Register Accordion Block
+        acf_register_block_type(array(
+            'name'              => 'accordion',
+            'title'             => __('Accordion'),
+            'description'       => __('Accordion'),
+            'render_template'   => 'template-parts/blocks/accordion/accordion.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'list-view',
+            'keywords'          => array( 'accordion' ),
+        ));
+
+        // Register Slider Block
+        acf_register_block_type(array(
+            'name'              => 'slider',
+            'title'             => __('Slider'),
+            'description'       => __('Slider'),
+            'render_template'   => 'template-parts/blocks/slider/slider.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'slides',
+            'keywords'          => array( 'slides' ),
+        ));
+
+        // Offers
+        acf_register_block_type(array(
+            'name'              => 'offers',
+            'title'             => __('Offers'),
+            'description'       => __('Offers'),
+            'render_template'   => 'template-parts/blocks/offers/offers.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'media-text',
+            'keywords'          => array( 'offers' ),
+        ));
+
+        // Culinary
+        acf_register_block_type(array(
+            'name'              => 'culinary',
+            'title'             => __('Culinary'),
+            'description'       => __('Culinary'),
+            'render_template'   => 'template-parts/blocks/culinary/culinary.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'food',
+            'keywords'          => array( 'culinary' ),
+        ));
+
+        
+        // Rooms Hero
+        acf_register_block_type(array( 
+            'name'              => 'rooms_hero',
+            'title'             => __('Rooms Hero'),
+            'description'       => __('Rooms Hero'),
+            'render_template'   => 'template-parts/blocks/rooms-hero/rooms-hero.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'cover-image',
+            'keywords'          => array( 'rooms', 'hero'),
+        ));
+
+        // Three Columns Block
+        acf_register_block_type(array( 
+            'name'              => 'three_columns',
+            'title'             => __('Three Columns'),
+            'description'       => __('Three Columns'),
+            'render_template'   => 'template-parts/blocks/three-columns/three-columns.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'menu-alt3',
+            'keywords'          => array( 'three', 'column'),
+        ));
+
         /*********************************** ****************************************/
 
         // Register Title Text Block
@@ -84,16 +196,6 @@ function my_acf_init_block_types() {
             'keywords'          => array( 'title', 'text' ),
         ));
         
-        // Register Media Content Block
-        acf_register_block_type(array(
-            'name'              => 'media_content',
-            'title'             => __('Media Content'),
-            'description'       => __('Media Content'),
-            'render_template'   => 'template-parts/blocks/media-content/media-content.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'align-pull-left',
-            'keywords'          => array( 'media', 'content' ),
-        ));
 
         // Register Custom Blockquote Block
         acf_register_block_type(array(
@@ -117,60 +219,7 @@ function my_acf_init_block_types() {
             'keywords'          => array( 'media' ),
         ));
 
-        // Register Custom Wysiwig Block
-        acf_register_block_type(array(
-            'name'              => 'custom_wysiwig',
-            'title'             => __('Wysiwig'),
-            'description'       => __('Wysiwig'),
-            'render_template'   => 'template-parts/blocks/custom-wysiwig/custom-wysiwig.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'media-text',
-            'keywords'          => array( 'wysiwig' ),
-        ));
-
-        // Register Two Columns Block
-        acf_register_block_type(array(
-            'name'              => 'two_columns',
-            'title'             => __('Two Columns'),
-            'description'       => __('Two Columns'),
-            'render_template'   => 'template-parts/blocks/two-columns/two-columns.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'columns',
-            'keywords'          => array( 'two columns' ),
-        ));
-
-        // Register Accordion Block
-        acf_register_block_type(array(
-            'name'              => 'accordion',
-            'title'             => __('Accordion'),
-            'description'       => __('Accordion'),
-            'render_template'   => 'template-parts/blocks/accordion/accordion.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'list-view',
-            'keywords'          => array( 'accordion' ),
-        ));
-
-        // Register Slider Block
-        acf_register_block_type(array(
-            'name'              => 'slider',
-            'title'             => __('Slider'),
-            'description'       => __('Slider'),
-            'render_template'   => 'template-parts/blocks/slider/slider.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'slides',
-            'keywords'          => array( 'slides' ),
-        ));
-
-        // Contact Form Block
-        acf_register_block_type(array(
-            'name'              => 'contact_form',
-            'title'             => __('Contact form'),
-            'description'       => __('Contact form'),
-            'render_template'   => 'template-parts/blocks/contact-form/contact-form.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'forms',
-            'keywords'          => array( 'contact form' ),
-        ));
+        
         
         // Tab Slider Block
         acf_register_block_type(array(
@@ -261,28 +310,6 @@ function my_acf_init_block_types() {
             'keywords'          => array( 'experience', 'gallery'),
         ));
 
-        // Offers
-        acf_register_block_type(array(
-            'name'              => 'offers',
-            'title'             => __('Offers'),
-            'description'       => __('Offers'),
-            'render_template'   => 'template-parts/blocks/offers/offers.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'media-text',
-            'keywords'          => array( 'offers' ),
-        ));
-
-        // Culinary
-        acf_register_block_type(array(
-            'name'              => 'culinary',
-            'title'             => __('Culinary'),
-            'description'       => __('Culinary'),
-            'render_template'   => 'template-parts/blocks/culinary/culinary.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'food',
-            'keywords'          => array( 'culinary' ),
-        ));
-
         // General Hero
         acf_register_block_type(array(
             'name'              => 'general_hero',
@@ -336,28 +363,6 @@ function my_acf_init_block_types() {
             'category'          => 'boston-blocks',
             'icon'              => 'columns',
             'keywords'          => array( 'events', 'experiences'),
-        ));
-
-        // Rooms Hero
-        acf_register_block_type(array( 
-            'name'              => 'rooms_hero',
-            'title'             => __('Rooms Hero'),
-            'description'       => __('Rooms Hero'),
-            'render_template'   => 'template-parts/blocks/rooms-hero/rooms-hero.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'cover-image',
-            'keywords'          => array( 'rooms', 'hero'),
-        ));
-
-        // Three Columns Block
-        acf_register_block_type(array( 
-            'name'              => 'three_columns',
-            'title'             => __('Three Columns'),
-            'description'       => __('Three Columns'),
-            'render_template'   => 'template-parts/blocks/three-columns/three-columns.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'menu-alt3',
-            'keywords'          => array( 'three', 'column'),
         ));
 
         // Rooms Carousel

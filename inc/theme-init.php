@@ -100,6 +100,13 @@ add_image_size( 'slide-image-2x', 2420, 1330, true );
 add_image_size( 'boston-module', 500, 600, true );
 add_image_size( 'boston-module-2x', 1000, 1200, true );
 
+add_image_size( 'rooms-slider', 840, 700, true );
+add_image_size( 'rooms-slider-2x', 1680, 1400, true );
+
+add_image_size( 'rooms-slider-sub', 315, 195, true );
+add_image_size( 'rooms-slider-sub-2x', 630, 390, true );
+
+
 //show_admin_bar(false);
 //define( 'WPCF7_AUTOP', false );
 

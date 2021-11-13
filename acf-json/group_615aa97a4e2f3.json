@@ -34,7 +34,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "url",
+            "return_format": "array",
             "preview_size": "medium",
             "library": "all",
             "min_width": "",
@@ -42,25 +42,6 @@
             "min_size": "",
             "max_width": "",
             "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_615c9ad6c22a9",
-            "label": "Background Video",
-            "name": "background_video",
-            "type": "file",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "url",
-            "library": "all",
-            "min_size": "",
             "max_size": "",
             "mime_types": ""
         },
@@ -85,9 +66,9 @@
         },
         {
             "key": "field_615aaa64d7d11",
-            "label": "Content",
-            "name": "content",
-            "type": "wysiwyg",
+            "label": "Sub Heading",
+            "name": "sub_heading",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -97,46 +78,10 @@
                 "id": ""
             },
             "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
-        },
-        {
-            "key": "field_615aaa78d7d12",
-            "label": "Links",
-            "name": "links",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "",
-            "sub_fields": [
-                {
-                    "key": "field_615c9b29ee539",
-                    "label": "Link",
-                    "name": "link",
-                    "type": "link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array"
-                }
-            ]
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_615aaa1951635",
@@ -174,26 +119,6 @@
             "step": 25,
             "prepend": "",
             "append": ""
-        },
-        {
-            "key": "field_615aaa3451637",
-            "label": "Height",
-            "name": "height",
-            "type": "range",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": 100,
-            "min": "",
-            "max": "",
-            "step": 10,
-            "prepend": "",
-            "append": ""
         }
     ],
     "location": [
@@ -213,5 +138,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635147957
+    "modified": 1636773337
 }
