@@ -1,292 +1,209 @@
 .rooms-carousel {
-  margin: 10px 0;
-}
-
-.room-carousel {
-  position: relative;
-
-  .slick-arrow {
-    border-radius: 50%;
-    border: none;
-    background: $secondary;
-    transition: background .3s ease-in-out;
-    z-index: 1;
-
-    @include mq(tablet) {
-      width: 30px;
-      height: 30px;
-
-      &:hover {
-        background: $accent;
-      }
-    }
-
-    &:focus {
-      background: $accent;
-    }
-
-    &::after {
-      position: absolute;
-      content: '';
-      left: 50%;
-      top: 50%;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      transition: border 0.3s ease-in-out;
-      transform: translate(-50%, -50%);
-    }
+  margin: 40px 0;
+  @include mq(tablet) {
+    margin: 10px 0;
   }
-
-  .slick-prev {
+  &__inner {
     @include mq(tablet) {
-      left: vw(40px);
-
-      &:hover::after,
-      &:focus::after {
-        border-right-color: $secondary;
+      display: flex;
+      align-items: center;
+      @include when-inside('.rooms-carousel--left') {
+        flex-direction: row-reverse;
       }
-    }
-
-    @include mq(desktop-wide) {
-      left: 40px;
-    }
-
-    &::after {
-      left: 45%;
-      border-width: 5px 10px 5px 0;
-      border-color: transparent #2F2F2F transparent transparent;
-    }
-  }
-
-  .slick-next {
-    @include mq(tablet) {
-      right: vw(40px);
-
-      &:hover::after,
-      &:focus::after {
-        border-left-color: $secondary;
-      }
-    }
-
-    @include mq(desktop-wide) {
-      right: 40px;
-    }
-
-    &::after {
-      left: 55%;
-      border-width: 5px 0 5px 10px;
-      border-color: transparent transparent transparent #2F2F2F;
     }
   }
   &__images {
-    @include mq(tablet, max) {
-      margin-bottom: 0 !important;
-    }
-    .slick-dots {
-      margin-top: -30px;
-      margin-bottom: 30px;
-      li button {
-        background: $secondary;
+    position: relative;
+    @include mq(tablet) {
+      @include when-inside('.rooms-carousel--right') {
+        margin-right: vw(65px);
+      }
+      @include when-inside('.rooms-carousel--left') {
+        margin-left: vw(65px);
       }
     }
   }
-  &__image {
-    height: 720px !important;
+  &__slides {
     @include mq(tablet) {
-      height: vw(640px);
+      width: vw(840px);
     }
-
-    @include mq(desktop-wide) {
-      height: 640px;
+  }
+  &__slide {
+    height: svw(570px);
+    max-height: 100vh;
+    @include mq(tablet) {
+      height: vw(700px);
     }
-
-    &::before {
-      position: absolute;
-      content: '';
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(0, #000000 0%, rgba(0, 0, 0, 0) 100%);
-      opacity: 0.25;
-    }
-
-    &::after {
-      top: 0;
-      bottom: auto;
-      background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-      opacity: 0.5;
-      height: 395px
-    }
-
-    img {
+    .main-bg {
       @include coverImage();
     }
-  }
-
-  &__size {
-    position: absolute;
-    top: 27px;
-    right: 20px;
-    z-index: 3;
-    @include typography(16px, 16px, 19.2px, 19.7px, 600, $f-text, $secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.25em;
-
-    @include mq(tablet) {
-      top: vw(30px);
-      right: vw(38px);
+    &-sec {
+      position: absolute;
+      display: none;
+      @include mq(tablet) {
+        display: block;
+        bottom: 30px;
+        @include when-inside('.rooms-carousel--right') {
+          left: 30px;
+        }
+        @include when-inside('.rooms-carousel--left') {
+          right: 30px;
+        }
+      }
+      .btn-play {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        background: rgba(6, 6, 6, 0.1);
+        transition: all .3s ease-in-out;
+        &:hover {
+          background: transparent;
+        }
+      }
     }
-
-    @include mq(desktop-wide) {
-      top: 30px;
-      right: 38px;
-    }
   }
-
   &__content {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    @include mq(tablet, max) {
-      display: flex;
-      top: 0;
-      bottom: auto;
-      left: 50%;
-      height: 100%;
-      padding: 0 20px;
-      align-items: center;
-      text-align: center;
-      transform: translateX(-50%);
-    }
+    text-align: center;
     @include mq(tablet) {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      padding: vw(40px);
-    }
-
-    @include mq(desktop) {
-      padding: 40px;
+      width: vw(440px);
+      text-align: left;
     }
   }
-  &__info {
-    width: 100%
-  }
-
   &__heading {
-    @include typography(50px, 62px, 64px, 64px, 400, $f-heading, $secondary);
-
+    margin-bottom: 15px;
+    @include typography(56px, 70px, 70px, 72px, 400, $f-heading, $primary);
+    font-style: normal;
     @include mq(tablet) {
-      margin-bottom: vw(30px);
+      margin-bottom: 20px;
     }
-
-    @include mq(desktop-wide) {
+  }
+  &__subheading {
+    margin-bottom: 15px;
+    @include typography(12px, 14px, 12px, 14px, 700, $f-text, $primary);
+    letter-spacing: 0.25em;
+    @include mq(tablet) {
+      margin-bottom: 20px;
+    }
+  }
+  &__text {
+    margin-bottom: 30px;
+    color: $c-black;
+  }
+  .btn {
+    display: inline-block;
+    @include mq(tablet, max) {
+      min-width: 313px;
+    }
+  }
+  .btn-room {
+    @include mq(tablet) {
       margin-bottom: 30px;
     }
   }
-
-  &__tags {
-    font: 600 11px/13.54px $f-text;
-    color: $secondary;
-    letter-spacing: 0.25em;
-  }
-
-  .button-groups {
-    display: flex;
-    @include mq(tablet, max) {
-      position: absolute;
-      left: 50%;
-      bottom: 43px;
-      width: 100%;
-      max-width: 320px;
-      flex-direction: column;
-      transform: translateX(-50%);
-    }
-    .btn {
-      font: 600 12px/28px $f-text;
-      @include mq(tablet, max) {
-        margin-bottom: 12px;
-      }
-      @include mq(tablet) {
-        font-size: 11px;
-        margin: 0 vw(6.5px);
-        min-width: vw(225px);
-      }
-
-      @include mq(desktop) {
-        margin: 0 6.5px;
-        min-width: 225px;
-      }
-    }
-
-    .btn-toggle-slider {
-      position: relative;
-
-      &::after {
-        display: none;
-        position: absolute;
-        left: 50%;
-        content: '';
-        width: 0;
-        height: 0;
-        border-width: 0 13px 15px 13px;
-        border-style: solid;
-        border-color: transparent transparent $secondary transparent;
-        opacity: 0;
-        transform: translateX(-50%);
-        transition: opacity .3s ease-in-out;
-
-        @include mq(tablet) {
-          display: block;
-          bottom: vw(-45px);
-        }
-
-        @include mq(desktop-wide) {
-          bottom: -45px;
-        }
-
-        @include when-inside('.rooms--open') {
-          opacity: 1;
-        }
-      }
-    }
-  }
-}
-
-.room-slider {
-  &__wrapper {
-    display: none;
-    padding: 10px 0;
-    @include mq(tablet, max) {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      padding: 55px 20px 40px;
-      background-color: #1A1A1B;
-      overflow: auto;
-      z-index: 9999;
-    }
-  }
-  > .slick-dots {
-    text-align: center;
+  .btn-booking {
     @include mq(tablet) {
-      margin-top: vw(50px);
-    }
-    @include mq(desktop-wide) {
-      margin-top: 50px;
+      min-width: 185px;
     }
   }
-}
-.btn-close__rooms {
-  position: absolute;
-  top: 17px;
-  right: 24px;
-  @include mq(tablet) {
-    display: none;
+  &__box {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    min-width: 100px;
+    text-align: center;
+    background-color: $c-white;
+    box-shadow: 0px 4px 27px rgba(0, 0, 0, 0.1);
+    @include mq(tablet) {
+      top: vw(77px);
+      min-width: 150px;
+      @include when-inside('.rooms-carousel--right') {
+        right: -40px;
+      }
+      @include when-inside('.rooms-carousel--left') {
+        left: -40px;
+        right: auto;
+      }
+    }
+    &-header {
+      padding: 5px;
+      @include typography(8px, 12px, 8px, 12px, 700, $f-text, $c-white);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      background-color: $primary;
+      @include mq(tablet){
+        padding: 15px;
+      }
+    }
+    &-body {
+      padding: 8px;
+      @include typography(16px, 36px, 21.18px, 47.66px, 400, $f-heading, $c-black);
+      border-bottom: 0.7px solid $primary;
+      @include mq(tablet) {
+        padding: 12px;
+      }
+    }
+    &-footer {
+      padding: 3px;
+      @include typography(8px, 10px, 9.74px, 12.18px, 400, $f-text, $primary);
+      letter-spacing: 0.01em;
+      @include mq(tablet) {
+        padding: 7px;
+        letter-spacing: -0.02em;
+      }
+    }
+  }
+
+  .slick-arrow {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background-color: $c-white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+    transition: all .3s ease-in-out;
+    &:hover {
+      background-color: $primary;
+    }
+    &::after {
+      position: absolute;
+      content: '';
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: all .3s ease-in-out;
+    }
+  }
+  .slick-next {
+    right: 30px;
+    &::after {
+      @include triangle(right, $c-gray-2f, 10px, 10px);
+    }
+    &:hover::after {
+      border-left-color: $c-white;
+    }
+  }
+  .slick-prev {
+    left: 30px;
+    &::after {
+      @include triangle(left, $c-gray-2f, 10px, 10px);
+    }
+    &:hover::after {
+      border-right-color: $c-white;
+    }
+  }
+  .slick-dots {
+    position: absolute;
+    margin: 0;
+    bottom: 20px;
+    li button {
+      background-color: $c-white;
+    }
   }
 }

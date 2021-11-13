@@ -282,11 +282,12 @@ function initTab() {
 // Initialize Rooms Carousel
 function initRoomsCarousel() {
   // Initialize rooms big carousel
-  $('.room-carousel__images').slick({
+  $('.rooms-carousel__slides').slick({
     dots: false,
     arrows: true,
     autoplay: true,
     autoplaySpeed: 5000,
+    speed: 600,
     responsive: [{
       breakpoint: 769,
       settings: {
@@ -294,50 +295,6 @@ function initRoomsCarousel() {
         arrows: false,
       }
     }]
-  });
-  // Initialize rooms slider
-  let $roomsSlider = $('.room-slider').slick({
-    dots: true,
-    arrows: false,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    slidesToShow: 3,
-    responsive: [{
-      breakpoint: 991,
-      settings: {
-        slidesToShow: 2
-      }
-    }]
-  });
-  $('.loop-room__slides').slick({
-    dots: true,
-    arrows: false,
-    autoplay: true,
-    autoplaySpeed: 5000,
-  });
-  // Show Rooms
-  $('.btn-toggle-slider').on('click', function() {
-    let $parent = $(this).closest('.rooms-carousel');
-    $parent.toggleClass('rooms--open');
-    // Unslick slider
-    if (window.matchMedia('(max-width: 768px)').matches) {
-      if ($roomsSlider.hasClass("slick-initialized")) {
-        $roomsSlider.slick('unslick');
-      }
-      $('.room-slider__wrapper', $parent).fadeIn();
-      $('html, body').css('overflow', 'hidden');
-    } else {
-      $('.room-slider__wrapper', $parent).slideToggle();
-    }
-    $('.room-slider').slick('setPosition');
-    $('.loop-room__slides').slick('setPosition');
-  });
-  // Hide Rooms on mobile
-  $('.btn-close__rooms').on('click', function() {
-    let $parent = $(this).closest('.rooms-carousel');
-    $parent.toggleClass('rooms--open');
-    $('.room-slider__wrapper', $parent).fadeOut();
-    $('html, body').removeAttr('style');
   });
 }
 
