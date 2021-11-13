@@ -182,7 +182,28 @@ function my_acf_init_block_types() {
             'icon'              => 'menu-alt3',
             'keywords'          => array( 'three', 'column'),
         ));
+        
+        // Navigation
+        acf_register_block_type(array( 
+            'name'              => 'navigation',
+            'title'             => __('Navigation'),
+            'description'       => __('Navigation'),
+            'render_template'   => 'template-parts/blocks/navigation/navigation.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'menu',
+            'keywords'          => array( 'navigation' ),
+        ));
 
+        // Rooms Carousel
+        acf_register_block_type(array( 
+            'name'              => 'rooms_carousel',
+            'title'             => __('Rooms Carousel'),
+            'description'       => __('Rooms Carousel'),
+            'render_template'   => 'template-parts/blocks/rooms-carousel/rooms-carousel.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'building',
+            'keywords'          => array( 'rooms', 'carousel'),
+        ));
         /*********************************** ****************************************/
 
         // Register Title Text Block
@@ -253,28 +274,6 @@ function my_acf_init_block_types() {
             'category'          => 'boston-blocks',
             'icon'              => 'admin-page',
             'keywords'          => array( 'tab', 'general', 'general tab' ),
-        ));
-
-        // Media Content Intro
-        acf_register_block_type(array(
-            'name'              => 'media_content_intro',
-            'title'             => __('Media Content Intro'),
-            'description'       => __('Media Content Intro'),
-            'render_template'   => 'template-parts/blocks/media-content-intro/media-content-intro.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'align-pull-left',
-            'keywords'          => array( 'media', 'content', 'intro'),
-        ));
-        
-        // Media Content Map
-        acf_register_block_type(array(
-            'name'              => 'media_content_map',
-            'title'             => __('Media Content Map'),
-            'description'       => __('Media Content Map'),
-            'render_template'   => 'template-parts/blocks/media-content-map/media-content-map.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'align-pull-left',
-            'keywords'          => array( 'media', 'content', 'map'),
         ));
 
         // Hover Carousel
@@ -365,16 +364,6 @@ function my_acf_init_block_types() {
             'keywords'          => array( 'events', 'experiences'),
         ));
 
-        // Rooms Carousel
-        acf_register_block_type(array( 
-            'name'              => 'rooms_carousel',
-            'title'             => __('Rooms Carousel'),
-            'description'       => __('Rooms Carousel'),
-            'render_template'   => 'template-parts/blocks/rooms-carousel/rooms-carousel.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'building',
-            'keywords'          => array( 'rooms', 'carousel'),
-        ));
 
         // Spa Hero
         acf_register_block_type(array( 

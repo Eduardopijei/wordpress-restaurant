@@ -119,9 +119,9 @@ function initHeader() {
     // Add Secondary nav
     if ($('.rooms-hero').length) {
       if ($(window).scrollTop() >= $('.rooms-hero').outerHeight()) {
-        $('.rooms-nav').addClass('rooms-nav--fixed');
+        $('.secondary-nav').addClass('secondary-nav--fixed');
       } else {
-        $('.rooms-nav').removeClass('rooms-nav--fixed');
+        $('.secondary-nav').removeClass('secondary-nav--fixed');
       }
     }
   });

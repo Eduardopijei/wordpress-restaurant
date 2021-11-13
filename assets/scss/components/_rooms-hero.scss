@@ -1,6 +1,6 @@
 .rooms-hero {
   position: relative;
-  height: vw(730px);
+  height: svw(730px);
   max-height: 100vh;
   @include mq(tablet) {
     height: vw(890px);
