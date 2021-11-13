@@ -1,38 +1,55 @@
 .three-columns {
-    @include mq(tablet, max) {
-        text-align: center;
+  .row {
+    @include mq(tablet) {
+      display: grid;
+      grid-template-columns: vw(340px) auto;
+      grid-gap: vw(102px);
     }
-    .row {
-        @include mq(tablet) {
-            display: grid;
-            grid-template-columns: vw(340px) auto;
-            grid-gap: vw(102px);
-        }
-        @include mq(desktop-wide) {
-            grid-gap: 102px;
-        }
-        .col-heading {
-            h3 {
-                @include typography(28px, 52px, 54px, 54px, 400, $f-heading, #0d0d0d);
-                letter-spacing: -0.04em;
-            }
-            @include mq(tablet, max) {
-                margin-bottom: 14px;
-            }
-            @include mq(tablet) {
-                text-align: right;
-            }
-        }
-        .col-content {
-            @include typography(12px, 14px, 28px, 32px, 400, $f-text, #0d0d0d);
-            @include mq(desktop) {
-                grid-column: 2 / 4;
-                column-count: 2;
-                column-gap: vw(78px);
-            }
-            @include mq(desktop-wide) {
-                column-gap: 78px;
-            }
-        }
+
+    @include mq(desktop-wide) {
+      grid-gap: 102px;
     }
+
+    .col-heading {
+      h3 {
+        @include typography(42px, 52px, 42px, 54px, 400, $f-heading, $c-gray-2f);
+        letter-spacing: -0.04em;
+        font-style: italic;
+      }
+      @include mq(tablet, max) {
+        margin-bottom: 22px;
+      }
+      @include mq(tablet) {
+        text-align: right;
+      }
+    }
+
+    .col-content {
+      @include typography(12px, 16px, 26px, 26px, 400, $f-text, $c-black);
+
+      @include mq(desktop) {
+        grid-column: 2 / 4;
+        column-count: 2;
+        column-gap: vw(78px);
+      }
+
+      @include mq(desktop-wide) {
+        column-gap: 78px;
+      }
+
+      ul {
+        // list-style: disc;
+
+        li {
+          page-break-inside: avoid;
+          /* Theoretically FF 20+ */
+          break-inside: avoid-column;
+          a {
+            color: $c-black;
+            @include buttonUnderline(1px, $c-black, 1px);
+          }
+        }
+      }
+    }
+  }
 }

@@ -219,10 +219,10 @@
   }
 }
 
-@mixin buttonUnderline($height: 1px, $color: #000) {
+@mixin buttonUnderline($height: 1px, $color: #000, $pb: 3px) {
   position: relative;
   display: inline-block;
-  padding-bottom: 3px;
+  padding-bottom: $pb;
   &::after {
     position: absolute;
     content: "";
