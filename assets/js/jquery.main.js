@@ -21,6 +21,7 @@ jQuery(document).ready(function() {
   isElementExist(".media-content-tab", initMediaContentTab);
   isElementExist(".culinary-module", initCulinaryModule);
   isElementExist(".rooms-carousel", initRoomsCarousel);
+  isElementExist(".rooms-module", initRoomsModule);
   isElementExist(".btn-amentities", loadAjaxAmentites);
   isElementExist(".people-slider", initPeopleSlider);
   isElementExist(".booking-popup", initBookingPopup);
@@ -295,6 +296,37 @@ function initRoomsCarousel() {
         arrows: false,
       }
     }]
+  });
+}
+
+// Initialize rooms module
+function initRoomsModule() {
+  $('.rooms-module__slides').slick({
+    dots: false,
+    arrows: true,
+    fade: true,
+    asNavFor: '.rooms-module__slides--buttons',
+    responsive: [{
+      breakpoint: 769,
+      settings: {
+        dots: true,
+        arrows: false
+      }
+    }]
+  }).on('afterChange', function(event, slick, currentSlide, nextSlide) {
+    $('.rooms-module__link.active').removeClass('active');
+    $('.rooms-module__link').eq(currentSlide).addClass('active');
+  });
+  $('.rooms-module__slides--buttons').slick({
+    dots: false,
+    arrows: false,
+    fade: true,
+    asNavFor: '.rooms-module__slides'
+  });
+  $('.rooms-module__link').on('click', function() {
+    let id = $(this).index();
+    $('.rooms-module__slides').slick('slickGoTo', id);
+    return false; 
   });
 }
 

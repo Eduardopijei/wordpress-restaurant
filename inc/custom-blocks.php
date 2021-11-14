@@ -215,6 +215,17 @@ function my_acf_init_block_types() {
             'icon'              => 'slides',
             'keywords'          => array( 'tab', 'slider', 'tab slider' ),
         ));
+
+        // Rooms Module Block
+        acf_register_block_type(array(
+            'name'              => 'rooms_module',
+            'title'             => __('Rooms Module'),
+            'description'       => __('Rooms Module'),
+            'render_template'   => 'template-parts/blocks/rooms-module/rooms-module.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'building',
+            'keywords'          => array( 'rooms' ),
+        ));
         /*********************************** ****************************************/
 
         // Register Title Text Block

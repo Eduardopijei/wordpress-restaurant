@@ -29,7 +29,7 @@ $className .= $direction;
    <div class="rooms-carousel__inner">
        <div class="rooms-carousel__images">
             <?php if( have_rows( 'carousel' ) ): ?>
-            <div class="rooms-carousel__slides">
+            <div class="rooms-carousel__slides circle-arrow">
                 <?php while( have_rows( 'carousel' ) ): the_row(); ?>
                     <div class="rooms-carousel__slide gradient-overlay">
                         <?php get_template_part_args( 'templates/content-module-image', array( 'v' => 'image', 'is' => 'rooms-slider', 'c' => 'main-bg' ) ); ?>
@@ -55,7 +55,7 @@ $className .= $direction;
             </div>
             <?php endif; ?>
             <?php if( $price ): ?> 
-            <div class="rooms-carousel__box">
+            <div class="rooms-carousel__box a-up">
                 <div class="rooms-carousel__box-header">Best Rate</div>
                 <?php if( $price ) : ?>
                     <div class="rooms-carousel__box-body">$<?php echo $price; ?></div>
@@ -65,11 +65,11 @@ $className .= $direction;
             <?php endif; ?>
        </div>
        <div class="rooms-carousel__content">
-           <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'heading', 'o' => 'f', 't' => 'h2', 'tc' => 'rooms-carousel__heading' ) ); ?>
-           <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'sub_heading', 'o' => 'f', 't' => 'h6', 'tc' => 'rooms-carousel__subheading' ) ); ?>
-           <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'text', 'o' => 'f', 't' => 'div', 'tc' => 'rooms-carousel__text' ) ); ?>
-           <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'cta', 'o' => 'f', 'c' => 'btn btn-room', 'w' => 'div' ) ); ?>
-           <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'booking_cta', 'o' => 'f', 'c' => 'btn btn--primary btn-booking', 'w' => 'div' ) ); ?>
+           <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'heading', 'o' => 'f', 't' => 'h2', 'tc' => 'rooms-carousel__heading a-up' ) ); ?>
+           <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'sub_heading', 'o' => 'f', 't' => 'h6', 'tc' => 'rooms-carousel__subheading a-up a-delay-1' ) ); ?>
+           <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'text', 'o' => 'f', 't' => 'div', 'tc' => 'rooms-carousel__text a-up a-delay-2' ) ); ?>
+           <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'cta', 'o' => 'f', 'c' => 'btn btn-room a-up a-delay-3', 'w' => 'div' ) ); ?>
+           <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'booking_cta', 'o' => 'f', 'c' => 'btn btn--primary btn-booking a-up a-delay-4', 'w' => 'div' ) ); ?>
        </div>
    </div>
 </section>
