@@ -143,7 +143,7 @@ function custom_post_type() {
 		'label'                 => __( 'Rooms', 'text_domain' ),
 		'description'           => __( 'Rooms post type', 'text_domain' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'custom-fields', 'page-attributes', 'thumbnail', 'excerpt' ),
+		'supports'              => array( 'title', 'custom-fields', 'page-attributes', 'thumbnail', 'excerpt', 'editor' ),
 		'hierarchical'          => true,
 		'public'                => true,
 		'show_ui'               => true,

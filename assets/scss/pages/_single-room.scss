@@ -1,0 +1,17 @@
+.single-room {
+  #single-room-info {
+    h1 {
+      margin-bottom: 20px;
+      @include typography(56px, 72px, 56px, 72px, 400, $f-heading, $c-gray-2f);
+      letter-spacing: -0.04em;
+    }
+
+    h6 {
+      @include typography(12px, 14px, 18px, 14px, 700, $f-text, $c-black);
+      letter-spacing: 0.01em;
+      @include mq(tablet) {
+        letter-spacing: 0.25em;
+      }
+    }
+  }
+}

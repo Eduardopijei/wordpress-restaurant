@@ -106,6 +106,31 @@ add_image_size( 'rooms-slider-2x', 1680, 1400, true );
 add_image_size( 'rooms-slider-sub', 315, 195, true );
 add_image_size( 'rooms-slider-sub-2x', 630, 390, true );
 
+add_image_size( 'gallery-hero-1', 580, 540, true );
+add_image_size( 'gallery-hero-1-2x', 1160, 1080, true );
+
+add_image_size( 'gallery-hero-2', 420, 250, true );
+add_image_size( 'gallery-hero-2-2x', 840, 500, true );
+
+add_image_size( 'gallery-hero-3', 420, 615, true );
+add_image_size( 'gallery-hero-3-2x', 840, 1230, true );
+
+add_image_size( 'gallery-hero-4', 580, 645, true );
+add_image_size( 'gallery-hero-4-2x', 1160, 1290, true );
+
+add_image_size( 'gallery-hero-5', 420, 650, true );
+add_image_size( 'gallery-hero-5-2x', 840, 1300, true );
+
+add_image_size( 'gallery-hero-6', 420, 500, true );
+add_image_size( 'gallery-hero-6-2x', 840, 1000, true );
+
+add_image_size( 'gallery-hero-7', 420, 200, true );
+add_image_size( 'gallery-hero-7-2x', 840, 400, true );
+
+add_image_size( 'amentities', 960, 700, true );
+add_image_size( 'amentities-2x', 1320, 1400, true );
+
+
 
 //show_admin_bar(false);
 //define( 'WPCF7_AUTOP', false );

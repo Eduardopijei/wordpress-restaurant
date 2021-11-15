@@ -215,6 +215,7 @@ function am_add_javascript( ) {
     if( !is_admin() ) {
         //external Javascript
         $am_links = array( 
+            'https://cdn.jsdelivr.net/momentjs/latest/moment.min.js',
             'https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js',
             'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js',
             'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js',
@@ -222,9 +223,11 @@ function am_add_javascript( ) {
         foreach($am_links as $am_link){
             wp_enqueue_script('am_'.sanitize_title($am_link), $am_link,array('jquery'), '', true);
         }  
-        $am_files = array('/assets/js/jquery.main.js'); // example: array('script1', 'script2');
+        $am_files = array(
+            '/assets/js/jquery.daterangepicker.min.js',
+            '/assets/js/jquery.main.js'); // example: array('script1', 'script2');
         foreach($am_files as $am_file){
-            wp_enqueue_script('am_'.sanitize_title($am_file), get_theme_file_uri($am_file), array('jquery') );
+            wp_enqueue_script('am_'.sanitize_title($am_file), get_theme_file_uri($am_file), array('jquery'), '', true );
         }
     }
 }
@@ -246,7 +249,8 @@ function am_add_css( ) {
     }
 
     // internal CSS
-    $am_files = array(  '/assets/css/style.css',
+    $am_files = array(  '/assets/css/daterangepicker.min.css',
+                        '/assets/css/style.css',
                         'style.css'); // example: array('style1', 'style2');
     foreach($am_files as $am_file){
         wp_enqueue_style('am_'.sanitize_title($am_file), get_theme_file_uri($am_file),array(),filemtime( get_theme_file_path($am_file)));

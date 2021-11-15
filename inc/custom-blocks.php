@@ -226,6 +226,40 @@ function my_acf_init_block_types() {
             'icon'              => 'building',
             'keywords'          => array( 'rooms' ),
         ));
+
+        
+        // Gallery Hero 
+        acf_register_block_type(array( 
+            'name'              => 'gallery_hero',
+            'title'             => __('Gallery Hero'),
+            'description'       => __('Gallery Hero'),
+            'render_template'   => 'template-parts/blocks/gallery-hero/gallery-hero.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'format-gallery',
+            'keywords'          => array( 'gallery', 'hero' ),
+        ));
+
+        // Single room booking
+        acf_register_block_type(array( 
+            'name'              => 'single_room_booking',
+            'title'             => __('Single Room Booking'),
+            'description'       => __('Single Room Booking'),
+            'render_template'   => 'template-parts/blocks/single-room-booking/single-room-booking.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'tickets',
+            'keywords'          => array( 'single', 'room', 'booking' ),
+        ));
+
+        // Amentities
+        acf_register_block_type(array( 
+            'name'              => 'amentities',
+            'title'             => __('Amentities'),
+            'description'       => __('Amentities'),
+            'render_template'   => 'template-parts/blocks/amentities/amentities.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'info',
+            'keywords'          => array( 'amentities' ),
+        ));
         /*********************************** ****************************************/
 
         // Register Title Text Block

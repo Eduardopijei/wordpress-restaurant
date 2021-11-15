@@ -1,0 +1,105 @@
+.amentities {
+  border-top: 1px solid #c4c4c4;
+  border-bottom: 1px solid #c4c4c4;
+  &-inner {
+    display: flex;
+    flex-direction: column-reverse;
+    @include mq(tablet) {
+      flex-direction: column;
+    }
+  }
+  &-content {
+    @include mq(tablet, max) {
+      padding: 30px 40px 50px;
+      text-align: center;
+    }
+    @include mq(tablet) {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    &__body {
+      @include mq(tablet) {
+        padding: vw(45px) vw(100px);
+        text-align: center;
+      }
+    }
+    &__footer {
+      @include mq(tablet) {
+        display: flex;
+        margin-top: auto;
+        padding: 12px 20px;
+        align-items: center;
+        background-color: $primary;
+        justify-content: space-between;
+      }
+    }
+  }
+  &-heading {
+    margin-bottom: 22px; 
+    @include typography(56px, 48px, 70px, 64px, 400, $f-heading, $c-gray-2f);
+  }
+  &-text {
+    @include mq(tablet, max) {
+      margin-bottom: 40px;
+    }
+    li {
+      margin-bottom: 1em;
+      @include typography(12px, 13px, 19px, 21px, 400, $f-text, $c-black);
+    }
+  }
+  &-size {
+    @include typography(28px, 48px, 64px, 64px, 400, $f-heading, $c-white);
+    letter-spacing: -0.04em;
+    @include mq(tablet, max) {
+      border: 1px solid $primary;
+      color: $primary;
+    }
+    small {
+      font: 400 13px/15px $f-text;
+      letter-spacing: 0.08em;
+    }
+  }
+  .btn-view-gallery {
+    @include mq(tablet, max) {
+      width: 100%;
+      background-color: $primary;
+      border-color: $primary;
+      color: $c-white;
+    }
+    @include mq(tablet) {
+      border-color: $c-white;
+      color: $c-white;
+      &:hover {
+        background-color: $c-white;
+        color: $c-black;
+      }
+    }
+  }
+  &-image {
+    @include mq(tablet, max) {
+      position: relative;
+      &::after {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        content: '';
+        width: 100%;
+        height: 180px;
+        background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+        opacity: 0.6;
+        transform: rotate(180deg);
+        pointer-events: none;
+      }
+    }
+    @include mq(tablet) {
+      flex-shrink: 0;
+      width: vw(960px);
+      height: vw(700px);
+      max-height: 700px;
+    }
+    img {
+     @include coverImage(); 
+    }
+  }
+}

@@ -204,13 +204,13 @@ html {
       &[data-view="month prev"]::before {
         border-style: solid;
         border-width: 3.5px 8px 3.5px 0;
-        border-color: transparent #404040 transparent transparent;
+        border-color: transparent $primary transparent transparent;
       }
 
       &[data-view="month next"]::before {
         border-style: solid;
         border-width: 3.5px 0 3.5px 8px;
-        border-color: transparent transparent transparent #404040;
+        border-color: transparent transparent transparent $primary;
       }
     }
   }
@@ -650,4 +650,158 @@ html {
 
 .wpcf7-spinner {
   position: absolute;
+}
+
+.date-picker-wrapper {
+  &.no-topbar {
+    padding: 0;
+    border: none;
+  }
+  .month-wrapper {
+    width: 325px;
+    padding: 30px;
+    border-color: #212121;
+    border-radius: 0;
+    background: #FAF6EF;
+    @include mq(tablet) {
+      width: 334px;
+      padding: 40px;
+    }
+    @include mq(desktop-wide) {
+      width: vw(334px);
+      padding: vw(40px);
+    }
+    table {
+      width: 252px;
+      table-layout: fixed;
+      float: none;
+      @include mq(desktop-wide) {
+        width: vw(252px);
+      }
+      .caption {
+        height: auto;
+        th {
+          padding-bottom: 40px;
+          @include mq(desktop-wide) {
+            padding-bottom: vw(40px);
+          }
+          &:first-child,
+          &:last-child {
+            width: 36px;
+            @include mq(desktop-wide) {
+              width: vw(36px);
+            }
+          }
+        }
+        .prev,
+        .next {
+          font-size: 0;
+          font-size: 0;
+          padding: 0;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          transition: all .3s ease-in-out;
+          &:hover {
+            background: transparent;
+          }
+        }
+        .prev {
+          border-color: transparent $primary transparent transparent;
+          border-width: 5px 10px 5px 0;
+          &:hover {
+            border-right-color: $accent;
+          }
+        }
+        .next {
+          border-color: transparent transparent transparent $primary;
+          border-width: 5px 0 5px 10px;
+          &:hover {
+            border-left-color: $accent;
+          }
+        }
+        .month-name {
+          .month-element:last-child {
+            display: none;
+          }
+        }
+      }
+      .week-name {
+        height: auto;
+        th {
+          width: 36px;
+          height: 36px;
+          padding: 8px;
+          font: 500 16px/16px $f-text;
+          color: $c-black;
+        }
+      }
+      tbody {
+        td {
+          width: 36px;
+          height: 36px;
+          @include mq(desktop-wide) {
+            width: vw(36px);
+            height: vw(36px);
+          }
+          .day {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            font: 400 14px/16.8px $f-text;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            &.valid {
+              color: $primary;
+            }
+            &.checked,
+            &.hovering {
+              background-color: $accent !important;
+              color: $c-white !important;
+            }
+            &.first-date-selected,
+            &.last-date-selected {
+              position: relative;
+              background-color: $primary !important;
+            }
+            &.first-date-selected {
+              border-radius: 50% 0 0 50%;
+            }
+            &.last-date-selected {
+              border-radius: 0 50% 50% 0;
+            }
+            &.real-today {
+              background: #0000;
+              color: $accent !important;
+              &.checked {
+                background-color: $accent !important;
+                color: $c-white !important;
+              }
+            }
+          }
+        }
+      }
+      
+    }
+  }
+  .month-element {
+    @include typography(16px, 17px, 16px, 17px, 700, $f-text);
+    letter-spacing: 0.22em;
+    @include mq(tablet) {
+      color: $c-black;
+    }
+  }
+  .date-range-length-tip {
+    background: $accent;
+    color: $c-white;
+    &::after {
+      border-top-color: $accent;
+    }
+  }
+  .footer {
+    display: none;
+  }
 }

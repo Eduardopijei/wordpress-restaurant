@@ -1,0 +1,126 @@
+.single-room-booking {
+    &__inner {
+      @include mq(tablet) {
+        display: flex;
+        align-items: center;
+      }
+    }
+    &__content {
+      @include mq(tablet) {
+        width: vw(550px);
+        margin-right: vw(120px);
+      }
+      .title {
+        margin-bottom: 16px;
+        color: $c-gray-18;
+        letter-spacing: 0.25em;
+      }
+      .desc {
+        margin-bottom: 40px;
+        @include mq(tablet) {
+          margin-bottom: 30px;
+        }
+        p {
+          @include typography(12px, 14px, 18px, 21px, 400, $f-text, $c-black);
+          @include mq(tablet, max) {
+            letter-spacing: -0.01em;
+          }
+        }
+      }
+      .contact {
+        display: flex;
+        align-items: center;
+        @include mq(tablet, max) {
+          justify-content: center;
+        }
+        &-direct {
+          color: $c-black;
+          @include typography(12px, 14px, 21px, 21px, 400, $f-text, $c-black);
+          @include buttonUnderline(1px, $c-black);
+        }
+        &-separator {
+          margin: 0 20px;
+          width: 1px;
+          height: 19px;
+          background-color: $c-black;
+          @include mq(tablet) {
+            height: 32px;
+          }
+        }
+        &-phone {
+          display: inline-flex;
+          align-items: center;
+          text-transform: uppercase;
+          @include typography(12px, 14px, 12px, 14px, 700, $f-text, $c-gray-2f);
+          letter-spacing: 0.25em;
+          @include mq(tablet) {
+            font-style: italic;
+          }
+          svg {
+            margin-left: 10px;
+          }
+          &:hover {
+            color: $accent;
+          }
+        }
+      } 
+      .button-groups {
+        margin-top: 30px;
+        @include mq(tablet, max) {
+          text-align: center;
+        }
+        @include mq(tablet) {
+          margin-top: vw(60px);
+        }
+        .btn {
+          text-align: center;
+          @include mq(tablet, max) {
+            width: 275px;
+          }
+          @include mq(tablet) {
+            min-width: vw(220px);
+          }
+        }
+        .btn-amentities {
+          @include mq(tablet, max) {
+            margin-bottom: 12px;
+          }
+          @include mq(tablet) {
+            margin-right: 24px;
+          }
+        }
+        .btn-reserve {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          svg {
+            margin-left: 10px;
+            @include mq(tablet) {
+              margin-left: 20px;
+            }
+          }
+          &:hover {
+            rect:first-child {
+              stroke: $accent;
+            }
+            rect:last-child {
+              fill: $accent;
+            }
+          }
+        }
+      }   
+    }
+    &__calendar {
+      @include mq(tablet, max) {
+        margin-top: 50px;
+        text-align: center;
+      }
+      .booking-range {
+        display: none;
+      }
+      .btn-check-availability {
+        width: 100%;
+        max-width: 325px;
+      }
+    }
+  }

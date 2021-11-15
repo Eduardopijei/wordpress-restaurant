@@ -41,6 +41,10 @@
 @import "components/rooms-carousel";
 @import "components/booking";
 @import "components/gdpr";
+@import "components/gallery-hero";
+@import "components/single-room-booking";
+@import "components/amentities";
+
 // Old Blocks
 @import "components/title-text";
 @import "components/custom-blockquote";
@@ -56,3 +60,5 @@
 @import "components/post-two-cols";
 @import "components/page-block";
 
+
+@import "pages/single-room";

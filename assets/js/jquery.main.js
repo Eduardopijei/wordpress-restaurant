@@ -27,6 +27,9 @@ jQuery(document).ready(function() {
   isElementExist(".booking-popup", initBookingPopup);
   isElementExist("#sbi_images", initInstagramSlider);
   isElementExist(".offers-module", initOffersModule);
+  isElementExist(".gallery-hero", initGalleryHero);
+  isElementExist('.booking-calendar', initBookingCalendar);
+
 
   // viewportCheckerAnimate function
   viewportCheckerAnimate(".a-bg-up", "_animate");
@@ -495,6 +498,39 @@ function initOffersModule() {
     }
   }
   windowResize(initOffersModule);
+}
+
+// Init Gallery Hero
+function initGalleryHero() {
+  let $carousel = $('.gallery-hero__images')
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    if(!$carousel.hasClass('slick-initialized')) {
+      $carousel.slick({
+        arrows: false,
+        dots: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        speed: 600
+      });
+    }
+  } else {
+    if($carousel.hasClass('slick-initialized')) {
+      $carousel.slick('unslick');
+    }
+  }
+  windowResize(initGalleryHero);
+}
+
+// Init Booking Calendar
+function initBookingCalendar() {
+  $('#booking-range').dateRangePicker({
+    inline:true,
+    container: '#booking-calendar',
+    alwaysOpen:true,
+    singleMonth: true,
+    showShortcuts: false,
+    showTopbar: false
+  });
 }
 
 // Init Media Content Tab
