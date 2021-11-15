@@ -260,6 +260,17 @@ function my_acf_init_block_types() {
             'icon'              => 'info',
             'keywords'          => array( 'amentities' ),
         ));
+
+        // Two Cards
+        acf_register_block_type(array( 
+            'name'              => 'two_cards',
+            'title'             => __('Two Image Cards'),
+            'description'       => __('Two Image Cards'),
+            'render_template'   => 'template-parts/blocks/two-cards/two-cards.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'format-image',
+            'keywords'          => array( 'two', 'cards' ),
+        ));
         /*********************************** ****************************************/
 
         // Register Title Text Block

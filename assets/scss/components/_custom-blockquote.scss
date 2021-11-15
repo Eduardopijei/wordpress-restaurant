@@ -34,11 +34,11 @@
     }
   }
   &__text {
-    margin-bottom: 20px;
-    @include typography(32px, 68px, 35px, 68px, 400, $f-heading, $heading_color);
+    margin-bottom: 30px;
+    @include typography(32px, 68px, 36px, 75px, 400, $f-heading, $c-gray-2f);
     @include mq(tablet) {
       margin: 0 auto vw(50px);
-      max-width: vw(954px);
+      max-width: vw(1026px);
     }
     @include when-inside(".has-media") {
       @include typography(32px, 48px, 38px, 54px, 400, $f-heading, $heading_color);
@@ -48,8 +48,9 @@
   &__name {
     margin-bottom: 7px;
     text-transform: uppercase;
-    @include typography(12px, 14px, 14.77px, 17.23px, 600, $f-text, #181818);
-    letter-spacing: 0.25em;
+    font: 700 12px/28px $f-text;
+    color: #2e3033;
+    letter-spacing: 3.6px;
     @include mq(tablet, max) {
       font-size: 11px;
       line-height: 13.2px;

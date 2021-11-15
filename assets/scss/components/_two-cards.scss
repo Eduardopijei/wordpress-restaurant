@@ -1,0 +1,42 @@
+.two-cards {
+  &__inner {
+    @include mq(tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 20px
+    }
+  }
+  .card {
+    position: relative;
+    @include mq(tablet, max) {
+      &:not(:last-child) {
+        margin-bottom: 25px;
+      }
+    }
+    &-image {
+      height: 400px;
+      @include mq(tablet) {
+        height: vw(730px);
+        max-height: 730px;
+      }
+      &::after {
+        opacity: 0.75;
+      }
+      img {
+        @include coverImage();
+      }
+    }
+    &-title {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      @include typography(14px, 18px, 14px, 18px, 700, $f-text, $c-white);
+      letter-spacing: 0.25em;
+      text-align: center;
+      z-index: 1;
+      @include mq(tablet) {
+        bottom: vw(50px);
+      }
+    }
+  }
+}

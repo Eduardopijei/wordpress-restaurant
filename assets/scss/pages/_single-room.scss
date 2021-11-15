@@ -14,4 +14,48 @@
       }
     }
   }
+  .media-content {
+    &__content {
+      text-align: center;
+    }
+    &__title {
+      margin-bottom: 30px;
+      @include typography(56px, 60px, 56px, 60px, 400, $f-heading, $c-gray-2f);
+      font-style: italic;
+      @include mq(tablet) {
+        margin-bottom: 50px;
+      }
+    }
+    &__text {
+      h6 {
+        margin-bottom: 15px;
+        @include typography(12px, 14px, 12px, 14px, 700, $f-text, $c-gray-18);
+      }
+      p {
+        @include typography(12px, 14px, 18px, 21px, 400, $f-heading, $c-black);
+      }
+      .btn {
+        display: inline-block;
+        margin-top: 30px;
+        @include mq(tablet) {
+          margin-top: 20px;
+        }
+      }
+    }
+    &__media {
+      height: svw(580px);
+      @include mq(tablet) {
+        width: vw(560px);
+        height: vw(770px);
+      }
+      .img-a-img {
+        &::before {
+          padding-top: hp(375px, 580px);
+          @include mq(tablet) {
+            padding-top: hp(560px, 770px);
+          }
+        }
+      }
+    }
+  }
 }

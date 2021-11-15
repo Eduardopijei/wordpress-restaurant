@@ -130,6 +130,8 @@ add_image_size( 'gallery-hero-7-2x', 840, 400, true );
 add_image_size( 'amentities', 960, 700, true );
 add_image_size( 'amentities-2x', 1320, 1400, true );
 
+add_image_size( 'two-cards', 550, 730, true );
+add_image_size( 'two-cards-2x', 1100, 1460, true );
 
 
 //show_admin_bar(false);

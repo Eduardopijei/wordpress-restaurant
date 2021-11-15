@@ -1,15 +1,4 @@
 .media-content {
-  &.media-content-intro {
-    padding: 0 0 45px;
-
-    @include mq(tablet) {
-      padding: vw(75px) 0 vw(35px);
-    }
-
-    @include mq(desktop-wide) {
-      padding: 75px 0 35px;
-    }
-  }
 
   &.media-content-spa {
     padding: 50px 0 100px;
@@ -22,41 +11,6 @@
 
     @include mq(desktop-wide) {
       padding: 180px 0;
-    }
-  }
-
-  &.media-content-map {
-    position: relative;
-    padding: 70px 0 130px;
-
-    @include mq(tablet) {
-      padding: 0 0 vw(210px);
-    }
-
-    @include mq_mobile_landscape {
-      padding-top: 70px;
-    }
-
-    @include mq(desktop-wide) {
-      padding-bottom: 210px;
-    }
-
-    .container {
-      align-items: flex-end;
-
-      @include mq(tablet, max) {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column-reverse;
-      }
-
-      @include mq(tablet) {
-        min-height: vw(1136px);
-      }
-
-      @include mq(desktop-wide) {
-        min-height: 1136px;
-      }
     }
   }
 
@@ -321,28 +275,6 @@
       }
     }
 
-    @include when-inside(".media-content-intro") {
-      max-width: 100%;
-
-      @include mq(tablet) {
-        text-align: right;
-      }
-    }
-
-    @include when-inside(".media-content-map") {
-      text-align: left;
-
-      @include mq(tablet) {
-        margin-bottom: vw(100px);
-        margin-left: auto;
-        max-width: vw(560px);
-      }
-
-      @include mq(desktop-wide) {
-        margin-bottom: 100px;
-      }
-    }
-
     @include when-inside(".media-content-post") {
       @include mq(tablet) {
         max-width: vw(450px);
@@ -355,21 +287,6 @@
     @include typography(42px, 66px, 42px, 66px, 400, $f-heading, $c-gray-18);
     letter-spacing: -0.04em;
     font-style: normal;
-
-    @include when-inside(".media-content-intro") {
-      letter-spacing: -0.03em;
-      margin-bottom: 42px;
-      @include typography(50px, 81px, 46px, 72px);
-
-      @include mq(tablet) {
-        margin-bottom: vw(30px);
-      }
-
-      @include mq(desktop-wide) {
-        margin-bottom: 30px;
-      }
-    }
-
     @include when-inside(".media-content-spa") {
       @include typography(42px, 66px, 40px, 64px, 400, $f-heading, #2f2f2f);
       letter-spacing: -0.04em;
@@ -377,20 +294,6 @@
         margin-bottom: svw(16px);
       }
     }
-
-    @include when-inside(".media-content-map") {
-      margin-bottom: 15px;
-      @include typography(42px, 81px, 40px, 81px);
-
-      @include mq(tablet) {
-        margin-bottom: vw(23px);
-      }
-
-      @include mq(desktop-wide) {
-        margin-bottom: 23px;
-      }
-    }
-
     @include when-inside(".media-content-tab") {
       @include typography(42px, 60px, 40px, 64px, 400, $f-heading, #2f2f2f);
 
@@ -417,15 +320,6 @@
     margin-bottom: 30px;
     letter-spacing: 0.25em;
     color: $c-gray-18;
-
-    @include when-inside(".media-content-intro") {
-      color: #232323;
-    }
-
-    @include when-inside(".media-content-map") {
-      @include typography(10px, 16px, 18px, 19.7px, 600, $f-text, #232323);
-    }
-
     @include when-inside(".media-content-post") {
       font: 600 12px/14.77px $f-text;
       letter-spacing: 0.25em;
@@ -440,35 +334,10 @@
       margin-bottom: vw(20px);
     }
 
-    @include when-inside(".media-content-intro") {
-      margin-bottom: 40px;
-
-      @include mq(tablet) {
-        margin-right: 0;
-        margin-bottom: vw(35px);
-        max-width: vw(520px);
-
-        p {
-          @include square-dot();
-        }
-      }
-    }
-
     @include when-inside(".media-content-spa") {
       @include mq(tablet) {
         margin-bottom: vw(40px);
         max-width: vw(420px);
-      }
-
-      @include mq(tablet) {
-        margin-bottom: 40px;
-      }
-    }
-
-    @include when-inside(".media-content-map") {
-      @include mq(tablet) {
-        margin-bottom: vw(40px);
-        max-width: vw(550px);
       }
 
       @include mq(tablet) {
@@ -496,9 +365,6 @@
     p {
       letter-spacing: 0.01em;
       color: $c-black;
-      @include when-inside(".media-content-map") {
-        color: #333;
-      }
     }
   }
 
@@ -506,18 +372,10 @@
     margin: auto;
     max-width: 310px;
 
-    @include when-inside(".media-content-map") {
-      max-width: 330px;
-    }
-
     @include mq(tablet) {
       display: grid;
       margin-right: 0;
       max-width: vw(480px);
-
-      @include when-inside(".media-content-map") {
-        max-width: vw(560px);
-      }
     }
 
     @include mq(tablet-wide) {

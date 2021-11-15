@@ -47,7 +47,7 @@ if ( !empty($image) || !empty($video) ) {
                 <h2 class="custom-blockquote__text a-up"><?php echo $text; ?></h2>
             <?php endif; ?>
             <?php if ($name) : ?>
-                <h6 class="custom-blockquote__name a-up a-delay-1">- <?php echo $name; ?></h6>
+                <h6 class="custom-blockquote__name a-up a-delay-1"><?php echo $name; ?></h6>
             <?php endif; ?>
             <?php if ($role) : ?>
                 <p class="custom-blockquote__role a-up a-delay-2"><?php echo $role; ?></p>
