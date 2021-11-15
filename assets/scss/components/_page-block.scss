@@ -36,11 +36,18 @@
     &::before {
       position: absolute;
       content: '';
-      top: -39px;
+      top: 0;
       left: 50%;
       width: 1px;
       height: 39px;
       background-color: $primary;
+      transform: translateY(-100%);
+      @include mq(tablet) {
+        height: vw(68px);
+      }
+      @include mq(desktop-wide) {
+        height: 68px;
+      }
     }
     img {
       position: absolute;

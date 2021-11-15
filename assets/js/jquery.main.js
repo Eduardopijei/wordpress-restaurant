@@ -29,6 +29,8 @@ jQuery(document).ready(function() {
   isElementExist(".offers-module", initOffersModule);
   isElementExist(".gallery-hero", initGalleryHero);
   isElementExist('.booking-calendar', initBookingCalendar);
+  isElementExist('.three-cards', initThreeCards);
+
 
 
   // viewportCheckerAnimate function
@@ -531,6 +533,29 @@ function initBookingCalendar() {
     showShortcuts: false,
     showTopbar: false
   });
+}
+
+// Init Three Cards
+function initThreeCards() {
+  let $carousel = $('.three-cards__inner')
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    if(!$carousel.hasClass('slick-initialized')) {
+      $carousel.slick({
+        arrows: false,
+        dots: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        speed: 600,
+        centerMode: true,
+        centerPadding: '30px'
+      });
+    }
+  } else {
+    if($carousel.hasClass('slick-initialized')) {
+      $carousel.slick('unslick');
+    }
+  }
+  windowResize(initThreeCards);
 }
 
 // Init Media Content Tab
