@@ -106,3 +106,16 @@
     line-height: 21px;
   }
 }
+#culinary-info {
+  h6 {
+    margin-bottom: 16px;
+  }
+  p {
+    max-width: 325px;
+    @include typography(12px, 12px, 18px, 21px, 400, $f-text, $c-gray-0d);
+    @include mq(tablet) {
+      max-width: vw(580px);
+      color: $c-black;
+    }
+  }
+}

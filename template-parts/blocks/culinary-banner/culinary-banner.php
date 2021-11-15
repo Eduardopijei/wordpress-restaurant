@@ -41,9 +41,22 @@ $featured_culinary = get_field('featured_culinary');
                 <a href="<?php echo $scrollTo['url']; ?>"
                 class="scroll-link">
                     <?php echo $scrollTo['title']; ?>
-                    <svg width="53" height="53" viewBox="0 0 53 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="26.5" cy="26.5" r="26.5" transform="rotate(-90 26.5 26.5)" fill="#A0814C"/>
-                        <path d="M26.997 33.3335L21.5108 23.831L32.4833 23.831L26.997 33.3335Z" fill="white"/>
+                    <svg width="69" height="69" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_d_1293_2565)">
+                    <circle cx="34.5" cy="34.5" r="26.5" transform="rotate(-90 34.5 34.5)" fill="#FAF7F1"/>
+                    </g>
+                    <path d="M34.5002 42.3333L26.8503 29.0833L42.1501 29.0833L34.5002 42.3333Z" fill="#3F526F"/>
+                    <defs>
+                    <filter id="filter0_d_1293_2565" x="0" y="0" width="69" height="69" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset/>
+                    <feGaussianBlur stdDeviation="4"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.24 0"/>
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1293_2565"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1293_2565" result="shape"/>
+                    </filter>
+                    </defs>
                     </svg>
                 </a>
             </div>
@@ -57,18 +70,18 @@ $featured_culinary = get_field('featured_culinary');
             $day = get_the_date( 'd', $featured );
             $month = get_the_date( 'M', $featured );
             $image = get_field('image', $featured);
-            $img_src = $image['sizes']['offer-image'];
-            $img_src_2x = $image['sizes']['offer-image-2x']; ?>
-            <div class="featured-culinary">
+            $img_src = $image['sizes']['culinary-banner'];
+            $img_src_2x = $image['sizes']['culinary-banner-2x']; ?>
+            <div class="featured-culinary gradient-overlay">
                 <img src="<?php echo $img_src; ?>" srcset="<?php echo $img_src_2x; ?>" 
                     alt="<?php echo $title; ?>" class="featured-culinary__image">
+                <div class="featured-culinary__date a-op">
+                    <span class="featured-culinary__date--day"><?php echo $day; ?></span>
+                    <span class="featured-culinary__date--month">
+                        <?php echo $month; ?>
+                    </span>
+                </div>
                 <div class="featured-culinary__content">
-                    <div class="featured-culinary__date a-up">
-                        <span class="featured-culinary__date--day"><?php echo $day; ?></span>
-                        <span class="featured-culinary__date--month">
-                            <?php echo $month; ?>
-                        </span>
-                    </div>
                     <div class="featured-culinary__title a-up a-delay-1"><?php echo $title; ?></div>
                     <div class="featured-culinary__excerpt a-up a-delay-2"><?php echo $excerpt; ?></div>
                 </div>

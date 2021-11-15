@@ -34,10 +34,6 @@ $more_culinary = get_field('more_culinary');
         <div class="culinary-module__center a-up a-delay-3">
             <div class="culinary-module__filters">
                 <?php foreach ($terms as $term) : ?>
-                    <?php 
-                        $image = get_field('image', 'culinary_time' . '_' . $term->term_id); 
-                        $img_src = $image['sizes']['taxonomy-image'];
-                        ?>
                     <a href="#" class="cta cta-reverse culinary-module__filter" 
                         data-id="<?php echo $term->term_id; ?>"
                         data-filter=".<?php echo $term->slug; ?>">
@@ -85,7 +81,7 @@ $more_culinary = get_field('more_culinary');
                 <?php endif; ?>
                 <?php if ($more_culinary['cta']) : ?>
                     <a href="<?php echo $more_culinary['cta']['url']; ?>" 
-                        class="btn btn--accent loop-culinary-more__cta a-up a-delay-2">
+                        class="btn btn--primary loop-culinary-more__cta a-up a-delay-2">
                         <?php echo $more_culinary['cta']['title']; ?>
                     </a>
                 <?php endif; ?>

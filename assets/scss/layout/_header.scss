@@ -377,7 +377,12 @@
       @include buttonUnderline(1px, $c-white);
       padding-bottom: 0;
       color: $c-white;
-
+      @include when-inside('.header--dark') {
+        color: $c-black;
+        &::after {
+          border-color: $c-black;
+        }
+      }
       @include when-inside('.sticky') {
         color: $accent;
 

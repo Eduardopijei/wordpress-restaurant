@@ -10,7 +10,9 @@
   @include mq(desktop-wide) {
     padding-top: 148px;
   }
-
+  &.culinary-module-grid {
+    padding: 0;
+  }
   .container {
     position: relative;
 
@@ -154,10 +156,33 @@
   &__filter {
     padding-bottom: 0;
     @include heading6();
-    color: #C4C4C4;
+    color: #C4C4C4; 
 
     @include mq(tablet) {
       margin: 0 vw(10px);
+    }
+    @include when-inside('.culinary-module-grid') {
+      font: 700 14px/1 $f-text;
+      letter-spacing: 0.3em;
+      color: $c-gray-0d;
+      &::before {
+        position: absolute;
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: transparent;
+        left: 50%;
+        bottom: -15px;
+        transform: translateX(-50%);
+        transition: all .3s ease-in-out;
+      }
+      &:hover {
+        color: $primary;
+      }
+      &.active::before {
+        background-color: $primary;
+      }
     }
     &:hover {
       color: $c-gray-18;

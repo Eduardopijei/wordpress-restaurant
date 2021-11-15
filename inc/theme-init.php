@@ -139,6 +139,13 @@ add_image_size( 'three-cards-2x', 750, 1040, true );
 add_image_size( 'page-block', 1440, 650, true );
 add_image_size( 'page-block-2x', 2880, 1300, true );
 
+add_image_size( 'culinary-banner', 680, 900, true );
+add_image_size( 'culinary-banner-2x', 1360, 1800, true );
+
+add_image_size( 'culinary-grid', 580, 730, true );
+add_image_size( 'culinary-grid-2x', 1160, 1460, true );
+
+
 //show_admin_bar(false);
 //define( 'WPCF7_AUTOP', false );
 
