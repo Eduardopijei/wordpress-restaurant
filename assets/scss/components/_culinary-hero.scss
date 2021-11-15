@@ -1,0 +1,24 @@
+.culinary-hero {
+  position: relative;
+  &__bg {
+    height: svw(740px);
+    max-height: 100vh;
+    @include mq(tablet) {
+      height: vw(900px)
+    }
+    img {
+      @include coverImage();
+    }
+  }
+  &__logo {
+    position: absolute;
+    left: 50%;
+    bottom: 25px;
+    transform: translateX(-50%);
+    @include mq(tablet) {
+      left: 70px;
+      bottom: 75px;
+      transform: none;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.single-culinary {
+  #about {
+    h1 {
+      margin-bottom: 20px;
+      @include typography(56px, 68px, 56px, 68px, 400, $f-heading, $c-gray-2f);
+      @include mq(tablet) {
+        margin-bottom: vw(50px);
+      }
+    }
+    h6 {
+      margin-bottom: 15px;
+      @include typography(12px, 14px, 12px, 14px, 700, $f-text, $c-gray-0d);
+      letter-spacing: 0.15em;
+      @include mq(tablet) {
+        margin-bottom: 20px;
+        letter-spacing: 0.3em;
+      }
+    }
+    p {
+      color: $c-gray-0d;
+      @include mq(tablet) {
+        color: $c-black;
+      }
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      @include mq(tablet) {
+        margin-top: vw(60px);
+      }
+    }
+  }
+}

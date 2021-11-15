@@ -338,6 +338,38 @@ function my_acf_init_block_types() {
             'keywords'          => array( 'chef'),
         ));
 
+        // Culinary Hero
+        acf_register_block_type(array( 
+            'name'              => 'culinary_hero',
+            'title'             => __('Culinary Hero'),
+            'description'       => __('Culinary Hero'),
+            'render_template'   => 'template-parts/blocks/culinary-hero/culinary-hero.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'cover-image',
+            'keywords'          => array( 'culinary', 'hero'),
+        ));
+        
+        // Culinary Detail
+        acf_register_block_type(array( 
+            'name'              => 'culinary_detail',
+            'title'             => __('Culinary Detail'),
+            'description'       => __('Culinary Detail'),
+            'render_template'   => 'template-parts/blocks/culinary-detail/culinary-detail.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'align-pull-left',
+            'keywords'          => array( 'culinary', 'detail' ),
+        ));
+        
+        // Culinary Form
+        acf_register_block_type(array( 
+            'name'              => 'culinary_form',
+            'title'             => __('Culinary Form'),
+            'description'       => __('Culinary Form'),
+            'render_template'   => 'template-parts/blocks/culinary-form/culinary-form.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'align-pull-left',
+            'keywords'          => array( 'culinary', 'form' ),
+        ));
         /*********************************** ****************************************/
 
         // Register Title Text Block
@@ -351,7 +383,6 @@ function my_acf_init_block_types() {
             'keywords'          => array( 'title', 'text' ),
         ));
         
-
 
         // Register Custom Image Block
         acf_register_block_type(array(
@@ -441,16 +472,6 @@ function my_acf_init_block_types() {
             'keywords'          => array( 'media', 'content', 'tab'),
         ));
 
-        // Spa Hero
-        acf_register_block_type(array( 
-            'name'              => 'spa_hero',
-            'title'             => __('Spa Hero'),
-            'description'       => __('Spa Hero'),
-            'render_template'   => 'template-parts/blocks/spa-hero/spa-hero.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'cover-image',
-            'keywords'          => array( 'spa', 'hero'),
-        ));
 
         // Hover Carousel Alt
         acf_register_block_type(array( 

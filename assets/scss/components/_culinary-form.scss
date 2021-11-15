@@ -1,0 +1,70 @@
+.culinary-form {
+  display: flex;
+  flex-direction: column;
+  @include mq(tablet) {
+    flex-direction: row;
+    align-items: center;
+  }
+  > div {
+    @include mq(tablet) {
+      flex: 0 0 50%;
+    }
+  }
+  &__slides {
+    @include mq(tablet) {
+      width: vw(720px);
+    }
+  }
+  &__image {
+    height: 580px;
+    @include mq(tablet) {
+      height: vw(960px);
+      max-height: 960px;
+    }
+    img {
+      @include coverImage();
+    }
+  }
+  &__content {
+    text-align: center;
+    @include mq(tablet, max) {
+      margin-top: 45px;
+    }
+  } 
+  &__heading {
+    margin-bottom: 18px;
+    @include typography(42px, 60px, 42px, 64px, 400, $f-heading, $c-gray-2f);
+    font-style: normal;
+    @include mq(tablet) {
+      margin-bottom: vw(36px);
+    }
+    @include mq(desktop-wide) {
+      margin-bottom: 36px;
+    }
+  }
+  &__subheading {
+    @include typography(12px, 14px, 12px, 14px, 700, $f-text, $c-gray-2f);
+    letter-spacing: 0.25em;
+    margin-bottom: 12px;
+    @include mq(tablet) {
+      letter-spacing: 0.3em;
+      color: $c-gray-0d;
+    }
+  }
+  &__text {
+    margin-bottom: 20px;
+    color: $c-gray-2f;
+    @include mq(tablet) {
+      color: $c-black;
+    }
+  }
+  &__form {
+
+  }
+  .slick-dots {
+    text-align: center;
+    @include mq(tablet) {
+      text-align: right;
+    }
+  }
+}

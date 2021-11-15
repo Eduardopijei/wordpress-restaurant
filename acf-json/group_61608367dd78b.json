@@ -1,6 +1,6 @@
 {
     "key": "group_61608367dd78b",
-    "title": "Block : Spa Hero",
+    "title": "Block : Culinary Hero",
     "fields": [
         {
             "key": "field_61608371d30d6",
@@ -27,10 +27,10 @@
             "mime_types": ""
         },
         {
-            "key": "field_6160866a41364",
-            "label": "Video",
-            "name": "video",
-            "type": "file",
+            "key": "field_619212caf4566",
+            "label": "Logo",
+            "name": "logo",
+            "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -40,104 +40,15 @@
                 "id": ""
             },
             "return_format": "url",
+            "preview_size": "medium",
             "library": "all",
+            "min_width": "",
+            "min_height": "",
             "min_size": "",
+            "max_width": "",
+            "max_height": "",
             "max_size": "",
             "mime_types": ""
-        },
-        {
-            "key": "field_61608394d30d7",
-            "label": "Treatment",
-            "name": "treatment",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_616083e6d30d8",
-                    "label": "Image",
-                    "name": "image",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "url",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                },
-                {
-                    "key": "field_616083eed30d9",
-                    "label": "Caption",
-                    "name": "caption",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_616083f5d30da",
-                    "label": "Title",
-                    "name": "title",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_616083fad30db",
-                    "label": "Link",
-                    "name": "link",
-                    "type": "link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "url"
-                }
-            ]
         },
         {
             "key": "field_616084b5d30dd",
@@ -175,26 +86,6 @@
             "step": 25,
             "prepend": "",
             "append": ""
-        },
-        {
-            "key": "field_616084d1d30df",
-            "label": "Height",
-            "name": "height",
-            "type": "range",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": 100,
-            "min": "",
-            "max": "",
-            "step": 10,
-            "prepend": "",
-            "append": ""
         }
     ],
     "location": [
@@ -202,7 +93,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/spa-hero"
+                "value": "acf\/culinary-hero"
             }
         ]
     ],
@@ -214,5 +105,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635147962
+    "modified": 1636963442
 }

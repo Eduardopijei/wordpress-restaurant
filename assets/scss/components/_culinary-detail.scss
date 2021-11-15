@@ -1,0 +1,162 @@
+.culinary-detail {
+    &__info {
+      margin-bottom: 40px;
+      text-align: center;
+      @include mq(tablet, max) {
+        color: #0d0d0d;
+      }
+      @include mq(tablet) {
+        margin-bottom: vw(60px);
+      }
+      @include mq(desktop-wide) {
+        margin-bottom: 60px;
+      }
+    }
+    &__heading {
+      @include typography(42px, 72px, 64px, 64px, 400, $f-heading, #2f2f2f);
+      @include mq(tablet, max) {
+        color: #0d0d0d;
+      }
+    }
+    &__subheading {
+      margin: 14px auto 29px;
+      color: #181818;
+      @include mq(tablet) {
+        margin: 0 auto 20px;
+      }
+      @include when-inside('.culinary-detail__content') {
+        display: none;
+        @include mq(tablet) {
+          display: block;
+        }
+      }
+      @include when-inside('.culinary-detail__info') {
+        @include mq(tablet) {
+          display: none;
+        } 
+      }
+    }
+    &__description {
+      color: $c-black;
+      @include when-inside('.culinary-detail__content') {
+        display: none;
+        @include mq(tablet) {
+          display: block;
+          margin-bottom: vw(50px);
+        }
+        @include mq(desktop-wide) {
+          margin-bottom: 50px;
+        }
+      }
+      @include when-inside('.culinary-detail__info') {
+        @include mq(tablet) {
+          display: none;
+        } 
+      }
+    }
+    &__inner {
+      @include mq(tablet) {
+        display: flex;
+        align-items: center;
+        @include when-inside('.culinary-detail--right') {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+    &__images {
+      @include mq(tablet, max) {
+        margin-left: -20px;
+        margin-right: -20px;
+      }
+      @include mq(tablet) {
+        width: vw(630px);
+        flex-shrink: 0;
+        @include when-inside('.culinary-detail--right') {
+          margin-left: vw(90px);
+        }
+        @include when-inside('.culinary-detail--left') {
+          margin-right: vw(90px);
+        }
+      }
+    }
+    &__image {
+      height: 405px;
+      @include mq(tablet) {
+        height: vw(840px);
+        max-height: 840px;
+      }
+      img {
+        @include coverImage();
+      }
+    }
+    &__content {
+      @include mq(tablet) {
+        max-width: vw(400px);
+      }
+      @include mq(desktop-wide) {
+        max-width: 400px;
+      }
+      @include when-inside('.culinary-detail--right') {
+        @include mq(tablet) {
+          text-align: right;
+        }
+      }
+      p ~ h2 {
+        @include mq(tablet, max) {
+          margin-top: 20px; 
+        }
+      }
+      h2 {
+        margin-bottom: 8px;
+        @include typography(42px, 64px, 55px, 64px, 400, $f-heading, $c-gray-2f);
+        font-style: normal;
+        @include mq(tablet) {
+          margin-bottom: vw(32px);
+        }
+        @include mq(desktop-wide) {
+          margin-bottom: 32px;
+        }
+      } 
+      p {
+        color: $c-black;
+        strong {
+          display: block;
+          margin-bottom: 1em;
+          font: 700 14px/21px $f-text;
+          color: $primary;
+        }
+      }
+      a {
+        position: relative;
+        display: inline-block;
+        @include typography(12px, 14px, 18px, 21px, 400, $f-text, $c-black);
+        &::after {
+          position: absolute;
+          content: "";
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          border-bottom: 1px solid $c-black;
+          transform: scaleX(1);
+          transform-origin: 0% center;
+          transition: transform 0.3s ease-in-out;
+          @include mq(tablet) {
+            border-bottom-width: 1px;
+          }
+        }
+        @include mq(tablet) {
+          &:hover::after {
+            transform: scaleX(0);
+            transform-origin: 100% center;
+          }
+        }
+      }
+    }
+    .slick-dots {
+      text-align: center;
+      @include mq(tablet) {
+        text-align: right;
+      }
+    }
+}

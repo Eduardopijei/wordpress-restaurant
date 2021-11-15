@@ -47,6 +47,9 @@
 @import "components/two-cards";
 @import "components/three-cards";
 @import "components/chef";
+@import "components/culinary-hero";
+@import "components/culinary-detail";
+@import "components/culinary-form";
 
 // Old Blocks
 @import "components/title-text";
@@ -57,7 +60,6 @@
 @import "components/events-experiences";
 @import "components/loop-room";
 @import "components/popup";
-@import "components/spa-hero";
 @import "components/people-slider";
 @import "components/loop-people";
 @import "components/post-two-cols";
@@ -65,3 +67,4 @@
 
 
 @import "pages/single-room";
+@import "pages/single-culinary";

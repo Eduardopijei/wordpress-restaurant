@@ -145,6 +145,11 @@ add_image_size( 'culinary-banner-2x', 1360, 1800, true );
 add_image_size( 'culinary-grid', 580, 730, true );
 add_image_size( 'culinary-grid-2x', 1160, 1460, true );
 
+add_image_size( 'culinary-detail', 630, 840, true );
+add_image_size( 'culinary-detail-2x', 1260, 1680, true );
+
+add_image_size( 'culinary-form', 720, 960, true );
+add_image_size( 'culinary-form-2x', 1440, 1920, true );
 
 //show_admin_bar(false);
 //define( 'WPCF7_AUTOP', false );

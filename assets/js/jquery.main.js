@@ -30,6 +30,8 @@ jQuery(document).ready(function() {
   isElementExist(".gallery-hero", initGalleryHero);
   isElementExist('.booking-calendar', initBookingCalendar);
   isElementExist('.three-cards', initThreeCards);
+  isElementExist('.culinary-detail', initCulinaryDetail);
+  isElementExist('.culinary-form', initCulinaryForm);
 
 
 
@@ -123,8 +125,8 @@ function initHeader() {
     if ($(window).scrollTop() >= 50) $(".header").addClass("sticky");
     else $(".header").removeClass("sticky");
     // Add Secondary nav
-    if ($('.rooms-hero').length) {
-      if ($(window).scrollTop() >= $('.rooms-hero').outerHeight()) {
+    if ($('.secondary-nav').length) {
+      if ($(window).scrollTop() >= $(window).outerHeight()) {
         $('.secondary-nav').addClass('secondary-nav--fixed');
       } else {
         $('.secondary-nav').removeClass('secondary-nav--fixed');
@@ -557,6 +559,27 @@ function initThreeCards() {
   }
   windowResize(initThreeCards);
 }
+
+// initialize culinary detail
+function initCulinaryDetail() {
+  $('.culinary-detail__images').slick({
+    arrows: false,
+    dots: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  });
+}
+
+// initialize culinary form
+function initCulinaryForm() {
+  $('.culinary-form__slides').slick({
+    arrows: false,
+    dots: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  });
+}
+
 
 // Init Media Content Tab
 function initMediaContentTab() {
