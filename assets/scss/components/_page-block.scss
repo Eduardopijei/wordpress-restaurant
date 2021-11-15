@@ -1,30 +1,46 @@
 .page-block {
   &__heading {
-    margin-bottom: 25px;
-    @include typography(28px, 42px, 64px, 42px, 400, $f-heading, #1d1d1d);
+    margin-bottom: 30px;
+    @include typography(42px, 54px, 42px, 64px, 400, $f-heading, $c-gray-2f);
+    font-style: normal;
     text-align: center;
     @include mq(tablet) {
-      margin-bottom: vw(55px);
+      margin-bottom: vw(40px);
     }
     @include mq(desktop-wide) {
-      margin-bottom: 55px;
+      margin-bottom: 40px;
+    }
+  }
+  &__subheading {
+    margin-bottom: 65px;
+    @include typography(12px, 14px, 12px, 14px, 700, $f-text, $c-gray-18);
+    text-align: center;
+    letter-spacing: 0.25em;
+    @include mq(tablet) {
+      margin-bottom: vw(130px);
+    }
+    @include mq(desktop-wide) {
+      margin-bottom: 130px;
     }
   }
 
   &__banner {
     position: relative;
-    height: 650px;
-    overflow: hidden;
+    height: 610px;
     @include mq(tablet) {
-      height: vw(750px);
+      height: vw(650px);
     }
     @include mq(desktop-wide) {
-      height: 750px;
+      height: 650px;
     }
-    &:hover {
-      img {
-        transform: scale(1.05);
-      }
+    &::before {
+      position: absolute;
+      content: '';
+      top: -39px;
+      left: 50%;
+      width: 1px;
+      height: 39px;
+      background-color: $primary;
     }
     img {
       position: absolute;
@@ -33,21 +49,24 @@
       @include coverImage;
       transition: transform .5s ease-in-out;
     }
-    &::after {
-      height: 100%;
-      opacity: 1;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
+  }
+
+  &__cta {
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    width: 240px;
+    transform: translateX(-50%);
+    @include mq(tablet) {
+      bottom: vw(50px);
+      &:hover {
+        background-color: $c-white !important;
+        border-color: $c-white !important;
+        color: $c-black !important;
+      }
     }
-    span {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      text-align: center;
-      @include typography(50px, 74px, 64px, 64px, 400, $f-heading, $secondary);
-      letter-spacing: -0.04em;
-      transform: translate(-50%, -50%);
-      z-index: 2;
+    @include mq(desktop-wide) {
+      bottom: 50px;
     }
   }
 }

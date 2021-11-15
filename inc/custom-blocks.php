@@ -189,7 +189,7 @@ function my_acf_init_block_types() {
             'title'             => __('Navigation'),
             'description'       => __('Navigation'),
             'render_template'   => 'template-parts/blocks/navigation/navigation.php',
-            'category'          => 'waldorf-blocks',
+            'category'          => 'boston-blocks',
             'icon'              => 'menu',
             'keywords'          => array( 'navigation' ),
         ));
@@ -234,7 +234,7 @@ function my_acf_init_block_types() {
             'title'             => __('Gallery Hero'),
             'description'       => __('Gallery Hero'),
             'render_template'   => 'template-parts/blocks/gallery-hero/gallery-hero.php',
-            'category'          => 'waldorf-blocks',
+            'category'          => 'boston-blocks',
             'icon'              => 'format-gallery',
             'keywords'          => array( 'gallery', 'hero' ),
         ));
@@ -245,7 +245,7 @@ function my_acf_init_block_types() {
             'title'             => __('Single Room Booking'),
             'description'       => __('Single Room Booking'),
             'render_template'   => 'template-parts/blocks/single-room-booking/single-room-booking.php',
-            'category'          => 'waldorf-blocks',
+            'category'          => 'boston-blocks',
             'icon'              => 'tickets',
             'keywords'          => array( 'single', 'room', 'booking' ),
         ));
@@ -256,7 +256,7 @@ function my_acf_init_block_types() {
             'title'             => __('Amentities'),
             'description'       => __('Amentities'),
             'render_template'   => 'template-parts/blocks/amentities/amentities.php',
-            'category'          => 'waldorf-blocks',
+            'category'          => 'boston-blocks',
             'icon'              => 'info',
             'keywords'          => array( 'amentities' ),
         ));
@@ -267,9 +267,31 @@ function my_acf_init_block_types() {
             'title'             => __('Two Image Cards'),
             'description'       => __('Two Image Cards'),
             'render_template'   => 'template-parts/blocks/two-cards/two-cards.php',
-            'category'          => 'waldorf-blocks',
+            'category'          => 'boston-blocks',
             'icon'              => 'format-image',
             'keywords'          => array( 'two', 'cards' ),
+        ));
+
+        // Three Cards
+        acf_register_block_type(array( 
+            'name'              => 'three_cards',
+            'title'             => __('Three Image Cards'),
+            'description'       => __('Three Image Cards'),
+            'render_template'   => 'template-parts/blocks/three-cards/three-cards.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'format-image',
+            'keywords'          => array( 'three', 'cards' ),
+        ));
+        
+        // Register Custom Blockquote Block
+        acf_register_block_type(array(
+            'name'              => 'custom_blockquote',
+            'title'             => __('Blockquote'),
+            'description'       => __('Blockquote'),
+            'render_template'   => 'template-parts/blocks/custom-blockquote/custom-blockquote.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'format-quote',
+            'keywords'          => array( 'quote' ),
         ));
         /*********************************** ****************************************/
 
@@ -285,16 +307,6 @@ function my_acf_init_block_types() {
         ));
         
 
-        // Register Custom Blockquote Block
-        acf_register_block_type(array(
-            'name'              => 'custom_blockquote',
-            'title'             => __('Blockquote'),
-            'description'       => __('Blockquote'),
-            'render_template'   => 'template-parts/blocks/custom-blockquote/custom-blockquote.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'format-quote',
-            'keywords'          => array( 'quote' ),
-        ));
 
         // Register Custom Image Block
         acf_register_block_type(array(

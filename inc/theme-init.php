@@ -133,6 +133,11 @@ add_image_size( 'amentities-2x', 1320, 1400, true );
 add_image_size( 'two-cards', 550, 730, true );
 add_image_size( 'two-cards-2x', 1100, 1460, true );
 
+add_image_size( 'three-cards', 375, 520, true );
+add_image_size( 'three-cards-2x', 750, 1040, true );
+
+add_image_size( 'page-block', 1440, 650, true );
+add_image_size( 'page-block-2x', 2880, 1300, true );
 
 //show_admin_bar(false);
 //define( 'WPCF7_AUTOP', false );
