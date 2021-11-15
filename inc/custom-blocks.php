@@ -282,7 +282,7 @@ function my_acf_init_block_types() {
             'icon'              => 'format-image',
             'keywords'          => array( 'three', 'cards' ),
         ));
-        
+
         // Register Custom Blockquote Block
         acf_register_block_type(array(
             'name'              => 'custom_blockquote',
@@ -293,6 +293,40 @@ function my_acf_init_block_types() {
             'icon'              => 'format-quote',
             'keywords'          => array( 'quote' ),
         ));
+
+        // Culinary Banner
+        acf_register_block_type(array( 
+            'name'              => 'culinary_banner',
+            'title'             => __('Culinary Banner'),
+            'description'       => __('Culinary Banner'),
+            'render_template'   => 'template-parts/blocks/culinary-banner/culinary-banner.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'align-pull-left',
+            'keywords'          => array( 'culinary', 'tab' ),
+        ));
+
+        // Culinary Grid
+        acf_register_block_type(array( 
+            'name'              => 'culinary_grid',
+            'title'             => __('Culinary Grid'),
+            'description'       => __('Culinary Grid'),
+            'render_template'   => 'template-parts/blocks/culinary-grid/culinary-grid.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'food',
+            'keywords'          => array( 'culinary', 'grid'),
+        ));
+
+        // Events & Experiences
+        acf_register_block_type(array( 
+            'name'              => 'events_experiences',
+            'title'             => __('Events Experiences'),
+            'description'       => __('Events Experiences'),
+            'render_template'   => 'template-parts/blocks/events-experiences/events-experiences.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'columns',
+            'keywords'          => array( 'events', 'experiences'),
+        ));
+
         /*********************************** ****************************************/
 
         // Register Title Text Block
@@ -395,40 +429,6 @@ function my_acf_init_block_types() {
             'icon'              => 'align-pull-left',
             'keywords'          => array( 'media', 'content', 'tab'),
         ));
-
-        // Culinary Banner
-        acf_register_block_type(array( 
-            'name'              => 'culinary_banner',
-            'title'             => __('Culinary Banner'),
-            'description'       => __('Culinary Banner'),
-            'render_template'   => 'template-parts/blocks/culinary-banner/culinary-banner.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'align-pull-left',
-            'keywords'          => array( 'culinary', 'tab' ),
-        ));
-
-        // Culinary Grid
-        acf_register_block_type(array( 
-            'name'              => 'culinary_grid',
-            'title'             => __('Culinary Grid'),
-            'description'       => __('Culinary Grid'),
-            'render_template'   => 'template-parts/blocks/culinary-grid/culinary-grid.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'food',
-            'keywords'          => array( 'culinary', 'grid'),
-        ));
-
-        // Events & Experiences
-        acf_register_block_type(array( 
-            'name'              => 'events_experiences',
-            'title'             => __('Events Experiences'),
-            'description'       => __('Events Experiences'),
-            'render_template'   => 'template-parts/blocks/events-experiences/events-experiences.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'columns',
-            'keywords'          => array( 'events', 'experiences'),
-        ));
-
 
         // Spa Hero
         acf_register_block_type(array( 

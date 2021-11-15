@@ -1,34 +1,36 @@
 .events-experiences {
   &__heading {
-    margin-bottom: 28px;
+    margin-bottom: 40px;
     text-align: center;
-    @include typography(32px, 52px, 64px, 64px, 400, $f-heading, #0d0d0d);
+    @include typography(42px, 61px, 42px, 78px, 400, $f-heading, $c-gray-2f);
     @include mq(tablet) {
-      margin-bottom: vw(43px);
+      margin-bottom: vw(50px);
     }
   }
   &__grid {
     @include mq(tablet) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-gap: 22px;
+      grid-gap: 50px;
     }
   }
   &__cta--wrapper {
+    display: none;
     margin-top: 30px;
     text-align: center;
     @include mq(tablet) {
-      margin-top: vw(60px);
+      display: block;
+      margin-top: vw(127px);
     }
   }
   &__cta {
-    min-width: 276px;
+    min-width: 255px;
   }
   .img-a-img {
     &::before {
-      padding-top: 385px;
+      padding-top: 590px;
       @include mq(tablet) {
-        padding-top: 122%;
+        padding-top: hp(580, 730);
       }
     }
   }

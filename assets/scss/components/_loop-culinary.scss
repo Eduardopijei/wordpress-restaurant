@@ -7,6 +7,9 @@
     @include when-inside(".culinary-module") {
       padding: 0 3px;
     }
+    @include when-inside('.events-experiences') {
+      width: auto;
+    }
   }
   @include mq(tablet, max) {
     @include when-inside(".culinary-module-grid") {
@@ -14,7 +17,6 @@
     }
     @include when-inside('.events-experiences') {
       margin-bottom: 35px;
-
     }
   }
   &__image {
@@ -75,7 +77,13 @@
       text-align: center;
     }
     @include when-inside('.events-experiences') {
-      @include typography(12px, 16px, 14.77px, 19.7px, 600, $f-text, $c-white);
+      padding: 0;
+      bottom: 24px;
+      @include typography(14px, 16px, 14px, 16px, 700, $f-text, $c-white);
+      text-align: center;
+      @include mq(tablet) {
+        bottom: vw(44px);
+      }
     }
   }
   &__category {
@@ -124,6 +132,9 @@
       @include typography(12px, 14px, 18px, 24px, 400, $f-text, $primary);
     }
     @include when-inside('.culinary-module-grid') {
+      @include typography(12px, 14px, 18px, 24px, 400, $f-text, $c-black);
+    }
+    @include when-inside('.events-experiences') {
       @include typography(12px, 14px, 18px, 24px, 400, $f-text, $c-black);
     }
   }
@@ -201,8 +212,19 @@
     height: 100px;
     z-index: 1;
     @include when-inside('.events-experiences') {
-      width: 80px;
-      height: 75px;
+      left: auto;
+      right: 23px;
+      background-color: $primary;
+      @include mq(tablet) {
+        flex-direction: row;
+        padding: 10px;
+        width: auto;
+        height: auto;
+        min-width: 165px;
+        &--day {
+          margin-right: 5px;
+        }
+      }
     }
     @include mq(tablet) {
       top: 40px;
@@ -214,13 +236,23 @@
       @include typography(42px, 52px, 64px, 64px, 400, $f-heading, $c-white);
       letter-spacing: -0.04em;
       @include when-inside('.events-experiences') {
-        @include typography(22px, 52px, 30px, 64px, 400, $f-heading, $c-white);
+        font: 400 42px/64px $f-heading;
+        @include mq(tablet) {
+          font: 700 14px/2 $f-text;
+        }
       }
     }
     &--month {
       letter-spacing: 0.3em;
       text-transform: uppercase;
       @include typography(10px, 14px, 12.31px, 17.23px, 600, $f-text, $c-white);
+      @include when-inside('.events-experiences') {
+        font: 700 10px/1 $f-text;
+        @include mq(tablet) {
+          font-size: 14px;
+          line-height: 2;
+        }
+      }
     }
   }
   &__cta--wrapper {
