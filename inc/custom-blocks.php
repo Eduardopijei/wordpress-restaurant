@@ -327,6 +327,17 @@ function my_acf_init_block_types() {
             'keywords'          => array( 'events', 'experiences'),
         ));
 
+        // Chef
+        acf_register_block_type(array( 
+            'name'              => 'chef',
+            'title'             => __('Chef'),
+            'description'       => __('Chef'),
+            'render_template'   => 'template-parts/blocks/chef/chef.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'food',
+            'keywords'          => array( 'chef'),
+        ));
+
         /*********************************** ****************************************/
 
         // Register Title Text Block
