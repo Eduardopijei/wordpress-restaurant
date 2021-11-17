@@ -1,0 +1,115 @@
+.blog-more {
+  position: relative;
+  @include mq(tablet, max) {
+    padding-bottom: 100px;
+  }
+  &::after {
+    @include mq(tablet, max) {
+      position: absolute;
+      content: '';
+      left: 50%;
+      bottom: 18px;
+      width: 100%;
+      height: 64px;
+      background-image: url('../images/gradient-line.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      transform: translateX(-50%);
+    }
+  }
+  .container {
+    @include mq(tablet) {
+      display: flex;
+      padding: 0;
+    }
+  }
+  &__content {
+    position: relative;
+    text-align: center;
+    padding: svw(70px) 0 svw(50px);
+    @include mq(tablet) {
+      display: flex;
+      padding: 0 vw(65px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+    }
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      left: 50%;
+      width: 100%;
+      height: 64px;
+      background-image: url('../images/gradient-line.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      transform: translateX(-50%);
+      @include mq(tablet) {
+        width: calc(100% - 65px);
+        height: vw(64px);
+      }
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+      @include mq(tablet, max) {
+        content: none;
+      }
+    }
+    &--inner {
+      @include mq(tablet) {
+        margin: auto;
+        width: vw(455px);
+      }
+    }
+  }
+  &__title {
+    margin-bottom: 20px;
+    @include typography(42px, 68px, 42px, 68px, 400, $f-heading, $c-gray-2f);
+    @include mq(tablet) {
+      margin-bottom: 30px;
+      color: $c-black;
+    }
+  }
+  &__text {
+    h6 {
+      margin-bottom: 15px;
+      @include typography(11px, 14px, 11px, 14px, 700, $f-text, $c-gray-2f);
+      letter-spacing: 0.25em;
+      @include mq(tablet) {
+        color: $c-gray-0d;
+      }
+    }
+    p {
+      @include typography(12px, 14px, 18px, 21px, 400, $f-text, $c-gray-2f);
+      @include mq(tablet) {
+        color: $c-gray-0d;
+      }
+    }
+  }
+  &__btn {
+    display: inline-block;
+    margin-top: 30px;
+    min-width: 310px;
+    @include mq(tablet) {
+      margin-top: 60px;
+      min-width: 255px;
+    }
+  }
+  &__image {
+    @include mq(tablet) {
+      flex-shrink: 0;
+      width: vw(712px);
+      height: vw(860px);
+    }
+    img {
+      @include coverImage();
+    }
+  }
+}

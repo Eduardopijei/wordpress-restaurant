@@ -151,6 +151,9 @@ add_image_size( 'culinary-detail-2x', 1260, 1680, true );
 add_image_size( 'culinary-form', 720, 960, true );
 add_image_size( 'culinary-form-2x', 1440, 1920, true );
 
+add_image_size( 'blog-more', 712, 860, true );
+add_image_size( 'blog-more-2x', 1424, 1720, true );
+
 //show_admin_bar(false);
 //define( 'WPCF7_AUTOP', false );
 

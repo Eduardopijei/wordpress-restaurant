@@ -370,6 +370,17 @@ function my_acf_init_block_types() {
             'icon'              => 'align-pull-left',
             'keywords'          => array( 'culinary', 'form' ),
         ));
+
+        // Blog More
+        acf_register_block_type(array( 
+            'name'              => 'blog_more',
+            'title'             => __('Blog More'),
+            'description'       => __('Blog More'),
+            'render_template'   => 'template-parts/blocks/blog-more/blog-more.php',
+            'category'          => 'waldorf-blocks',
+            'icon'              => 'admin-post',
+            'keywords'          => array( 'blog', 'more' ),
+        ));
         /*********************************** ****************************************/
 
         // Register Title Text Block
