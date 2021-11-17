@@ -68,6 +68,7 @@
     }
   }
   &__content {
+    padding: 0 20px;
     text-align: center;
     @include mq(tablet) {
       width: vw(440px);
@@ -76,7 +77,7 @@
   }
   &__heading {
     margin-bottom: 15px;
-    @include typography(56px, 70px, 70px, 72px, 400, $f-heading, $primary);
+    @include typography(56px, 72px, 70px, 72px, 400, $f-heading, $primary);
     font-style: normal;
     @include mq(tablet) {
       margin-bottom: 20px;
@@ -122,10 +123,10 @@
       top: vw(77px);
       min-width: 150px;
       @include when-inside('.rooms-carousel--right') {
-        right: -40px;
+        right: vw(-40px);
       }
       @include when-inside('.rooms-carousel--left') {
-        left: -40px;
+        left: vw(-40px);
         right: auto;
       }
     }
@@ -156,5 +157,9 @@
         letter-spacing: -0.02em;
       }
     }
+  }
+  .slick-dots li button {
+    width: 7px;
+    height: 7px;
   }
 }

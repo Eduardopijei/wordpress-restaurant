@@ -1,4 +1,13 @@
 .single-culinary {
+  .header:not(.sticky)::after {
+    @include mq(tablet) {
+      background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+      opacity: 0.6;
+    }
+  }
+  .secondary-nav__link {
+    font-size: 13px;
+  }
   #about {
     h1 {
       margin-bottom: 20px;
@@ -29,5 +38,30 @@
         margin-top: vw(60px);
       }
     }
+  }
+  .accordions {
+    h3.accordions-heading {
+      @include typography(42px, 54px, 55px, 64px, 400, $f-heading, $c-gray-0d);
+      @include mq(tablet) {
+        color: $c-gray-2f;
+      }
+      @include mq(desktop-wide) {
+        font-size: 54px;
+      }
+    }
+  }
+  .accordion {
+    &-title {
+      font-size: 12px;
+    }
+  }
+  .slide-title {
+    color: $c-gray-0d;
+    @include mq(tablet) {
+      color: $c-gray-18;
+    }
+  }
+  .slide-desc {
+    color: $c-black;
   }
 }

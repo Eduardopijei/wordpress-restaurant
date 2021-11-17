@@ -51,6 +51,7 @@
   &-size {
     @include typography(28px, 48px, 64px, 64px, 400, $f-heading, $c-white);
     letter-spacing: -0.04em;
+    white-space: nowrap;
     @include mq(tablet, max) {
       border: 1px solid $primary;
       color: $primary;
@@ -75,6 +76,11 @@
         color: $c-black;
       }
     }
+    @include mq(desktop-wide) {
+      padding: 15px 20px;
+      font-size: 16px;
+      line-height: 1;
+    }
   }
   &-image {
     @include mq(tablet, max) {
@@ -95,8 +101,9 @@
     @include mq(tablet) {
       flex-shrink: 0;
       width: vw(960px);
-      height: vw(700px);
-      max-height: 700px;
+    }
+    @include mq_mobile_landscape() {
+      width: 60%;
     }
     img {
      @include coverImage(); 

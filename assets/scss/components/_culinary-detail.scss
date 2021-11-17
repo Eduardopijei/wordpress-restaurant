@@ -108,10 +108,11 @@
       }
       h2 {
         margin-bottom: 8px;
-        @include typography(42px, 64px, 55px, 64px, 400, $f-heading, $c-gray-2f);
+        @include typography(42px, 64px, 55px, 64px, 400, $f-heading, $c-gray-0d);
         font-style: normal;
         @include mq(tablet) {
           margin-bottom: vw(32px);
+          color: $c-gray-2f;
         }
         @include mq(desktop-wide) {
           margin-bottom: 32px;
@@ -119,11 +120,13 @@
       } 
       p {
         color: $c-black;
+        font-size: 14px;
+        line-height: 21px;
         strong {
           display: block;
           margin-bottom: 1em;
-          font: 700 14px/21px $f-text;
           color: $primary;
+          text-transform: uppercase;
         }
       }
       a {

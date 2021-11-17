@@ -1,6 +1,12 @@
 .single-room {
+  .header:not(.sticky)::after {
+    @include mq(tablet) {
+      background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+      opacity: 0.6;
+    }
+  }
   #single-room-info {
-    h1 {
+    h2 {
       margin-bottom: 20px;
       @include typography(56px, 72px, 56px, 72px, 400, $f-heading, $c-gray-2f);
       letter-spacing: -0.04em;
@@ -32,7 +38,7 @@
         @include typography(12px, 14px, 12px, 14px, 700, $f-text, $c-gray-18);
       }
       p {
-        @include typography(12px, 14px, 18px, 21px, 400, $f-heading, $c-black);
+        @include typography(12px, 14px, 18px, 21px, 400, $f-text, $c-black);
       }
       .btn {
         display: inline-block;

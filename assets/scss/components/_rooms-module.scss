@@ -110,6 +110,9 @@
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: $c-white;
+    &:hover {
+      opacity: 0.7;
+    }
     &.active {
       &::after {
         position: absolute;

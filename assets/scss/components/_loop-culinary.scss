@@ -24,7 +24,7 @@
     overflow: hidden;
     cursor: pointer;
     height: 450px;
-    pointer-events: none;
+    // pointer-events: none;
     @include mq(tablet) {
       height: vw(663px);
     }
@@ -71,7 +71,7 @@
     }
     @include when-inside('.culinary-module-grid') {
       bottom: 50px;
-      padding: 0;
+      padding: 0 10px;
       font-size: 16px;
       letter-spacing: 0.3em;
       text-align: center;
@@ -91,11 +91,10 @@
     padding: 10px 25px;
     top: 20px;
     right: 20px;
-    font: 600 10px/12.31px $f-text;
+    @include typography(10px, 12px, 10px, 12px, 700, $f-text, $c-white);
     text-transform: uppercase;
     letter-spacing: 0.2em;
     background: $primary;
-    color: $c-white;
     @include mq(tablet) {
       top: vw(25px);
       right: vw(20px);

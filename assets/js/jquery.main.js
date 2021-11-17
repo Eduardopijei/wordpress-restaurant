@@ -120,13 +120,16 @@ function isElementExist(_el, _cb, _argCb) {
 }
 
 function initHeader() {
+  let $secondaryNav = $('.secondary-nav');
+  if ( $secondaryNav.length ) 
+    var secondaryNavOffset = $secondaryNav.offset().top;
   // Sticky Header
   $(window).scroll(function() {
     if ($(window).scrollTop() >= 50) $(".header").addClass("sticky");
     else $(".header").removeClass("sticky");
     // Add Secondary nav
-    if ($('.secondary-nav').length) {
-      if ($(window).scrollTop() >= $(window).outerHeight()) {
+    if( $('.secondary-nav').length ) {
+      if ($(window).scrollTop() >= secondaryNavOffset ) {
         $('.secondary-nav').addClass('secondary-nav--fixed');
       } else {
         $('.secondary-nav').removeClass('secondary-nav--fixed');
@@ -148,6 +151,12 @@ function initHeader() {
     $(".dropdown-menu", $dropdown).slideToggle();
     e.stopPropagation();
     e.preventDefault();
+  });
+  $('.secondary-nav__select').on('change', function() {
+    let val = $(this).val();
+    $('html, body').animate({
+      scrollTop: $(val).offset().top - $('.header').outerHeight() - $('.secondary-nav').outerHeight() - 50
+    }, 500);
   });
   // Close popup
   $('.popup-close').on('click', function() {
@@ -646,8 +655,8 @@ function myScrollLink() {
       jQuery(this).attr("data-scrollBottom") != undefined ?
       +jQuery(this).attr("data-scrollBottom") :
       0;
+    if (jQuery(this).hasClass('secondary-nav__link')) scrollTopVar += jQuery('.secondary-nav').outerHeight() + 50;
     var destinationFull = destination - scrollTopVar + scrollBottomVar;
-    console.log(destinationFull, destination);
     jQuery("html,body").stop().animate({
         scrollTop: destinationFull,
       },

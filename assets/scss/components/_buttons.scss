@@ -62,14 +62,15 @@
       }
     }
   }
-}
-.btn-booking {
-  background-image: $booking;
-  background-repeat: no-repeat;
-  background-position: top 13px right 20px;
-  min-width: 240px;
-  &:hover {
-    background-image: $booking-hover;
+  &-booking {
+    padding-right: 50px;
+    background-image: $booking;
+    background-repeat: no-repeat;
+    background-position: top 13px right 20px;
+    min-width: 240px;
+    &:hover {
+      background-image: $booking-hover;
+    }
   }
 }
 .cta {

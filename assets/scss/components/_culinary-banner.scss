@@ -46,6 +46,7 @@
 
     @include mq(tablet) {
       margin-bottom: 39px;
+      color: $c-gray-2f;
     }
   }
 
@@ -58,8 +59,17 @@
 
     h6 {
       margin-bottom: 14px;
-      color: #171717;
+      color: $c-gray-0d;
       letter-spacing: 0.25em;
+      @include mq(tablet) {
+        color: $c-gray-18;
+      }
+    }
+    p {
+      @include typography(12px, 12px, 18px, 21px, 400, $f-text, $c-gray-0d);
+      @include mq(tablet) {
+        color: $c-black;
+      }
     }
   }
 
@@ -179,10 +189,9 @@
     }
 
     &--month {
-      @include typography(12px, 14px, 12px, 14px, 700, $f-heading, $c-white);
+      @include typography(10px, 12px, 10px, 12px, 700, $f-text, $c-white);
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: $c-white;
     }
   }
 

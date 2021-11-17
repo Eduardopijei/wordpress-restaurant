@@ -93,6 +93,9 @@
         transform: translateY(-50%);
         transition: opacity .3s ease-in-out;
       }
+      @include mq_mobile_landscape() {
+        font-size: 32px;
+      }
     }
 
     &-title {

@@ -55,6 +55,7 @@
           letter-spacing: 0.25em;
           @include mq(tablet) {
             font-style: italic;
+            color: $c-gray-18;
           }
           svg {
             margin-left: 10px;
@@ -87,6 +88,10 @@
           }
           @include mq(tablet) {
             margin-right: 24px;
+          }
+          @include mq_mobile_landscape() {
+            margin-right: 0;
+            margin-bottom: 10px;
           }
         }
         .btn-reserve {
@@ -121,6 +126,9 @@
       .btn-check-availability {
         width: 100%;
         max-width: 325px;
+        @include mq(tablet) {
+          max-width: none;
+        }
       }
     }
   }

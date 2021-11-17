@@ -66,5 +66,9 @@
   }
   &-name {
     @include typography(14px, 16px, 14px, 16px, 700, $f-text, $c-gray-2f);
+    letter-spacing: 0.15em;
+    @include mq(tablet) {
+      letter-spacing: 0.3em;
+    }
   }
 }

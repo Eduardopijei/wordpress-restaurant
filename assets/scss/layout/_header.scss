@@ -77,10 +77,6 @@
       padding: 20px;
     }
 
-    @include mq(desktop-wide) {
-      padding: vw(20px);
-    }
-
     @include when-inside(".admin-bar") {
       @media screen and (max-width: 600px) {
         top: 0;
@@ -157,13 +153,13 @@
 
     @include mq(tablet) {
       display: block;
-      left: vw(120px);
-      bottom: vw(125px);
+      right: vw(70px);
+      bottom: vw(76px);
     }
 
     @include mq(desktop-wide) {
-      left: 120px;
-      bottom: 125px;
+      right: 70px;
+      bottom: 76px;
     }
 
     @include when-inside('.mobile') {
@@ -466,12 +462,11 @@
     padding: 43px 50px 40px 35px;
 
     @include mq(tablet) {
-      text-align: right;
-      padding: vw(40px) vw(187px);
+      padding: vw(40px) vw(100px);
     }
 
     @include mq(desktop-wide) {
-      padding: 40px 187px;
+      padding: 40px 100px;
     }
   }
 
@@ -513,13 +508,12 @@
           transition: transform 0.3s ease-in-out;
 
           @include mq(tablet) {
-            left: auto;
-            right: vw(-34px);
+            left: vw(-34px);
             border-width: 16px 8px 0 8px;
           }
 
           @include mq(desktop-wide) {
-            right: -34px;
+            left: -34px;
           }
         }
 
@@ -679,11 +673,6 @@
       top: 82px;
       @include when-inside('.admin-bar') {
         top: 115px;
-      }
-    }
-    @include mq(desktop-wide) {
-      @include when-inside('.admin-bar') {
-        top: 128px;
       }
     }
   }

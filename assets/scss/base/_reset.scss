@@ -306,14 +306,14 @@ html {
       position: absolute;
       content: '';
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translateY(-50%);
       transition: all .3s ease-in-out;
     }
   }
   .slick-next {
     right: 30px;
     &::after {
+      left: 12px;
       @include triangle(right, $c-gray-2f, 10px, 10px);
     }
     &:hover::after {
@@ -323,6 +323,7 @@ html {
   .slick-prev {
     left: 30px;
     &::after {
+      left: 9px;
       @include triangle(left, $c-gray-2f, 10px, 10px);
     }
     &:hover::after {

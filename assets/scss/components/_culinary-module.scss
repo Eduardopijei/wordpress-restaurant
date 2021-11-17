@@ -91,6 +91,9 @@
     @include mq(tablet) {
       margin-bottom: vw(30px);
     }
+    @include mq_mobile_landscape() {
+      margin-bottom: 30px;
+    }
     @include mq(desktop-wide) {
       margin-bottom: 30px;
     }
