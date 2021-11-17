@@ -14,11 +14,11 @@
   .images {
     position: relative;
     @include mq(tablet) {
-      margin-top: vw(-290px);
+      margin-top: vw(-200px);
       margin-left: vw(-80px);
     }
     @include mq(desktop-wide) {
-      margin-top: -290px;
+      margin-top: -200px;
       margin-left: -80px;
     }
     img {

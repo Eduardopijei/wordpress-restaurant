@@ -7,7 +7,9 @@
 
     font-style: normal;
     @include mq(tablet, max) {
-      font-size: $c-gray-0d;
+      color: $c-gray-0d;
+      margin-left: -20px;
+      margin-right: -20px;
     }
     @include mq(tablet) {
       margin-bottom: vw(63px);
