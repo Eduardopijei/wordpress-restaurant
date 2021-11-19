@@ -33,9 +33,9 @@
 		<a class="<?php echo $class; ?> <?php echo $color; ?>" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
 			<?php echo esc_html( $link_title ); ?>
 			<?php if( $icon && 'dark' === $icon ):  ?>
-				<img src="<?php echo get_template_directory_uri( ); ?>/images/ico/ico-arrow-dark-right.svg" alt="image description">
+				<img class="lazyload" data-src="<?php echo get_template_directory_uri( ); ?>/images/ico/ico-arrow-dark-right.svg" alt="image description">
 			<?php elseif( $icon ): ?>
-				<img src="<?php echo get_template_directory_uri( ); ?>/images/ico/ico-arrow-right.svg" alt="image description">
+				<img class="lazyload" data-src="<?php echo get_template_directory_uri( ); ?>/images/ico/ico-arrow-right.svg" alt="image description">
 			<?php endif ?>
 		</a>
 	<?php if( $ww ): ?>

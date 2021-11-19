@@ -39,7 +39,7 @@ $cta = get_field('cta');
                         'video' => $video
                     ) );
                 ?>
-                <img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" class="spa-logo a-up a-delay-3">
+                <img data-src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" class="spa-logo a-up a-delay-3 lazyload">
             </div>
         <?php endif; ?>
         <div class="media-content__content">

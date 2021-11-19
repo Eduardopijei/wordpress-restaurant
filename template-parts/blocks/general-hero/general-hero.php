@@ -49,7 +49,7 @@ $height = get_field('height');
                 </span>
             </button>
         <?php else: ?>
-            <img src="<?php echo $image; ?>" alt="" class="home-hero__bg">
+            <img data-src="<?php echo $image; ?>" alt="" class="home-hero__bg lazyload">
         <?php endif; ?>
     </div>
     <div class="general-hero__content">

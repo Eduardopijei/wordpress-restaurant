@@ -73,8 +73,8 @@ $featured_culinary = get_field('featured_culinary');
             $img_src = $image['sizes']['culinary-banner'];
             $img_src_2x = $image['sizes']['culinary-banner-2x']; ?>
             <div class="featured-culinary gradient-overlay">
-                <img src="<?php echo $img_src; ?>" srcset="<?php echo $img_src_2x; ?>" 
-                    alt="<?php echo $title; ?>" class="featured-culinary__image">
+                <img data-src="<?php echo $img_src; ?>" data-srcset="<?php echo $img_src_2x; ?>" 
+                    alt="<?php echo $title; ?>" class="featured-culinary__image lazyload">
                 <div class="featured-culinary__date a-op">
                     <span class="featured-culinary__date--day"><?php echo $day; ?></span>
                     <span class="featured-culinary__date--month">

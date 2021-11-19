@@ -219,9 +219,10 @@ function am_add_javascript( ) {
             'https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js',
             'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js',
             'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js',
-            'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js' ); 
+            'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js',
+            'https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js' ); 
         foreach($am_links as $am_link){
-            wp_enqueue_script('am_'.sanitize_title($am_link), $am_link,array('jquery'), '', true);
+            wp_enqueue_script('am_'.sanitize_title($am_link), $am_link,array('jquery'));
         }  
         $am_files = array(
             '/assets/js/jquery.daterangepicker.min.js',

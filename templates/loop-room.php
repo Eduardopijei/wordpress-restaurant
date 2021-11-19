@@ -16,8 +16,8 @@ $booking = 'https://www.hilton.com/en/book/reservation/rooms/?ctyhocn=SJDWAWA';
         <div class="loop-room__slides">
             <?php foreach( $images as $image ) : ?>
                 <div class="loop-room__slide gradient-overlay">
-                    <img src="<?php echo $image['sizes']['room-slider-small']; ?>"
-                        srcset="<?php echo $image['sizes']['room-slider-small-2x']; ?> 2x"
+                    <img class="lazyload" data-src="<?php echo $image['sizes']['room-slider-small']; ?>"
+                        data-srcset="<?php echo $image['sizes']['room-slider-small-2x']; ?> 2x"
                         alt="<?php echo $image['alt']; ?>">
                 </div>
             <?php endforeach; ?>

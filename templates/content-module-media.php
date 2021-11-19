@@ -16,7 +16,7 @@ endif;
     <div class="img-a-video">
         <?php if ($image): ?>
             <div class="img-a-img">
-                <img src="<?php echo $image_url; ?>" <?php echo $is_2x ? 'srcset="' . $image_url_2x . ' 2x"' : ''; ?> alt="">
+                <img class="lazyload" data-src="<?php echo $image_url; ?>" <?php echo $is_2x ? 'data-srcset="' . $image_url_2x . ' 2x"' : ''; ?> alt="">
             </div>
         <?php endif; ?>
         <div class="img-a-bg-video">
@@ -28,7 +28,7 @@ endif;
 <?php elseif ($image) : ?>
     <div class="img-a">
         <div class="img-a-img">
-            <img src="<?php echo $image_url; ?>" <?php echo $is_2x ? 'srcset="' . $image_url_2x . ' 2x"' : ''; ?> alt="">
+            <img  class="lazyload" data-src="<?php echo $image_url; ?>" <?php echo $is_2x ? 'data-srcset="' . $image_url_2x . ' 2x"' : ''; ?> alt="">
         </div>
     </div>
 <?php endif; ?>

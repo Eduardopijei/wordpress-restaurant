@@ -34,8 +34,9 @@ $images = get_field( 'images' );
         <div class="culinary-form__slides">
             <?php foreach( $images as $image): ?>
                 <div class="culinary-form__image">
-                    <img src="<?php echo $image['sizes']['culinary-form']; ?>" 
-                        srcset="<?php echo $image['sizes']['culinary-form-2x']; ?> 2x" 
+                    <img class="lazyload"
+                        data-src="<?php echo $image['sizes']['culinary-form']; ?>" 
+                        data-srcset="<?php echo $image['sizes']['culinary-form-2x']; ?> 2x" 
                         alt="">
                 </div>
             <?php endforeach; ?>

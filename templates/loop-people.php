@@ -13,8 +13,8 @@ $link = get_the_permalink( $post );
 <article class="loop-people" data-id="<?php echo $post; ?>">
     <a href="<?php echo $link; ?>">
         <div class="loop-people__image">
-            <img src="<?php echo $image_url; ?>" 
-                <?php echo $image_url_2x ? 'srcset="'. $image_url_2x .' 2x"' : ''; ?> 
+            <img class="lazyload" data-src="<?php echo $image_url; ?>" 
+                <?php echo $image_url_2x ? 'data-srcset="'. $image_url_2x .' 2x"' : ''; ?> 
                 alt="<?php echo $name; ?>">
             <h6 class="loop-people__title"><?php echo $name; ?></h6>
         </div>

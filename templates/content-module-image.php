@@ -18,7 +18,7 @@
 	$image_size = isset( $is ) && !empty( $is ) ? $is : false; 
 	$image_size_2x = isset( $is_2x ) && !empty( $is_2x ) ? $is_2x : $image_size.'-2x'; 
 
-	$class = isset( $c ) && !empty( $c ) ? 'class="'.$c.'"' : ''; 
+	$class = isset( $c ) && !empty( $c ) ? 'class="'.$c.' lazyload"' : 'class="lazyload"'; 
 
 	// var_dump_pre( $val );
 	// var_dump_pre( $val2x );
@@ -50,9 +50,9 @@
 			<?php $bg_url = $image['url']; ?>
 			<?php $bg_url_2x = $image['url']; ?>
 			<?php if ( false === $val2x ): ?>
-				<img <?php echo $class; ?> src="<?php echo $bg_url; ?>" alt="<?php echo $image['alt']; ?>" title="<?php echo $image['title'] ?>">
+				<img <?php echo $class; ?> data-src="<?php echo $bg_url; ?>" alt="<?php echo $image['alt']; ?>" title="<?php echo $image['title'] ?>">
 			<?php else: ?>	
-				<img <?php echo $class; ?> src="<?php echo $bg_url; ?>" srcset="<?php echo $bg_url_2x; ?> 2x" alt="<?php echo $image['alt']; ?>" title="<?php echo $image['title'] ?>">
+				<img <?php echo $class; ?> data-src="<?php echo $bg_url; ?>" data-srcset="<?php echo $bg_url_2x; ?> 2x" alt="<?php echo $image['alt']; ?>" title="<?php echo $image['title'] ?>">
 			<?php endif ?>
 		<?php if( $ww ): ?>
 			</<?php echo $ww; ?>>
@@ -66,8 +66,8 @@
 			<?php $bg_url = $image['sizes'][$image_size]; ?>
 			<?php $bg_url_2x = $image['sizes'][$image_size_2x]; ?>
 			<img <?php echo $class; ?> 
-				src="<?php echo $bg_url; ?>" 
-				<?php if( $bg_url_2x ): ?>srcset="<?php echo $bg_url_2x; ?> 2x"<?php endif; ?>
+				data-src="<?php echo $bg_url; ?>" 
+				<?php if( $bg_url_2x ): ?>data-srcset="<?php echo $bg_url_2x; ?> 2x"<?php endif; ?>
 				alt="<?php echo $image['alt']; ?>" 
 				title="<?php echo $image['title'] ?>">
 		<?php if( $ww ): ?>

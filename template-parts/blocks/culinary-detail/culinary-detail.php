@@ -48,8 +48,9 @@ $className .= $direction == 'true' ? ' culinary-detail--right' : ' culinary-deta
             <div class="culinary-detail__images a-up">
                 <?php foreach( $images as $image ): ?>
                     <div class="culinary-detail__image">
-                        <img src="<?php echo $image['sizes']['culinary-detail']; ?>" 
-                            srcset="<?php echo $image['sizes']['culinary-detail-2x']; ?>"
+                        <img class="lazyload" 
+                            data-src="<?php echo $image['sizes']['culinary-detail']; ?>" 
+                            data-srcset="<?php echo $image['sizes']['culinary-detail-2x']; ?>"
                             alt="">
                     </div>
                 <?php endforeach; ?>

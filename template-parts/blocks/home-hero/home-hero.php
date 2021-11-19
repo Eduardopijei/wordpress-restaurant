@@ -34,12 +34,12 @@ $nextId = get_field('next_section_id');
             <source src="<?php echo $bg_video; ?>" type="video/mp4">
         </video>
     <?php else: ?>
-        <img src="<?php echo $bg; ?>" alt="" class="home-hero__bg">
+        <img data-src="<?php echo $bg; ?>" alt="" class="home-hero__bg lazyload">
     <?php endif; ?>
     <?php if ($logo || $logo_text) : ?>
         <div class="home-hero__logo">
             <span class="home-hero__logo--text a-up"><?php echo $logo_text; ?></span>
-            <img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" class="home-hero__logo--img a-up">
+            <img data-src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" class="home-hero__logo--img a-up lazyload">
         </div>
     <?php endif; ?>
     <button class="btn btn--accent home-hero__cta btn-modal" data-target="#modal-booking">

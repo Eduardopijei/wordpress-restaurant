@@ -29,16 +29,17 @@ $images = get_field( 'gallery' );
         <div class="gallery-hero__images">
             <?php foreach( $images as $key=>$image ): ?>
                 <div class="gallery-hero__image">
-                    <img src="<?php echo $image['sizes']['gallery-hero-' . ($key + 1)]; ?>" 
-                        srcset="<?php echo $image['sizes']['gallery-hero-' . ($key + 1) . '-2x']; ?> 2x" 
+                    <img class="lazyload" 
+                        data-src="<?php echo $image['sizes']['gallery-hero-' . ($key + 1)]; ?>" 
+                        data-srcset="<?php echo $image['sizes']['gallery-hero-' . ($key + 1) . '-2x']; ?> 2x" 
                         alt="<?php echo $image['alt']; ?>">
                 </div>
             <?php endforeach; ?>
         </div>
         <div class="static-images">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/dynamic/hero-gallery-default.png" alt="">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/dynamic/hero-gallery-default.png" alt="">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/dynamic/hero-gallery-default.png" alt="">
+            <img class="lazyload" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/dynamic/hero-gallery-default.png" alt="">
+            <img class="lazyload" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/dynamic/hero-gallery-default.png" alt="">
+            <img class="lazyload" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/dynamic/hero-gallery-default.png" alt="">
         </div>
     <?php endif; ?>
 </section>

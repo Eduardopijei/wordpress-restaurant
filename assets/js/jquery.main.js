@@ -92,6 +92,9 @@ jQuery(document).ready(function() {
     zoom: false
   };
   Fancybox.defaults.Hash = false;
+  
+  // Init Lazyload
+  lazyload();
 });
 
 //-------- -------- -------- --------

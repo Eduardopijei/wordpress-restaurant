@@ -28,11 +28,11 @@ $opacity = get_field( 'gradient_opacity' );
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <?php if( $image ): ?>
         <div class="culinary-hero__bg gradient-overlay">
-            <img src="<?php echo $image; ?>" alt="">
+            <img class="lazyload" data-src="<?php echo $image; ?>" alt="">
         </div>
     <?php endif; ?>
     <?php if( $logo ): ?>
-        <img class="culinary-hero__logo" src="<?php echo $logo; ?>" alt="">
+        <img class="culinary-hero__logo lazyload" data-src="<?php echo $logo; ?>" alt="">
     <?php endif; ?>
 </section>
 

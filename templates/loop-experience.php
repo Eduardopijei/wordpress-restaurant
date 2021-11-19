@@ -20,9 +20,9 @@ endif; ?>
         <a href="<?php echo get_the_permalink( $id ); ?>">
         <div class="img-a">
             <div class="img-a-img gradient-overlay">
-                <img src="<?php echo $img_src; ?>" 
-                    <?php echo $img_src_2x ? 'srcset="' . $img_src_2x . '"' : ''; ?> 
-                    alt="<?php echo $title; ?>" class="loop-culinary__bg">
+                <img data-src="<?php echo $img_src; ?>" 
+                    <?php echo $img_src_2x ? 'data-srcset="' . $img_src_2x . '"' : ''; ?> 
+                    alt="<?php echo $title; ?>" class="loop-culinary__bg lazyload">
             </div>
         </div>
         <h6 class="loop-culinary__title a-up"><?php echo $title; ?></h6>

@@ -13,8 +13,8 @@ $terms = get_the_terms( $id, 'offer_category'); ?>
             <?php if ($image) : ?>
                 <div class="img-a">
                     <div class="img-a-img gradient-overlay">
-                        <img src="<?php echo $img_src; ?>" srcset="<?php echo $img_src_2x; ?>" 
-                            alt="<?php echo $title; ?>" class="loop-offer__bg">
+                        <img data-src="<?php echo $img_src; ?>" data-srcset="<?php echo $img_src_2x; ?>" 
+                            alt="<?php echo $title; ?>" class="loop-offer__bg lazyload">
                     </div>
                 </div>
             <?php endif; ?>

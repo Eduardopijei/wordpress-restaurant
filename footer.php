@@ -88,7 +88,7 @@
       $link = get_sub_field( 'link' );
       $logo = get_sub_field( 'logo' ); ?>
       <a href="<?php echo $link; ?>" class="footer-partners__link" target="_blank">
-        <img src="<?php echo $logo; ?>" alt="">
+        <img class="lazyload" data-src="<?php echo $logo; ?>" alt="">
       </a>
       <?php if (get_row_index() == $count - 2) : ?>
         <span class="divider"></span>

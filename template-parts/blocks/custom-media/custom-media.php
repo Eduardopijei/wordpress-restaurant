@@ -30,7 +30,7 @@ $video = get_field('video');
         <div class="img-a-video">
             <?php if ($image): ?>
                 <div class="img-a-img">
-                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                    <img class="lazyload" data-src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
                 </div>
             <?php endif; ?>
             <div class="img-a-bg-video">
@@ -42,7 +42,7 @@ $video = get_field('video');
     <?php elseif ($image) : ?>
         <div class="img-a">
             <div class="img-a-img">
-                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                <img class="lazyload" data-src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
             </div>
         </div>
     <?php endif; ?>
