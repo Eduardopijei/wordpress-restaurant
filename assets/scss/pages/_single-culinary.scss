@@ -5,8 +5,17 @@
       opacity: 0.6;
     }
   }
+  .secondary-nav--fixed .secondary-nav__link {
+    opacity: 1;
+  }
   .secondary-nav__link {
     font-size: 13px;
+    color: $c-gray-0d;
+    opacity: 0.3;
+    &:hover,
+    &:active {
+      opacity: 1;
+    }
   }
   #about {
     h1 {

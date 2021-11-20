@@ -15,6 +15,7 @@
     left: 50%;
     bottom: 25px;
     transform: translateX(-50%);
+    z-index: 2;
     @include mq(tablet) {
       left: 70px;
       bottom: 75px;

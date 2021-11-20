@@ -1,17 +1,4 @@
 .culinary-detail {
-    &__info {
-      margin-bottom: 40px;
-      text-align: center;
-      @include mq(tablet, max) {
-        color: #0d0d0d;
-      }
-      @include mq(tablet) {
-        margin-bottom: vw(60px);
-      }
-      @include mq(desktop-wide) {
-        margin-bottom: 60px;
-      }
-    }
     &__heading {
       @include typography(42px, 72px, 64px, 64px, 400, $f-heading, #2f2f2f);
       @include mq(tablet, max) {
@@ -24,34 +11,16 @@
       @include mq(tablet) {
         margin: 0 auto 20px;
       }
-      @include when-inside('.culinary-detail__content') {
-        display: none;
-        @include mq(tablet) {
-          display: block;
-        }
-      }
-      @include when-inside('.culinary-detail__info') {
-        @include mq(tablet) {
-          display: none;
-        } 
-      }
     }
     &__description {
       color: $c-black;
       @include when-inside('.culinary-detail__content') {
-        display: none;
         @include mq(tablet) {
-          display: block;
           margin-bottom: vw(50px);
         }
         @include mq(desktop-wide) {
           margin-bottom: 50px;
         }
-      }
-      @include when-inside('.culinary-detail__info') {
-        @include mq(tablet) {
-          display: none;
-        } 
       }
     }
     &__inner {
@@ -72,10 +41,10 @@
         width: vw(630px);
         flex-shrink: 0;
         @include when-inside('.culinary-detail--right') {
-          margin-left: vw(90px);
+          margin-left: vw(128px);
         }
         @include when-inside('.culinary-detail--left') {
-          margin-right: vw(90px);
+          margin-right: vw(128px);
         }
       }
     }

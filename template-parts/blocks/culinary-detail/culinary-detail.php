@@ -32,17 +32,6 @@ $className .= $direction == 'true' ? ' culinary-detail--right' : ' culinary-deta
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <div class="container">
-        <div class="culinary-detail__info a-up">
-            <?php if( $heading ): ?>
-                <h2 class="culinary-detail__heading"><?php echo $heading; ?></h2>
-            <?php endif; ?>
-            <?php if( $sub_heading ): ?>
-                <h6 class="culinary-detail__subheading"><?php echo $sub_heading; ?></h6>
-            <?php endif; ?>
-            <?php if( $description ): ?>
-                <div class="culinary-detail__description"><?php echo $description; ?></div>
-            <?php endif; ?>
-        </div>
         <div class="culinary-detail__inner">
             <?php if( $images ): ?>
             <div class="culinary-detail__images a-up">
@@ -57,12 +46,6 @@ $className .= $direction == 'true' ? ' culinary-detail--right' : ' culinary-deta
             </div>
             <?php endif; ?>
             <div class="culinary-detail__content a-up a-delay-1">
-                <?php if( $sub_heading ): ?>
-                    <h6 class="culinary-detail__subheading"><?php echo $sub_heading; ?></h6>
-                <?php endif; ?>
-                <?php if( $description ): ?>
-                    <div class="culinary-detail__description"><?php echo $description; ?></div>
-                <?php endif; ?>
                 <?php if( $content ): ?>
                     <div class="culinary-detail__text">
                         <?php echo $content; ?>
