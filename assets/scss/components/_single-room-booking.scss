@@ -69,8 +69,8 @@
         }
         .btn {
           text-align: center;
-          @include mq(tablet, max) {
-            width: 275px;
+          @include mq(phablet, max) {
+            width: 100%;
           }
           @include mq(tablet) {
             min-width: vw(220px);
@@ -79,7 +79,7 @@
         .btn-amentities {
           @include mq(tablet, max) {
             margin-bottom: 12px;
-          }
+        }
           @include mq(tablet) {
             margin-right: 24px;
           }
@@ -113,6 +113,7 @@
       @include mq(tablet, max) {
         margin-top: 50px;
         text-align: center;
+        line-height: 0;
       }
       .booking-range {
         display: none;

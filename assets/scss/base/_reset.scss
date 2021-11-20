@@ -660,7 +660,7 @@ html {
   }
   .month-wrapper {
     width: 325px;
-    padding: 30px;
+    padding: 30px 20px;
     border-color: #212121;
     border-radius: 0;
     background: #FAF6EF;
@@ -673,7 +673,8 @@ html {
       padding: vw(40px);
     }
     table {
-      width: 252px;
+      margin: auto;
+      width: 100%;
       table-layout: fixed;
       float: none;
       @include mq(desktop-wide) {
@@ -688,7 +689,7 @@ html {
           }
           &:first-child,
           &:last-child {
-            width: 36px;
+            width: 40px;
             @include mq(desktop-wide) {
               width: vw(36px);
             }
@@ -730,49 +731,82 @@ html {
       .week-name {
         height: auto;
         th {
-          width: 36px;
-          height: 36px;
+          width: 40px;
+          height: 40px;
           padding: 8px;
           font: 500 16px/16px $f-text;
           color: $c-black;
+          @include mq(desktop-wide) {
+            width: vw(36px);
+            height: vw(36px);
+          }
+          @include mq(tablet, max) {
+            font-weight: 700;
+            text-transform: capitalize;
+          }
         }
       }
       tbody {
         td {
-          width: 36px;
-          height: 36px;
+          width: 40px;
+          height: 40px;
           @include mq(desktop-wide) {
             width: vw(36px);
             height: vw(36px);
           }
           .day {
-            display: flex;
             margin: 0;
             padding: 0;
-            font: 400 14px/16.8px $f-text;
             width: 100%;
             height: 100%;
-            text-align: center;
-            justify-content: center;
-            align-items: center;
+            span {
+              display: flex;
+              font: 400 14px/16.8px $f-text;
+              width: 100%;
+              height: 100%;
+              text-align: center;
+              justify-content: center;
+              align-items: center;
+            }
             &.valid {
-              color: $primary;
+              color: $c-black;
             }
             &.checked,
             &.hovering {
-              background-color: $accent !important;
-              color: $c-white !important;
+              background-color: transparent !important;
+              span {
+                background-color: $accent !important;
+                color: $c-white !important;
+              }
             }
             &.first-date-selected,
             &.last-date-selected {
               position: relative;
-              background-color: $primary !important;
+              background-color: transparent !important;
+              span {
+                position: relative;
+                z-index: 2;
+                background-color: $primary !important;
+                border-radius: 50%;
+              }
+              &::after {
+                position: absolute;
+                content: '';
+                top: 0;
+                width: 50%;
+                height: 100%;
+                background-color: $accent;
+              }
             }
             &.first-date-selected {
-              border-radius: 50% 0 0 50%;
+              &::after {
+                right: 0;
+              }
             }
             &.last-date-selected {
-              border-radius: 0 50% 50% 0;
+              &::after {
+                left: 0;
+              }
             }
             &.real-today {
               background: #0000;

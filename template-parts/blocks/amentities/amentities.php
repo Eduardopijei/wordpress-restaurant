@@ -40,7 +40,7 @@ $size = get_field( 'size', $pid );
                 <?php if( $size ): ?>
                 <div class="amentities-size"><?php echo $size; ?> <small>SQ. FT.</small></div>
                 <?php endif; ?>
-                <a href="#" class="btn btn-view-gallery">View Gallery</a>
+                <!-- <a href="#" class="btn btn-view-gallery">View Gallery</a> -->
             </div>
         </div>
         <?php get_template_part_args( 'templates/content-module-image', array( 'v' => 'image', 'o' => 'f', 'is' => 'amentities', 'w' => 'div', 'wc' => 'amentities-image' ) ); ?>
