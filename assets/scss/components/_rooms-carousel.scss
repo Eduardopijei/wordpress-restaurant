@@ -3,6 +3,11 @@
   @include mq(tablet) {
     margin: 10px 0;
   }
+  &#superior {
+    @include mq(tablet, max) {
+      margin-top: 20px;
+    }
+  }
   &__inner {
     @include mq(tablet) {
       display: flex;

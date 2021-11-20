@@ -53,7 +53,8 @@
       display: block;
       margin-bottom: 40px;
       margin-left: auto;
-      max-width: vw(380px);
+      width: vw(380px);
+      max-width: 380px;
     }
   }
   &__buttons {

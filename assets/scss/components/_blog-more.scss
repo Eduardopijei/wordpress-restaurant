@@ -47,7 +47,7 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
-      transform: translateX(-50%);
+      transform: translate(-50%);
       @include mq(tablet) {
         width: calc(100% - 65px);
         height: vw(64px);
@@ -55,6 +55,9 @@
     }
     &::before {
       top: 0;
+      @include mq(tablet, max) {
+        transform: translate(-50%, -50%);
+      }
     }
     &::after {
       bottom: 0;
@@ -70,11 +73,14 @@
     }
   }
   &__title {
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
     @include typography(42px, 68px, 42px, 68px, 400, $f-heading, $c-gray-2f);
+    letter-spacing: -0.04em;
+    max-width: svw(265px);
     @include mq(tablet) {
       margin-bottom: 30px;
       color: $c-black;
+      max-width: 100%;
     }
   }
   &__text {

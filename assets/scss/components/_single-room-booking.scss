@@ -30,9 +30,6 @@
       .contact {
         display: flex;
         align-items: center;
-        @include mq(tablet, max) {
-          justify-content: center;
-        }
         &-direct {
           color: $c-black;
           @include typography(12px, 14px, 21px, 21px, 400, $f-text, $c-black);
@@ -67,9 +64,6 @@
       } 
       .button-groups {
         margin-top: 30px;
-        @include mq(tablet, max) {
-          text-align: center;
-        }
         @include mq(tablet) {
           margin-top: vw(60px);
         }

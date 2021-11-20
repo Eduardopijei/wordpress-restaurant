@@ -38,6 +38,7 @@
   &-heading {
     margin-bottom: 22px; 
     @include typography(56px, 48px, 70px, 64px, 400, $f-heading, $c-gray-2f);
+    font-style: normal;
   }
   &-text {
     @include mq(tablet, max) {
@@ -49,7 +50,7 @@
     }
   }
   &-size {
-    @include typography(28px, 48px, 64px, 64px, 400, $f-heading, $c-white);
+    @include typography(28px, 48px, 42px, 64px, 400, $f-heading, $c-white);
     letter-spacing: -0.04em;
     white-space: nowrap;
     @include mq(tablet, max) {

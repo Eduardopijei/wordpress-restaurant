@@ -1,9 +1,10 @@
 .page-rooms {
-    .tab-slider {
-      .slide-title {
-        @include mq(tablet, max) {
-          color: $c-gray-0d;
-        }
+
+  .tab-slider {
+    .slide-title {
+      @include mq(tablet, max) {
+        color: $c-gray-0d;
       }
     }
+  }
 }

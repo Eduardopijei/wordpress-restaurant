@@ -53,7 +53,7 @@ $posts = get_field('posts');
                     <div class="post-slide">
                         <div class="post-slide__img">
                             <?php if ($image = get_field('image', $post)): ?>
-                                <img src="<?php echo $image; ?>" alt="<?php echo get_the_title($post); ?>">
+                                <img data-src="<?php echo $image; ?>" alt="<?php echo get_the_title($post); ?>" class="lazyload">
                             <?php endif; ?>
                             <?php if (get_field('show_date', $post) == true) : 
                                 $date_string = get_field('date', $post); 

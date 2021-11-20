@@ -121,7 +121,7 @@ html {
     &-panel>ul[data-view="week"]>li:hover {
       background-color: $background_color;
       color: $c-black;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     &-panel>ul>li {
@@ -169,7 +169,7 @@ html {
         display: flex;
         align-items: center;
         justify-content: center;
-        font: 600 14px/17.23px $f-text;
+        font: 700 14px/17.23px $f-text;
         color: $primary;
         text-transform: uppercase;
         border-radius: 0;
@@ -355,7 +355,7 @@ html {
 .jcf-select {
   position: relative;
   padding: 8px 15px;
-  font: 600 12px/24px $f-text;
+  font: 700 12px/24px $f-text;
   letter-spacing: 0.12em;
   color: #0d0d0d;
   text-transform: uppercase;
@@ -476,7 +476,7 @@ html {
 
   &-title {
     margin-bottom: 10px;
-    @include typography(14px, 14px, 17.23px, 16.8px, 600, $f-text, #44382b);
+    @include typography(14px, 14px, 17.23px, 16.8px, 700, $f-text, #44382b);
     letter-spacing: 0.3em;
     text-transform: uppercase;
   }
@@ -514,7 +514,7 @@ html {
   margin: 0;
   padding: 6px 20px;
   width: 100%;
-  font: 600 12px/28px $f-text;
+  font: 700 12px/28px $f-text;
   letter-spacing: 3.6px;
   border: 1px solid #212121;
   background: $background_color;

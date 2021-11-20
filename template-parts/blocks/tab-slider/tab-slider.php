@@ -57,7 +57,7 @@ if( !empty($block['align']) ) {
                                             <div class="slide-img">
                                                 <?php if ($image = get_sub_field('image')): ?>
                                                     <a href="<?php echo $image['url']; ?>" data-fancybox="gallery" rel="<?php echo $id; ?>" data-caption="<?php the_sub_field('caption'); ?>">
-                                                        <img src="<?php echo $image['sizes']['slide-image']; ?>" alt="<?php echo $image['alt']; ?>">
+                                                        <img  class="lazyload" data-src="<?php echo $image['sizes']['slide-image']; ?>" alt="<?php echo $image['alt']; ?>">
                                                     </a>
                                                 <?php endif; ?>
                                                 <?php if ($caption = get_sub_field('caption')) : ?>

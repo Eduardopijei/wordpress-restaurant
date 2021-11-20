@@ -90,12 +90,18 @@
 
     @include mq(tablet) {
       margin-bottom: vw(30px);
+      @include when-inside('.culinary-module-grid') {
+        margin-bottom: vw(95px);
+      }
     }
     @include mq_mobile_landscape() {
       margin-bottom: 30px;
     }
     @include mq(desktop-wide) {
       margin-bottom: 30px;
+      @include when-inside('.culinary-module-grid') {
+        margin-bottom: 95px;
+      }
     }
   }
 
@@ -118,6 +124,10 @@
 
     @include when-inside(".culinary-module-grid") {
       border-bottom: 1px solid #0d0d0d;
+      @include mq(tablet, max) {
+        margin-left: -20px;
+        margin-right: -20px;
+      }
     }
 
     .jcf-select-drop {
@@ -318,7 +328,10 @@
 
   &__grid {
     display: block;
-
+    @include mq(tablet, max) {
+      margin-left: -20px;
+      margin-right: -20px;
+    }
     @include mq(tablet) {
       display: grid;
       grid-gap: 60px 30px;

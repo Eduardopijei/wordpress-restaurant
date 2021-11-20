@@ -1,6 +1,11 @@
 .loop-culinary {
   position: relative;
   margin: 0 5px;
+  @include when-inside('.culinary-module__grid') {
+    @include mq(tablet, max) {
+      margin: 0;
+    }
+  }
   @include mq(tablet) {
     margin: 0;
     width: vw(584px);
@@ -145,6 +150,7 @@
     text-align: center;
     background: url("../images/gradient-line.svg") no-repeat top center,
       url("../images/gradient-line.svg") no-repeat bottom center;
+    background-size: 100%;
     min-height: 400px;
     @include mq(tablet) {
       min-height: vw(730px);
@@ -238,18 +244,21 @@
         font: 400 42px/64px $f-heading;
         @include mq(tablet) {
           font: 700 14px/2 $f-text;
+          letter-spacing: 2px;
         }
       }
     }
     &--month {
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      @include typography(10px, 14px, 12.31px, 17.23px, 600, $f-text, $c-white);
+      @include typography(10px, 14px, 12.31px, 17.23px, 700, $f-text, $c-white);
       @include when-inside('.events-experiences') {
         font: 700 10px/1 $f-text;
+        letter-spacing: 0.25em;
         @include mq(tablet) {
           font-size: 14px;
           line-height: 2;
+          letter-spacing: 2px;
         }
       }
     }

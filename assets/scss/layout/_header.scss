@@ -687,12 +687,13 @@
     }
 
     .jcf-select {
-      padding-top: 30px;
-      padding-bottom: 23px;
+      padding-top: 78px;
+      padding-bottom: 12px;
       border: none;
       border-bottom: 1px solid $primary;
-      font-size: 14px;
-      line-height: 17.23px;
+      font-size: 13px;
+      line-height: 1;
+      letter-spacing: 0.3em;
       text-align: center;
       &-drop {
         left: 0;
