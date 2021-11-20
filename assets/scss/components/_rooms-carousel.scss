@@ -84,6 +84,10 @@
     margin-bottom: 15px;
     @include typography(56px, 72px, 70px, 72px, 400, $f-heading, $primary);
     font-style: normal;
+    @include mq(tablet, max) {
+      margin-left: -10px;
+      margin-right: -10px;
+    }
     @include mq(tablet) {
       margin-bottom: 20px;
     }

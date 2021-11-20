@@ -126,7 +126,7 @@
   }
   .slick-dots {
     margin: 0 -2.5px;
-    bottom: -10px;
+    bottom: -7px;
     li {
       width: calc(100% / 8);
       margin: 0;
@@ -142,13 +142,14 @@
         width: 100%;
         height: 3px;
         border-radius: 0;
-        background-color: $c-gray-0d;
+        background-color: rgba(13, 13, 13, 0.3);
+
         &::after {
           position: absolute;
           content: '';
           left: 50%;
-          top: -8px;
-          @include triangle(top, $primary, 17px, 8px);
+          top: -5px;
+          @include triangle(top, $primary, 10px, 5px);
           border-bottom-color: #0000;
           transition: all .3s ease-in-out;
           transform: translateX(-50%);

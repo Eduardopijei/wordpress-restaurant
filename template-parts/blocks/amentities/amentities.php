@@ -36,12 +36,12 @@ $size = get_field( 'size', $pid );
                     </div>
                 <?php endif; ?>
             </div>
+            <?php if( $size ): ?>
             <div class="amentities-content__footer">
-                <?php if( $size ): ?>
                 <div class="amentities-size"><?php echo $size; ?> <small>SQ. FT.</small></div>
-                <?php endif; ?>
                 <!-- <a href="#" class="btn btn-view-gallery">View Gallery</a> -->
             </div>
+            <?php endif; ?>
         </div>
         <?php get_template_part_args( 'templates/content-module-image', array( 'v' => 'image', 'o' => 'f', 'is' => 'amentities', 'w' => 'div', 'wc' => 'amentities-image' ) ); ?>
     </div>
