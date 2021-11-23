@@ -1,7 +1,11 @@
 .instagram-feed {
   #sb_instagram {
     display: flex;
+    padding-bottom: 0 !important;
     flex-direction: column-reverse;
+    #sbi_images {
+      padding: 0 !important;
+    }
     #sbi_load {
       @include mq(tablet) {
         margin-bottom: vw(40px);
@@ -14,6 +18,7 @@
         margin-bottom: 30px;
         @include mq(tablet) {
           margin-left: vw(40px);
+          margin-bottom: 0;
         }
         @include mq(desktop-wide) {
           margin-left: 40px;

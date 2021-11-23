@@ -17,7 +17,10 @@
 
 <body <?php body_class(); ?>>
 	<!-- Begin Header  -->
-	<?php $headerStyle = get_field( 'header_style' ); ?>
+	<?php 
+	$headerStyle = get_field( 'header_style' ); 
+	if (is_404(  )) $headerStyle = 'dark';
+	?>
 	<header class="header <?php echo 'header--' . $headerStyle; ?>">
 		<nav class="header-nav">
 			<button class="hamburger" type="button" tab-index="0" aria-label="Menu" role="button" aria-controls="navigation">

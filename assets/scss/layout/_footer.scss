@@ -59,10 +59,10 @@
     img {
       width: 245px;
       @include mq(tablet) {
-        width: vw(420px);
+        width: vw(300px);
       }
       @include mq(desktop-wide) {
-        width: 420px;
+        width: 300px;
       }
     }
     &__wrapper {

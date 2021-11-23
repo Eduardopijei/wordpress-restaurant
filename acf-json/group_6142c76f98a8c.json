@@ -164,7 +164,7 @@
                                     "key": "field_6194d139c13e8",
                                     "label": "Menus",
                                     "name": "menus",
-                                    "type": "group",
+                                    "type": "repeater",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -173,7 +173,11 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "layout": "block",
+                                    "collapsed": "",
+                                    "min": 0,
+                                    "max": 0,
+                                    "layout": "table",
+                                    "button_label": "Add Menus",
                                     "sub_fields": [
                                         {
                                             "key": "field_6194d147c13e9",
@@ -317,5 +321,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1637143849
+    "modified": 1637658493
 }

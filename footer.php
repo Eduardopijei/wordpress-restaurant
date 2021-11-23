@@ -1,6 +1,6 @@
-  <!-- <section class="instagram-feed">
+  <section class="instagram-feed">
     <?php echo do_shortcode('[instagram-feed]'); ?>
-  </section> -->
+  </section>
   <section class="newsletter">
     <div class="container">
       <div class="newsletter-inner">

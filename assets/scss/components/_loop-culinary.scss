@@ -170,6 +170,9 @@
       }
     }
     &__content {
+      @include mq(tablet, max) {
+        padding: 0 20px;
+      }
       @include mq(tablet) {
         max-width: vw(400px);
         margin: 0 auto;
@@ -220,6 +223,8 @@
       left: auto;
       right: 23px;
       background-color: $primary;
+      width: 74px;
+      height: 80px;
       @include mq(tablet) {
         flex-direction: row;
         padding: 10px;
@@ -242,6 +247,9 @@
       letter-spacing: -0.04em;
       @include when-inside('.events-experiences') {
         font: 400 42px/64px $f-heading;
+        @include mq(tablet, max) {
+          margin-top: -20px;
+        }
         @include mq(tablet) {
           font: 700 14px/2 $f-text;
           letter-spacing: 2px;

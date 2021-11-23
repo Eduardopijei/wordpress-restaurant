@@ -1,0 +1,60 @@
+.page-error {
+  display: flex;
+  flex-direction: column-reverse;
+  @include mq(tablet) {
+    flex-direction: row;
+  }
+  > div {
+    @include mq(tablet) {
+      flex: 0 0 50%;
+    }
+  }
+  &__content {
+    padding: 0 30px 30px;
+    text-align: center;
+    @include mq(tablet) {
+      padding: vw(60px) vw(130px);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-end;
+      text-align: right;
+    }
+  }
+  &__image {
+    height: 440px;
+    @include mq(tablet) {
+      height: 100vh;
+    }
+    img {
+      @include coverImage();
+    }
+  }
+  &__heading {
+    margin-bottom: 10px;
+    @include typography(72px, 100px, 100px, 140px, 400, $f-heading, $c-gray-2f);
+  }
+  &__subheading {
+    margin-bottom: 14px;
+    @include typography(12px, 14px, 12px, 14px, 700, $f-text, $c-gray-2f);
+    @include mq(tablet) {
+      color: $c-gray-18;
+    } 
+  }
+  &__text {
+    @include typography(12px, 14px, 18px, 21px, 400, $f-text, $c-gray-2f);
+    @include mq(tablet) {
+      color: $c-black;
+      max-width: 366px;
+    }
+  }
+  .btn {
+    margin-top: 40px;
+    font: 700 12px/28px $f-text;
+    letter-spacing: 3.6px;
+    min-width: 220px;
+    @include mq(tablet) {
+      margin-top: 60px;
+    }
+  }
+}
