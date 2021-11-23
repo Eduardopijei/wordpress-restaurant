@@ -119,19 +119,6 @@
   </div>
 </footer>
 
-<!-- Global Popup -->
-<div class="popup">
-  <button class="popup-close">
-    <svg width="31" height="32" viewBox="0 0 31 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="29.5772" y1="30.9914" x2="1.29292" y2="2.70714" stroke="white" stroke-width="2"/>
-      <line x1="1.29302" y1="29.5772" x2="29.5773" y2="1.29292" stroke="white" stroke-width="2"/>
-    </svg>
-  </button>
-  <div class="popup-inner">
-    <div class="popup-header"></div>
-    <div class="popup-body"></div>
-  </div>
-</div>
 <!-- Booking Popup -->
 <!-- <div class="booking-popup">
   <div class="booking-popup__inner">

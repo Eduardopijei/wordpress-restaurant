@@ -355,7 +355,7 @@ function my_acf_init_block_types() {
             'title'             => __('Culinary Detail'),
             'description'       => __('Culinary Detail'),
             'render_template'   => 'template-parts/blocks/culinary-detail/culinary-detail.php',
-            'category'          => 'waldorf-blocks',
+            'category'          => 'boston-blocks',
             'icon'              => 'align-pull-left',
             'keywords'          => array( 'culinary', 'detail' ),
         ));
@@ -366,7 +366,7 @@ function my_acf_init_block_types() {
             'title'             => __('Culinary Form'),
             'description'       => __('Culinary Form'),
             'render_template'   => 'template-parts/blocks/culinary-form/culinary-form.php',
-            'category'          => 'waldorf-blocks',
+            'category'          => 'boston-blocks',
             'icon'              => 'align-pull-left',
             'keywords'          => array( 'culinary', 'form' ),
         ));
@@ -377,9 +377,20 @@ function my_acf_init_block_types() {
             'title'             => __('Blog More'),
             'description'       => __('Blog More'),
             'render_template'   => 'template-parts/blocks/blog-more/blog-more.php',
-            'category'          => 'waldorf-blocks',
+            'category'          => 'boston-blocks',
             'icon'              => 'admin-post',
             'keywords'          => array( 'blog', 'more' ),
+        ));
+
+        // Popup
+        acf_register_block_type(array( 
+            'name'              => 'popup',
+            'title'             => __('Popup'),
+            'description'       => __('Popup'),
+            'render_template'   => 'template-parts/blocks/popup/popup.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'align-full-width',
+            'keywords'          => array( 'popup' ),
         ));
         /*********************************** ****************************************/
 

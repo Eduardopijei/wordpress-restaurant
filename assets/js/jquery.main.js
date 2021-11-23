@@ -22,7 +22,6 @@ jQuery(document).ready(function() {
   isElementExist(".culinary-module", initCulinaryModule);
   isElementExist(".rooms-carousel", initRoomsCarousel);
   isElementExist(".rooms-module", initRoomsModule);
-  isElementExist(".btn-amentities", loadAjaxAmentites);
   isElementExist(".people-slider", initPeopleSlider);
   isElementExist(".booking-popup", initBookingPopup);
   isElementExist("#sbi_images", initInstagramSlider);
@@ -32,6 +31,7 @@ jQuery(document).ready(function() {
   isElementExist('.three-cards', initThreeCards);
   isElementExist('.culinary-detail', initCulinaryDetail);
   isElementExist('.culinary-form', initCulinaryForm);
+  isElementExist('.popup-block', initPopup);
 
 
 
@@ -349,34 +349,6 @@ function initRoomsModule() {
   });
 }
 
-// Init Amentities Popup
-function loadAjaxAmentites() {
-  $('.btn-amentities').on('click', function() {
-    let roomId = $(this).attr('data-id');
-    $.ajax({
-      url: ajaxurl,
-      type: "POST",
-      data: {
-        action: "loadAjaxAmentities",
-        id: roomId
-      },
-      beforeSend: function() {
-        $('.popup').addClass('popup-amentities');
-        $('.popup-header').html("Room Details & Amentities")
-      },
-      success: function(res) {
-        let json = $.parseJSON(res);
-        let strHTML = json.output;
-        $('.popup-body').html(strHTML);
-        $('.popup').fadeIn(300);
-      },
-      complete: function() {
-
-      }
-    });
-  });
-}
-
 // Initialize Post Slider
 function initPostSlider() {
   $(".post-slides__images").slick({
@@ -589,6 +561,25 @@ function initCulinaryForm() {
     dots: true,
     autoplay: true,
     autoplaySpeed: 3000,
+  });
+}
+
+function initPopup() {
+  setTimeout(() => {
+    $('.popup-block').fadeIn(300);
+    $('html, body').css('overflow', 'hidden');
+    $('.popup-block__slides').slick('setPosition');
+  }, 3000);
+  $('.popup-block__slides').slick({
+    arrows: false,
+    dots: true,
+    autoplay: true,
+    autoplaySpeed: 3000
+  });
+  $('.popup-block__close').on('click', function() {
+    let $parent = $(this).parent('.popup-block');
+    $parent.fadeOut(300);
+    $('html, body').removeAttr('style');
   });
 }
 
