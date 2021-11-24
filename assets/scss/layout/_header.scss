@@ -130,7 +130,7 @@
   }
 
   &-cta--mobile.btn {
-    margin-top: 80px;
+    margin-top: 20px;
     width: 300px;
 
     @include mq(tablet) {
@@ -138,7 +138,10 @@
     }
   }
   &-social {
-    margin-top: 50px;
+    margin-top: 20px;
+    @include mq(tablet) {
+      margin-top: 50px;
+    }
     a,
     span {
       font: 700 12px/1 $f-text;
@@ -459,7 +462,8 @@
   }
 
   .menu-mobile__wrapper {
-    padding: 43px 50px 40px 35px;
+    padding: 20px 50px 20px 35px;
+    background-color: $background_color;
 
     @include mq(tablet) {
       padding: vw(40px) vw(100px);
