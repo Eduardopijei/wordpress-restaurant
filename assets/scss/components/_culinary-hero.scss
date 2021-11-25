@@ -6,7 +6,8 @@
     @include mq(tablet) {
       height: vw(900px)
     }
-    img {
+    img,
+    video {
       @include coverImage();
     }
   }

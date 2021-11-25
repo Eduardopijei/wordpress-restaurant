@@ -27,7 +27,13 @@ if( !empty($block['align']) ) {
         <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'heading', 'o' => 'f', 't' => 'h2', 'tc' => 'boston-module__heading heading--mobile a-up' ) ); ?>
         <div class="boston-module__inner">
             <div class="boston-module__image a-up">
-                <?php get_template_part_args( 'templates/content-module-image', array( 'v' => 'image', 'o' => 'f', 'is' => 'boston-module' ) ); ?>
+                <?php if( $video = get_field( 'video' ) ): ?>
+                    <video loop autoplay playsinline muted preload="metadata" src="<?php echo $video; ?>" poster="<?php echo $image; ?>">
+                        <source src="<?php echo $video; ?>" type="video/mp4">
+                    </video>
+                <?php else: ?>
+                    <?php get_template_part_args( 'templates/content-module-image', array( 'v' => 'image', 'o' => 'f', 'is' => 'boston-module' ) ); ?>
+                <?php endif; ?>
             </div>
             <div class="boston-module__content">
                 <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'heading', 'o' => 'f', 't' => 'h2', 'tc' => 'boston-module__heading a-up' ) ); ?>
