@@ -22,7 +22,8 @@
       &::after {
         opacity: 0.75;
       }
-      img {
+      img,
+      video {
         @include coverImage();
       }
     }
