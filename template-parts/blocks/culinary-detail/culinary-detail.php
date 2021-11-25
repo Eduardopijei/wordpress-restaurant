@@ -26,25 +26,35 @@ $direction = get_field( 'direction' );
 $heading = get_field( 'heading' );
 $sub_heading = get_field( 'sub_heading' );
 $description = get_field( 'description' );
+$type = get_field( 'media_type' );
 $images = get_field( 'images' );
+$video = get_field( 'video' );
 $content = get_field( 'content' );
 $className .= $direction == 'true' ? ' culinary-detail--right' : ' culinary-detail--left'
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <div class="container">
         <div class="culinary-detail__inner">
-            <?php if( $images ): ?>
             <div class="culinary-detail__images a-up">
-                <?php foreach( $images as $image ): ?>
+                <?php if( $type == 'video' ): ?>
                     <div class="culinary-detail__image">
-                        <img class="lazyload" 
-                            data-src="<?php echo $image['sizes']['culinary-detail']; ?>" 
-                            data-srcset="<?php echo $image['sizes']['culinary-detail-2x']; ?>"
-                            alt="">
+                        <video loop autoplay playsinline muted preload="metadata" src="<?php echo $video; ?>">
+                            <source src="<?php echo $video; ?>" type="video/mp4">
+                        </video>
                     </div>
-                <?php endforeach; ?>
+                <?php else:
+                    if( $images ): 
+                        foreach( $images as $image ): ?>
+                        <div class="culinary-detail__image">
+                            <img class="lazyload" 
+                                data-src="<?php echo $image['sizes']['culinary-detail']; ?>" 
+                                data-srcset="<?php echo $image['sizes']['culinary-detail-2x']; ?>"
+                                alt="">
+                        </div>
+                    <?php endforeach; 
+                    endif;
+                endif; ?>
             </div>
-            <?php endif; ?>
             <div class="culinary-detail__content a-up a-delay-1">
                 <?php if( $content ): ?>
                     <div class="culinary-detail__text">

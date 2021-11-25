@@ -41,13 +41,46 @@
             "ui_off_text": "Left"
         },
         {
+            "key": "field_619f60ec9d0c4",
+            "label": "Media Type",
+            "name": "media_type",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "images": "Images",
+                "video": "Video"
+            },
+            "default_value": "images",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_619216cb7534c",
             "label": "Images",
             "name": "images",
             "type": "gallery",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_619f60ec9d0c4",
+                        "operator": "==",
+                        "value": "images"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -64,6 +97,33 @@
             "min_size": "",
             "max_width": "",
             "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_619f60dc9d0c3",
+            "label": "Video",
+            "name": "video",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_619f60ec9d0c4",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_size": "",
             "max_size": "",
             "mime_types": ""
         },
@@ -104,5 +164,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1637397913
+    "modified": 1637835025
 }

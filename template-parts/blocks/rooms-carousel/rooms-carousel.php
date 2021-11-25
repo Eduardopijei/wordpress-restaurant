@@ -55,13 +55,13 @@ $className .= $direction;
             </div>
             <?php endif; ?>
             <?php if( $price ): ?> 
-            <div class="rooms-carousel__box a-up">
+            <!-- <div class="rooms-carousel__box a-up">
                 <div class="rooms-carousel__box-header">Best Rate</div>
                 <?php if( $price ) : ?>
                     <div class="rooms-carousel__box-body">$<?php echo $price; ?></div>
                 <?php endif; ?>
                 <div class="rooms-carousel__box-footer">See Rate Options</div>
-            </div>
+            </div> -->
             <?php endif; ?>
        </div>
        <div class="rooms-carousel__content">

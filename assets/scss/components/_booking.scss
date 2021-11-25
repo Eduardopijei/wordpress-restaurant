@@ -33,77 +33,58 @@
       padding: 200px 0;
     }
   }
-
-  &__links {
-    display: none;
-    @include mq(tablet) {
-      display: block;
-      margin-bottom: vw(110px);
-    }
-
-    @include mq(desktop-wide) {
-      margin-bottom: 110px;
-    }
+  &__heading {
+    margin-bottom: 30px;
+    @include typography(42px, 42px, 50px, 50px, 400, $f-heading, $primary);
+    font-style: normal;
   }
-
-  &__link {
-    @include mq(tablet) {
-      margin: 0 vw(20px);
-    }
-    @include mq(desktop-wide) {
-      margin: 0 20px;
-    }
-  }
-
-  &__selects {
-    margin-bottom: 62px;
-    text-align: center;
-    @include mq(tablet) {
+  &__calendar {
+    &--range {
       display: none;
     }
-    .jcf-select {
-      border: none;
-      border-bottom: 1px solid;
-    }
-  }
-
-  .form-col {
-    .jcf-list li span{
-      @include mq(tablet, max) {
-        font-size: 14px;
+    .date-picker-wrapper .month-wrapper {
+      display: flex;
+      > .gap,
+      > .time {
+        display: none;
       }
-      &:hover {
-        @include mq(tablet) {
-          background-color: #FCFAF8;
+      table {
+        .week-name th {
+          text-transform: capitalize;
+        }
+        &.month2 {
+          width: 100%;
+          @include mq(desktop-wide) {
+            width: vw(252px);
+          }
+        }
+      }
+      .caption {
+        .next {
+          border-left-color: $c-black;
+        }
+        .prev {
+          border-right-color: $c-black;
         }
       }
     }
   }
-
-  &__btns {
-    display: flex;
-    margin-top: 30px;
-    align-items: center;
-    flex-direction: column;
-    padding-bottom: 72px;
-    @include mq(tablet) {
-      margin-top: vw(60px);
-      padding-bottom: 0;
-    }
-    @include mq(desktop-wide) {
-      margin-top: 60px;
+  &__inputs {
+    margin-top: 13px;
+    .row {
+      @include mq(tablet) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   }
-  #booking_submit {
-    margin-bottom: 57px;
-    font-weight: 400;
-    @include mq(tablet) {
-      font-size: 11px;
-      min-width: 330px;
-      margin-bottom: vw(30px);
+  .form-checkbox {
+    input {
+      display: none;
     }
-    @include mq(desktop-wide) {
-      margin-bottom: 30px;
+    label {
+      font: 400 14px/2 $f-text;
+      color: $c-gray-2f;
     }
   }
   #booking_cancel {

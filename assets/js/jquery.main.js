@@ -224,6 +224,14 @@ function updateBookingLink() {
 
 // Init Booking Popup
 function initBookingPopup() {
+  
+  $('#booking-popup__calendar--range').dateRangePicker({
+    inline:true,
+    container: '#booking-popup__calendar--calendar',
+    alwaysOpen:true,
+    showShortcuts: false,
+    showTopbar: false
+  });
   $('.btn-modal').on('click', function() {
     $('html, body').css('overflow', 'hidden');
     $('.btn-modal').hide();
