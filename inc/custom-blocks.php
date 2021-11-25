@@ -392,6 +392,17 @@ function my_acf_init_block_types() {
             'icon'              => 'align-full-width',
             'keywords'          => array( 'popup' ),
         ));
+        
+        // General Hero
+        acf_register_block_type(array(
+            'name'              => 'general_hero',
+            'title'             => __('General Hero'),
+            'description'       => __('General Hero'),
+            'render_template'   => 'template-parts/blocks/general-hero/general-hero.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'cover-image',
+            'keywords'          => array( 'hero' ),
+        ));
         /*********************************** ****************************************/
 
         // Register Title Text Block
@@ -472,16 +483,6 @@ function my_acf_init_block_types() {
             'keywords'          => array( 'experience', 'gallery'),
         ));
 
-        // General Hero
-        acf_register_block_type(array(
-            'name'              => 'general_hero',
-            'title'             => __('General Hero'),
-            'description'       => __('General Hero'),
-            'render_template'   => 'template-parts/blocks/general-hero/general-hero.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'cover-image',
-            'keywords'          => array( 'hero' ),
-        ));
 
         // Media Content Tab
         acf_register_block_type(array(

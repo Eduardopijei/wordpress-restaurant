@@ -19,7 +19,9 @@
 	<!-- Begin Header  -->
 	<?php 
 	$headerStyle = get_field( 'header_style' ); 
-	if (is_404(  )) $headerStyle = 'dark';
+	if (is_404(  )) {
+		$headerStyle = 'dark';
+	} 
 	?>
 	<header class="header <?php echo 'header--' . $headerStyle; ?>">
 		<nav class="header-nav">

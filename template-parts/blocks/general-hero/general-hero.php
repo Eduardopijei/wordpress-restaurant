@@ -30,7 +30,7 @@ $height = get_field('height');
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <div class="home-hero">
         <?php if ($video) : ?>
-            <video autoplay playsinline class="home-hero__bg" muted preload="metadata" src="<?php echo $video; ?>" poster="<?php echo $bg; ?>">
+            <video loop autoplay playsinline class="home-hero__bg" muted preload="metadata" src="<?php echo $video; ?>" poster="<?php echo $bg; ?>">
                 <source src="<?php echo $video; ?>" type="video/mp4">
             </video>
             <button class="btn-audio">
