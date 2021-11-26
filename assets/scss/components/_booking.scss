@@ -12,7 +12,7 @@
     width: 100%;
     height: 100%;
     @include mq(tablet, max) {
-      padding-top: 70px;
+      padding: 100px 20px 40px;
     }
     @include mq(phone-s21, max) {
       padding-left: 10px;
@@ -34,12 +34,20 @@
     }
   }
   &__heading {
+    display: none;
     margin-bottom: 30px;
     @include typography(42px, 42px, 50px, 50px, 400, $f-heading, $primary);
     font-style: normal;
     letter-spacing: -3px;
+    @include mq(tablet) {
+      display: block;
+    }
   }
   &__calendar {
+    display: none;
+    @include mq(tablet) {
+      display: block;
+    }
     &--range {
       display: none;
     }
@@ -109,38 +117,100 @@
         margin-top: 7px;
       }
     } 
+    &--mobile {
+      @include mq(tablet) {
+        display: none;
+      }
+      .event-date,
+      .second-event-date {
+        position: relative;
+        display: block;
+        &::after {
+          position: absolute;
+          content: "";
+          top: 13px;
+          right: 15px;
+          width: 12px;
+          height: 14px;
+          background-image: url("data:image/svg+xml;utf8,<svg width='12' height='14' viewBox='0 0 12 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M11.4887 0.5H0.708984V13.5H11.4887V0.5Z' stroke='%230d0d0d'/><path d='M11.9033 0H0.294434V5H11.9033V0Z' fill='black'/><path d='M11.4887 0.5H0.708984V4.5H11.4887V0.5Z' stroke='%230d0d0d'/></svg>");
+          background-position: center;
+          background-repeat: no-repeat;
+          pointer-events: none;
+        }
+      }
+    }
   }
   &__inputs {
-    margin-top: 13px;
+    @include mq(tablet) {
+      margin-top: 13px;
+    }
     .row {
       @include mq(tablet) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
       }
     }
+    .col {
+      @include mq(tablet, max) {
+        margin-bottom: 20px;
+      }
+    }
     .kids-number .jcf-select {
-      border-left: 0;
+      @include mq(tablet) {
+        border-left: 0;
+      }
     }
-    .promocode .form-control {
-      border-left: 0
-    }
-    .form-control {
-      padding: 8px 20px;
-      width: 100%;
-      border: 1px solid $c-gray-66;
-      font: 400 14px/24px $f-text;
-      color: $c-gray-33;
-      background-color: transparent;
-      &::placeholder {
-        color: $c-gray-33;
+    .promocode {
+      @include mq(tablet, max) {
+        margin-bottom: 0;
+      }
+      .form-control {
+        @include mq(tablet, max) {
+          margin-bottom: 0;
+        }
+        @include mq(tablet) {
+          border-left: 0
+        }
       }
     }
     .jcf-select {
-      font-weight: 400;
-      letter-spacing: 0;
-      color: $c-gray-33;
+      padding: 8px 24px;
+      color: $c-gray-18;
+      @include mq(tablet) {
+        font-weight: 400;
+        letter-spacing: 0;
+        color: $c-gray-33;
+      }
       &::after {
-        border-top-color: $primary;
+        border-top-color: $c-gray-2f;
+        @include mq(tablet) {
+          border-top-color: $primary;
+        }
+      }
+    }
+  }
+  .form-label {
+    font: 400 14px/21px $c-black;
+    letter-spacing: -0.01em;
+  }
+  .form-control {
+    margin-bottom: 20px;
+    padding: 8px 20px;
+    width: 100%;
+    border: 1px solid $c-gray-66;
+    font: 400 14px/24px $f-text;
+    color: $c-gray-33;
+    background-color: transparent;
+    @include mq(tablet, max) {
+      font: 600 12px/24px $f-text;
+      letter-spacing: 0.15em;
+      color: $c-gray-18;
+      text-transform: uppercase;
+    }
+    &::placeholder {
+      color: $c-gray-18;
+      @include mq(tablet) {
+        color: $c-gray-33;
       }
     }
   }
@@ -156,10 +226,13 @@
     label {
       position: relative;
       padding-left: 25px;
-      font: 400 14px/2 $f-text;
+      font: 400 12px/28px $f-text;
       color: $c-gray-2f;
       text-transform: uppercase;
       cursor: pointer;
+      @include mq(tablet) {
+        font-size: 14px;
+      }
       &::before,
       &::after {
         position: absolute;
@@ -181,8 +254,21 @@
       }
     }
   }
+  .datepicker-panel>ul>li[data-view="month current"], 
+  .datepicker-panel>ul>li[data-view="year current"], 
+  .datepicker-panel>ul>li[data-view="years current"] {
+    font-size: 16px;
+  }
+  .datepicker-panel>ul>li.picked, 
+  .datepicker-panel>ul>li.picked:hover {
+    background-color: $primary;
+
+  }
   #booking_submit {
     width: 330px;
+    @include mq(tablet, max) {
+      font-size: 10px;
+    }
   }
   #booking_cancel {
     letter-spacing: 0.02em;

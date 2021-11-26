@@ -192,10 +192,6 @@ function initCustomForms() {
     format: "yyyy-MM-DD",
   }).on('change', function() {
     $(this).datepicker('hide');
-    // check_in = $("#booking_check_in").datepicker("getDate");
-    // check_out = $("#booking_check_out").datepicker("getDate");
-    // $("#booking_check_in").datepicker("setDate", check_in);
-    // $("#booking_check_out").datepicker("option", "minDate", check_in);
     updateBookingLink();
   });
 
@@ -204,19 +200,30 @@ function initCustomForms() {
 function updateBookingLink() {
   let href = 'https://reservations.bostonharborhotel.com/?Hotel=26834&shell=rBOSHA&chain=10237&template=rBOSHA';
   let date = $('#booking-popup__calendar--range').val();
+  let check_in = $("#booking_check_in").val();
+  let check_out = $("#booking_check_out").val();
   let adult = $("#booking_adult_number").val();
-  let kid = $('#kids-number').val();
+  let kid = $('#booking_kids_number').val();
   let promo = $('#booking_promo').val();
-  if (date) {
-    let dateArr = date.split(' to ');
-    if( dateArr[0] ) href += '&arrive=' + dateArr[0];
-    if( dateArr[1] ) href += '&depart=' + dateArr[1];
+  if( window.matchMedia("(max-width: 768px)").matches ) {
+    if (check_in) {
+      href += "&arrive=" + check_in;
+    }
+    if (check_out) {
+      href += "&depart=" + check_out;
+    }
+  } else {
+    if (date) {
+      let dateArr = date.split(' to ');
+      if( dateArr[0] ) href += '&arrive=' + dateArr[0];
+      if( dateArr[1] ) href += '&depart=' + dateArr[1];
+    }
   }
   if (adult) {
     href += "&adult=" + adult;
   }
   if (kid > 0) {
-    href += "&kid=" + adult;
+    href += "&child=" + adult;
   }
   if (promo) {
     href += '&promo=' + promo;
@@ -240,6 +247,9 @@ function initBookingPopup() {
     $('.btn-modal').hide();
     $('.header').addClass('header--booking');
     $('.booking-popup').fadeIn(300);
+    if($(this).hasClass('header-cta--mobile')) {
+      $('.header').removeClass('header--open');
+    }
   });
   $('.booking-popup__close, #booking_cancel').on('click', function() {
     $('html, body').removeAttr('style');

@@ -125,6 +125,9 @@ html {
     }
 
     &-panel>ul>li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: $background_color;
       border-radius: 50%;
       color: $c-black;
@@ -146,7 +149,7 @@ html {
         color: $primary;
 
         &:hover {
-          background-color: $accent;
+          background-color: $primary;
           color: $c-white;
         }
       }
@@ -159,7 +162,7 @@ html {
 
       &.picked,
       &.picked:hover {
-        background-color: $accent;
+        background-color: $primary;
         color: $c-white;
       }
 
@@ -169,7 +172,7 @@ html {
         display: flex;
         align-items: center;
         justify-content: center;
-        font: 700 14px/17.23px $f-text;
+        font: 700 16px/19.49px $f-text;
         color: $primary;
         text-transform: uppercase;
         border-radius: 0;

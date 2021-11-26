@@ -218,7 +218,6 @@
     border: none;
     @include mq(tablet, max) {
       padding-right: 20px;
-      border-bottom: 1px solid;
     }
 
     &::after {
@@ -230,9 +229,7 @@
     }
 
     .hamburger {
-      @include mq(tablet) {
-        display: none;
-      }
+      display: none;
       span {
         border-color: $primary;
       }
@@ -247,6 +244,9 @@
       }
     }
     .logo-link {
+      @include mq(tablet, max) {
+        display: none;
+      }
       img:not(.header-logo__scroll) {
         display: none !important;
       }
@@ -651,9 +651,7 @@
   transition: transform .5s ease-in-out;
 
   @include when-inside('.header--booking') {
-    @include mq(tablet) {
-      display: block;
-    }
+    display: block;
   }
 
   &:hover {
