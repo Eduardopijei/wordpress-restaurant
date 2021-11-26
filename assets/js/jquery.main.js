@@ -244,17 +244,20 @@ function initBookingPopup() {
   });
   $('.btn-modal').on('click', function() {
     $('html, body').css('overflow', 'hidden');
-    $('.btn-modal').hide();
     $('.header').addClass('header--booking');
     $('.booking-popup').fadeIn(300);
     if($(this).hasClass('header-cta--mobile')) {
+      $(this).hide();
       $('.header').removeClass('header--open');
     }
+    return false;
   });
   $('.booking-popup__close, #booking_cancel').on('click', function() {
     $('html, body').removeAttr('style');
     $('.header').removeClass('header--booking');
-    $('.btn-modal').show();
+    if($(this).hasClass('header-cta--mobile')) {
+      $(this).show();
+    }
     $('.booking-popup').fadeOut(300);
   });
   $("#booking_adult_number, #booking_kids_number").on("change", function () {
@@ -526,11 +529,21 @@ function initGalleryHero() {
 function initBookingCalendar() {
   $('#booking-range').dateRangePicker({
     inline:true,
+    format: 'YYYY-MM-DD',
     container: '#booking-calendar',
     alwaysOpen:true,
     singleMonth: true,
     showShortcuts: false,
     showTopbar: false
+  }).bind('datepicker-change', function(event, obj) {
+    let href = $('.btn-check-availability').attr('href');
+    let date = obj.value;
+    if (date) {
+      let dateArr = date.split(' to ');
+      if( dateArr[0] ) href += '&arrive=' + dateArr[0];
+      if( dateArr[1] ) href += '&depart=' + dateArr[1];
+    }
+    $('.btn-check-availability').attr('href', href);
   });
 }
 

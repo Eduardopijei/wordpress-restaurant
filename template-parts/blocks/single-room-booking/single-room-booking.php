@@ -65,7 +65,7 @@ $cta = get_field( 'cta' );
                 <input type="text" class="booking-range" id="booking-range">
                 <div class="booking-calendar" id="booking-calendar">
                 </div>
-                <a href="#" class="btn btn--primary btn-check-availability" target="_blank">Check Availability</a>
+                <a href="https://reservations.bostonharborhotel.com/?Hotel=26834&shell=rBOSHA&chain=10237&template=rBOSHA<?php echo get_field('booking_param'); ?>" class="btn btn--primary btn-check-availability" target="_blank">Check Availability</a>
             </div>
         </div>
     </div>

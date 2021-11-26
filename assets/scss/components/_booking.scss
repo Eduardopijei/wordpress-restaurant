@@ -254,16 +254,6 @@
       }
     }
   }
-  .datepicker-panel>ul>li[data-view="month current"], 
-  .datepicker-panel>ul>li[data-view="year current"], 
-  .datepicker-panel>ul>li[data-view="years current"] {
-    font-size: 16px;
-  }
-  .datepicker-panel>ul>li.picked, 
-  .datepicker-panel>ul>li.picked:hover {
-    background-color: $primary;
-
-  }
   #booking_submit {
     width: 330px;
     @include mq(tablet, max) {

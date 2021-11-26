@@ -69,7 +69,7 @@ $className .= $direction;
            <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'sub_heading', 'o' => 'f', 't' => 'h6', 'tc' => 'rooms-carousel__subheading a-up a-delay-1' ) ); ?>
            <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'text', 'o' => 'f', 't' => 'div', 'tc' => 'rooms-carousel__text a-up a-delay-2' ) ); ?>
            <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'cta', 'o' => 'f', 'c' => 'btn btn-room a-up a-delay-3', 'w' => 'div' ) ); ?>
-           <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'booking_cta', 'o' => 'f', 'c' => 'btn btn--primary btn-booking a-up a-delay-4', 'w' => 'div' ) ); ?>
+           <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'booking_cta', 'o' => 'f', 'c' => 'btn btn--primary btn-booking btn-modal a-up a-delay-4', 'w' => 'div' ) ); ?>
        </div>
    </div>
 </section>
