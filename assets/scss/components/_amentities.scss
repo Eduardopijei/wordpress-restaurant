@@ -20,8 +20,8 @@
     }
     &__body {
       @include mq(tablet) {
-        padding: vw(45px) vw(100px);
-        text-align: center;
+        padding: vw(45px);
+        text-align: left;
       }
     }
     &__footer {

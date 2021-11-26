@@ -464,7 +464,7 @@ html {
 
     p {
       margin-bottom: 19px;
-      @include typography(12px, 14px, 21px, 21px, 400, $f-text, $primary);
+      @include typography(12px, 14px, 21px, 21px, 400, $f-text, $c-gray-0d);
 
       a {
         text-decoration: underline;
@@ -479,7 +479,7 @@ html {
 
   &-title {
     margin-bottom: 10px;
-    @include typography(14px, 14px, 17.23px, 16.8px, 700, $f-text, #44382b);
+    @include typography(14px, 14px, 17.23px, 16.8px, 700, $f-text, $primary);
     letter-spacing: 0.3em;
     text-transform: uppercase;
   }
@@ -528,8 +528,9 @@ html {
 
   @include mq(tablet) {
     &:hover {
-      background: $accent;
-      color: $secondary;
+      background: $primary !important;
+      color: $c-white !important;
+      border-color: $primary;
     }
   }
 }

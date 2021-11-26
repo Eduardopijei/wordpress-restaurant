@@ -140,7 +140,7 @@
   &-social {
     margin-top: 20px;
     @include mq(tablet) {
-      margin-top: 50px;
+      margin-top: 40px;
     }
     a,
     span {
@@ -150,6 +150,12 @@
       text-transform: uppercase;
     }
   }
+  &-phone {
+    margin-top: 20px;
+    display: inline-block;
+    font: 700 12px/1 $f-text;
+    color: $primary;
+  }
   &-post {
     position: absolute;
     display: none;
@@ -157,12 +163,12 @@
     @include mq(tablet) {
       display: block;
       right: vw(70px);
-      bottom: vw(76px);
+      top: vw(30px);
     }
 
     @include mq(desktop-wide) {
       right: 70px;
-      bottom: 76px;
+      top: 30px;
     }
 
     @include when-inside('.mobile') {
@@ -583,11 +589,11 @@
     margin-top: 40px;
 
     @include mq(tablet) {
-      margin-top: vw(60px);
+      margin-top: vw(40px);
     }
 
     @include mq(tablet) {
-      margin-top: 60px;
+      margin-top: 40px;
     }
   }
 }

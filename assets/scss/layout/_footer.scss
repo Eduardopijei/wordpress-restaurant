@@ -163,10 +163,17 @@
       }
       @include mq(tablet) {
         img {
+          transform: scale(0.8);
           transition: transform .3s ease-in-out;
+          &:hover {
+            transform: scale(0.75);
+          }
         }
-        &:hover {
-          img {
+      }
+      @include mq(desktop-wide) {
+        img {
+          transform: scale(1);
+          &:hover {
             transform: scale(0.95);
           }
         }

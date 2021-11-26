@@ -126,6 +126,11 @@
 					</div>
 				<?php endwhile;
 				endif; ?>
+				<?php if( $phone = get_field( 'phone_number', 'option' ) ): ?>
+					<div>
+						<a href="tel:<?php echo $phone; ?>" class="header-phone"><?php echo $phone; ?></a>
+					</div>
+				<?php endif; ?>
 				<button class="btn btn--accent header-cta--mobile btn-modal" data-target="#modal-booking">
 					Come Stay!
 				</button>

@@ -131,6 +131,9 @@
       line {
         stroke: $c-white;
       }
+      @include when-inside('.admin-bar') {
+        top: 60px;
+      }
     }
     @include mq(tablet) {
       top: 36px;
@@ -153,6 +156,9 @@
     height: -webkit-fill-available;
     overflow: auto;
     background-color: $background_color;
+    @include mq(tablet, max) {
+      justify-content: space-between;
+    }
     @include mq(tablet) {
       position: fixed;
       top: 50%;

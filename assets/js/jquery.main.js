@@ -470,15 +470,22 @@ function initCulinaryModule() {
     if ($slider.length == 0) {
       $(`.loop-culinary:not(${filter})`).fadeOut();
       $(`.loop-culinary${filter}`).fadeIn();
+      $('.loop-culinary.all-day').fadeIn();
     }
     return false;
   });
   $(".culinary-module__select").on("change", function() {
     let filter = $(this).val();
-    if (filter) {
-      $slider.slick("slickUnfilter").slick("slickFilter", filter);
+    if( $slider.length ) {
+      if (filter) {
+        $slider.slick("slickUnfilter").slick("slickFilter", filter);
+      } else {
+        $slider.slick("slickUnfilter");
+      }
     } else {
-      $slider.slick("slickUnfilter");
+      $(`.loop-culinary:not(${filter})`).fadeOut();
+      $(`.loop-culinary${filter}`).fadeIn();
+      $('.loop-culinary.all-day').fadeIn();
     }
   });
 }

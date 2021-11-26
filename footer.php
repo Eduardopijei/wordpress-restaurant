@@ -90,7 +90,7 @@
       <a href="<?php echo $link; ?>" class="footer-partners__link" target="_blank">
         <img class="lazyload" data-src="<?php echo $logo; ?>" alt="">
       </a>
-      <?php if (get_row_index() == $count - 2) : ?>
+      <?php if ( empty($logo) && empty($link) ) : ?>
         <span class="divider"></span>
       <?php endif; ?>
     <?php endwhile; ?> 
