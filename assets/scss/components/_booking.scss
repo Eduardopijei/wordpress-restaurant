@@ -37,37 +37,78 @@
     margin-bottom: 30px;
     @include typography(42px, 42px, 50px, 50px, 400, $f-heading, $primary);
     font-style: normal;
+    letter-spacing: -3px;
   }
   &__calendar {
     &--range {
       display: none;
     }
-    .date-picker-wrapper .month-wrapper {
-      display: flex;
-      > .gap,
-      > .time {
-        display: none;
-      }
-      table {
-        .week-name th {
-          text-transform: capitalize;
+    .date-picker-wrapper {
+      .month-wrapper {
+        @include mq(tablet) {
+          position: relative;
+          display: grid;
+          width: 722px !important;
+          grid-template-columns: repeat(2, 1fr);
+          grid-gap: 0 80px;
+          &::after {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 50%;
+            width: 0.1px;
+            height: 100%;
+            transform: translateX(-50%);
+            background: $c-gray-21;
+          }
         }
-        &.month2 {
-          width: 100%;
+        @include mq(desktop-wide) {
+          padding: 40px;
+        }
+        > .gap,
+        > .time {
+          display: none;
+        }
+        table {
           @include mq(desktop-wide) {
-            width: vw(252px);
+            width: 100%;
+          }
+          .week-name th {
+            text-transform: capitalize;
+            @include mq(desktop-wide) {
+              width: 40px;
+              height: 40px;
+            }
+          }
+          tbody td {
+            @include mq(desktop-wide) {
+              width: 40px;
+              height: 40px;
+            }
+          }
+          &.month2 {
+            width: 100%;
+          }
+          .day.lastMonth, 
+          .day.nextMonth {
+            display: block;
+            color: #adadad;
+          }
+        }
+        .caption {
+          .next {
+            border-left-color: $c-black;
+          }
+          .prev {
+            border-right-color: $c-black;
           }
         }
       }
-      .caption {
-        .next {
-          border-left-color: $c-black;
-        }
-        .prev {
-          border-right-color: $c-black;
-        }
+
+      .month-element {
+        margin-top: 7px;
       }
-    }
+    } 
   }
   &__inputs {
     margin-top: 13px;
@@ -77,15 +118,71 @@
         grid-template-columns: repeat(2, 1fr);
       }
     }
+    .kids-number .jcf-select {
+      border-left: 0;
+    }
+    .promocode .form-control {
+      border-left: 0
+    }
+    .form-control {
+      padding: 8px 20px;
+      width: 100%;
+      border: 1px solid $c-gray-66;
+      font: 400 14px/24px $f-text;
+      color: $c-gray-33;
+      background-color: transparent;
+      &::placeholder {
+        color: $c-gray-33;
+      }
+    }
+    .jcf-select {
+      font-weight: 400;
+      letter-spacing: 0;
+      color: $c-gray-33;
+      &::after {
+        border-top-color: $primary;
+      }
+    }
   }
   .form-checkbox {
+    margin: 30px 0;
+    text-align: center;
     input {
       display: none;
     }
+    input:checked + label::after {
+      background-color: $primary;
+    }
     label {
+      position: relative;
+      padding-left: 25px;
       font: 400 14px/2 $f-text;
       color: $c-gray-2f;
+      text-transform: uppercase;
+      cursor: pointer;
+      &::before,
+      &::after {
+        position: absolute;
+        content: '';
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &::before {
+        left: 0;
+        width: 17px;
+        height: 17px;
+        border: 1px solid $c-gray-2f;
+      }
+      &::after {
+        left: 3px;
+        width: 11px;
+        height: 11px;
+        background-color: transparent;
+      }
     }
+  }
+  #booking_submit {
+    width: 330px;
   }
   #booking_cancel {
     letter-spacing: 0.02em;

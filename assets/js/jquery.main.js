@@ -202,57 +202,52 @@ function initCustomForms() {
 }
 
 function updateBookingLink() {
-  let href = 'https://www.hilton.com/en/book/reservation/rooms/?ctyhocn=SJDWAWA';
-  let check_in = $("#booking_check_in").val();
-  let check_out = $("#booking_check_out").val();
-  let adult = $("#booking_people_number").val();
+  let href = 'https://reservations.bostonharborhotel.com/?Hotel=26834&shell=rBOSHA&chain=10237&template=rBOSHA';
+  let date = $('#booking-popup__calendar--range').val();
+  let adult = $("#booking_adult_number").val();
+  let kid = $('#kids-number').val();
   let promo = $('#booking_promo').val();
-  if (check_in) {
-    href += "&arrivalDate=" + check_in;
-  }
-  if (check_out) {
-    href += "&departureDate=" + check_out;
+  if (date) {
+    let dateArr = date.split(' to ');
+    if( dateArr[0] ) href += '&arrive=' + dateArr[0];
+    if( dateArr[1] ) href += '&depart=' + dateArr[1];
   }
   if (adult) {
-    href += "&room1NumAdults=" + adult;
+    href += "&adult=" + adult;
+  }
+  if (kid > 0) {
+    href += "&kid=" + adult;
   }
   if (promo) {
-    href += '&promoCode=' + promo;
+    href += '&promo=' + promo;
   }
   $("#booking_submit").attr("href", href);
 }
 
 // Init Booking Popup
 function initBookingPopup() {
-  
   $('#booking-popup__calendar--range').dateRangePicker({
     inline:true,
     container: '#booking-popup__calendar--calendar',
     alwaysOpen:true,
     showShortcuts: false,
     showTopbar: false
+  }).bind('datepicker-change', function(event, obj) {
+    updateBookingLink();
   });
   $('.btn-modal').on('click', function() {
     $('html, body').css('overflow', 'hidden');
     $('.btn-modal').hide();
     $('.header').addClass('header--booking');
     $('.booking-popup').fadeIn(300);
-    let logoUrl = $('.header-logo').attr('src');
-    let logoAltUrl = $('.header-logo').attr('data-src-alt');
-    $('.header-logo').attr('src', logoAltUrl);
-    $('.header-logo').attr('data-src-alt', logoUrl);
   });
   $('.booking-popup__close, #booking_cancel').on('click', function() {
     $('html, body').removeAttr('style');
     $('.header').removeClass('header--booking');
     $('.btn-modal').show();
-    let logoUrl = $('.header-logo').attr('src');
-    let logoAltUrl = $('.header-logo').attr('data-src-alt');
-    $('.header-logo').attr('src', logoAltUrl);
-    $('.header-logo').attr('data-src-alt', logoUrl);
     $('.booking-popup').fadeOut(300);
   });
-  $("#booking_people_number").on("change", function () {
+  $("#booking_adult_number, #booking_kids_number").on("change", function () {
     updateBookingLink();
   });
   $('#booking_promo').on('change', function() {

@@ -133,7 +133,7 @@
         <div class="row">
           <div class="col">
             <div class="row">
-              <div class="col">
+              <div class="col adult-number">
                 <select name="" id="booking_adult_number" class="form-control">
                   <option value="1">1 Adult</option>
                   <option value="2">2 Adults</option>
@@ -141,8 +141,9 @@
                   <option value="4">4 Adults</option>
                 </select>
               </div>
-              <div class="col">
+              <div class="col kids-number">
                 <select name="" id="booking_kids_number" class="form-control">
+                    <option value="0">0 Kid</option>
                     <option value="1">1 Kid</option>
                     <option value="2">2 Kids</option>
                     <option value="3">3 Kids</option>
@@ -151,7 +152,7 @@
               </div>
             </div>
           </div>
-          <div class="col">
+          <div class="col promocode">
             <input type="text" class="form-control" id="booking_promo" placeholder="Enter Promo Code">
           </div>
         </div>
@@ -162,7 +163,7 @@
       </div>
     </div>
     <div class="booking-popup__btns">
-      <a href="https://www.hilton.com/en/book/reservation/rooms/?ctyhocn=SJDWAWA" 
+      <a href="https://reservations.bostonharborhotel.com/?Hotel=26834&shell=rBOSHA&chain=10237&template=rBOSHA" 
         class="btn btn--primary" id="booking_submit" target="_blank">Check Availability</a>
     </div>
   </div>
