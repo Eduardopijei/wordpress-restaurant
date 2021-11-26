@@ -32,6 +32,7 @@ jQuery(document).ready(function() {
   isElementExist('.culinary-detail', initCulinaryDetail);
   isElementExist('.culinary-form', initCulinaryForm);
   isElementExist('.popup-block', initPopup);
+  isElementExist('.amentities-images', initAmentities);
 
 
 
@@ -607,6 +608,18 @@ function initPopup() {
     $parent.fadeOut(300);
     $('html, body').removeAttr('style');
   });
+}
+
+// function initAmentities
+function initAmentities() {
+  if( $('.amentities-image').length > 1 ) {
+    $('.amentities-carousel').slick({
+      arrows: false,
+      dots: false,
+      autoplay: true,
+      autoplaySpeed: 3000
+    })
+  }
 }
 
 

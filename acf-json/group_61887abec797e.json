@@ -102,7 +102,7 @@
         },
         {
             "key": "field_61a0399baa66b",
-            "label": "Booking Param",
+            "label": "Booking Link",
             "name": "booking_param",
             "type": "text",
             "instructions": "",
@@ -137,5 +137,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1637890465
+    "modified": 1637891222
 }

@@ -43,6 +43,18 @@ $size = get_field( 'size', $pid );
             </div>
             <?php endif; ?>
         </div>
-        <?php get_template_part_args( 'templates/content-module-image', array( 'v' => 'image', 'o' => 'f', 'is' => 'amentities', 'w' => 'div', 'wc' => 'amentities-image' ) ); ?>
+        <?php if( $images = get_field( 'images' ) ): ?>  
+        <div class="amentities-images">
+            <div class="amentities-carousel">
+                <?php foreach( $images as $image ): ?>
+                    <div class="amentities-image">
+                        <img class="lazyload" 
+                            data-src="<?php echo $image['sizes']['amentities']; ?>"
+                            data-srcset="<?php echo $image['sizes']['amentities-2x']; ?>" alt="">
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <?php endif; ?>
     </div>
 </section>
