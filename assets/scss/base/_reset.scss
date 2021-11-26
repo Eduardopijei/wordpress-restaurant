@@ -443,64 +443,69 @@ html {
 // GDPR
 #cookie-law-info-bar {
   position: relative;
-  padding: 36px 25px 28px;
-  border: 1px solid #000;
-  width: 375px !important;
+  padding: 60px 30px 30px;
+  border: 1px solid $primary;
+  width: 320px !important;
 
   @include mq(tablet, max) {
-    left: 0 !important;
-    bottom: 0 !important;
+    left: 50% !important;
+    bottom: 20px !important;
+    transform: translateX(-50%);
   }
 
   @include mq(tablet) {
-    padding: 43px 25px 30px;
+    padding: 40px 30px 35px;
     width: 445px !important;
   }
 }
 
 .cli-bar {
   &-message {
-    text-align: left;
-
+    text-align: center;
+    @include mq(tablet) {
+      text-align: left;
+      max-width: 260px;
+    }
     p {
-      margin-bottom: 19px;
-      @include typography(12px, 14px, 21px, 21px, 400, $f-text, $c-gray-0d);
-
+      margin-bottom: 22px;
+      font: 400 12px/21px $f-text;
+      color: $c-black;
+      @include mq(tablet) {
+        margin-top: 14px;
+      }
       a {
         text-decoration: underline;
-        color: $primary;
+        color: $c-black;
 
         &:hover {
-          color: $accent;
+          color: $primary;
         }
       }
     }
   }
 
   &-title {
-    margin-bottom: 10px;
-    @include typography(14px, 14px, 17.23px, 16.8px, 700, $f-text, $primary);
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
+    margin-bottom: 20px;
+    font: 400 28px/32px $f-heading;
+    color: $primary;
+    letter-spacing: -0.03em;
+    @include mq(tablet) {
+      margin-bottom: 10px;
+    }
   }
 
   &-close {
     position: absolute;
-    top: 28px;
-    right: 23px;
-    width: 15px;
-    height: 15px;
-    @include svgBackground("<svg width='31' height='32' viewBox='0 0 31 32' fill='none' xmlns='http://www.w3.org/2000/svg'><line x1='29.5771' y1='30.9913' x2='1.2928' y2='2.70702' stroke='black' stroke-width='2'/><line x1='1.29289' y1='29.5771' x2='29.5772' y2='1.2928' stroke='black' stroke-width='2'/></svg>");
+    top: 20px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    @include svgBackground("<svg width='22' height='21' viewBox='0 0 22 21' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M21 0.5L1 20.5' stroke='%233F526F'/><path d='M21 20.5L1 0.499999' stroke='%233F526F'/></svg>");
     cursor: pointer;
     transition: transform .5s ease-in-out;
     will-change: transform;
 
     @include mq(tablet) {
-      top: 32px;
-      right: 32px;
-      width: 28px;
-      height: 28px;
-
       &:hover {
         transform: rotate(360deg);
       }
@@ -510,6 +515,8 @@ html {
 
 .cli-bar-btn_container {
   margin-left: 0;
+  display: block;
+  max-width: 270px;
 }
 
 #wt-cli-accept-all-btn {
@@ -517,21 +524,28 @@ html {
   margin: 0;
   padding: 6px 20px;
   width: 100%;
-  font: 700 12px/28px $f-text;
+  font: 700 10px/28px $f-text;
   letter-spacing: 3.6px;
-  border: 1px solid #212121;
-  background: $background_color;
-  color: #0d0d0d;
   text-align: center;
   text-transform: uppercase;
   transition: all 0.3s ease-in-out;
-
+  @include mq(tablet, max) {
+    max-width: 230px;
+    margin: 0 auto;
+  }
   @include mq(tablet) {
     &:hover {
-      background: $primary !important;
-      color: $c-white !important;
-      border-color: $primary;
+      background: $accent !important;
     }
+  }
+}
+
+#cookie_action_close_header_reject {
+  display: block;
+  margin-top: 13px;
+  font: 400 12px/28px $f-text;
+  @include mq(tablet) {
+    display: none;
   }
 }
 
