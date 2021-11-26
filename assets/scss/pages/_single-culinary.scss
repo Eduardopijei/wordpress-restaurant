@@ -20,18 +20,18 @@
   #about {
     h1 {
       margin-bottom: 20px;
-      @include typography(56px, 68px, 56px, 68px, 400, $f-heading, $c-gray-2f);
+      // @include typography(56px, 68px, 56px, 68px, 400, $f-heading, $c-gray-2f);
       @include mq(tablet) {
         margin-bottom: vw(50px);
       }
     }
     h6 {
       margin-bottom: 15px;
-      @include typography(12px, 14px, 12px, 14px, 700, $f-text, $c-gray-0d);
-      letter-spacing: 0.15em;
+      // @include typography(12px, 14px, 12px, 14px, 700, $f-text, $c-gray-0d);
+      // letter-spacing: 0.15em;
       @include mq(tablet) {
         margin-bottom: 20px;
-        letter-spacing: 0.3em;
+        // letter-spacing: 0.3em;
       }
     }
     p {
@@ -50,12 +50,12 @@
   }
   .accordions {
     h3.accordions-heading {
-      @include typography(42px, 54px, 55px, 64px, 400, $f-heading, $c-gray-0d);
+      // @include typography(42px, 54px, 55px, 64px, 400, $f-heading, $c-gray-0d);
       @include mq(tablet) {
-        color: $c-gray-2f;
+        // color: $c-gray-2f;
       }
       @include mq(desktop-wide) {
-        font-size: 54px;
+        // font-size: 54px;
       }
     }
   }

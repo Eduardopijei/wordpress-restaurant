@@ -107,8 +107,8 @@
 
   &__title {
     margin-bottom: 8px;
-    letter-spacing: 0.25em;
-    color: #181818;
+    // letter-spacing: 0.25em;
+    // color: #181818;
 
     @include mq(tablet) {
       margin-bottom: vw(11px);

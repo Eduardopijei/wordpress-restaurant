@@ -622,7 +622,7 @@ function initAmentities() {
   if( $('.amentities-image').length > 1 ) {
     $('.amentities-carousel').slick({
       arrows: false,
-      dots: false,
+      dots: true,
       autoplay: true,
       autoplaySpeed: 3000
     })

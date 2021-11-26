@@ -220,7 +220,7 @@
     }
     h6 {
       margin-bottom: 15px;
-      color: #212121;
+      // color: #212121;
       @include mq(tablet, max) {
         font-size: 10px;
       }

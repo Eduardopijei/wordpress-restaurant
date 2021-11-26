@@ -10,7 +10,7 @@
   &-heading {
     margin-bottom: 20px;
     text-align: center;
-    @include typography(56px, 78px, 56px, 78px, 400, $f-heading, $c-gray-2f);
+    // @include typography(56px, 78px, 56px, 78px, 400, $f-heading, $c-gray-2f);
     font-style: normal;
     @include mq(tablet) {
       margin-bottom: 0;
@@ -25,7 +25,7 @@
     }
     h6 {
       margin-bottom: 15px;
-      @include typography(12px, 14px, 14px, 14px, 700, $f-text, $c-gray-0d);
+      // @include typography(12px, 14px, 14px, 14px, 700, $f-text, $c-gray-0d);
       letter-spacing: 0.15em;
       @include mq(tablet, max) {
         margin-left: -10px;

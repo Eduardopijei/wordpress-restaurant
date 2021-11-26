@@ -163,7 +163,7 @@
     }
     &__heading {
       margin-bottom: 20px;
-      @include typography(42px, 68px, 44px, 70px, 400, $f-heading, $c-black);
+      // @include typography(42px, 68px, 44px, 70px, 400, $f-heading, $c-black);
       @include mq(tablet) {
         margin: 0 auto vw(28px);
         max-width: vw(455px);
@@ -179,11 +179,11 @@
       }
       h6 {
         margin-bottom: 16px;
-        color: $c-gray-0d;
+        // color: $c-gray-0d;
         letter-spacing: 0.25em;
         @include mq(tablet, max) {
-          font-size: 11px;
-          color: $c-gray-2f;
+          // font-size: 11px;
+          // color: $c-gray-2f;
         }
       }
       p {

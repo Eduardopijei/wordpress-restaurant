@@ -84,7 +84,7 @@
     .heading {
       margin-bottom: 23px;
       order: -1;
-      @include typography(41px, 59px, 52px, 64px);
+      // @include typography(41px, 59px, 52px, 64px);
       @include mq(tablet) {
         margin-bottom: vw(60px);
       }

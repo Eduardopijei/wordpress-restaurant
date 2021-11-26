@@ -1,7 +1,7 @@
 .page-block {
   &__heading {
     margin-bottom: 30px;
-    @include typography(42px, 54px, 42px, 64px, 400, $f-heading, $c-gray-2f);
+    // @include typography(42px, 54px, 42px, 64px, 400, $f-heading, $c-gray-2f);
     font-style: normal;
     text-align: center;
     @include mq(tablet) {
@@ -13,7 +13,7 @@
   }
   &__subheading {
     margin-bottom: 65px;
-    @include typography(12px, 14px, 12px, 14px, 700, $f-text, $c-gray-18);
+    // @include typography(12px, 14px, 12px, 14px, 700, $f-text, $c-gray-18);
     text-align: center;
     letter-spacing: 0.25em;
     @include mq(tablet) {

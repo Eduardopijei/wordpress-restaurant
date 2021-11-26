@@ -6,7 +6,7 @@
   }
   &__title {
     margin-bottom: 20px;
-    @include typography(32px, 32px, 38.4px, 38.4px);
+    // @include typography(32px, 32px, 38.4px, 38.4px);
     @include mq(tablet) {
       margin-right: vw(80px);
       margin-bottom: 0;

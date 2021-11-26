@@ -155,8 +155,11 @@
 }
 @mixin heading6() {
   @include typography(12px, 14px, 12.12px, 24px, 700, $f-text, $c-gray-08);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.02em; 
   text-transform: uppercase;
+  @include mq(tablet) {
+    letter-spacing: 1.68px;
+  }
 }
 
 @mixin bodyText($size: normal) {

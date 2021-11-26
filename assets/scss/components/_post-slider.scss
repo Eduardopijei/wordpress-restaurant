@@ -65,13 +65,13 @@
   }
   &__title {
     margin-bottom: 20px;
-    @include typography(32px, 64px, 38px, 52px);
-    letter-spacing: -0.04em;
+    // @include typography(32px, 64px, 38px, 52px);
+    // letter-spacing: -0.04em;
   }
   &__subtitle {
     margin-bottom: 10px;
-    letter-spacing: 0.25em;
-    color: #181818;
+    // letter-spacing: 0.25em;
+    // color: #181818;
   }
   &__excerpt {
   }

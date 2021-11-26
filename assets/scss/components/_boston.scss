@@ -23,7 +23,7 @@
   }
   &__heading {
     display: none;
-    @include typography(44px, 71px, 44px, 78px);
+    // @include typography(44px, 71px, 44px, 78px);
     &.heading--mobile {
       display: block;
       @include mq(tablet) {
@@ -42,7 +42,7 @@
   }
   &__subheading {
     margin-bottom: 15px;
-    font: 700 14px/16px $f-text;
+    // font: 700 14px/16px $f-text;
     @include mq(tablet, max) {
       display: none;
     }

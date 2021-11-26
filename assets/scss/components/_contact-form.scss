@@ -2,7 +2,7 @@
   &__heading {
     margin-bottom: 20px;
     text-align: center;
-    @include typography(42px, 64px, 40px, 64px, 400, $f-heading, $c-gray-2f);
+    // @include typography(42px, 64px, 40px, 64px, 400, $f-heading, $c-gray-2f);
 
     font-style: normal;
     @include mq(tablet, max) {

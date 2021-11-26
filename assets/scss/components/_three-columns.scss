@@ -12,7 +12,7 @@
 
     .col-heading {
       h3 {
-        @include typography(42px, 52px, 42px, 54px, 400, $f-heading, $c-gray-2f);
+        // @include typography(42px, 52px, 42px, 54px, 400, $f-heading, $c-gray-2f);
         letter-spacing: -0.04em;
         font-style: italic;
       }

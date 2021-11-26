@@ -1,6 +1,6 @@
 .culinary-detail {
     &__heading {
-      @include typography(42px, 72px, 64px, 64px, 400, $f-heading, #2f2f2f);
+      // @include typography(42px, 72px, 64px, 64px, 400, $f-heading, #2f2f2f);
       @include mq(tablet, max) {
         color: #0d0d0d;
       }
@@ -78,11 +78,11 @@
       }
       h2 {
         margin-bottom: 8px;
-        @include typography(42px, 64px, 55px, 64px, 400, $f-heading, $c-gray-0d);
+        // @include typography(42px, 64px, 55px, 64px, 400, $f-heading, $c-gray-0d);
         font-style: normal;
         @include mq(tablet) {
           margin-bottom: vw(32px);
-          color: $c-gray-2f;
+          // color: $c-gray-2f;
         }
         @include mq(desktop-wide) {
           margin-bottom: 32px;

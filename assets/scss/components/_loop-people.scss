@@ -52,7 +52,7 @@
     position: absolute;
     bottom: 18px;
     width: 100%;
-    @include typography(14px, 16px, 17.23px, 19.7px, 600, $f-text, $secondary);
+    // @include typography(14px, 16px, 17.23px, 19.7px, 600, $f-text, $secondary);
     z-index: 3;
     @include mq(tablet) {
       bottom: vw(30px);

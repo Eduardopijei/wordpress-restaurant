@@ -9,7 +9,7 @@
     margin-bottom: 26px;
     flex-grow: 1;
     text-align: center;
-    @include typography(42px, 84px, 40px, 75px, 400, $f-heading, #2f2f2f);
+    // @include typography(42px, 84px, 40px, 75px, 400, $f-heading, #2f2f2f);
     letter-spacing: -0.04em;
     @include mq(tablet) {
       margin-bottom: 0;
@@ -30,8 +30,8 @@
 
     h6 {
       margin-bottom: 10px;
-      letter-spacing: 0.25em;
-      color: #181818;
+      // letter-spacing: 0.25em;
+      // color: #181818;
 
       @include mq(tablet) {
         margin-bottom: 11px;

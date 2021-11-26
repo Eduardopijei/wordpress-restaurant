@@ -74,22 +74,22 @@
   }
   &__title {
     margin: 0 auto 20px;
-    @include typography(42px, 68px, 42px, 68px, 400, $f-heading, $c-gray-2f);
+    // @include typography(42px, 68px, 42px, 68px, 400, $f-heading, $c-gray-2f);
     letter-spacing: -0.04em;
     max-width: svw(265px);
     @include mq(tablet) {
       margin-bottom: 30px;
-      color: $c-black;
+      // color: $c-black;
       max-width: 455px;
     }
   }
   &__text {
     h6 {
       margin-bottom: 15px;
-      @include typography(11px, 14px, 11px, 14px, 700, $f-text, $c-gray-2f);
+      // @include typography(11px, 14px, 11px, 14px, 700, $f-text, $c-gray-2f);
       letter-spacing: 0.25em;
       @include mq(tablet) {
-        color: $c-gray-0d;
+        // color: $c-gray-0d;
       }
     }
     p {

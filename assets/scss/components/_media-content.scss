@@ -284,18 +284,18 @@
 
   &__title {
     margin-bottom: 30px;
-    @include typography(42px, 66px, 42px, 66px, 400, $f-heading, $c-gray-18);
-    letter-spacing: -0.04em;
+    // @include typography(42px, 66px, 42px, 66px, 400, $f-heading, $c-gray-18);
+    // letter-spacing: -0.04em;
     font-style: normal;
     @include when-inside(".media-content-spa") {
-      @include typography(42px, 66px, 40px, 64px, 400, $f-heading, #2f2f2f);
+      // @include typography(42px, 66px, 40px, 64px, 400, $f-heading, #2f2f2f);
       letter-spacing: -0.04em;
       @include mq(tablet, max) {
         margin-bottom: svw(16px);
       }
     }
     @include when-inside(".media-content-tab") {
-      @include typography(42px, 60px, 40px, 64px, 400, $f-heading, #2f2f2f);
+      // @include typography(42px, 60px, 40px, 64px, 400, $f-heading, #2f2f2f);
 
       @include mq(tablet, max) {
         margin-bottom: 20px;
@@ -304,7 +304,7 @@
 
     @include when-inside(".media-content-post") {
       margin-bottom: 30px;
-      @include typography(48px, 60px, 64px, 64px, 400, $f-heading, $heading_color);
+      // @include typography(48px, 60px, 64px, 64px, 400, $f-heading, $heading_color);
 
       @include mq(tablet) {
         margin-bottom: vw(30px);
@@ -318,12 +318,12 @@
 
   &__subtitle {
     margin-bottom: 30px;
-    letter-spacing: 0.25em;
-    color: $c-gray-18;
+    // letter-spacing: 0.25em;
+    // color: $c-gray-18;
     @include when-inside(".media-content-post") {
-      font: 600 12px/14.77px $f-text;
-      letter-spacing: 0.25em;
-      color: #181818;
+      // font: 600 12px/14.77px $f-text;
+      // letter-spacing: 0.25em;
+      // color: #181818;
     }
   }
 
@@ -347,7 +347,7 @@
 
     @include when-inside('.media-content-tab') {
       h6 {
-        color: #212121;
+        // color: #212121;
       }
     }
 
@@ -359,7 +359,7 @@
       }
     }
     h6 {
-      color: $c-gray-18;
+      // color: $c-gray-18;
       margin-bottom: 30px;
     }
     p {

@@ -1,7 +1,7 @@
 .custom-wysiwig {
   h1 {
     margin-bottom: 35px;
-    @include typography(44px, 96px, 44px, 87px);
+    // @include typography(44px, 96px, 44px, 87px);
     @include mq(tablet) {
       margin-bottom: vw(30px);
     }
@@ -9,8 +9,8 @@
 
   h2 {
     margin-bottom: 35px;
-    @include typography(32px, 68px, 36px, 78px);
-    font-style: normal;
+    // @include typography(32px, 68px, 36px, 78px);
+    // font-style: normal;
     @include mq(tablet) {
       margin-bottom: vw(35px);
     }
@@ -18,7 +18,7 @@
 
   h3 {
     margin-bottom: 35px;
-    @include typography(28px, 44px, 44px, 69px);
+    // @include typography(28px, 44px, 44px, 69px);
     @include mq(tablet) {
       margin-bottom: vw(50px);
     }
@@ -26,7 +26,7 @@
 
   h4 {
     margin-bottom: 30px;
-    @include typography(24px, 32px, 28px, 32px);
+    // @include typography(24px, 32px, 28px, 32px);
     @include mq(tablet) {
       margin-bottom: vw(45px);
     }

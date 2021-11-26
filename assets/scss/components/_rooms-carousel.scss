@@ -82,7 +82,7 @@
   }
   &__heading {
     margin-bottom: 15px;
-    @include typography(56px, 72px, 70px, 72px, 400, $f-heading, $primary);
+    // @include typography(56px, 72px, 70px, 72px, 400, $f-heading, $primary);
     font-style: normal;
     @include mq(tablet, max) {
       margin-left: -10px;
@@ -94,8 +94,8 @@
   }
   &__subheading {
     margin-bottom: 15px;
-    @include typography(12px, 14px, 12px, 14px, 700, $f-text, $primary);
-    letter-spacing: 0.25em;
+    // @include typography(12px, 14px, 12px, 14px, 700, $f-text, $primary);
+    // letter-spacing: 0.25em;
     @include mq(tablet) {
       margin-bottom: 20px;
     }

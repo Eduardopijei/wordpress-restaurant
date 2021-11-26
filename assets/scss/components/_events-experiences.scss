@@ -2,7 +2,7 @@
   &__heading {
     margin-bottom: 40px;
     text-align: center;
-    @include typography(42px, 61px, 42px, 78px, 400, $f-heading, $c-gray-2f);
+    // @include typography(42px, 61px, 42px, 78px, 400, $f-heading, $c-gray-2f);
     @include mq(tablet) {
       margin-bottom: vw(50px);
     }

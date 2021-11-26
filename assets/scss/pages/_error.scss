@@ -46,11 +46,11 @@
   }
   &__heading {
     margin-bottom: 10px;
-    @include typography(72px, 100px, 100px, 140px, 400, $f-heading, $c-gray-2f);
+    // @include typography(72px, 100px, 100px, 140px, 400, $f-heading, $c-gray-2f);
   }
   &__subheading {
     margin-bottom: 14px;
-    @include typography(12px, 14px, 12px, 14px, 700, $f-text, $c-gray-2f);
+    // @include typography(12px, 14px, 12px, 14px, 700, $f-text, $c-gray-2f);
     @include mq(tablet) {
       color: $c-gray-18;
     } 

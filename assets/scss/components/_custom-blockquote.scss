@@ -35,7 +35,7 @@
   }
   &__text {
     margin-bottom: 30px;
-    @include typography(32px, 68px, 36px, 75px, 400, $f-heading, $c-gray-2f);
+    @include typography(32px, 68px, 36px, 75px, 400, $f-heading, $primary);
     @include mq(tablet) {
       margin: 0 auto vw(50px);
       max-width: vw(1026px);
