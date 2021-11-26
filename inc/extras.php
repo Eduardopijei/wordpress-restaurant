@@ -128,11 +128,11 @@ function jp_sync_acf_fields() {
 }
 add_action( 'admin_init', 'jp_sync_acf_fields' );
 
-add_action('acf/init', 'my_acf_init');
-function my_acf_init() {
-    acf_update_setting('show_updates', true);
-    acf_update_setting('google_api_key', 'AIzaSyBUcMvTzs7_Oltb0NwiYrPDURzLBidQJ5Y');
-}
+// add_action('acf/init', 'my_acf_init');
+// function my_acf_init() {
+//     acf_update_setting('show_updates', true);
+//     acf_update_setting('google_api_key', 'AIzaSyBUcMvTzs7_Oltb0NwiYrPDURzLBidQJ5Y');
+// }
 
 //Saving points
 add_filter('acf/settings/save_json', 'my_acf_json_save_point');

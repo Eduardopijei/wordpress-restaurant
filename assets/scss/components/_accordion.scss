@@ -9,13 +9,13 @@
     }
   }
   h3.accordions-heading {
-    @include typography(32px, 52px, 28px, 68px, 400, $f-heading, $c-gray-2f);
+    // @include typography(32px, 52px, 28px, 68px, 400, $f-heading, $c-gray-2f);
     @include mq(tablet, max) {
       color: $c-gray-08
     }
   }
   h6.accordions-heading {
-    @include typography(14px, 16px, 17.23px, 19.7px, 600, $f-text, #212121);
+    // @include typography(14px, 16px, 17.23px, 19.7px, 600, $f-text, #212121);
     letter-spacing: 0.2em;
   }
   .container {

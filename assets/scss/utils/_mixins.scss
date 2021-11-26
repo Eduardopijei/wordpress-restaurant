@@ -123,29 +123,39 @@
 }
 
 @mixin heading1() {
-  @include typography(42px, 72px, 38px, 68px) ;
-  letter-spacing: -0.02em;
+  @include typography(44px, 60px, 44px, 87px) ;
+  letter-spacing: 0;
 }
 @mixin heading2() {
   @include typography(32px, 54px, 36px, 78px);
   font-style: italic;
 }
 @mixin heading3() {
-  @include typography(28px, 42px, 44px, 69px);
-  letter-spacing: -0.02em;
+  @include typography(28px, 48px, 44px, 69px);
+  letter-spacing: 0.02em;
+  @include mq(tablet) {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
 }
 @mixin heading4() {
-  @include typography(24px, 42px, 28px, 28px);
-  letter-spacing: -0.02em;
+  @include typography(24px, 42px, 28px, 42px, 700, $f-text, $c-gray-08);
+  letter-spacing: 0.02em;
+  @include mq(tablet) {
+    letter-spacing: 2.1px
+  }
 }
 @mixin heading5() {
-  @include typography(18px, 24px, 64px, 35px);
-  letter-spacing: -0.02em;
+  @include typography(18px, 24px, 64px, 35px, 400, $f-text, $secondary);
+  letter-spacing: 2px;
   text-transform: uppercase;
+  @include mq(tablet) {
+    letter-spacing: 4px
+  }
 }
 @mixin heading6() {
-  @include typography(12px, 14px, 14.77px, 17.07px, 700, $f-text);
-  letter-spacing: 1.68px;
+  @include typography(12px, 14px, 12.12px, 24px, 700, $f-text, $c-gray-08);
+  letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 

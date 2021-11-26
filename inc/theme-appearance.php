@@ -14,9 +14,12 @@ function am_login_logo_url() {
 // Add Gogole Map API
 
 function am_acf_google_map_key() {
-	$key = get_field('google_map_api', 'option');
-	if($key)
-    	acf_update_setting('google_api_key', $key);
+    // acf_update_setting('show_updates', true);
+    acf_update_setting('google_api_key', 'AIzaSyC7sM9aEtND4xIBlMICYkk8fOUMRvt-Tqc');
+
+	// $key = get_field('google_map_api', 'option');
+	// if($key)
+    // 	acf_update_setting('google_api_key', $key);
 }
 add_action('acf/init', 'am_acf_google_map_key');
 
