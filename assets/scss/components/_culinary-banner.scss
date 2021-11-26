@@ -113,6 +113,7 @@
   height: svw(740px);
   max-height: 740px;
   color: $c-white;
+  overflow: hidden;
   @include mq(tablet) {
     height: vw(900px);
     max-height: 900px;
@@ -135,6 +136,7 @@
   &__content {
     position: absolute;
     left: vw(40px);
+    right: vw(40px);
     bottom: vw(45px);
     z-index: 2;
 
@@ -153,6 +155,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform .5s ease-in-out;
     @include mq_mobile_landscape() {
         max-height: none;
     }
@@ -197,7 +200,7 @@
 
   &__title {
     margin-bottom: 20px;
-    @include typography(42px, 64px, 42px, 64px, 400, $f-heading, $c-white);
+    @include typography(42px, 58px, 42px, 58px, 400, $f-heading, $c-white);
   }
 
   &__excerpt {
@@ -205,5 +208,13 @@
     text-transform: uppercase;
     letter-spacing: 0.25em;
     color: $c-white;
+  }
+
+  &__link {
+    &:hover {
+      img {
+        transform: scale(1.05);
+      }
+    }
   }
 }

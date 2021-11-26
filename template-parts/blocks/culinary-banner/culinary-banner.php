@@ -67,24 +67,33 @@ $featured_culinary = get_field('featured_culinary');
         <?php foreach($featured_culinary as $featured) : 
             $title = get_the_title($featured); 
             $excerpt = get_the_excerpt( $featured );
-            $day = get_the_date( 'd', $featured );
-            $month = get_the_date( 'M', $featured );
+            $date = get_field( 'featured_date', $featured );
+            if ( $date ) {
+                $dateObj = DateTime::createFromFormat('Ymd', $date);
+                $day = $dateObj->format('d');
+                $month = $dateObj->format('M');
+            } else {
+                $day = get_the_date( 'd', $featured );
+                $month = get_the_date( 'M', $featured );
+            }
             $image = get_field('image', $featured);
             $img_src = $image['sizes']['culinary-banner'];
             $img_src_2x = $image['sizes']['culinary-banner-2x']; ?>
             <div class="featured-culinary gradient-overlay">
-                <img data-src="<?php echo $img_src; ?>" data-srcset="<?php echo $img_src_2x; ?>" 
-                    alt="<?php echo $title; ?>" class="featured-culinary__image lazyload">
-                <div class="featured-culinary__date a-op">
-                    <span class="featured-culinary__date--day"><?php echo $day; ?></span>
-                    <span class="featured-culinary__date--month">
-                        <?php echo $month; ?>
-                    </span>
-                </div>
-                <div class="featured-culinary__content">
-                    <div class="featured-culinary__title a-up a-delay-1"><?php echo $title; ?></div>
-                    <div class="featured-culinary__excerpt a-up a-delay-2"><?php echo $excerpt; ?></div>
-                </div>
+                <a href="<?php echo get_the_permalink( $featured ); ?>" class="featured-culinary__link">
+                    <img data-src="<?php echo $img_src; ?>" data-srcset="<?php echo $img_src_2x; ?>" 
+                        alt="<?php echo $title; ?>" class="featured-culinary__image lazyload">
+                    <div class="featured-culinary__date a-op">
+                        <span class="featured-culinary__date--day"><?php echo $day; ?></span>
+                        <span class="featured-culinary__date--month">
+                            <?php echo $month; ?>
+                        </span>
+                    </div>
+                    <div class="featured-culinary__content">
+                        <div class="featured-culinary__title a-up a-delay-1"><?php echo $title; ?></div>
+                        <div class="featured-culinary__excerpt a-up a-delay-2"><?php echo $excerpt; ?></div>
+                    </div>
+                </a>
             </div>
         <?php endforeach; ?>
     </div>
