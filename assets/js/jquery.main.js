@@ -33,6 +33,7 @@ jQuery(document).ready(function() {
   isElementExist('.culinary-form', initCulinaryForm);
   isElementExist('.popup-block', initPopup);
   isElementExist('.amentities-images', initAmentities);
+  isElementExist('.journal-slider__slides', initJournalSlider);
 
 
 
@@ -627,6 +628,25 @@ function initAmentities() {
       autoplaySpeed: 3000
     })
   }
+}
+
+// 
+function initJournalSlider() {
+  $('.journal-slider__slides').slick({
+    arrows: false,
+    dots: false,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    variableWidth: true,
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+        variableWidth: false,
+        centerMode: true,
+        centerPadding: '35px'
+      }
+    }]
+  });
 }
 
 

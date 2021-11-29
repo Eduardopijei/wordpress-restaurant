@@ -414,6 +414,17 @@ function my_acf_init_block_types() {
             'icon'              => 'align-pull-left',
             'keywords'          => array( 'featured', 'experience' ),
         ));
+
+        // Journal slider
+        acf_register_block_type(array(
+            'name'              => 'journal_slider',
+            'title'             => __('Journal Slider'),
+            'description'       => __('Journal Slider'),
+            'render_template'   => 'template-parts/blocks/journal-slider/journal-slider.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'slides',
+            'keywords'          => array( 'journal', 'slider' ),
+        ));
         /*********************************** ****************************************/
 
         // Register Title Text Block

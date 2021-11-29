@@ -10,4 +10,19 @@
       }
     }
   }
+  .media-content--left .media-content__content {
+    @include mq(tablet) {
+      text-align: right;
+    }
+    .media-content__btn {
+      background-color: transparent;
+      border-color: $c-black;
+      color: $c-black;
+      &:hover {
+        background-color: $primary;
+        border-color: $primary;
+        color: $c-white;
+      }
+    }
+  }
 }

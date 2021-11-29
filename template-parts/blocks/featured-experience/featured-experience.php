@@ -23,7 +23,7 @@ if( !empty($block['align']) ) {
 
 // Load values and assign defaults.
 ?>
-<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> a-up">
+<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <div class="container">
         <?php 
         if( $experiences = get_field( 'experience' ) ): 

@@ -14,9 +14,10 @@ function custom_taxonomies() {
             'label' => 'Categories', // display name
             'query_var' => true,
             'rewrite' => array(
-                'slug' => 'offer',    // This controls the base slug that will display before each term
+                'slug' => 'offers',    // This controls the base slug that will display before each term
                 'with_front' => false  // Don't display the category base before
-            )
+            ),
+		    'show_in_rest' => true
         )
     );
     // Culinary Type
@@ -28,9 +29,10 @@ function custom_taxonomies() {
             'label' => 'Time', // display name
             'query_var' => true,
             'rewrite' => array(
-                'slug' => 'culinary',    // This controls the base slug that will display before each term
+                'slug' => 'culinaries',    // This controls the base slug that will display before each term
                 'with_front' => false  // Don't display the category base before
-            )
+            ),
+		    'show_in_rest' => true
         )
     );
     // Room Type
@@ -42,9 +44,10 @@ function custom_taxonomies() {
             'label' => 'Category', // display name
             'query_var' => true,
             'rewrite' => array(
-                'slug' => 'room',    // This controls the base slug that will display before each term
+                'slug' => 'rooms',    // This controls the base slug that will display before each term
                 'with_front' => false  // Don't display the category base before
-            )
+            ),
+		    'show_in_rest' => true
         )
     );
 }

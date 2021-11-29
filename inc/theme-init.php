@@ -157,6 +157,9 @@ add_image_size( 'blog-more-2x', 1424, 1720, true );
 add_image_size( 'popup', 600, 750, true );
 add_image_size( 'popup-2x', 1200, 1500, true );
 
+add_image_size( 'journal', 440, 510, true );
+add_image_size( 'journal-2x', 880, 1020, true );
+
 
 //show_admin_bar(false);
 //define( 'WPCF7_AUTOP', false );
