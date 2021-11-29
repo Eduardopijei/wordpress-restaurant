@@ -231,10 +231,6 @@
       content: none;
     }
 
-    .header-nav {
-      justify-content: space-between;
-    }
-
     .hamburger {
       display: none;
       span {
@@ -279,6 +275,9 @@
       &::after {
         border-bottom-color: $primary;
       }
+    }
+    .header-cta.btn {
+      display: none;
     }
   }
 }

@@ -40,6 +40,9 @@
       height: vw(412px);
       opacity: 0.12;
     }
+    @include mq_mobile_landscape() {
+      display: none;
+    }
     @include when-inside(".general-hero") {
       background: linear-gradient(
         180deg,
@@ -98,6 +101,9 @@
     }
     @include when-inside('.mobile') {
       bottom: 116px;
+    }
+    @include mq_mobile_landscape() {
+      display: none;
     }
   }
   .scroll-link {

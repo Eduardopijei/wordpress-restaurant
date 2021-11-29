@@ -403,6 +403,17 @@ function my_acf_init_block_types() {
             'icon'              => 'cover-image',
             'keywords'          => array( 'hero' ),
         ));
+
+        // Featured Experience
+        acf_register_block_type(array(
+            'name'              => 'featured_experience',
+            'title'             => __('Featured Experience'),
+            'description'       => __('Featured Experience'),
+            'render_template'   => 'template-parts/blocks/featured-experience/featured-experience.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'align-pull-left',
+            'keywords'          => array( 'featured', 'experience' ),
+        ));
         /*********************************** ****************************************/
 
         // Register Title Text Block
