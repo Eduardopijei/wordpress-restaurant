@@ -118,6 +118,7 @@
     }
   }
   &-image {
+    overflow: hidden;
     @include mq(tablet, max) {
       position: relative;
       &::after {

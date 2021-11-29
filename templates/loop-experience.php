@@ -1,5 +1,6 @@
 <?php
 $id = $args['post'];
+$type = get_post_type( $id );
 $title = get_the_title( $id );
 $excerpt = get_the_excerpt( $id );
 $cta = get_field('cta', $id);
@@ -17,7 +18,9 @@ else :
 endif; ?>
 <article class="loop-culinary" data-id="<?php echo $id; ?>">
     <div class="loop-culinary__image gradient-overlay">
+        <?php if( $type == 'offer' ): ?>
         <a href="<?php echo get_the_permalink( $id ); ?>">
+        <?php endif; ?>
         <div class="img-a">
             <div class="img-a-img gradient-overlay">
                 <img data-src="<?php echo $img_src; ?>" 
@@ -26,7 +29,9 @@ endif; ?>
             </div>
         </div>
         <h6 class="loop-culinary__title a-up"><?php echo $title; ?></h6>
+        <?php if( $type == 'offer' ): ?>
         </a>
+        <?php endif; ?>
     </div>
     <div class="loop-culinary__date a-up a-delay-1">
         <span class="loop-culinary__date--day"><?php echo $day; ?></span>

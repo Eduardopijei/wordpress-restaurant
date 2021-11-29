@@ -64,7 +64,7 @@
             "key": "field_61a07eac77811",
             "label": "Featured Date",
             "name": "featured_date",
-            "type": "date_picker",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -73,9 +73,43 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "d\/m\/Y",
-            "return_format": "Ymd",
-            "first_day": 1
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_61a4e80f114b2",
+                    "label": "Start Date",
+                    "name": "start_date",
+                    "type": "date_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "d\/m\/Y",
+                    "return_format": "Ymd",
+                    "first_day": 1
+                },
+                {
+                    "key": "field_61a4e818114b3",
+                    "label": "End Date",
+                    "name": "end_date",
+                    "type": "date_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "d\/m\/Y",
+                    "return_format": "Ymd",
+                    "first_day": 1
+                }
+            ]
         }
     ],
     "location": [
@@ -95,5 +129,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1637908239
+    "modified": 1638197290
 }

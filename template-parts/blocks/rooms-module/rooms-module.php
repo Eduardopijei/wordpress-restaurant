@@ -42,15 +42,6 @@ if( !empty($block['align']) ) {
                             <?php endif; ?>
                             <?php get_template_part_args( 'templates/content-module-image', array( 'v' => 'image', 'c' => 'rooms-module__slide--bg' ) ); ?>
                         </div>
-                        <div class="rooms-module__slide--box">
-                            <div class="rooms-module__slide--box-header">Best Rate</div>
-                            <div class="rooms-module__slide--box-body">
-                                $<?php echo the_sub_field( 'price' ); ?>
-                            </div>
-                            <div class="rooms-module__slide--box-footer">
-                                See Rate Options
-                            </div>
-                        </div>
                         <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'name', 't' => 'h6', 'tc' => 'rooms-module__slide--subheading') ); ?>
                     </div>
                 <?php endwhile; ?>

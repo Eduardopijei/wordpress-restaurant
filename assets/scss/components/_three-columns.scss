@@ -29,8 +29,8 @@
 
       @include mq(desktop) {
         grid-column: 2 / 4;
-        column-count: 2;
-        column-gap: vw(78px);
+        // column-count: 2;
+        // column-gap: vw(78px);
       }
 
       @include mq(desktop-wide) {

@@ -40,7 +40,7 @@ if( !empty($block['align']) ) {
                 <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'subheading', 'o' => 'f', 't' => 'h6', 'tc' => 'boston-module__subheading a-up a-delay-1' ) ); ?>
                 <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'content', 'o' => 'f', 't' => 'div', 'tc' => 'boston-module__desc a-up a-delay-2' ) ); ?>
                 <div class="boston-module__buttons a-up a-delay-2">
-                    <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'button', 'o' => 'f', 'c' => 'btn btn--primary btn-booking') ); ?>
+                    <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'button', 'o' => 'f', 'c' => 'btn btn--primary btn-booking btn-modal') ); ?>
                     <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'cta', 'o' => 'f', 'c' => 'cta cta-reverse') ); ?>
                 </div>
             </div>

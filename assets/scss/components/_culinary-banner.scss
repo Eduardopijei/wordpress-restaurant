@@ -41,12 +41,12 @@
 
   &__heading {
     margin-bottom: 32px;
-    @include typography(56px, 96px, 56px, 96px, 400, $f-heading, $c-gray-0d);
+    @include typography(56px, 96px, 56px, 96px, 400, $f-heading);
     letter-spacing: -0.04em;
 
     @include mq(tablet) {
       margin-bottom: 39px;
-      color: $c-gray-2f;
+      // color: $c-gray-2f;
     }
   }
 
@@ -113,10 +113,10 @@
   height: svw(740px);
   max-height: 740px;
   color: $c-white;
-  overflow: hidden;
   @include mq(tablet) {
     height: vw(900px);
     max-height: 900px;
+    overflow: hidden;
   }
 
   &::after {
@@ -160,9 +160,21 @@
         max-height: none;
     }
   }
-
-  &__date {
+  &__dates {
+    display: flex;
     position: absolute;
+    @include mq(tablet, max) {
+      margin: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+    @include mq(tablet) {
+      top: 40px;
+      left: 40px;
+    }
+  }
+  &__date {
     display: flex;
     margin-bottom: 20px;
     align-items: center;
@@ -172,21 +184,13 @@
     width: 100px;
     height: 100px;
 
-    @include mq(tablet, max) {
-      margin: 0;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-    }
-
     @include mq(tablet) {
       width: 110px;
       height: 110px;
-      top: 40px;
-      left: 40px;
     }
 
     &--day {
+      margin-top: -15px;
       @include typography(42px, 52px, 64px, 64px, 400, $f-heading, $c-white);
       letter-spacing: -0.04em;
     }
@@ -195,6 +199,21 @@
       @include typography(10px, 12px, 10px, 12px, 700, $f-text, $c-white);
       letter-spacing: 0.25em;
       text-transform: uppercase;
+    }
+    &--end {
+      position: relative;
+      background: #374863;
+      &::before {
+        position: absolute;
+        content: '';
+        width: 30px;
+        height: 0;
+        border: 1px solid $c-white;
+        background-color: $c-white;
+        top: 50%;
+        left: 0;
+        transform: translate(-50%, -50%);
+      }
     }
   }
 

@@ -72,6 +72,7 @@
   &-role {
     margin-bottom: 2px;
     @include typography(32px, 42px, 42px, 42px, 400, $f-heading, $c-gray-2f);
+    text-transform: none;
     @include mq(tablet) {
       margin-bottom: 12px;
     }

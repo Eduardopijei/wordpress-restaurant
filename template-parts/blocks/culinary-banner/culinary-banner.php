@@ -68,13 +68,18 @@ $featured_culinary = get_field('featured_culinary');
             $title = get_the_title($featured); 
             $excerpt = get_the_excerpt( $featured );
             $date = get_field( 'featured_date', $featured );
-            if ( $date ) {
-                $dateObj = DateTime::createFromFormat('Ymd', $date);
+            if ( $date['start_date'] ) {
+                $dateObj = DateTime::createFromFormat('Ymd', $date['start_date']);
                 $day = $dateObj->format('d');
                 $month = $dateObj->format('M');
             } else {
                 $day = get_the_date( 'd', $featured );
                 $month = get_the_date( 'M', $featured );
+            }
+            if( $date['end_date'] ) {
+                $dateObj = DateTime::createFromFormat('Ymd', $date['end_date']);
+                $end_day = $dateObj->format('d');
+                $end_month = $dateObj->format('M');
             }
             $image = get_field('image', $featured);
             $img_src = $image['sizes']['culinary-banner'];
@@ -83,11 +88,21 @@ $featured_culinary = get_field('featured_culinary');
                 <a href="<?php echo get_the_permalink( $featured ); ?>" class="featured-culinary__link">
                     <img data-src="<?php echo $img_src; ?>" data-srcset="<?php echo $img_src_2x; ?>" 
                         alt="<?php echo $title; ?>" class="featured-culinary__image lazyload">
-                    <div class="featured-culinary__date a-op">
-                        <span class="featured-culinary__date--day"><?php echo $day; ?></span>
-                        <span class="featured-culinary__date--month">
-                            <?php echo $month; ?>
-                        </span>
+                    <div class="featured-culinary__dates">
+                        <div class="featured-culinary__date featured-culinary__date--start a-op">
+                            <span class="featured-culinary__date--day"><?php echo $day; ?></span>
+                            <span class="featured-culinary__date--month">
+                                <?php echo $month; ?>
+                            </span>
+                        </div>
+                        <?php if( $date['start_date'] != $date['end_date'] ): ?>
+                        <div class="featured-culinary__date featured-culinary__date--end a-op">
+                            <span class="featured-culinary__date--day"><?php echo $end_day; ?></span>
+                            <span class="featured-culinary__date--month">
+                                <?php echo $end_month; ?>
+                            </span>
+                        </div>
+                        <?php endif; ?>
                     </div>
                     <div class="featured-culinary__content">
                         <div class="featured-culinary__title a-up a-delay-1"><?php echo $title; ?></div>
