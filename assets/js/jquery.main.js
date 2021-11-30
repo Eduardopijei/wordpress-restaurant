@@ -34,7 +34,7 @@ jQuery(document).ready(function() {
   isElementExist('.popup-block', initPopup);
   isElementExist('.amentities-images', initAmentities);
   isElementExist('.journal-slider__slides', initJournalSlider);
-
+  isElementExist('.home-map', initHomeMap);
 
 
   // viewportCheckerAnimate function
@@ -107,6 +107,311 @@ jQuery(document).ready(function() {
 // gsap.registerPlugin(ScrollTrigger);
 // for debug gsap + ScrollTrigger
 // ScrollTrigger.defaults({markers: true});
+
+
+function ajaxLocations(id, lat, lng) {
+  let $walking = $('#tab-walking__list');
+  let $driving = $('#tab-driving__list');
+  let $postsWrapper = $('.home-map__posts');
+  let $posts = $('.home-map__posts--grid');
+  $.ajax({
+    url: ajaxurl,
+    type: "POST",
+    data: {
+      action: "loadAjaxLocations",
+      id,
+      lat,
+      lng
+    },
+    beforeSend: function() {
+      
+    },
+    success: function(res) {
+      let json = $.parseJSON(res);
+      $walking.html(json.neighborhood_walking);
+      $driving.html(json.neighborhood_drive);
+      if( json.neighborhood_posts_cnt > 0 ) {
+        $posts.html(json.neighborhood_posts);
+        $postsWrapper.show();
+      } else {
+        $postsWrapper.hide();
+      }
+    },  
+    complete: function() {
+    }
+  })
+}
+
+function initMap( $el ) {
+  var style = [
+      {
+          "featureType": "all",
+          "elementType": "geometry.fill",
+          "stylers": [
+              {
+                  "weight": "2.00"
+              }
+          ]
+      },
+      {
+          "featureType": "all",
+          "elementType": "geometry.stroke",
+          "stylers": [
+              {
+                  "color": "#9c9c9c"
+              }
+          ]
+      },
+      {
+          "featureType": "all",
+          "elementType": "labels.text",
+          "stylers": [
+              {
+                  "visibility": "on"
+              }
+          ]
+      },
+      {
+          "featureType": "landscape",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "color": "#f2f2f2"
+              }
+          ]
+      },
+      {
+          "featureType": "landscape",
+          "elementType": "geometry.fill",
+          "stylers": [
+              {
+                  "color": "#ffffff"
+              }
+          ]
+      },
+      {
+          "featureType": "landscape.man_made",
+          "elementType": "geometry.fill",
+          "stylers": [
+              {
+                  "color": "#ffffff"
+              }
+          ]
+      },
+      {
+          "featureType": "poi",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "visibility": "off"
+              }
+          ]
+      },
+      {
+          "featureType": "road",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "saturation": -100
+              },
+              {
+                  "lightness": 45
+              }
+          ]
+      },
+      {
+          "featureType": "road",
+          "elementType": "geometry.fill",
+          "stylers": [
+              {
+                  "color": "#eeeeee"
+              }
+          ]
+      },
+      {
+          "featureType": "road",
+          "elementType": "labels.text.fill",
+          "stylers": [
+              {
+                  "color": "#7b7b7b"
+              }
+          ]
+      },
+      {
+          "featureType": "road",
+          "elementType": "labels.text.stroke",
+          "stylers": [
+              {
+                  "color": "#ffffff"
+              }
+          ]
+      },
+      {
+          "featureType": "road.highway",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "visibility": "simplified"
+              }
+          ]
+      },
+      {
+          "featureType": "road.arterial",
+          "elementType": "labels.icon",
+          "stylers": [
+              {
+                  "visibility": "off"
+              }
+          ]
+      },
+      {
+          "featureType": "transit",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "visibility": "off"
+              }
+          ]
+      },
+      {
+          "featureType": "water",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "color": "#46bcec"
+              },
+              {
+                  "visibility": "on"
+              }
+          ]
+      },
+      {
+          "featureType": "water",
+          "elementType": "geometry.fill",
+          "stylers": [
+              {
+                  "color": "#c8d7d4"
+              }
+          ]
+      },
+      {
+          "featureType": "water",
+          "elementType": "labels.text.fill",
+          "stylers": [
+              {
+                  "color": "#070707"
+              }
+          ]
+      },
+      {
+          "featureType": "water",
+          "elementType": "labels.text.stroke",
+          "stylers": [
+              {
+                  "color": "#ffffff"
+              }
+          ]
+      }
+  ];
+  // Find marker elements within map.
+  var $markers = $el.find('.marker');
+  // Create gerenic map.
+  var mapArgs = {
+      zoom        : parseInt($el.attr('data-zoom')) || 16,
+      mapTypeId   : google.maps.MapTypeId.ROADMAP,
+      disableDoubleClickZoom: false,
+      streetViewControl: false,
+      scrollwheel : false,
+      styles: style,
+  };
+  var map = new google.maps.Map( $el[0], mapArgs );
+
+  // Add markers.
+  map.markers = [];
+  $markers.each(function(){
+      initMarker( $(this), map );
+  });
+
+  // Center map based on markers.
+  centerMap( map );
+
+  // Return map instance.
+  return map;
+}
+
+function initMarker( $marker, map ) {
+
+  // Get position from marker.
+  var lat = $marker.attr('data-lat');
+  var lng = $marker.attr('data-lng');
+  var latLng = {
+      lat: parseFloat( lat ),
+      lng: parseFloat( lng )
+  };
+
+  // Create marker instance.
+  var icon;
+  if( $marker.attr('data-icon') ) {
+    icon = $marker.attr('data-icon');
+  } else {
+    let svg = '<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="5" cy="5" r="5" fill="black"/></svg>';
+    icon = 'data:image/svg+xml;charset=UTF-8;base64,' + btoa(svg);
+  }
+  var marker = new google.maps.Marker({
+      position : latLng,
+      map: map,
+      icon: {
+        url: icon
+      }
+  });
+
+  // Append to reference for later use.
+  map.markers.push( marker );
+
+  // If marker contains HTML, add it to an infoWindow.
+  if( $marker.html() ){
+
+      // Create info window.
+      var infowindow = new google.maps.InfoWindow({
+          content: $marker.html()
+      });
+
+      // Show info window when marker is clicked.
+      google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open( map, marker );
+      });
+  }
+  
+  google.maps.event.addListener(marker, 'click', function() {
+    map.setCenter(marker.getPosition());
+    let id = $marker.attr('data-id');
+    if( id ) {
+      ajaxLocations(id, lat, lng);
+    }
+  });
+}
+
+function centerMap( map ) {
+
+  // Create map boundaries from all map markers.
+  var bounds = new google.maps.LatLngBounds();
+  map.markers.forEach(function( marker ){
+      bounds.extend({
+          lat: marker.position.lat(),
+          lng: marker.position.lng()
+      });
+  });
+
+  // Case: Single marker.
+  if( map.markers.length == 1 ){
+      map.setCenter( bounds.getCenter() );
+
+  // Case: Multiple markers.
+  } else{
+      map.fitBounds( bounds );
+  }
+}
+
 
 // Helper if element exist then call function
 function isElementExist(_el, _cb, _argCb) {
@@ -647,6 +952,18 @@ function initJournalSlider() {
       }
     }]
   });
+}
+
+// Init Home Map
+function initHomeMap() {
+  if( $('.home-map__map').length ) {
+    let $map = $('.home-map__map');
+    var map = initMap( $map );
+    let id = $map.attr('data-id');
+    let lat = $map.attr('data-lat');
+    let lng = $map.attr('data-lng');
+    ajaxLocations(id, lat, lng);
+  }
 }
 
 

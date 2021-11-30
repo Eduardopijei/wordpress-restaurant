@@ -231,6 +231,9 @@ function am_add_javascript( ) {
             wp_enqueue_script('am_'.sanitize_title($am_file), get_theme_file_uri($am_file), array('jquery'), '', true );
         }
     }
+
+    wp_register_script('googlemaps', 'https://maps.googleapis.com/maps/api/js?&key=AIzaSyC7sM9aEtND4xIBlMICYkk8fOUMRvt-Tqc&libraries=places&sensor=false', array(), '', true);
+	wp_enqueue_script('googlemaps'); // Scripts
 }
 
 /** 

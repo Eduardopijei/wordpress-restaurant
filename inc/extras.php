@@ -272,13 +272,102 @@ function cta_link_func( $atts ) {
 }
 add_shortcode( 'cta_link', 'cta_link_func' );
 
-// Ajax Amentities
-add_action('wp_ajax_loadAjaxAmentities', 'loadAjaxAmentities_handler');
-add_action('wp_ajax_nopriv_loadAjaxAmentities', 'loadAjaxAmentities_handler');
 
-function loadAjaxAmentities_handler() {
-	$id = $_POST['id'];
-    $res->output = get_field( 'amentites', $id );
+
+function get_nearby_locations($lat, $long, $distance = 50, $offset, $items_per_page) {
+    global $wpdb;
+	$sql = "SELECT DISTINCT    
+        map_lat.post_id,
+        map_lat.meta_key,
+        map_lat.meta_value as lat,
+        map_lng.meta_value as lng,
+        ((ACOS(SIN($lat * PI() / 180) * SIN(map_lat.meta_value * PI() / 180) + COS($lat * PI() / 180) * COS(map_lat.meta_value * PI() / 180) * COS(($long - map_lng.meta_value) * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance,
+        wp_posts.post_title
+    FROM 
+        $wpdb->postmeta AS map_lat
+        LEFT JOIN $wpdb->postmeta as map_lng ON map_lat.post_id = map_lng.post_id
+        INNER JOIN wp_posts ON $wpdb->posts.ID = map_lat.post_id
+    WHERE map_lat.meta_key = 'lat' AND map_lng.meta_key = 'lng' 
+	 AND wp_posts.post_status='publish'
+    HAVING distance < $distance AND distance > 0
+    ORDER BY distance ASC;";
+	$nearbyLocations = $wpdb->get_results( $sql );
+	/*echo 'RES:<pre>';
+	print_r($nearbyLocations);
+	echo '</pre>';*/
+    
+	if ($nearbyLocations) {
+		$removing = [];
+		$result = [];
+		if ($not_head != 0 ) {
+			foreach ($nearbyLocations as $key => $location) {
+				if ( !get_field("document", $location->post_id) ):
+				array_push($removing, $key);
+				else:
+				array_push($result, $location);
+				endif;
+			}
+			return $result;                
+		} else {
+			return $nearbyLocations;
+		}
+	}
+	return $nearbyLocations;
+}
+
+// Build neighborhood list
+function build_neighborhood_walking( $locations ) {
+	ob_start();
+	$ave_time_per_mile = 18.5;
+	foreach( $locations as $location ): ?>
+	<li>
+		<span class="location-name"><?php echo $location->post_title; ?></span><span class="sep"></span><span class="location-time"><?php echo ceil($location->distance*$ave_time_per_mile); ?> Minute Walk</span>
+	</li>
+	<?php endforeach; 
+	return ob_get_clean();
+}
+
+function build_neighborhood_drive( $locations ) {
+	ob_start();
+	$ave_time_per_mile = 18.5;
+	foreach( $locations as $location ): ?>
+	<li>
+		<span class="location-name"><?php echo $location->post_title; ?></span><span class="sep"></span><span class="location-time"><?php echo ceil($location->distance*$ave_time_per_mile); ?> Minute Drive</span>
+	</li>
+	<?php endforeach; 
+	return ob_get_clean();
+}
+// Ajax Locations
+add_action('wp_ajax_loadAjaxLocations', 'loadAjaxLocations_handler');
+add_action('wp_ajax_nopriv_loadAjaxLocations', 'loadAjaxLocations_handler');
+
+function loadAjaxLocations_handler() {
+	$items_per_page = 7;
+	$radius = 50;
+	$offset = 0;
+	if (!empty($_POST['lat']) && !empty($_POST['lng'])):
+		$locations = get_nearby_locations($_POST['lat'], $_POST['lng'], $radius, $offset, $items_per_page);
+	endif;
+	$neighborhood_walking = build_neighborhood_walking( $locations );
+	$neighborhood_drive = build_neighborhood_drive( $locations );
+
+	ob_start();
+	if( $nposts = get_field( 'posts', $_POST['id'] ) ): 
+		foreach( $nposts as $npost ): ?>
+		<a href="<?php echo get_the_permalink( $npost ); ?>" class="home-map__post">
+			<div class="home-map__post--img">
+				<img src="<?php echo get_the_post_thumbnail_url( $npost ); ?>" alt="<?php echo get_the_title( $npost ); ?>">
+			</div>
+			<h6 class="home-map__post--title"><?php echo get_the_title( $npost ); ?></h6>
+		</a>
+		<?php endforeach; 
+	endif; 
+	$res->neighborhood_posts = ob_get_clean();
+	$res->neighborhood_posts_cnt = count( $nposts );
+	$res->neighborhood_walking = $neighborhood_walking;
+	$res->neighborhood_drive = $neighborhood_drive;
+	
 	echo json_encode($res);
 	die;
 }
+

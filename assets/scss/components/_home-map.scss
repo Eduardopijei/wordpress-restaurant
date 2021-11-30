@@ -1,0 +1,269 @@
+.home-map {
+  &__bg {
+    position: relative;
+    .gm-style {
+      &::before,
+      &::after {
+        position: absolute;
+        content: '';
+        left: 0;
+        width: 100%;
+        height: 175px;
+        background: linear-gradient(180deg, #FAF7F1 0%, rgba(250, 247, 241, 0) 100%);
+        pointer-events: none;
+        z-index: 1;
+        @include mq(tablet) {
+          height: vw(400px);
+          max-height: 400px;
+        }
+      }
+      &::before {
+        top: -1px;
+      }
+      &::after {
+        bottom: -1px;
+        transform: rotate(-180deg);
+      }
+    }
+  }
+  &__heading {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    @include typography(36px, 112px, 36px, 112px);
+    z-index: 2;
+    @include mq(tablet) {
+      width: auto;
+      left: 50%;
+      text-align: left;
+      transform: translateX(-50%);
+    }
+  }
+  &__map {
+    height: svw(450px);
+    @include mq(tablet) {
+      height: vw(1000px);
+      max-height: 1000px;
+    }
+  }
+  &__content {
+    position: relative;
+    z-index: 2;
+    .container {
+      @include mq(tablet, max) {
+        padding: 0;
+      }
+      @include mq(tablet) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+  &__places {
+    @include mq(tablet) {
+      width: vw(480px);
+    }
+    .tab {
+      @include mq(tablet) {
+        background-color: $background_color;
+        border: 1px solid $accent;
+      }
+      &-links {
+        display: flex !important;
+        margin-bottom: 0;
+        align-items: stretch;
+      }
+      &-link {
+        display: flex;
+        margin: 0;
+        flex: 0 0 50%;
+        align-items: center;
+        justify-content: center;
+        color: $c-gray-2f;
+        border: 1px solid transparent;
+        border-bottom: 1px solid $c-gray-8e;
+        @include mq(tablet) {
+          padding: vw(30px);
+        }
+        @include mq(desktop-wide) {
+          padding: 30px;
+        }
+        &::after {
+          content: none;
+        }
+        svg {
+          margin-left: 4px;
+        }
+        &.active {
+          border-bottom-color: transparent;
+          &:first-child {
+            border-right-color: $c-gray-8e;
+          }
+          &:last-child {
+            border-left-color: $c-gray-8e;
+          }
+        }
+      }
+      &-content {
+        text-align: center;
+        @include mq(tablet) {
+          padding: vw(50px);
+        }
+        @include mq(desktop-wide) {
+          padding: 50px;
+        }
+        h4 {
+          margin-bottom: 40px;
+          @include typography(32px, 43px, 54px, 54px, 400, $f-heading);
+          letter-spacing: -0.04em;
+        } 
+        ul {
+          li {
+            padding: 25px 0;
+            border-top: 1px solid $c-gray-7a;
+            font: 400 9px/1 $f-text;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            @include mq(tablet) {
+              padding: vw(30px) 0;
+              border-top: 0;
+              border-bottom: 1px solid $c-gray-7a;
+            }
+            @include mq(desktop-wide) {
+              padding: 30px 0;
+            }
+            .location-name {
+              font-weight: 700;
+            }
+            .sep {
+              margin: 0 10px;
+              width: 5px;
+              height: 5px;
+              border-radius: 50%;
+              background-color: $c-gray-2f;
+            }
+            .location-time {
+            }
+          }
+        }
+      }
+    }
+    &--cta {
+      display: block;
+      width: 100%;
+    }
+  }
+  &__posts {
+    display: none;
+    text-align: center;
+    @include mq(tablet, max) {
+      margin-top: 60px;
+    }
+    &--heading {
+      margin-bottom: 26px;
+      @include typography(12px, 14px, 16px, 14px, 700, $f-text, $c-gray-18);
+      @include mq(tablet) {
+        margin-bottom: vw(60px);
+      }
+      @include mq(desktop-wide) {
+        margin-bottom: 60px;
+      }
+    }
+    &--grid {
+      @include mq(tablet) {
+        display: grid;
+        width: vw(585px);
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 0 vw(40px);
+      }
+      @include mq(desktop-wide) {
+        grid-gap: 0 40px;
+      }
+    }
+    &--cta {
+      margin-top: 40px;
+      @include mq(tablet) {
+        margin-top: vw(80px);
+      }
+      @include mq(desktop-wide) {
+        margin-top: 80px;
+      }
+    }
+  }
+  &__post {
+    &:hover {
+      img {
+        transform: scale(1.05);
+      }
+      .home-map__post--title {
+        color: $primary;
+      }
+    }
+    &--img {
+      margin-bottom: 20px;
+      height: 450px;
+      overflow: hidden;
+      @include mq(tablet) {
+        margin-bottom: 14px;
+        height: vw(345px);
+        max-height: 345px;
+      }
+      img {
+        @include coverImage();
+        transition: transform .5s ease-in-out;
+      }
+    }
+    &--title {
+      @include typography(14px, 16px, 14px, 16px, 700, $f-text, $c-gray-2f);
+      letter-spacing: 0.23em;
+      transition: color .3s ease-in-out;
+      @include mq(tablet) {
+        letter-spacing: -0.04em;
+      }
+    }
+  }
+  .gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+  }
+  .gmnoprint div {
+      background:none !important;
+  }
+  .gm-control-active {
+    background-color: $background_color !important;
+    border: 1px solid #858585 !important;
+    transition: background .3s ease-in-out;
+    z-index: 2;
+    img {
+      display: none !important;
+    }
+    &:hover {
+      background-color: $primary !important;
+      &::after {
+        color: $c-white;
+      }
+    }
+    &::after {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%);
+      font: 700 16px/1 $f-text;
+      color: $c-gray-18;
+      transition: color .3s ease-in-out;
+    }
+    &:first-child::after {
+      content: '+';
+    }
+    &:last-child::after {
+      content: '-';
+    }
+  }
+}

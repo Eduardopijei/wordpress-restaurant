@@ -60,4 +60,12 @@ function am_get_retina_img($url_normal, $class='', $w = '', $h = '', $alt = ''){
     }
     return '<img src="'.$url_normal.'"'.$srcset.$width.$height.' alt="'.$alt.'" class="'.$class.'">';
 }
+
+function am_update_lng_and_lat($value, $post_id, $field) {
+    update_post_meta($post_id, 'lat', $value['lat']);
+    update_post_meta($post_id, 'lng', $value['lng']);
+    return $value;
+  }
+  
+  add_action('acf/update_value/name=location', 'am_update_lng_and_lat', 10, 3);
 ?>

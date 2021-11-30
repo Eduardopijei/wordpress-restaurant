@@ -425,6 +425,18 @@ function my_acf_init_block_types() {
             'icon'              => 'slides',
             'keywords'          => array( 'journal', 'slider' ),
         ));
+
+        
+        // Home Map
+        acf_register_block_type(array(
+            'name'              => 'home_map',
+            'title'             => __('Home Map'),
+            'description'       => __('Home Map'),
+            'render_template'   => 'template-parts/blocks/home-map/home-map.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'location-alt',
+            'keywords'          => array( 'home', 'map' ),
+        ));
         /*********************************** ****************************************/
 
         // Register Title Text Block
