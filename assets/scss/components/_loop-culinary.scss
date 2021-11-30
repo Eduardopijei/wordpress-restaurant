@@ -27,7 +27,6 @@
   &__image {
     position: relative;
     overflow: hidden;
-    cursor: pointer;
     height: 450px;
     // pointer-events: none;
     @include mq(tablet) {
@@ -40,7 +39,7 @@
       opacity: 0.75;
       background: linear-gradient(0,#000000 0%, rgba(0, 0, 0, 0) 100%);
     }
-    &:hover {
+    a:hover {
       .loop-culinary__bg {
         transform: scale(1.05);
       }

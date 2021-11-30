@@ -36,6 +36,7 @@ $cta = get_field('cta');
             foreach ($posts as $post) :
                 get_template_part( 'templates/loop', 'experience', array(
                     'post' => $post,
+                    'disable_link' => true
                 ) );
             endforeach; 
             wp_reset_postdata(); ?>

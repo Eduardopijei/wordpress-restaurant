@@ -17,10 +17,10 @@
 </main>
 <!-- Footer -->
 <footer class="footer">
-  <div class="footer-top">
+  <div class="footer-top a-up">
     <div class="container">
       <?php if( $logo = get_field( 'f_logo', 'options' ) ): ?>
-        <a href="<?php echo esc_url( home_url( ) ); ?>" class="footer-logo a-up">
+        <a href="<?php echo esc_url( home_url( ) ); ?>" class="footer-logo">
           <img src="<?php echo $logo; ?>" alt="Boston Harbor">
         </a>
       <?php endif; ?>

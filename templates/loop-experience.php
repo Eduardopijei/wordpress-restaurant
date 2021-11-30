@@ -1,5 +1,6 @@
 <?php
 $id = $args['post'];
+$disable_link = $args['disable_link'];
 $type = get_post_type( $id );
 $title = get_the_title( $id );
 $excerpt = get_the_excerpt( $id );
@@ -18,7 +19,7 @@ else :
 endif; ?>
 <article class="loop-culinary" data-id="<?php echo $id; ?>">
     <div class="loop-culinary__image gradient-overlay">
-        <?php if( $type == 'offer' ): ?>
+        <?php if( $disable_link != true ): ?>
         <a href="<?php echo get_the_permalink( $id ); ?>">
         <?php endif; ?>
         <div class="img-a">
@@ -29,7 +30,7 @@ endif; ?>
             </div>
         </div>
         <h6 class="loop-culinary__title a-up"><?php echo $title; ?></h6>
-        <?php if( $type == 'offer' ): ?>
+        <?php if( $disable_link != true ): ?>
         </a>
         <?php endif; ?>
     </div>

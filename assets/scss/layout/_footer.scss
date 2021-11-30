@@ -16,16 +16,7 @@
   &-top {
     position: relative;
     text-align: center;
-  }
-  &-logo {
-    display: inline-block;
-    margin: 90px auto 102px;
-    @include mq(tablet) {
-      margin: vw(123px) auto vw(95px);
-    }
-    @include mq(desktop-wide) {
-      margin: 123px auto 95px;
-    }
+    
     &::before,
     &::after {
       position: absolute;
@@ -55,6 +46,16 @@
       @include mq(tablet) {
         transform: translateY(-50%) scaleX(1);
       }
+    }
+  }
+  &-logo {
+    display: inline-block;
+    margin: 90px auto 102px;
+    @include mq(tablet) {
+      margin: vw(123px) auto vw(95px);
+    }
+    @include mq(desktop-wide) {
+      margin: 123px auto 95px;
     }
     img {
       width: 245px;

@@ -639,7 +639,7 @@ function initJournalSlider() {
     autoplaySpeed: 3000,
     variableWidth: true,
     responsive: [{
-      breakpoint: 768,
+      breakpoint: 769,
       settings: {
         variableWidth: false,
         centerMode: true,

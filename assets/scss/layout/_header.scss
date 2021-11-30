@@ -221,7 +221,7 @@
   }
   &.header--booking {
     padding-right: 50px;
-    background-color: $background_color !important;
+    background-color: transparent;
     border: none;
     @include mq(tablet, max) {
       padding-right: 20px;
@@ -429,7 +429,7 @@
   }
 
   @include mq_mobile_landscape() {
-    height: 100vh;
+    height: fill-available;
   }
 
   @include mq(tablet) {

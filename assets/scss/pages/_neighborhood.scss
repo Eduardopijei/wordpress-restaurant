@@ -10,11 +10,20 @@
       }
     }
   }
+  .custom-wysiwig p {
+    color: $c-black;
+  }
   .media-content--left .media-content__content {
     @include mq(tablet) {
       text-align: right;
     }
+    .media-content__title {
+      @include mq(tablet) {
+        margin-bottom: vw(10px);
+      }
+    }
     .media-content__btn {
+      margin-top: 0;
       background-color: transparent;
       border-color: $c-black;
       color: $c-black;
