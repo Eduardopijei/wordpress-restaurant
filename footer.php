@@ -7,10 +7,9 @@
         <?php if( $heading = get_field( 'n_heading', 'options' ) ): ?>
           <h3 class="newsletter-heading a-up"><?php echo $heading; ?></h3>
         <?php endif; ?>
-        <div class="newsletter-form a-up a-delay-1">
-          <input type="text" class="form-control" placeholder="Your Email">
-          <input type="submit" class="btn btn--accent form-submit" value="Stay Connected">
-        </div>
+        <?php if( $form = get_field( 'n_form', 'options' ) ): ?>
+        <?php echo do_shortcode($form); ?>
+        <?php endif; ?>
       </div>
     </div>
   </section>

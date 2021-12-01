@@ -36,17 +36,31 @@
     align-items: center;
     @include mq(tablet) {
       padding: vw(10px);
+      justify-content: space-between;
+    }
+    @include when-inside('.invalid') {
+      border: 1px solid $c-red;
+    }
+    .wpcf7-spinner {
+      display: none;
+    }
+    .wpcf7-not-valid-tip {
+      display: none;
+    }
+  }
+  .email {
+    margin-right: 20px;
+    width: 100%;
+    @include mq(tablet) {
+      padding: 0 vw(20px);
+      flex-grow: 1;
     }
   }
   .form-control {
-    margin-right: 20px;
     padding: 0;
     border: none;
-    flex-grow: 1;
+    width: 100%;
     @include typography(12px, 18px, 38px, 38px, 400, $f-text, $c-black);
-    @include mq(tablet) {
-      padding: 0 vw(20px);
-    }
     &::placeholder {
       color: $c-black;
     }
