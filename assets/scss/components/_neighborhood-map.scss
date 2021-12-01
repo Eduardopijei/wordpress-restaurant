@@ -10,12 +10,28 @@
     width: 100%;
     text-align: center;
     z-index: 1;
+    @include mq(tablet, max) {
+      &::before {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: #A6A6A6;
+        left: 0;
+        bottom: 22px;
+      }
+    }
 
     h6 {
       margin-bottom: 30px;
     }
 
     .jcf-select {
+      @include mq(tablet, max) {
+        background-color: $background_color;
+        max-width: 240px;
+        margin: auto;
+      }
       @include mq(tablet) {
         display: inline-block;
         width: auto;
@@ -24,17 +40,19 @@
       }
 
       &::after {
+        border-top-color: $c-black;
         @include mq(tablet) {
           right: -10px;
-          border-top-color: $c-black;
         }
       }
 
       &-text {
-        font: 400 72px/1 $f-heading;
-        letter-spacing: -0.04em;
-        color: $c-black;
-        text-transform: initial;
+        @include mq(tablet) {
+          font: 400 72px/1 $f-heading;
+          letter-spacing: -0.04em;
+          color: $c-black;
+          text-transform: initial;
+        }
       }
 
       &-drop {
@@ -80,18 +98,27 @@
         bottom: -1px;
         transform: rotate(-180deg);
       }
+      
+      .gm-style-iw-c {
+        padding: 0;
+        border: none;
+        border-radius: 0;
+      }
+      .gm-style-iw-d {
+        padding: 0;
+        overflow: hidden !important;
+      }
     }
   }
 
   .marker {
     &-info {
+      width: 225px;
       border: 1px solid #7e7e7e;
     }
 
     &-img {
-      width: 225px;
       height: 180px;
-
       img {
         @include coverImage();
       }
@@ -109,14 +136,112 @@
       text-align: center;
     }
   }
-  .gm-style {
-    .gm-style-iw-c {
-      padding: 0;
-      border: none;
-      border-radius: 0;
+  &__locations {
+    @include mq(tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: vw(68px) vw(36px);
     }
-    .gm-style-iw-d {
-      padding: 0;
+    @include mq(desktop-wide) {
+      grid-gap: 68px 36px;
+    }
+    &--wrapper {
+      position: relative;
+      z-index: 2;
+      @include mq(tablet) {
+        margin-top: vw(-200px);
+      }
+      .container {
+        @include mq(tablet, max) {
+          padding: 0;
+        }
+      }
+    }
+    .location-card {
+      display: flex;
+      flex-direction: column;
+      @include mq(tablet, max) {
+        margin-bottom: 50px;
+      }
+      @include mq(tablet) {
+        height: vw(770px);
+        max-height: 770px;
+      }
+      &__img {
+        position: relative;
+        width: 100%;
+        height: 580px;
+        overflow: hidden;
+        @include mq(tablet) {
+          height: 100%;
+        }
+        &::after {
+          opacity: 0.7
+        }
+        img {
+          @include coverImage();
+          transition: transform .5s ease-in-out;
+        }
+      }
+      &__title {
+        position: absolute;
+        padding: 0 20px;
+        left: 0;
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+        @include typography(14px, 16px, 14px, 16px, 700, $f-text, $c-white);
+        z-index: 2;
+      }
+      &__distance {
+        display: flex;
+        span {
+          padding: 20px;
+          flex: 0 0 50%;
+          @include typography(12px, 14px, 14.62px, 17.05px, 400, $f-text, $primary);
+          text-transform: uppercase;
+          letter-spacing: 0.25em;
+          text-align: center;
+          border: 1px solid $c-black;
+          &:last-child {
+            border-left: 0;
+          }
+        }
+      }
+      &__cta {
+        width: 100%;
+        @include typography(12px, 16px, 28px, 28px, 700, $f-text, $c-white);
+      }
+      &__content {
+        padding: 0 20px;
+        margin-top: 15px;
+        @include mq(tablet) {
+          margin-top: 26px;
+        }
+      }
+      &__excerpt {
+        @include typography(12px, 14px, 21px, 21px, 400, $f-text, $c-gray-2f);
+        letter-spacing: -0.01em;
+        text-align: center;
+      }
+      &--location {
+        .location-card__img {
+          flex-grow: 1;
+        }
+      }
+      &--post {
+        .location-card__img {
+          @include mq(tablet) {
+            height: vw(730px);
+            max-height: 730px;
+          }
+          &:hover {
+            img {
+              transform: scale(1.05);
+            }
+          }
+        }
+      }
     }
   }
 }

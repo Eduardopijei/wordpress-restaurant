@@ -370,3 +370,86 @@ function loadAjaxLocations_handler() {
 	die;
 }
 
+
+// Ajax Neighborhood
+add_action('wp_ajax_loadAjaxNeighborhood', 'loadAjaxNeighborhood_handler');
+add_action('wp_ajax_nopriv_loadAjaxNeighborhood', 'loadAjaxNeighborhood_handler');
+
+function loadAjaxNeighborhood_handler() {
+	ob_start(); 
+	$args = array(
+		'post_type' => 'location',
+		'post_status' => 'publish',
+		'posts_per_page' => -1,
+		'tax_query' => array( 
+			array(
+				'taxonomy' => 'location_category',
+				'field' => 'slug',
+				'terms' => $_POST['cat']
+			)
+		),
+	);
+	$locations = new WP_Query( $args ); 
+	if( $locations->have_posts(  ) ): 
+		while( $locations->have_posts() ): $locations->the_post(); 
+			$id = get_the_ID(); ?>
+			<div class="location-card location-card--location">
+				<div class="location-card__img gradient-overlay">
+					<img src="<?php echo get_the_post_thumbnail_url( $id ); ?>" 
+						alt="<?php echo get_the_title( $id ); ?>">
+					<h6 class="location-card__title"><?php echo get_the_title( $id ); ?></h6>
+				</div>
+				<div class="location-card__distance">
+					<span class="label">Distance</span>
+					<?php $location = get_field( 'location', $id );
+					$distance = round(((ACOS(SIN($_POST['lat'] * PI() / 180) * SIN($location['lat'] * PI() / 180) + COS($_POST['lat'] * PI() / 180) * COS($location['lat'] * PI() / 180) * COS(($_POST['lng'] - $location['lng']) * PI() / 180)) * 180 / PI()) * 60 * 1.1515)); ?>
+					<span class="value"><?php echo $distance; ?> Miles</span>
+				</div>
+				<a href="<?php echo get_the_permalink( $id ); ?>" class="btn btn--primary location-card__cta">
+					More Info
+				</a>
+			</div>
+			<?php if( $nposts = get_field( 'posts', $id ) ):
+				foreach( $nposts as $npost ): ?>
+					<a href="<?php echo get_the_permalink( $npost ); ?>" class="location-card location-card--post">
+						<div class="location-card__img gradient-overlay">
+							<img src="<?php echo get_the_post_thumbnail_url( $npost ); ?>" 
+							alt="<?php echo get_the_title( $npost ); ?>">
+							<h6 class="location-card__title"><?php echo get_the_title( $npost ); ?></h6>
+						</div>
+						<div class="location-card__content">
+							<p class="location-card__excerpt"><?php echo get_the_excerpt( $npost ); ?></p>
+						</div>       
+					</a>
+			<?php endforeach;
+			endif; 
+		endwhile; ?>
+	<?php 
+	endif;
+	$res->output = ob_get_clean();
+	// Rebuild map points
+	ob_start(); 
+	if( $locations->have_posts(  ) ):
+		while( $locations->have_posts() ): $locations->the_post();
+			$id = get_the_ID();
+			if( $location = get_field( 'location', $id ) ): ?>
+				<div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>" data-id="<?php echo $id; ?>" data-icon="<?php echo get_field( 'location_icon', $id ); ?>">
+					<div class="marker-info">
+						<div class="marker-img">
+							<img src="<?php echo get_the_post_thumbnail_url( $id ); ?>" alt="<?php echo get_the_title( $id ); ?>">
+						</div>
+						<div class="marker-content">
+							<h6 class="marker-title"><?php echo get_the_title( $id ); ?></h6>
+							<h6 class="marker-excerpt"><?php echo get_the_excerpt( $id ); ?></h6>
+						</div>
+					</div>
+				</div>
+		<?php endif;
+		endwhile;  
+	endif;
+	$res->map = ob_get_clean();
+	wp_reset_query(  );
+	echo json_encode($res);
+	die;
+}
+

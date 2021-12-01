@@ -969,7 +969,33 @@ function initHomeMap() {
   }
 }
 
-
+function ajaxNeighborhoods(id, cat, lat, lng) {
+  let $parent = $('.neighborhood-map__locations');
+  $.ajax({
+    url: ajaxurl,
+    type: "POST",
+    data: {
+      action: "loadAjaxNeighborhood",
+      id,
+      cat,
+      lat,
+      lng
+    },
+    beforeSend: function() {
+      $parent.html(
+        '<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>'
+      );
+    },
+    success: function(res) {
+      let json = $.parseJSON(res);
+      $parent.html(json.output);
+      $('.neighborhood-map__map').html(json.map);
+    },  
+    complete: function() {
+      initNeighborhoodMap();
+    }
+  });
+}
 // Init Neighborhood Map
 function initNeighborhoodMap() {
   let $map = $('.neighborhood-map__map');
@@ -1152,6 +1178,7 @@ function initNeighborhoodMap() {
       disableDoubleClickZoom: false,
       fullscreenControl: false,
       streetViewControl: false,
+      mapTypeControl: false,
       scrollwheel : false,
       styles: style,
   };
@@ -1199,12 +1226,19 @@ function initNeighborhoodMap() {
           google.maps.event.addListener(marker, 'click', function() {
               infowindow.open( map, marker );
           });
+
       }
   });
-
   // Center map based on markers.
   centerMap( map );
 }
+$('.neighborhood-map__category').on('change', function() {
+  let cat = $(this).val();
+  let id = $('.neighborhood-map__map').attr('data-id');
+  let lat = $('.neighborhood-map__map').attr('data-lat');
+  let lng = $('.neighborhood-map__map').attr('data-lng');
+  ajaxNeighborhoods(id, cat, lat, lng);
+});
 
 
 // Init Media Content Tab

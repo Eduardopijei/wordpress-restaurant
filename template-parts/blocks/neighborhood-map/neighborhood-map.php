@@ -22,16 +22,23 @@ if( !empty($block['align']) ) {
 }
 
 // Load values and assign defaults.
+$default_location_id = get_field( 'default_location' );
+$default_location = get_field( 'location', $default_location_id[0] );
 $terms = get_terms( array(
     'taxonomy' => 'location_category',
     'hide_empty' => false,
 ) );
-
-
 $args = array(
     'post_type' => 'location',
     'post_status' => 'publish',
-    'posts_per_page' => -1,
+    'post_not_in' => $default_location_id,
+    'tax_query' => array( 
+        array(
+            'taxonomy' => 'location_category',
+            'field' => 'slug',
+            'terms' => $terms[0]->slug
+        )
+    )
 );
 $locations = new WP_Query( $args );
 ?>
@@ -47,23 +54,13 @@ $locations = new WP_Query( $args );
                 </select>
             <?php endif; ?>
         </div>
-        <?php 
-        $args = array(
-            'post_type' => 'location',
-            'post_status' => 'publish',
-            'posts_per_page' => -1,
-            'tax_query' => array( 
-                array(
-                    'taxonomy' => 'location_category',
-                    'field' => 'slug',
-                    'terms' => $terms[0]->slug
-                )
-            )
-        );
-        $locations = new WP_Query( $args ); 
+        <?php  
         if( $locations->have_posts() ): ?>
         <div class="neighborhood-map__map acf-map"
-            data-zoom="16">
+            data-zoom="16"
+            data-id="<?php echo $default_location_id[0]; ?>"
+            data-lat="<?php echo $default_location['lat']; ?>"
+            data-lng="<?php echo $default_location['lng']; ?>">
             <?php 
             while( $locations->have_posts() ): $locations->the_post();
                 $id = get_the_ID();
@@ -82,6 +79,49 @@ $locations = new WP_Query( $args );
             <?php endif;
             endwhile; ?> 
         </div>
-        <?php endif; ?>
+        <?php endif;
+        wp_reset_query(  ); ?>
     </div>
+    <?php if( $locations->have_posts() ): ?>
+        <div class="neighborhood-map__locations--wrapper">
+            <div class="container">
+                <div class="neighborhood-map__locations">
+                    <?php while( $locations->have_posts() ): $locations->the_post(); 
+                    $id = get_the_ID(); ?>
+                    <div class="location-card location-card--location">
+                        <div class="location-card__img gradient-overlay">
+                            <img src="<?php echo get_the_post_thumbnail_url( $id ); ?>" 
+                                alt="<?php echo get_the_title( $id ); ?>">
+                            <h6 class="location-card__title"><?php echo get_the_title( $id ); ?></h6>
+                        </div>
+                        <div class="location-card__distance">
+                            <span class="label">Distance</span>
+                            <?php $location = get_field( 'location', $id );
+                            $distance = ((ACOS(SIN($default_location['lat'] * PI() / 180) * SIN($location['lat'] * PI() / 180) + COS($default_location['lat'] * PI() / 180) * COS($location['lat'] * PI() / 180) * COS(($default_location['lng'] - $location['lng']) * PI() / 180)) * 180 / PI()) * 60 * 1.1515); ?>
+                            <span class="value"><?php echo number_format((float)$distance, 2, '.', ''); ?> Miles</span>
+                        </div>
+                        <a href="<?php echo get_the_permalink( $id ); ?>" class="btn btn--primary location-card__cta">
+                            More Info
+                        </a>
+                    </div>
+                    <?php if( $nposts = get_field( 'posts', $id ) ):
+                        foreach( $nposts as $npost ): ?>
+                            <a href="<?php echo get_the_permalink( $npost ); ?>" class="location-card location-card--post">
+                                <div class="location-card__img gradient-overlay">
+                                    <img src="<?php echo get_the_post_thumbnail_url( $npost ); ?>" 
+                                    alt="<?php echo get_the_title( $npost ); ?>">
+                                    <h6 class="location-card__title"><?php echo get_the_title( $npost ); ?></h6>
+                                </div>
+                                <div class="location-card__content">
+                                    <p class="location-card__excerpt"><?php echo get_the_excerpt( $npost ); ?></p>
+                                </div>       
+                            </a>
+                    <?php endforeach;
+                    endif; ?>
+                    <?php endwhile; ?>
+                </div>
+            </div>
+        </div>
+    <?php endif;
+    wp_reset_query(  ); ?>
 </section>
