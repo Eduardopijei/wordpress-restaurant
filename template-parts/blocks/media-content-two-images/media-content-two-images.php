@@ -29,7 +29,7 @@ if( !empty($block['align']) ) {
             <?php get_template_part_args( 'templates/content-module-image', array( 'v' => 'second_image', 'o' => 'f', 'w' => 'div', 'wc' => 'image-second', 'c' => 'a-right a-delay-1', 'is' => 'two-images-small' ) ); ?>
         </div>
         <div class="content">
-            <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'sub_heading', 'o' => 'f', 't' => 'h6', 'tc' => 'sub-heading a-up' ) ); ?>
+            <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'sub_heading', 'o' => 'f', 't' => 'h1', 'tc' => 'sub-heading a-up h6' ) ); ?>
             <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'heading', 'o' => 'f', 't' => 'h2', 'tc' => 'heading a-up a-delay-1' ) ); ?>
             <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'content', 'o' => 'f', 't' => 'div', 'tc' => 'desc a-up a-delay-2' ) ); ?>
             <?php if( have_rows( 'ctas' ) ): ?>

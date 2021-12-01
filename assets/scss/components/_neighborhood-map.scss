@@ -171,8 +171,9 @@
     }
   }
   &__locations {
+    display: none;
     @include mq(tablet) {
-      display: grid;
+      // display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-gap: vw(68px) vw(36px);
     }
@@ -285,6 +286,7 @@
     }
   }
   &__all {
+    display: none !important;
     margin-top: 50px;
     text-align: center;
     @include mq(tablet) {

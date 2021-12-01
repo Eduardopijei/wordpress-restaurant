@@ -380,15 +380,17 @@ function loadAjaxNeighborhood_handler() {
 	$args = array(
 		'post_type' => 'location',
 		'post_status' => 'publish',
-		'posts_per_page' => -1,
-		'tax_query' => array( 
+		'posts_per_page' => -1
+	);
+	if( !empty($_POST['cat']) ) {
+		$args['tax_query'] = array( 
 			array(
 				'taxonomy' => 'location_category',
 				'field' => 'slug',
 				'terms' => $_POST['cat']
 			)
-		),
-	);
+			);
+	}
 	$locations = new WP_Query( $args ); 
 	if( $locations->have_posts(  ) ): 
 		while( $locations->have_posts() ): $locations->the_post(); 

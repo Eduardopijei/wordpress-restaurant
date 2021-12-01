@@ -31,14 +31,7 @@ $terms = get_terms( array(
 $args = array(
     'post_type' => 'location',
     'post_status' => 'publish',
-    'post_not_in' => $default_location_id,
-    'tax_query' => array( 
-        array(
-            'taxonomy' => 'location_category',
-            'field' => 'slug',
-            'terms' => $terms[0]->slug
-        )
-    )
+    'post_not_in' => $default_location_id
 );
 $locations = new WP_Query( $args );
 ?>
@@ -48,6 +41,7 @@ $locations = new WP_Query( $args );
             <h6>Experience it all</h6>
             <?php if( $terms ): ?>
                 <select name="" id="" class="neighborhood-map__category" jcf-select>
+                    <option value="">Yours to Discover</option>
                     <?php foreach( $terms as $term ): ?>
                         <option value="<?php echo $term->slug; ?>"><?php echo $term->name; ?></option>
                     <?php endforeach; ?>
