@@ -1238,12 +1238,14 @@ function initNeighborhood() {
       
             // Create info window.
             var infowindow = new google.maps.InfoWindow({
-                content: $(this).html()
+                content: $(this).html(),
             });
       
             // Show info window when marker is clicked.
             google.maps.event.addListener(marker, 'click', function() {
+                infowindow.close();
                 infowindow.open( map, marker );
+                map.setCenter(marker.getPosition());
             });
 
         }
