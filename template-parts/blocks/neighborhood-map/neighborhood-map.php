@@ -57,7 +57,7 @@ $locations = new WP_Query( $args );
         <?php  
         if( $locations->have_posts() ): ?>
         <div class="neighborhood-map__map acf-map"
-            data-zoom="16"
+            data-zoom="10"
             data-id="<?php echo $default_location_id[0]; ?>"
             data-lat="<?php echo $default_location['lat']; ?>"
             data-lng="<?php echo $default_location['lng']; ?>">
@@ -119,6 +119,9 @@ $locations = new WP_Query( $args );
                     <?php endforeach;
                     endif; ?>
                     <?php endwhile; ?>
+                </div>
+                <div class="neighborhood-map__all">
+                    <button class="btn btn--outline--dark">View All Experiences</button>
                 </div>
             </div>
         </div>

@@ -167,6 +167,9 @@
         height: vw(770px);
         max-height: 770px;
       }
+      &.hide {
+        display: none;
+      }
       &__img {
         position: relative;
         width: 100%;
@@ -242,6 +245,21 @@
           }
         }
       }
+    }
+  }
+  &__all {
+    margin-top: 50px;
+    text-align: center;
+    @include mq(tablet) {
+      margin-top: vw(120px);
+    }
+    @include mq(desktop-wide) {
+      margin-top: 120px;
+    }
+  }
+  .lds-roller {
+    @include mq(tablet) {
+      grid-column: 1/3;
     }
   }
 }
