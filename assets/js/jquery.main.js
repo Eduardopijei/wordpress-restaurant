@@ -508,13 +508,18 @@ function initCustomForms() {
 }
 
 function updateBookingLink() {
-  let href = 'https://reservations.bostonharborhotel.com/?Hotel=26834&shell=rBOSHA&chain=10237&template=rBOSHA';
+  let defaulthref = 'https://reservations.bostonharborhotel.com/?Hotel=26834&shell=rBOSHA&chain=10237&template=rBOSHA';
+  let suitehref = 'https://reservations.bostonharborhotel.com/?Hotel=26834&shell=rBOSHA&chain=10237&template=rBOSHA&rooms=1&room=CVS,HVS,HCT,ADM,GRN';
+  let href = defaulthref;
   let date = $('#booking-popup__calendar--range').val();
   let check_in = $("#booking_check_in").val();
   let check_out = $("#booking_check_out").val();
   let adult = $("#booking_adult_number").val();
   let kid = $('#booking_kids_number').val();
   let promo = $('#booking_promo').val();
+  if($('#booking_suites_only').prop('checked')) {
+    href = suitehref;
+  }
   if( window.matchMedia("(max-width: 768px)").matches ) {
     if (check_in) {
       href += "&arrive=" + check_in;
@@ -974,6 +979,12 @@ function initHomeMap() {
 
 // Init Neighborhood Map
 function initNeighborhood() {
+  function hideLocationCards() {
+    $('.location-card').each(function(index) {
+      if( index > 3 ) $(this).addClass('hide');
+    });
+  }
+
   function ajaxNeighborhoods(id, cat, lat, lng) {
     let $parent = $('.neighborhood-map__locations');
     $.ajax({
@@ -1001,6 +1012,7 @@ function initNeighborhood() {
         if( $('.location-card').length > 4 ) {
           $('.neighborhood-map__all').show();
         }
+        hideLocationCards();
       }
     });
   }
@@ -1240,11 +1252,8 @@ function initNeighborhood() {
     centerMap( map );
   }
 
-  
   initNeighborhoodMap();
-  $('.location-card').each(function(index) {
-    if( index > 3 ) $(this).addClass('hide');
-  });
+  hideLocationCards();
   if($('.location-card').length > 4) 
     $('.neighborhood-map__all').show();
   $('.neighborhood-map__category').on('change', function() {
