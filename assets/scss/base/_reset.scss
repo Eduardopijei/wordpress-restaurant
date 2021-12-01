@@ -354,6 +354,9 @@ html {
   width: 100%;
   transition: all 0.3s ease-in-out;
 }
+.jcf-list li:last-child span {
+  border-bottom: none;
+}
 
 .jcf-select {
   position: relative;

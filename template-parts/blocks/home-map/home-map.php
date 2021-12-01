@@ -31,9 +31,9 @@ $args = array(
 );
 $locations = new WP_Query( $args );
 ?>
-<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> a-up">
+<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <div class="home-map__bg">
-        <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'heading', 'o' => 'f', 't' => 'h2', 'tc' => 'home-map__heading' ) ); ?>
+        <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'heading', 'o' => 'f', 't' => 'h2', 'tc' => 'home-map__heading a-op' ) ); ?>
         <?php if( $locations->have_posts() ): ?>
         <div class="home-map__map acf-map" 
             data-zoom="10" 
@@ -43,7 +43,9 @@ $locations = new WP_Query( $args );
             <?php 
             while( $locations->have_posts() ): $locations->the_post();
                 if( $location = get_field( 'location', get_the_ID() ) ): ?>
-                     <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>" data-id="<?php echo get_the_ID(); ?>" data-icon="<?php echo get_field( 'location_icon', get_the_ID() ); ?>"></div>
+                    <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>" data-id="<?php echo get_the_ID(); ?>" data-icon="<?php echo get_field( 'location_icon', get_the_ID() ); ?>">
+                        <h6 class="marker-title"><?php echo get_the_title(); ?></h6>
+                    </div>
             <?php endif;
             endwhile; ?> 
         </div>
@@ -52,7 +54,7 @@ $locations = new WP_Query( $args );
     </div>
     <div class="home-map__content">
         <div class="container">
-            <div class="home-map__places">
+            <div class="home-map__places a-up a-delay-1">
                 <div class="tab">
                     <div class="tab-links">
                         <a href="#tab-walking" class="tab-link active">
@@ -81,12 +83,12 @@ $locations = new WP_Query( $args );
                 </div>
                 <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'location_cta', 'o' => 'f', 'c' => 'btn btn--primary home-map__places--cta' ) ); ?>
             </div>
-            <div class="home-map__posts">
+            <div class="home-map__posts a-up a-delay-2">
                 <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'posts_heading', 'o' => 'f', 't' => 'h6', 'tc' => 'home-map__posts--heading' ) ); ?>
                 <div class="home-map__posts--grid">
                    <!-- Dynamic contents -->
                 </div>
-                <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'posts_cta', 'o' => 'f', 'c' => 'btn btn--primary home-map__posts--cta' ) ); ?>
+                <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'posts_cta', 'o' => 'f', 'c' => 'btn btn--accent home-map__posts--cta' ) ); ?>
             </div>
         </div>
     </div>

@@ -227,7 +227,7 @@ function my_wp_ajaxurl() {
 	   $protocol = 'https';
 	}        
 	else{
-	    $protocol = 'http';
+	    $protocol = 'http'; 
 	}
     ?>
     <?php global $wp_query; ?>
@@ -290,7 +290,7 @@ function get_nearby_locations($lat, $long, $distance = 50, $offset, $items_per_p
     WHERE map_lat.meta_key = 'lat' AND map_lng.meta_key = 'lng' 
 	 AND wp_posts.post_status='publish'
     HAVING distance < $distance AND distance > 0
-    ORDER BY distance ASC;";
+    ORDER BY distance ASC LIMIT $items_per_page;";
 	$nearbyLocations = $wpdb->get_results( $sql );
 	/*echo 'RES:<pre>';
 	print_r($nearbyLocations);
@@ -363,7 +363,6 @@ function loadAjaxLocations_handler() {
 		<?php endforeach; 
 	endif; 
 	$res->neighborhood_posts = ob_get_clean();
-	$res->neighborhood_posts_cnt = count( $nposts );
 	$res->neighborhood_walking = $neighborhood_walking;
 	$res->neighborhood_drive = $neighborhood_drive;
 	

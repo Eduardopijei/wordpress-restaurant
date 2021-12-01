@@ -437,6 +437,17 @@ function my_acf_init_block_types() {
             'icon'              => 'location-alt',
             'keywords'          => array( 'home', 'map' ),
         ));
+
+        // Neighborhood Map
+        acf_register_block_type(array(
+            'name'              => 'neighborhood',
+            'title'             => __('Neighborhood Map'),
+            'description'       => __('Neighborhood Map'),
+            'render_template'   => 'template-parts/blocks/neighborhood-map/neighborhood-map.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'location-alt',
+            'keywords'          => array( 'neighborhood', 'map' ),
+        ));
         /*********************************** ****************************************/
 
         // Register Title Text Block
