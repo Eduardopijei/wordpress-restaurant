@@ -137,6 +137,25 @@
                     "return_format": "array"
                 }
             ]
+        },
+        {
+            "key": "field_61b33db31cda3",
+            "label": "No Padding",
+            "name": "no_padding",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -156,5 +175,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635695313
+    "modified": 1639136708
 }

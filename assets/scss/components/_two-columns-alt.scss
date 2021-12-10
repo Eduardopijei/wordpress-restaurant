@@ -1,5 +1,10 @@
 .two-columns-alt {
   text-align: center;
+  &.no-padding {
+    .container {
+      padding: 0;
+    }
+  }
   h2 {
     margin-bottom: 33px;
     @include typography(36px, 62px, 40px, 78px);
