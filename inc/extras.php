@@ -455,3 +455,81 @@ function loadAjaxNeighborhood_handler() {
 	die;
 }
 
+
+
+// Contact US shortcode
+function contact_module_func( $atts ) {
+	$a = shortcode_atts( array(
+		'href' => '#',
+		'title' => '',
+		'target' => '',
+		'href1' => '#',
+		'title1' => '',
+		'target1' => ''
+	), $atts );
+	ob_start(); ?>
+	
+	<div class="contact-link">
+	<?php if( $a['title'] ) : ?>
+        <a href="<?php echo $a['href']; ?>" target="<?php echo $a['target']; ?>" class="link">
+			<?php echo $a['title']; ?>
+		</a>
+    <?php endif; ?>
+	<?php if( $a['title'] && $a['title1'] ): ?>
+		<div class="separater"></div>
+	<?php endif; ?>
+	<?php if( $a['title1'] ) : ?>
+        <a href="<?php echo $a['href1']; ?>" target="<?php echo $a['target1']; ?>" class="cta cta-reverse">
+			<?php echo $a['title1']; ?>
+		</a>
+    <?php endif; ?>
+	</div>
+	<?php 
+	return ob_get_clean();
+}
+add_shortcode( 'contact_module', 'contact_module_func' );
+
+
+// Ajax Offers
+add_action('wp_ajax_loadAjaxOffers', 'loadAjaxOffers_handler');
+add_action('wp_ajax_nopriv_loadAjaxOffers', 'loadAjaxOffers_handler');
+
+function loadAjaxOffers_handler() {
+    $page = $_POST['page'] ? (int)$_POST['page'] : 0;
+	if( $_POST['category'] ):
+		$tax_query = array(
+			array( 
+				'taxonomy' => 'offer_category',
+				'field' => 'slug',
+				'terms' => $_POST['category']
+			));
+	endif;
+	$args = array(
+		'post_type' => 'offer',
+		'post_status' => 'publish',
+		'tax_query' => $tax_query,
+		'posts_per_page' => 3,
+		'paged' => $page + 1
+	);
+	$query = new WP_Query( $args );
+	if( $query->have_posts( ) ): 
+		ob_start(); 
+		while( $query->have_posts( ) ): $query->the_post( ); 
+			get_template_part( 'templates/loop', 'offer', array( 'post' => get_the_ID(), 'show_more' => true ) );
+		endwhile;
+	else: ?>
+		<div class="no-offer">No offers found.</div>
+	<?php endif;
+
+	wp_reset_query(  );
+	$res->output = ob_get_clean();
+
+    $res->has_more_pages = false;
+    if ($query->max_num_pages > ( $page + 1 )) {
+        $res->page = $page + 1;
+        $res->has_more_pages = true;
+    }
+
+	echo json_encode($res);
+	die;
+}

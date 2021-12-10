@@ -1,0 +1,37 @@
+.offers-grid {
+  .offer-category {
+    margin: 0 auto 50px;
+    @include mq(tablet) {
+      margin-bottom: vw(120px);
+      max-width: 300px;
+    }
+    @include mq(desktop-wide) {
+      margin-bottom: 120px;
+    }
+    .jcf-select {
+      color: $c-black;
+      text-align: center;
+      @include typography(10px, 12px, 28px, 28px, 700, $f-text, $c-black);
+      &::after {
+        border-top-color: $c-black;
+      }
+    }
+  }
+  .loop-offers {
+    @include mq(tablet) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: vw(65px) (30px);
+    }
+    @include mq(desktop-wide) {
+      grid-gap: 65px 30px;
+    }
+  }
+  &__cta {
+    margin-top: 30px;
+    text-align: center;
+    @include mq(tablet) {
+      margin-top: 100px;
+    }
+  }
+}

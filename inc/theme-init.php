@@ -160,6 +160,9 @@ add_image_size( 'popup-2x', 1200, 1500, true );
 add_image_size( 'journal', 440, 510, true );
 add_image_size( 'journal-2x', 880, 1020, true );
 
+add_image_size( 'offer-image', 400, 470, true );
+add_image_size( 'offer-image-2x', 800, 940, true ); 
+
 
 //show_admin_bar(false);
 //define( 'WPCF7_AUTOP', false );

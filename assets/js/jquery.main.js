@@ -36,7 +36,7 @@ jQuery(document).ready(function() {
   isElementExist('.journal-slider__slides', initJournalSlider);
   isElementExist('.home-map', initHomeMap);
   isElementExist('.neighborhood-map', initNeighborhood);
-
+  isElementExist('.offers-grid', initOffersGrid);
 
   // viewportCheckerAnimate function
   viewportCheckerAnimate(".a-bg-up", "_animate");
@@ -1273,6 +1273,60 @@ function initNeighborhood() {
     });
     $('.neighborhood-map__all').hide();
 });
+}
+
+// init Offers Grid
+function initOffersGrid() {
+  function ajaxOffers(is_load_more = false) {
+    let $parent = $('#offers-grid');
+    let page = $('#load-more-offers').attr( 'data-page' ); 
+    let category = $('#offers-grid').attr( 'data-category' );
+    $.ajax({
+      url: ajaxurl,
+      type: "POST",
+      data: {
+        action: "loadAjaxOffers",
+        category: category,
+        page: page
+      },
+      beforeSend: function() {
+        if( is_load_more ) {
+          $parent.before('<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>');
+        } else {
+          $parent.html(
+            '<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>'
+          );
+        }
+        $('#load-more-offers').parent().hide();
+      },
+      success: function(res) {
+        let json = $.parseJSON(res);
+        $('.lds-roller').remove();
+        let strHTML = json.output;
+        $parent.append(strHTML);
+        $('#load-more-offers').attr( 'data-page', json.page );
+        if( json.has_more_pages ) {
+          $('#load-more-offers').parent().show();
+        }
+      },
+      complete: function() {
+        $('.loop-offer__bg').lazyload();
+      }
+    });
+  }
+  $('.offer-category__select').on('change', function() {
+    let cat = $(this).val();
+    $('#offers-grid').attr('data-category', cat);
+    $('#load-more-offers').attr('data-page', 0);
+    ajaxOffers();
+    return false;
+  });
+
+  $('#load-more-offers').on('click', function() {
+    ajaxOffers(true);
+    return false;
+  })
+
 }
 
 

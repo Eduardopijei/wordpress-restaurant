@@ -236,4 +236,13 @@
       }
     }
   }
+  &__subtitle {
+    margin-bottom: 20px;
+    color: $c-white;
+  }
+  &.type-offer .featured-culinary__content {
+    @include mq(tablet, max) {
+      bottom: 30px;
+    }
+  }
 }

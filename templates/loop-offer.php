@@ -10,14 +10,9 @@ $terms = get_the_terms( $id, 'offer_category'); ?>
 <article class="loop-offer" data-id="<?php echo $id; ?>">
     <a href="<?php echo $cta['url']; ?>" target="<?php echo $cta['target']; ?>">
         <div class="loop-offer__image">
-            <?php if ($image) : ?>
-                <div class="img-a">
-                    <div class="img-a-img gradient-overlay">
-                        <img data-src="<?php echo $img_src; ?>" data-srcset="<?php echo $img_src_2x; ?>" 
-                            alt="<?php echo $title; ?>" class="loop-offer__bg lazyload">
-                    </div>
-                </div>
-            <?php endif; ?>
+            <img data-src="<?php echo $img_src; ?>" 
+                data-srcset="<?php echo $img_src_2x; ?>" 
+                alt="<?php echo $title; ?>" class="loop-offer__bg lazyload">
         </div>
     </a>
     <?php if ($terms) : ?>
@@ -25,9 +20,9 @@ $terms = get_the_terms( $id, 'offer_category'); ?>
     <?php endif; ?>
     <?php if ($cta) : ?>
         <a href="<?php echo $cta['url']; ?>" 
-            class="btn btn--accent loop-offer__btn"
+            class="btn btn--primary loop-offer__btn"
             target="<?php echo $cta['target']; ?>">
-            <?php echo $cta['title']; ?>
+            <?php echo $cta['title'] ?: 'Reserve Now'; ?>
         </a>
     <?php endif; ?>
     <div class="loop-offer__content">
@@ -35,5 +30,6 @@ $terms = get_the_terms( $id, 'offer_category'); ?>
         <?php if ($excerpt) : ?>
             <p class="loop-offer__excerpt a-up a-delay-1"><?php echo $excerpt; ?></p>
         <?php endif; ?>
+        <a href="<?php echo get_permalink( $id ); ?>" class="link loop-offer__link a-up a-delay-2">Learn More</a>
     </div>
 </article>

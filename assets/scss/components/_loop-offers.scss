@@ -12,21 +12,21 @@
   &__image {
     line-height: 0;
     cursor: pointer;
+    overflow: hidden;
+    height: 435px;
+    @include mq(tablet) {
+      height: vw(450px);
+    }
+    @include mq(desktop-wide) {
+      height: 450px;
+    }
     img {
+      @include coverImage();
       transition: transform .5s ease-in-out;
     }
     &:hover {
       img {
         transform: scale(1.05);
-      }
-    }
-    .img-a-img::before {
-      padding-top: 500px;
-      @include mq(tablet) {
-        padding-top: 124.78%;
-      }
-      @include mq(desktop-wide) {
-        padding-top: 730px;
       }
     }
   }
@@ -38,11 +38,11 @@
       top: vw(30px);
       right: vw(30px);
       padding: vw(10px) vw(20px);
-      font: 500 10px/11.34px $f-text;
+      font: 700 10px/1 $f-text;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      background: $accent;
-      color: $secondary;
+      letter-spacing: 0.3em;
+      background: $primary;
+      color: $c-white;
       z-index: 1;
     }
     @include mq(desktop-wide) {
@@ -64,22 +64,31 @@
   }
   &__title {
     margin: 37px 0 13px;
-    font: 600 16px/18.14px $f-text;
+    font: 700 14px/1.2 $f-text;
     letter-spacing: 0.3em;
-    color: #0d0d0d;
+    color: $c-black;
     @include mq(tablet) {
-      margin: vw(44px) 0 vw(18px);
+      margin: vw(34px) 0 vw(15px);
     }
     @include mq(desktop-wide) {
-      margin: 44px 0 18px;
+      margin: 34px 0 15px;
     }
   }
   &__excerpt {
-    color: #0d0d0d;
-    @include typography(13px, 16px, 20px, 24px, 400, $f-text, #0d0d0d);
+    @include typography(12px, 14px, 24px, 26px, 400, $f-text, $c-black);
     @include mq(tablet) {
       margin: 0 auto;
       max-width: vw(430px);
+    }
+  }
+  &__link {
+    margin-top: 15px;
+    color: $c-black;
+    @include mq(tablet) {
+      margin-top: 20px;
+    }
+    &::after {
+      border-bottom-color: $c-black;
     }
   }
 }

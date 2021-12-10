@@ -41,7 +41,7 @@ function custom_post_type() {
 		'label'                 => __( 'Offers', 'text_domain' ),
 		'description'           => __( 'Offers post type', 'text_domain' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'custom-fields', 'page-attributes', 'thumbnail', 'excerpt' ),
+		'supports'              => array( 'title', 'custom-fields', 'page-attributes', 'thumbnail', 'excerpt', 'editor' ),
 		'hierarchical'          => true,
 		'public'                => true,
 		'show_ui'               => true,

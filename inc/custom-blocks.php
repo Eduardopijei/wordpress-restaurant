@@ -448,20 +448,19 @@ function my_acf_init_block_types() {
             'icon'              => 'location-alt',
             'keywords'          => array( 'neighborhood', 'map' ),
         ));
-        /*********************************** ****************************************/
 
-        // Register Title Text Block
+        // Offers Grid
         acf_register_block_type(array(
-            'name'              => 'title_text',
-            'title'             => __('Title Text'),
-            'description'       => __('Title Text'),
-            'render_template'   => 'template-parts/blocks/title-text/title-text.php',
+            'name'              => 'offers-grid',
+            'title'             => __('Offers Grid'),
+            'description'       => __('Offers Grid'),
+            'render_template'   => 'template-parts/blocks/offers-grid/offers-grid.php',
             'category'          => 'boston-blocks',
-            'icon'              => 'heading',
-            'keywords'          => array( 'title', 'text' ),
+            'icon'              => 'media-text',
+            'keywords'          => array( 'offers', 'grid' ),
         ));
-        
 
+        /*********************************** ****************************************/
         // Register Custom Image Block
         acf_register_block_type(array(
             'name'              => 'custom_media',

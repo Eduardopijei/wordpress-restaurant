@@ -1,6 +1,6 @@
 {
     "key": "group_615a54f61826d",
-    "title": "Block : Culinary Banner",
+    "title": "Block : Posts Banner",
     "fields": [
         {
             "key": "field_615a575bceb3c",
@@ -76,7 +76,7 @@
         },
         {
             "key": "field_615a55292d79b",
-            "label": "Featured Culinary",
+            "label": "Featured Posts",
             "name": "featured_culinary",
             "type": "relationship",
             "instructions": "",
@@ -88,11 +88,13 @@
                 "id": ""
             },
             "post_type": [
-                "culinary"
+                "culinary",
+                "offer"
             ],
             "taxonomy": "",
             "filters": [
-                "search"
+                "search",
+                "post_type"
             ],
             "elements": "",
             "min": "",
@@ -135,6 +137,31 @@
             "step": 25,
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_61b3286ecf11b",
+            "label": "CTA Style",
+            "name": "cta_style",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "white": "White",
+                "blue": "Blue"
+            },
+            "default_value": "white",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -154,5 +181,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635147972
+    "modified": 1639131265
 }
