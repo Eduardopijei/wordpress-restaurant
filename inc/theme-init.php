@@ -163,6 +163,8 @@ add_image_size( 'journal-2x', 880, 1020, true );
 add_image_size( 'offer-image', 400, 470, true );
 add_image_size( 'offer-image-2x', 800, 940, true ); 
 
+add_image_size( 'venue-image', 585, 730, true );
+add_image_size( 'venue-image-2x', 1170, 1460, true ); 
 
 //show_admin_bar(false);
 //define( 'WPCF7_AUTOP', false );

@@ -37,6 +37,7 @@ jQuery(document).ready(function() {
   isElementExist('.home-map', initHomeMap);
   isElementExist('.neighborhood-map', initNeighborhood);
   isElementExist('.offers-grid', initOffersGrid);
+  isElementExist('.venues-module', initVenuesModule);
 
   // viewportCheckerAnimate function
   viewportCheckerAnimate(".a-bg-up", "_animate");
@@ -1327,6 +1328,41 @@ function initOffersGrid() {
     return false;
   })
 
+}
+
+// init Venues Module
+function initVenuesModule() {
+  function ajaxVenues() {
+    let $parent = $('.venues-module__grid');
+    let category = $('.venues-module__filter--select').val();
+    $.ajax({
+      url: ajaxurl,
+      type: "POST",
+      data: {
+        action: "loadAjaxVenues",
+        category: category
+      },
+      beforeSend: function() {
+        $parent.html(
+          '<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>'
+        );
+      },
+      success: function(res) {
+        let json = $.parseJSON(res);
+        $('.lds-roller').remove();
+        let strHTML = json.output;
+        $parent.append(strHTML);
+      },
+      complete: function() {
+        $('.loop-venues--img img').lazyload();
+      }
+    });
+  }
+
+  $('.venues-module__filter--select').on('change', function() {
+    ajaxVenues();
+    return false;
+  });
 }
 
 

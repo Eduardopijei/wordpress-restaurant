@@ -533,3 +533,46 @@ function loadAjaxOffers_handler() {
 	echo json_encode($res);
 	die;
 }
+
+
+// Ajax Venuues
+add_action('wp_ajax_loadAjaxVenues', 'loadAjaxVenues_handler');
+add_action('wp_ajax_nopriv_loadAjaxVenues', 'loadAjaxVenues_handler');
+
+function loadAjaxVenues_handler() {
+	if( $_POST['category'] ):
+		$tax_query = array(
+			array( 
+				'taxonomy' => 'venue_category',
+				'field' => 'slug',
+				'terms' => $_POST['category']
+			));
+	endif;
+	$args = array(
+		'post_type' => 'venue',
+		'post_status' => 'publish',
+		'tax_query' => $tax_query,
+		'posts_per_page' => -1
+	);
+	$query = new WP_Query( $args );
+	if( $query->have_posts( ) ): 
+		ob_start(); 
+		while( $query->have_posts( ) ): $query->the_post( ); 
+			get_template_part( 'templates/loop', 'venues', array( 'post' => get_the_ID() ) );
+		endwhile;
+	else: ?>
+		<div class="no-venue">No venues found.</div>
+	<?php endif;
+
+	wp_reset_query(  );
+	$res->output = ob_get_clean();
+
+    $res->has_more_pages = false;
+    if ($query->max_num_pages > ( $page + 1 )) {
+        $res->page = $page + 1;
+        $res->has_more_pages = true;
+    }
+
+	echo json_encode($res);
+	die;
+}

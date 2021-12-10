@@ -21,6 +21,9 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 // Load values and assign defaults.
+if( empty( get_field( 'image' ) ) ):
+    $className .= ' blog-more--content-only';
+endif;
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <div class="container">

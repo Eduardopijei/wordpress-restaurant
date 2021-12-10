@@ -36,6 +36,12 @@
       justify-content: center;
       flex-grow: 1;
     }
+    @include when-inside('.blog-more--content-only') {
+      padding: svw(90px) 0 svw(50px);
+      @include mq(tablet) {
+        padding: vw(155px) vw(65px);
+      }
+    }
     &::before,
     &::after {
       position: absolute;

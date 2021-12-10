@@ -297,8 +297,8 @@ function my_acf_init_block_types() {
         // Culinary Banner
         acf_register_block_type(array( 
             'name'              => 'culinary_banner',
-            'title'             => __('Culinary Banner'),
-            'description'       => __('Culinary Banner'),
+            'title'             => __('Post Banner'),
+            'description'       => __('Post Banner'),
             'render_template'   => 'template-parts/blocks/culinary-banner/culinary-banner.php',
             'category'          => 'boston-blocks',
             'icon'              => 'align-pull-left',
@@ -460,6 +460,27 @@ function my_acf_init_block_types() {
             'keywords'          => array( 'offers', 'grid' ),
         ));
 
+        // General Tab Block
+        acf_register_block_type(array(
+            'name'              => 'general_tab',
+            'title'             => __('General Tab'),
+            'description'       => __('General Tab'),
+            'render_template'   => 'template-parts/blocks/general-tab/general-tab.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'admin-page',
+            'keywords'          => array( 'tab', 'general', 'general tab' ),
+        ));
+        
+        // Venues Grid
+        acf_register_block_type(array( 
+            'name'              => 'venues_grid',
+            'title'             => __('Venues Grid'),
+            'description'       => __('Venues Grid'),
+            'render_template'   => 'template-parts/blocks/venues-grid/venues-grid.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'location-alt',
+            'keywords'          => array( 'venues', 'grid' ),
+        ));
         /*********************************** ****************************************/
         // Register Custom Image Block
         acf_register_block_type(array(
@@ -483,16 +504,6 @@ function my_acf_init_block_types() {
             'keywords'          => array( 'post', 'slider', 'post slider' ),
         ));
 
-        // General Tab Block
-        acf_register_block_type(array(
-            'name'              => 'general_tab',
-            'title'             => __('General Tab'),
-            'description'       => __('General Tab'),
-            'render_template'   => 'template-parts/blocks/general-tab/general-tab.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'admin-page',
-            'keywords'          => array( 'tab', 'general', 'general tab' ),
-        ));
 
         // Hover Carousel
         acf_register_block_type(array(
