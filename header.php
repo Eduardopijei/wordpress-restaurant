@@ -29,7 +29,7 @@
 
 	<!-- Begin Header  -->
 	<?php 
-	$headerStyle = get_field( 'header_style' ); 
+	$headerStyle = get_field( 'header_style' );  
 	if (is_404(  )) {
 		$headerStyle = 'dark';
 	} 

@@ -48,16 +48,12 @@
     margin-top: 24px;
     color: $c-black;
     text-align: center;
-    transition: color .3s ease-in-out;
     @include mq(tablet, max) {
       padding: 0 20px;
     }
     @include mq(tablet) {
       font-size: 16px;
       line-height: 24px;
-    }
-    &:hover {
-      color: $accent;
     }
   }
 
@@ -66,7 +62,7 @@
     display: none;
     top: 20px;
     left: 0;
-    padding: 0 20px;
+    padding: 0 20px 0 70px;
     width: 100%;
     text-align: right;
     @include typography(10px, 12px, 12px, 14px, 600, $f-text, $c-white);
@@ -74,6 +70,7 @@
 
     span {
       display: inline-block;
+      margin: 3px;
       padding: 10px;
       background-color: $primary;
       text-align: center;
@@ -86,6 +83,10 @@
     @include mq(tablet) {
       top: 30px;
       left: 30px;
+    }
+    @include mq_mobile_landscape() {
+      top: 20px;
+      left: 20px;
     }
   }
 }

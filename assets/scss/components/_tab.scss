@@ -1,7 +1,7 @@
 .tab {
   &.general-tab {
     @include mq(tablet) {
-      background: url('../images/liner.svg') no-repeat top 15px center;
+      background: url('../images/liner.svg') no-repeat top 20px center;
       background-size: 80%;
     }
   }

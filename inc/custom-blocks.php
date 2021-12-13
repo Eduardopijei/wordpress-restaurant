@@ -481,6 +481,17 @@ function my_acf_init_block_types() {
             'icon'              => 'location-alt',
             'keywords'          => array( 'venues', 'grid' ),
         ));
+        
+        // Event Hero
+        acf_register_block_type(array( 
+            'name'              => 'event_hero',
+            'title'             => __('Event Hero'),
+            'description'       => __('Event Hero'),
+            'render_template'   => 'template-parts/blocks/event-hero/event-hero.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'cover-image',
+            'keywords'          => array( 'event', 'hero' ),
+        ));
         /*********************************** ****************************************/
         // Register Custom Image Block
         acf_register_block_type(array(

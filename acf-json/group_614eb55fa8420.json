@@ -55,6 +55,20 @@
                 "operator": "==",
                 "value": "page"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "tribe_events"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
         ]
     ],
     "menu_order": 0,
@@ -65,5 +79,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635147944
+    "modified": 1639391201
 }

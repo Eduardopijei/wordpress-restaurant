@@ -15,6 +15,14 @@
   }
   &__heading {
     margin-bottom: 15px;
+    @include mq(tablet, max) {
+      padding: 0 20px;
+    }
+  }
+  &__subheading {
+    @include mq(tablet, max) {
+      padding: 0 20px;
+    }
   }
   &__filter {
     position: relative;

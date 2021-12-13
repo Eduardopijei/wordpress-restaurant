@@ -55,7 +55,6 @@
     font: 700 12px/24px $f-text;
     letter-spacing: 0.12em;
     color: $c-gray-0d;
-    text-transform: uppercase;
     border: 1px solid #212121;
     border-radius: 0;
     background-color: #0000;
@@ -67,6 +66,7 @@
     }
     &::placeholder {
       color: $c-gray-18;
+      text-transform: uppercase;
     }
     &:focus {
       border-color: $accent;

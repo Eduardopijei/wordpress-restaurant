@@ -1,12 +1,13 @@
 <?php $post = $args['post']; ?>
 <div class="loop-venues">
-    <a href="<?php echo get_the_permalink( $post ); ?>">
         <div class="loop-venues--img gradient-overlay">
             <?php if( $image = get_field( 'image', $post ) ): ?>
-                <img class="lazyload" 
-                    data-src="<?php echo $image['sizes']['venue-image']; ?>" 
-                    data-srcset="<?php echo $image['sizes']['venue-image-2x']; ?> 2x"
-                    alt="">
+                <a href="<?php echo get_the_permalink( $post ); ?>">
+                    <img class="lazyload" 
+                        data-src="<?php echo $image['sizes']['venue-image']; ?>" 
+                        data-srcset="<?php echo $image['sizes']['venue-image-2x']; ?> 2x"
+                        alt="">
+                </a>
             <?php endif; ?>
             <h6 class="loop-venues--title"><?php echo get_the_title( $post ); ?></h6>
             <div class="loop-venues--info">
@@ -28,5 +29,4 @@
         <?php if( $excerpt = get_the_excerpt( $post ) ): ?>
             <p class="loop-venues--excerpt"><?php echo $excerpt; ?></p>
         <?php endif; ?>
-    </a>
 </div>
