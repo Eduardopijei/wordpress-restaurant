@@ -40,7 +40,7 @@ if( !empty($block['align']) ) {
                         endforeach; ?>
                     </div>
                 <?php endif; ?>
-                <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'cta', 'c' => 'btn venues-module__cta' ) ); ?>
+                <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'cta', 'o' => 'f', 'c' => 'btn venues-module__cta' ) ); ?>
             <?php else: ?>
                 <?php 
                 $terms = get_terms([

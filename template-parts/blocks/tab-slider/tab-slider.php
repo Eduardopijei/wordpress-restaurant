@@ -52,13 +52,26 @@ if( !empty($block['align']) ) {
                         <?php if (have_rows('sliders')) : ?>
                             <div class="slider">
                                 <div class="slides slides-images">
-                                    <?php while(have_rows('sliders')) : the_row(); ?>
+                                    <?php while(have_rows('sliders')) : the_row(); 
+                                    $image = get_sub_field('image'); ?>
                                         <div class="slide">
                                             <div class="slide-img">
-                                                <?php if ($image = get_sub_field('image')): ?>
-                                                    <a href="<?php echo $image['url']; ?>" data-fancybox="gallery" rel="<?php echo $id; ?>" data-caption="<?php the_sub_field('caption'); ?>">
-                                                        <img  class="lazyload" data-src="<?php echo $image['sizes']['slide-image']; ?>" alt="<?php echo $image['alt']; ?>">
+                                                <?php if( $video = get_sub_field( 'video' ) ): ?>
+                                                    <a href="<?php echo $video; ?>" data-fancybox="gallery" rel="<?php echo $id; ?>"  data-caption="<?php the_sub_field('caption'); ?>">
+                                                        <img class="lazyload" data-src="<?php echo $image['sizes']['slide-image']; ?>" alt="<?php echo $image['alt']; ?>">
+                                                        <span class="play">
+                                                            <svg width="103" height="103" viewBox="0 0 103 103" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <circle cx="51.5" cy="51.5" r="50.5" fill="black" fill-opacity="0.25" stroke="white" stroke-width="2"/>
+                                                                <path d="M66.6016 51.5L43.9493 64.5783L43.9493 38.4217L66.6016 51.5Z" fill="#F5F6F1"/>
+                                                            </svg>
+                                                        </span>
                                                     </a>
+                                                <?php else: ?>
+                                                    <?php if ( $image ): ?>
+                                                        <a href="<?php echo $image['url']; ?>" data-fancybox="gallery" rel="<?php echo $id; ?>" data-caption="<?php the_sub_field('caption'); ?>">
+                                                            <img class="lazyload" data-src="<?php echo $image['sizes']['slide-image']; ?>" alt="<?php echo $image['alt']; ?>">
+                                                        </a>
+                                                    <?php endif; ?>
                                                 <?php endif; ?>
                                                 <?php if ($caption = get_sub_field('caption')) : ?>
                                                     <p class="slide-caption"><?php echo $caption; ?></p>

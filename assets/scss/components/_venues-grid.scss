@@ -44,6 +44,15 @@
       }
     }
   }
+  &__cta {
+    margin-top: 40px;
+    @include mq(tablet) {
+      margin-top: vw(80px);
+    }
+    @include mq(desktop-wide) {
+      margin-top: 80px;
+    }
+  }
   &__grid {
     @include mq(tablet) {
       display: grid;

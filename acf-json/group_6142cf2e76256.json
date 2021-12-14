@@ -65,6 +65,25 @@
                     "mime_types": ""
                 },
                 {
+                    "key": "field_61b8a281f0a24",
+                    "label": "Video",
+                    "name": "video",
+                    "type": "file",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "library": "all",
+                    "min_size": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
                     "key": "field_6142cf52b0738",
                     "label": "Title",
                     "name": "title",
@@ -141,5 +160,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1636965767
+    "modified": 1639490285
 }

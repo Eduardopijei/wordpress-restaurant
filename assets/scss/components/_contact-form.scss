@@ -6,7 +6,6 @@
 
     font-style: normal;
     @include mq(tablet, max) {
-      color: $c-gray-0d;
       margin-left: -20px;
       margin-right: -20px;
     }
