@@ -12,7 +12,7 @@ $terms = get_the_terms( $id, 'offer_category'); ?>
         <div class="loop-offer__image">
             <img data-src="<?php echo $img_src; ?>" 
                 data-srcset="<?php echo $img_src_2x; ?>" 
-                alt="<?php echo $title; ?>" class="loop-offer__bg lazyload">
+                alt="<?php echo $image['alt'] ?: $title; ?>" class="loop-offer__bg lazyload">
         </div>
     </a>
     <?php if ($terms) : ?>

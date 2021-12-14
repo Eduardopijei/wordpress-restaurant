@@ -15,7 +15,7 @@ $link = get_the_permalink( $post );
         <div class="loop-people__image">
             <img class="lazyload" data-src="<?php echo $image_url; ?>" 
                 <?php echo $image_url_2x ? 'data-srcset="'. $image_url_2x .' 2x"' : ''; ?> 
-                alt="<?php echo $name; ?>">
+                alt="<?php echo $image['alt'] ?: $name; ?>">
             <h6 class="loop-people__title"><?php echo $name; ?></h6>
         </div>
     </a>

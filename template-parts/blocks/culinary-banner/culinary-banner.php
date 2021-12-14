@@ -96,7 +96,7 @@ $cta_style = get_field( 'cta_style' );
             <div class="featured-culinary gradient-overlay type-<?php echo $type; ?>">
                 <a href="<?php echo get_the_permalink( $featured ); ?>" class="featured-culinary__link">
                     <img data-src="<?php echo $img_src; ?>" data-srcset="<?php echo $img_src_2x; ?>" 
-                        alt="<?php echo $title; ?>" class="featured-culinary__image lazyload">
+                        alt="<?php echo $image['alt'] ?: $title; ?>" class="featured-culinary__image lazyload">
                     <?php if( $type == 'culinary' ): ?> 
                     <div class="featured-culinary__dates">
                         <div class="featured-culinary__date featured-culinary__date--start a-op">

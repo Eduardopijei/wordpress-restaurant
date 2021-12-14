@@ -37,7 +37,7 @@ $images = get_field( 'images' );
                     <img class="lazyload"
                         data-src="<?php echo $image['sizes']['culinary-form']; ?>" 
                         data-srcset="<?php echo $image['sizes']['culinary-form-2x']; ?> 2x" 
-                        alt="">
+                        alt="<?php echo $image['alt']; ?>">
                 </div>
             <?php endforeach; ?>
         </div>

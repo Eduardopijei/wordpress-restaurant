@@ -28,7 +28,7 @@ if ( $terms ) {
         <?php if ($image) : ?>
         <a href="<?php echo get_the_permalink( $id ); ?>" class="loop-culinary__link a-op">
             <img data-src="<?php echo $img_src; ?>" data-srcset="<?php echo $img_src_2x; ?>" 
-                alt="<?php echo $title; ?>" class="loop-culinary__bg lazyload">
+                alt="<?php echo $image['alt'] ?: $title; ?>" class="loop-culinary__bg lazyload">
         </a>
         <?php endif; ?>
         <h6 class="loop-culinary__title a-up"><?php echo $title; ?></h6>

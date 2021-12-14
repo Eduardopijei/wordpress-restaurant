@@ -1,0 +1,9 @@
+.page-meetings {
+  .media-content--left {
+    .media-content__text {
+      @include mq(tablet) {
+        text-align: right;
+      }
+    }
+  }
+}

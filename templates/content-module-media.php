@@ -16,11 +16,14 @@ endif;
     <div class="img-a-video">
         <?php if ($image): ?>
             <div class="img-a-img">
-                <img class="lazyload" data-src="<?php echo $image_url; ?>" <?php echo $is_2x ? 'data-srcset="' . $image_url_2x . ' 2x"' : ''; ?> alt="">
+                <img class="lazyload" 
+                    data-src="<?php echo $image_url; ?>" 
+                    <?php echo $is_2x ? 'data-srcset="' . $image_url_2x . ' 2x"' : ''; ?> 
+                    alt="<?php echo $image['alt']; ?>">
             </div>
         <?php endif; ?>
         <div class="img-a-bg-video">
-            <video loop autoplay playsinline muted preload="metadata" src="<?php echo $video; ?>" poster="<?php echo $image; ?>">
+            <video loop autoplay playsinline muted preload="metadata" src="<?php echo $video; ?>" poster="<?php echo $image_url; ?>">
                 <source src="<?php echo $video; ?>" type="video/mp4">
             </video>
         </div>
@@ -28,7 +31,7 @@ endif;
 <?php elseif ($image) : ?>
     <div class="img-a">
         <div class="img-a-img">
-            <img  class="lazyload" data-src="<?php echo $image_url; ?>" <?php echo $is_2x ? 'data-srcset="' . $image_url_2x . ' 2x"' : ''; ?> alt="">
+            <img  class="lazyload" data-src="<?php echo $image_url; ?>" <?php echo $is_2x ? 'data-srcset="' . $image_url_2x . ' 2x"' : ''; ?> alt="<?php echo $image['url']; ?>">
         </div>
     </div>
 <?php endif; ?>

@@ -510,7 +510,7 @@ function initCustomForms() {
 
 function updateBookingLink() {
   let defaulthref = 'https://reservations.bostonharborhotel.com/?Hotel=26834&shell=rBOSHA&chain=10237&template=rBOSHA';
-  let suitehref = 'https://reservations.bostonharborhotel.com/?Hotel=26834&shell=rBOSHA&chain=10237&template=rBOSHA&rooms=1&room=CVS,HVS,HCT,ADM,GRN';
+  let suitehref = 'https://reservations.bostonharborhotel.com/?Hotel=26834&shell=rBOSHA&chain=10237&template=rBOSHA&rooms=1&room=CVS,HVS,HCT,ADM,GRN,SPS,PRS';
   let href = defaulthref;
   let date = $('#booking-popup__calendar--range').val();
   let check_in = $("#booking_check_in").val();
@@ -539,7 +539,7 @@ function updateBookingLink() {
     href += "&adult=" + adult;
   }
   if (kid > 0) {
-    href += "&child=" + adult;
+    href += "&child=" + kid;
   }
   if (promo) {
     href += '&promo=' + promo;
@@ -691,7 +691,7 @@ function initPostSlider() {
     arrows: false,
     speed: 1000,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 5000,
     asNavFor: ".post-slides__contents",
     responsive: [{
       breakpoint: 768,
@@ -706,7 +706,7 @@ function initPostSlider() {
     arrows: false,
     speed: 1000,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 5000,
     asNavFor: ".post-slides__images",
   });
 }
@@ -746,7 +746,7 @@ function initCulinaryModule() {
       arrows: true,
       dots: false,
       autoplay: true,
-      autoplaySpeed: 3000,
+      autoplaySpeed: 5000,
       slidesToShow: 3,
       prevArrow: `<button class="slick-arrow slick-prev"><svg width="49" height="11" viewBox="0 0 49 11" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 6L49 6" stroke="#191919" stroke-width="2"/>
@@ -817,7 +817,7 @@ function initOffersModule() {
         arrows: false,
         dots: false,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 5000,
         centerMode: true,
         centerPadding: '30px',
       });
@@ -839,7 +839,7 @@ function initGalleryHero() {
         arrows: false,
         dots: false,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 5000,
         speed: 600
       });
     }
@@ -882,7 +882,7 @@ function initThreeCards() {
         arrows: false,
         dots: false,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 5000,
         speed: 600,
         centerMode: true,
         centerPadding: '30px'
@@ -902,7 +902,7 @@ function initCulinaryDetail() {
     arrows: false,
     dots: true,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 5000,
   });
 }
 
@@ -912,7 +912,7 @@ function initCulinaryForm() {
     arrows: false,
     dots: true,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 5000,
   });
 }
 
@@ -926,7 +926,7 @@ function initPopup() {
     arrows: false,
     dots: true,
     autoplay: true,
-    autoplaySpeed: 3000
+    autoplaySpeed: 5000
   });
   $('.popup-block__close').on('click', function() {
     let $parent = $(this).parent('.popup-block');
@@ -942,7 +942,7 @@ function initAmentities() {
       arrows: false,
       dots: true,
       autoplay: true,
-      autoplaySpeed: 3000
+      autoplaySpeed: 5000
     })
   }
 }
@@ -953,7 +953,7 @@ function initJournalSlider() {
     arrows: false,
     dots: false,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 5000,
     variableWidth: true,
     responsive: [{
       breakpoint: 769,
@@ -1622,7 +1622,7 @@ function slickSliderInit() {
     arrows: true,
     speed: 1000,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 5000,
     asNavFor: ".slides-contents",
     responsive: [{
       breakpoint: 768,
@@ -1636,7 +1636,7 @@ function slickSliderInit() {
     arrows: false,
     speed: 1000,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 5000,
     asNavFor: ".slides-images",
   });
 }

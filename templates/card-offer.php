@@ -12,7 +12,7 @@ $cta = get_field( 'cta', $id );
         <div class="card-offer__image gradient-overlay">
             <?php if ($image) : ?>
                 <img data-src="<?php echo $img_src; ?>" srcset="<?php echo $img_src_2x; ?>" 
-                    alt="<?php echo $title; ?>" class="card-offer__bg lazyload">
+                    alt="<?php echo $image['alt'] ?: $title; ?>" class="card-offer__bg lazyload">
             <?php endif; ?>
         </div>
         <p class="card-offer__title"><?php echo $title; ?></p>

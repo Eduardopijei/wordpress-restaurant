@@ -30,11 +30,11 @@ $nextId = get_field('next_section_id');
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <?php if ($bg_video) : ?>
-        <video loop autoplay playsinline class="home-hero__bg" muted preload="metadata" src="<?php echo $bg_video; ?>" poster="<?php echo $bg; ?>">
+        <video loop autoplay playsinline class="home-hero__bg" muted preload="metadata" src="<?php echo $bg_video; ?>" poster="<?php echo $bg['url']; ?>">
             <source src="<?php echo $bg_video; ?>" type="video/mp4">
         </video>
     <?php else: ?>
-        <img data-src="<?php echo $bg; ?>" alt="" class="home-hero__bg lazyload">
+        <img data-src="<?php echo $bg['url']; ?>" alt="<?php echo $bg['alt']; ?>" class="home-hero__bg lazyload">
     <?php endif; ?>
     <?php if ($logo || $logo_text) : ?>
         <div class="home-hero__logo">

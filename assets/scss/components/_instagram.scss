@@ -54,5 +54,10 @@
     .sbi_photo_wrap {
       padding: 0 2px;
     }
+    .sbi_photo {
+      @include mq(tablet, max) {
+        max-height: 400px;
+      }
+    }
   }
 }

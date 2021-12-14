@@ -50,7 +50,8 @@ $size = get_field( 'size', $pid );
                     <div class="amentities-image">
                         <img class="lazyload" 
                             data-src="<?php echo $image['sizes']['amentities']; ?>"
-                            data-srcset="<?php echo $image['sizes']['amentities-2x']; ?>" alt="">
+                            data-srcset="<?php echo $image['sizes']['amentities-2x']; ?>" 
+                            alt="<?php echo $image['alt']; ?>">
                     </div>
                 <?php endforeach; ?>
             </div>

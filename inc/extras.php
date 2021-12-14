@@ -329,7 +329,7 @@ function build_neighborhood_walking( $locations ) {
 
 function build_neighborhood_drive( $locations ) {
 	ob_start();
-	$ave_time_per_mile = 18.5;
+	$ave_time_per_mile = 1.5;
 	foreach( $locations as $location ): ?>
 	<li>
 		<span class="location-name"><?php echo $location->post_title; ?></span><span class="sep"></span><span class="location-time"><?php echo ceil($location->distance*$ave_time_per_mile); ?> Minute Drive</span>

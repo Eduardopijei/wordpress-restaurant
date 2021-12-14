@@ -492,6 +492,28 @@ function my_acf_init_block_types() {
             'icon'              => 'cover-image',
             'keywords'          => array( 'event', 'hero' ),
         ));
+
+        // Post Two Columns
+        acf_register_block_type(array( 
+            'name'              => 'post_two_cols',
+            'title'             => __('Post Two Columns'),
+            'description'       => __('Post Two Columns'),
+            'render_template'   => 'template-parts/blocks/post-two-cols/post-two-cols.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'embed-post',
+            'keywords'          => array( 'post', 'two'),
+        ));
+
+        // Page 
+        acf_register_block_type(array( 
+            'name'              => 'page_block',
+            'title'             => __('Page Block'),
+            'description'       => __('Page Block'),
+            'render_template'   => 'template-parts/blocks/page-block/page-block.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'admin-page',
+            'keywords'          => array( 'page' ),
+        ));
         /*********************************** ****************************************/
         // Register Custom Image Block
         acf_register_block_type(array(
@@ -526,29 +548,6 @@ function my_acf_init_block_types() {
             'icon'              => 'slides',
             'keywords'          => array( 'hover', 'carousel'),
         ));
-
-        // Media Content Spa
-        acf_register_block_type(array(
-            'name'              => 'media_content_spa',
-            'title'             => __('Media Content Spa'),
-            'description'       => __('Media Content Spa'),
-            'render_template'   => 'template-parts/blocks/media-content-spa/media-content-spa.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'align-pull-left',
-            'keywords'          => array( 'media', 'content', 'spa'),
-        ));
-
-        // Experience Gallery
-        acf_register_block_type(array(
-            'name'              => 'experience_gallery',
-            'title'             => __('Experience Gallery'),
-            'description'       => __('Experience Gallery'),
-            'render_template'   => 'template-parts/blocks/experience-gallery/experience-gallery.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'align-pull-left',
-            'keywords'          => array( 'experience', 'gallery'),
-        ));
-
 
         // Media Content Tab
         acf_register_block_type(array(
@@ -595,27 +594,6 @@ function my_acf_init_block_types() {
             'keywords'          => array( 'people', 'slider'),
         ));
 
-        // Post Two Columns
-        acf_register_block_type(array( 
-            'name'              => 'post_two_cols',
-            'title'             => __('Post Two Columns'),
-            'description'       => __('Post Two Columns'),
-            'render_template'   => 'template-parts/blocks/post-two-cols/post-two-cols.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'embed-post',
-            'keywords'          => array( 'post', 'two'),
-        ));
-
-        // Page 
-        acf_register_block_type(array( 
-            'name'              => 'page_block',
-            'title'             => __('Page Block'),
-            'description'       => __('Page Block'),
-            'render_template'   => 'template-parts/blocks/page-block/page-block.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'admin-page',
-            'keywords'          => array( 'page' ),
-        ));
     }
 }
 

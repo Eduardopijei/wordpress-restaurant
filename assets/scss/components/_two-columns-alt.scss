@@ -32,24 +32,19 @@
         }
       }
       &-image {
-        @include mq(tablet, max) {
-          height: 400px;
-        }
-      }
-      img {
         margin-bottom: 10px;
-        display: block;
-        width: 100%;
-        @include mq(tablet, max) {
-          height: 100%;
-          object-fit: cover;
-        }
+        height: 400px;
         @include mq(tablet) {
           margin-bottom: vw(45px);
+          height: vw(860px);
+          max-height: 860px;
         }
         @include mq(desktop-wide) {
           margin-bottom: 45px;
         }
+      }
+      img {
+        @include coverImage();
       }
       h6 {
         margin: 20px 0;

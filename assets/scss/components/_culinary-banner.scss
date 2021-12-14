@@ -157,7 +157,7 @@
     object-fit: cover;
     transition: transform .5s ease-in-out;
     @include mq_mobile_landscape() {
-        max-height: none;
+      max-height: none;
     }
   }
   &__dates {
@@ -220,6 +220,7 @@
   &__title {
     margin-bottom: 20px;
     @include typography(42px, 58px, 42px, 58px, 400, $f-heading, $c-white);
+    padding: 0 20px;
   }
 
   &__excerpt {
@@ -230,9 +231,11 @@
   }
 
   &__link {
-    &:hover {
-      img {
-        transform: scale(1.05);
+    @include mq(tablet) {
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
       }
     }
   }

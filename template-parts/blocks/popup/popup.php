@@ -38,7 +38,7 @@ if( !empty($block['align']) ) {
                     <img class="lazyload" 
                         data-src="<?php echo $image['sizes']['popup']; ?>" 
                         data-srcset="<?php echo $image['sizes']['popup-2x']; ?> 2x" 
-                        alt="">
+                        alt="<?php echo $image['alt']; ?>">
                 </div>
                 <?php endforeach; ?>
             </div>

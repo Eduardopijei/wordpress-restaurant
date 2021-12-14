@@ -29,7 +29,7 @@ $opacity = get_field( 'gradient_opacity' );
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <div class="culinary-hero__bg gradient-overlay">
         <?php if( $video ): ?>
-            <video loop autoplay playsinline muted preload="metadata" src="<?php echo $video; ?>" poster="<?php echo $image; ?>">
+            <video loop autoplay playsinline muted preload="metadata" src="<?php echo $video; ?>" poster="<?php echo $image['url']; ?>">
                 <source src="<?php echo $video; ?>" type="video/mp4">
             </video>
         <?php else: ?>
@@ -37,7 +37,7 @@ $opacity = get_field( 'gradient_opacity' );
         <?php endif; ?>
     </div>
     <?php if( $logo ): ?>
-        <img class="culinary-hero__logo lazyload" data-src="<?php echo $logo; ?>" alt="">
+        <img class="culinary-hero__logo lazyload" data-src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>">
     <?php endif; ?>
 </section>
 

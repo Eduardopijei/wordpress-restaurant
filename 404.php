@@ -19,56 +19,69 @@ get_header(); ?>
         </div>
     </section>
 </main>
-<!-- Booking Popup -->
-<!-- <div class="booking-popup">
+<div class="booking-popup">
   <div class="booking-popup__inner">
-    <div class="booking-popup__links">
-      <a href="#" class="booking-popup__link cta cta-reverse active">Stay</a>
-      <a href="#" class="booking-popup__link cta cta-reverse">Dine</a>
-      <a href="#" class="booking-popup__link cta cta-reverse">Events</a>
-      <a href="https://trp23455.na.book4time.com/onlinebooking" class="booking-popup__link cta cta-reverse" target="_blank">Spa</a>
-    </div>
-    <div class="booking-popup__selects">
-      <select name="" id="" class="booking-popup__select">
-        <option value="">Stay</option>
-        <option value="">Dine</option>
-        <option value="">Events</option>
-      </select>
-    </div>
-
+    <h2 class="booking-popup__heading">Choose Your Dates</h2>
     <div class="booking-popup__content">
-      <div class="form-row">
+      <div class="booking-popup__calendar">
+        <input type="text" class="booking-popup__calendar--range" id="booking-popup__calendar--range">
+        <div class="booking-popup__calendar--calendar" id="booking-popup__calendar--calendar">
+        </div>
+      </div>
+      <didv class="booking-popup__calendar--mobile">
         <div class="form-col">
-          <label for="booking_check_in">Check in</label>
-          <div class="event-date">
-            <input type="text" id="booking_check_in" class="form-control form-date" placeholder="Select Date">
+            <label for="booking_check_in" class="form-label">Check in</label>
+            <div class="event-date">
+              <input type="text" id="booking_check_in" class="form-control form-date" placeholder="Select Date">
+            </div>
+          </div>
+          <div class="form-col">
+            <label for="booking_check_out" class="form-label">Check out</label>
+            <div class="second-event-date">
+              <input type="text" id="booking_check_out" class="form-control form-date" placeholder="Select Date">
+            </div>
+          </div>
+      </didv>
+      <div class="booking-popup__inputs">
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col adult-number">
+                <label for="booking_adult_number" class="form-label">Number of Adults</label>
+                <select name="" id="booking_adult_number" class="form-control">
+                  <option value="1">1 Adult</option>
+                  <option value="2">2 Adults</option>
+                  <option value="3">3 Adults</option>
+                  <option value="4">4 Adults</option>
+                </select>
+              </div>
+              <div class="col kids-number">
+                <label for="booking_kids_number" class="form-label">Number of Kids</label>
+                <select name="" id="booking_kids_number" class="form-control">
+                    <option value="0">0 Kid</option>
+                    <option value="1">1 Kid</option>
+                    <option value="2">2 Kids</option>
+                    <option value="3">3 Kids</option>
+                    <option value="4">4 Kids</option>
+                  </select>
+              </div>
+            </div>
+          </div>
+          <div class="col promocode">
+            <label for="#booking_promo" class="form-label">Promo Code</label>
+            <input type="text" class="form-control" id="booking_promo" placeholder="Enter Promo Code">
           </div>
         </div>
-        <div class="form-col">
-          <label for="booking_check_out">Check out</label>
-          <div class="second-event-date">
-            <input type="text" id="booking_check_out" class="form-control form-date" placeholder="Select Date">
-          </div>
-        </div>
-        <div class="form-col">
-          <label for="booking_people_number">Number of people</label>
-          <select name="" id="booking_people_number" class="form-control">
-            <option value="1">1 Adult</option>
-            <option value="2">2 Adults</option>
-            <option value="3">3 Adults</option>
-            <option value="4">4 Adults</option>
-          </select>
-        </div>
-        <div class="form-col">
-          <label for="booking_promo">Promo</label>
-          <input type="text" class="form-control" id="booking_promo" placeholder="Enter Code">
-        </div>
+      </div>
+      <div class="form-checkbox">
+        <input type="checkbox" class="form-control" id="booking_suites_only">
+        <label for="booking_suites_only">Suites Only</label>
       </div>
     </div>
     <div class="booking-popup__btns">
-      <a href="https://www.hilton.com/en/book/reservation/rooms/?ctyhocn=SJDWAWA" class="btn btn--accent" id="booking_submit" target="_blank">Check Availability</a>
-      <a href="#" class="link" id="booking_cancel">Modify or Cancel</a>
+      <a href="https://reservations.bostonharborhotel.com/?Hotel=26834&shell=rBOSHA&chain=10237&template=rBOSHA" 
+        class="btn btn--primary" id="booking_submit" target="_blank">Check Availability</a>
     </div>
   </div>
-</div> -->
+</div>
 <?php wp_footer(); ?>

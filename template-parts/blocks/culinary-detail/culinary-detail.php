@@ -49,7 +49,7 @@ $className .= $direction == 'true' ? ' culinary-detail--right' : ' culinary-deta
                             <img class="lazyload" 
                                 data-src="<?php echo $image['sizes']['culinary-detail']; ?>" 
                                 data-srcset="<?php echo $image['sizes']['culinary-detail-2x']; ?>"
-                                alt="">
+                                alt="<?php echo $image['alt']; ?>">
                         </div>
                     <?php endforeach; 
                     endif;

@@ -6,7 +6,7 @@
                     <img class="lazyload" 
                         data-src="<?php echo $image['sizes']['venue-image']; ?>" 
                         data-srcset="<?php echo $image['sizes']['venue-image-2x']; ?> 2x"
-                        alt="">
+                        alt="<?php echo $image['alt']; ?>">
                 </a>
             <?php endif; ?>
             <h6 class="loop-venues--title"><?php echo get_the_title( $post ); ?></h6>

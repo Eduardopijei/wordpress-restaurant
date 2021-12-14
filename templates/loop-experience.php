@@ -26,7 +26,7 @@ endif; ?>
             <div class="img-a-img gradient-overlay">
                 <img data-src="<?php echo $img_src; ?>" 
                     <?php echo $img_src_2x ? 'data-srcset="' . $img_src_2x . '"' : ''; ?> 
-                    alt="<?php echo $title; ?>" class="loop-culinary__bg lazyload">
+                    alt="<?php echo $image['alt'] ?: $title; ?>" class="loop-culinary__bg lazyload">
             </div>
         </div>
         <h6 class="loop-culinary__title a-up"><?php echo $title; ?></h6>
