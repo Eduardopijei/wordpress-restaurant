@@ -9,6 +9,11 @@
     position: relative;
     padding: 0 vw(65px);
   }
+  &.no-padding {
+    @include mq(tablet) {
+      padding: 0;
+    }
+  }
 
   @include mq_mobile_landscape() {
     height: auto;

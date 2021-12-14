@@ -35,7 +35,7 @@ if ( !empty($image) || !empty($video) ) {
         <?php if ($image || $video) : ?>
         <div class="custom-blockquote__image">
             <?php 
-                get_template_part( 'templates/content-modules', 'image', array(
+                get_template_part( 'templates/content-module', 'media', array(
                     'image' => $image,
                     'video' => $video
                 ) );

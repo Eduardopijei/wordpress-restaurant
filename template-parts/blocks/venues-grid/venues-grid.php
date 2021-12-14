@@ -31,42 +31,54 @@ if( !empty($block['align']) ) {
             <?php if( $subheading = get_field( 'sub_heading' ) ): ?>
                 <h6 class="venues-module__subheading a-up a-delay-1"><?php echo $subheading; ?></h6>
             <?php endif; ?>
-            <?php 
-            $terms = get_terms([
-                'taxonomy'      => 'venue_category',
-                'hide_empty'    => false,
-            ]);
-            if ($terms) : ?>
-            <div class="venues-module__filter a-up a-delay-3">
-                <div class="venues-module__filter--selects">
-                    <select class="venues-module__filter--select" jcf>
-                        <option value="">All</option>
-                        <?php foreach ($terms as $term) : ?>
-                            <option value="<?php echo $term->slug; ?>">
-                                <?php echo $term->name; ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
+            <?php if( get_field( 'type' ) == 'custom' ): ?>
+                <?php if( $venues = get_field( 'venues' ) ): ?>
+                    <div class="venues-module__grid">
+                        <?php 
+                        foreach( $venues as $venue ): 
+                            get_template_part('templates/loop', 'venues', array( 'post' => $venue ) );
+                        endforeach; ?>
+                    </div>
+                <?php endif; ?>
+                <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'cta', 'c' => 'btn venues-module__cta' ) ); ?>
+            <?php else: ?>
+                <?php 
+                $terms = get_terms([
+                    'taxonomy'      => 'venue_category',
+                    'hide_empty'    => false,
+                ]);
+                if ($terms) : ?>
+                <div class="venues-module__filter a-up a-delay-3">
+                    <div class="venues-module__filter--selects">
+                        <select class="venues-module__filter--select" jcf>
+                            <option value="">All</option>
+                            <?php foreach ($terms as $term) : ?>
+                                <option value="<?php echo $term->slug; ?>">
+                                    <?php echo $term->name; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
                 </div>
+                <?php endif; ?>
             </div>
-            <?php endif; ?>
-        </div>
-        <?php 
-        $args = array(
-            'post_type'             => 'venue',
-            'post_status'           => 'publish',
-            'ignore_sticky_posts'   => true,
-            'posts_per_page'        => -1
-        ); 
-        $query = new WP_Query($args);
-        if ($query->have_posts()) : ?>
-        <div class="venues-module__grid">
-            <?php while ($query->have_posts()) : $query->the_post(); 
-                global $post;
-                get_template_part('templates/loop', 'venues', array( 'post' => $post ) );
-            endwhile; ?>
-        </div>
-        <?php endif;
-        wp_reset_query(  ); ?>
+            <?php 
+            $args = array(
+                'post_type'             => 'venue',
+                'post_status'           => 'publish',
+                'ignore_sticky_posts'   => true,
+                'posts_per_page'        => -1
+            ); 
+            $query = new WP_Query($args);
+            if ($query->have_posts()) : ?>
+            <div class="venues-module__grid">
+                <?php while ($query->have_posts()) : $query->the_post(); 
+                    global $post;
+                    get_template_part('templates/loop', 'venues', array( 'post' => $post ) );
+                endwhile; ?>
+            </div>
+            <?php endif;
+            wp_reset_query(  ); ?>
+        <?php endif; ?>
     </div>
 </section>

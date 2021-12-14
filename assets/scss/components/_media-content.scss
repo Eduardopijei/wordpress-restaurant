@@ -1,19 +1,4 @@
 .media-content {
-
-  &.media-content-spa {
-    padding: 50px 0 100px;
-
-    @include mq(tablet) {
-      padding: vw(180px) 0;
-      background: url("../images/spa-bg.svg") no-repeat top;
-      background-size: vw(1268px);
-    }
-
-    @include mq(desktop-wide) {
-      padding: 180px 0;
-    }
-  }
-
   &.media-content-post {
     .container {
       @include mq(tablet) {
@@ -272,6 +257,7 @@
 
       @include when-inside(".media-content--left") {
         margin-right: vw(100px);
+        text-align: right;
       }
     }
 

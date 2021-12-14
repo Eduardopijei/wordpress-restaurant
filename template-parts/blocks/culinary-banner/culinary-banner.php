@@ -26,6 +26,9 @@ $content = get_field('content');
 $scrollTo = get_field('scroll_to');
 $featured_culinary = get_field('featured_culinary');
 $cta_style = get_field( 'cta_style' );
+if( get_field( 'no_padding' ) ):
+    $className .= ' no-padding'; 
+endif; 
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <div class="culinary-banner__left">
@@ -128,6 +131,12 @@ $cta_style = get_field( 'cta_style' );
             </div>
         <?php endforeach; ?>
     </div>
+    <?php else: ?>
+        <div class="culinary-banner__right">
+            <div class="featured-culinary gradient-overlay">
+                <?php get_template_part_args( 'templates/content-module-image', array( 'v' => 'static_image', 'v2x' => false, 'o' => 'f', 'c' => 'featured-culinary__image' ) ); ?>    
+            </div>
+        </div>
     <?php endif; ?>
 </section>
 <style>
