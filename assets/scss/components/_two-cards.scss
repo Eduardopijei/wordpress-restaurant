@@ -7,13 +7,13 @@
     }
   }
   .card {
-    position: relative;
     @include mq(tablet, max) {
       &:not(:last-child) {
         margin-bottom: 25px;
       }
     }
     &-image {
+      position: relative;
       height: 400px;
       @include mq(tablet) {
         height: vw(730px);
@@ -37,6 +37,15 @@
       z-index: 1;
       @include mq(tablet) {
         bottom: vw(50px);
+      }
+    }
+    &-description {
+      padding: 0 10px;
+      margin-top: 15px;
+      text-align: center;
+      @include typography(12px, 14px, 18px, 24px, 400, $f-text, $c-black);
+      @include mq(tablet) {
+        margin-top: 24px;
       }
     }
   }

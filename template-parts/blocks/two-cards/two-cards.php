@@ -29,16 +29,18 @@ $opacity = get_field( 'gradient_opacity' );
             <div class="two-cards__inner a-up">
                 <?php while( have_rows( 'cards' ) ): the_row(); ?>
                     <div class="card">
-                        <?php if( $video = get_sub_field( 'video' ) ): ?>
-                            <div class="card-image">
-                                <video loop autoplay playsinline muted preload="metadata" src="<?php echo $video; ?>" poster="<?php echo $image; ?>">
-                                    <source src="<?php echo $video; ?>" type="video/mp4">
-                                </video>
-                            </div>
-                        <?php else: ?>
-                            <?php get_template_part_args( 'templates/content-module-image', array( 'v' => 'image', 'is' => 'two-cards', 'w' => 'div', 'wc' => 'card-image gradient-overlay' ) ); ?>
-                        <?php endif; ?>
-                        <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'title', 't' => 'h6', 'tc' => 'card-title' ) ); ?>
+                        <div class="card-image">
+                            <?php if( $video = get_sub_field( 'video' ) ): ?>
+                                    <video loop autoplay playsinline muted preload="metadata" src="<?php echo $video; ?>" poster="<?php echo $image; ?>">
+                                        <source src="<?php echo $video; ?>" type="video/mp4">
+                                    </video>
+                                </div>
+                            <?php else: ?>
+                                <?php get_template_part_args( 'templates/content-module-image', array( 'v' => 'image', 'is' => 'two-cards', 'w' => 'div', 'wc' => 'card-image gradient-overlay' ) ); ?>
+                            <?php endif; ?>
+                            <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'title', 't' => 'h6', 'tc' => 'card-title' ) ); ?>
+                        </div>
+                        <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'description', 't' => 'p', 'tc' => 'card-description' ) ); ?>
                     </div>
                 <?php endwhile; ?>
             </div>
