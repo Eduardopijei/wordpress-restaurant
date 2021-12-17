@@ -593,6 +593,18 @@ function my_acf_init_block_types() {
             'icon'              => 'slides',
             'keywords'          => array( 'people', 'slider'),
         ));
+        
+        // Gallery Grid
+        acf_register_block_type(array( 
+            'name'              => 'gallery_grid',
+            'title'             => __('Gallery Grid'),
+            'description'       => __('Gallery Grid'),
+            'render_template'   => 'template-parts/blocks/gallery-grid/gallery-grid.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'format-gallery',
+            'keywords'          => array( 'gallery', 'grid'),
+        ));
+
 
     }
 }

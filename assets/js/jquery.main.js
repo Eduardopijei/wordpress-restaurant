@@ -38,6 +38,7 @@ jQuery(document).ready(function() {
   isElementExist('.neighborhood-map', initNeighborhood);
   isElementExist('.offers-grid', initOffersGrid);
   isElementExist('.venues-module', initVenuesModule);
+  isElementExist('.gallery-grid', initGalleryGrid);
 
   // viewportCheckerAnimate function
   viewportCheckerAnimate(".a-bg-up", "_animate");
@@ -1365,6 +1366,35 @@ function initVenuesModule() {
   });
 }
 
+function initGalleryGrid() {
+  console.log('init');
+  if( window.matchMedia("(min-width: 768px)").matches ) {
+    $('.gallery-images').imagesLoaded( function() {
+      $('.gallery-images').masonry({
+        columnWidth: '.grid-sizer',
+        itemSelector: '.gallery-image',
+        percentPosition: true,
+        gutter: 10,
+        fitWidth: true,
+      });
+    });
+  }
+  $('.gallery-grid__select').on('change', function() {
+    let val = $(this).val();
+    if( val == 'all' ) {
+      $('.gallery-images').show();
+    } else {
+      $('.gallery-images').each(function() {
+        if( $(this).attr('data-cat') != val ) {
+          $(this).hide();
+        } else {
+          $(this).show();
+        }
+      })
+    }
+  });
+  windowResize(initGalleryGrid);
+}
 
 // Init Media Content Tab
 function initMediaContentTab() {
@@ -1375,7 +1405,6 @@ function initMediaContentTab() {
     $(this).addClass("active");
     let target = $(this).attr("href");
     $(".media-content-tab__content.active", $parent).removeClass("active");
-    console.log(target);
     $(target).addClass("active");
     return false;
   });

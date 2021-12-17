@@ -1,0 +1,65 @@
+.gallery-grid {
+  &__heading {
+    margin-bottom: 30px;
+    text-align: center;
+    @include mq(tablet) {
+      margin-bottom: 50px;
+    }
+  }
+  &__filter {
+    margin: 0 auto 50px;
+    background: url('../images/gradient-line--mobile.svg') no-repeat center;
+    background-size: 100%;
+    @include mq(tablet) {
+      background-image: url('../images/gradient-line--wide.svg');
+      background-size: auto;
+    }
+    .jcf-select {
+      margin: auto;
+      max-width: 170px;
+      text-align: center;
+      background-color: $background-color;
+      @include typography(10px, 12px, 28px, 28px, 700, $f-text, $c-black);
+      @include mq(tablet) {
+        margin-bottom: 85px;
+        max-width: 270px;
+      }
+      &::after {
+        border-top-color: $c-black;
+      }
+    }
+  }
+  .gallery-images {
+    @include mq(tablet, max) {
+      width: 100% !important;
+      height: auto !important;
+    }
+  }
+  .gallery-grids {
+    @include mq(tablet, max) {
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+  }
+  .grid-sizer,
+  .gallery-image {
+    margin-bottom: 10px;
+    @include mq(tablet, max) {
+      position: static !important;
+    }
+    @include mq(tablet) {
+      width: calc(50% - 5px);
+      overflow: hidden;
+    }
+    img {
+      @include coverImage();
+      @include mq(tablet) {
+        cursor: pointer;
+        transition: all .5s ease-in-out;
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}
