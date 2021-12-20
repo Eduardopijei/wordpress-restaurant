@@ -23,7 +23,14 @@
     padding: 126px 20px 0;
     text-align: center;
     @include when-inside('.no-featured') {
-      padding-top: 50px;
+      @include mq(tablet, max) {
+        padding-top: 50px;
+      }
+    }
+    @include when-inside('.page-offers') {
+      @include mq(tablet, max) {
+        padding-top: 50px;
+      }
     }
     @include mq(tablet) {
       flex: 0 0 50%;

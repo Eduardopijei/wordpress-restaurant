@@ -25,6 +25,11 @@ if( !empty($block['align']) ) {
 if( $no_padding = get_field( 'no_padding' ) ):
     $className .= ' no-padding';
 endif;
+if( get_sub_field( 'title' ) || get_sub_field( 'description' ) || get_sub_field( 'cta' ) ):
+    $className .= ' has-content';
+else: 
+    $className .= ' only-image';
+endif;
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <div class="container">

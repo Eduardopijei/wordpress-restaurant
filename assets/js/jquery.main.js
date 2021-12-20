@@ -39,6 +39,7 @@ jQuery(document).ready(function() {
   isElementExist('.offers-grid', initOffersGrid);
   isElementExist('.venues-module', initVenuesModule);
   isElementExist('.gallery-grid', initGalleryGrid);
+  isElementExist('.two-columns-alt', initTwoColumnsAlt);
 
   // viewportCheckerAnimate function
   viewportCheckerAnimate(".a-bg-up", "_animate");
@@ -1394,6 +1395,22 @@ function initGalleryGrid() {
     }
   });
   windowResize(initGalleryGrid);
+}
+
+function initTwoColumnsAlt() {
+  if(window.matchMedia("(max-width: 768px)").matches) {
+    console.log('init');
+    $('.two-columns-alt.only-image .row').slick({
+      arrows: false,
+      dots: true,
+      slidesToShow: 1,
+      autoplay: true,
+      autoplaySpeed: 3000
+    });
+  } else {
+    $('.two-columns-alt.only-image .row').slick('unslick');
+  }
+  windowResize(initTwoColumnsAlt);
 }
 
 // Init Media Content Tab

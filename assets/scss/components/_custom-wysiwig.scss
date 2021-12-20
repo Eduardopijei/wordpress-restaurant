@@ -5,6 +5,9 @@
     @include mq(tablet) {
       margin-bottom: vw(30px);
     }
+    @include when-inside('.single-offer') {
+      margin-bottom: 0;
+    }
   }
 
   h2 {

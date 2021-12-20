@@ -14,20 +14,20 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function theme_body_classes( $classes ) {
-	// Adds a class of group-blog to blogs with more than 1 published author.
-	if ( is_multi_author() ) {
-		$classes[] = 'group-blog';
-	}
+// function theme_body_classes( $classes ) {
+// 	// Adds a class of group-blog to blogs with more than 1 published author.
+// 	if ( is_multi_author() ) {
+// 		$classes[] = 'group-blog';
+// 	}
 
-	// Adds a class of hfeed to non-singular pages.
-	if ( ! is_singular() ) {
-		$classes[] = 'hfeed';
-	}
+// 	// Adds a class of hfeed to non-singular pages.
+// 	if ( ! is_singular() ) {
+// 		$classes[] = 'hfeed';
+// 	}
 
-	return $classes;
-}
-add_filter( 'body_class', 'theme_body_classes' );
+// 	return $classes;
+// }
+// add_filter( 'body_class', 'theme_body_classes' );
 
 // Register options page for ACF field
 if( function_exists('acf_add_options_page') ) {
@@ -246,10 +246,6 @@ function custom_acf_body_class( $classes ) {
 		$body_class = esc_attr( trim( $body_class ) );
 		$classes[] = $body_class;
 	}
-	$color = get_field( 'color', get_queried_object_id() );
-	if ( $color == 'cyan' ) {
-		$classes[] = 'color--cyan';
-	} 
 	return $classes;
 }
 
