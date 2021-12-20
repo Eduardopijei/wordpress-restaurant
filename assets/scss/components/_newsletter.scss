@@ -1,8 +1,18 @@
 .newsletter {
   padding: 25px 0 33px;
   text-align: center;
-  // border-top: 1px solid $border-color;
-  // border-bottom: 1px solid $border-color;
+  &--mobile {
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    @include mq(tablet) {
+      display: none;
+    }
+  }
+  &--pc {
+    @include mq(tablet, max) {
+      display: none;
+    }
+  }
   @include mq(tablet) {
     text-align: left;
     padding: vw(90px) 0;

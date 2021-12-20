@@ -1,4 +1,7 @@
 .instagram-feed {
+  @include mq(tablet, max) {
+    padding: 30px 0 5px;
+  }
   #sb_instagram {
     display: flex;
     padding-bottom: 0 !important;

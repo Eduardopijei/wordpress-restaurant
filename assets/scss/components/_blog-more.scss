@@ -39,7 +39,7 @@
     @include when-inside('.blog-more--content-only') {
       padding: svw(90px) 0 svw(50px);
       @include mq(tablet) {
-        padding: vw(155px) vw(65px);
+        padding: vw(120px) vw(65px);
       }
     }
     &::before,
@@ -49,7 +49,7 @@
       left: 50%;
       width: 100%;
       height: 64px;
-      background-image: url('../images/gradient-line.svg');
+      background-image: url('../images/gradient-line--blogmore.svg');
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
@@ -84,7 +84,7 @@
     letter-spacing: -0.04em;
     max-width: svw(265px);
     @include mq(tablet) {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       // color: $c-black;
       max-width: 455px;
     }

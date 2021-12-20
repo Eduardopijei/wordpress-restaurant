@@ -44,14 +44,18 @@
       }
     }
   }
-  &__cta {
+  &__cta--wrapper {
     margin-top: 40px;
+    text-align: center;
     @include mq(tablet) {
       margin-top: vw(80px);
     }
     @include mq(desktop-wide) {
       margin-top: 80px;
     }
+  }
+  &__cta {
+    min-width: 280px;
   }
   &__grid {
     @include mq(tablet) {

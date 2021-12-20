@@ -1,7 +1,19 @@
+  <section class="newsletter newsletter--mobile">
+    <div class="container">
+      <div class="newsletter-inner">
+        <?php if( $heading = get_field( 'n_heading', 'options' ) ): ?>
+          <h3 class="newsletter-heading a-up"><?php echo $heading; ?></h3>
+        <?php endif; ?>
+        <?php if( $form = get_field( 'n_form', 'options' ) ): ?>
+        <?php echo do_shortcode($form); ?>
+        <?php endif; ?>
+      </div>
+    </div>
+  </section>
   <section class="instagram-feed">
     <?php echo do_shortcode('[instagram-feed]'); ?>
   </section>
-  <section class="newsletter">
+  <section class="newsletter newsletter--pc">
     <div class="container">
       <div class="newsletter-inner">
         <?php if( $heading = get_field( 'n_heading', 'options' ) ): ?>
