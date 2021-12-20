@@ -1,6 +1,12 @@
 .offers-grid {
   .offer-category {
     margin: 0 auto 50px;
+    @include mq(tablet, max) {
+      margin-left: -20px;
+      margin-right: -20px;
+      background: url('../images/liner.svg') no-repeat center;
+      background-size: 100%;
+    }
     @include mq(tablet) {
       margin-bottom: vw(150px);
       max-width: 300px;
@@ -9,9 +15,14 @@
       margin-bottom: 150px;
     }
     .jcf-select {
+      background-color: $background-color;
       color: $c-black;
       text-align: center;
       @include typography(10px, 12px, 28px, 28px, 700, $f-text, $c-black);
+      @include mq(tablet, max) {
+        margin: 0 auto;
+        max-width: 240px;
+      }
       &::after {
         border-top-color: $c-black;
       }
