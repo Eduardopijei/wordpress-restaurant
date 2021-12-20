@@ -29,6 +29,9 @@ $cta_style = get_field( 'cta_style' );
 if( get_field( 'no_padding' ) ):
     $className .= ' no-padding'; 
 endif; 
+if( empty( $featured_culinary ) ): 
+    $className .= ' no-featured';
+endif;
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <div class="culinary-banner__left">

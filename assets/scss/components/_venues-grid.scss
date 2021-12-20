@@ -26,13 +26,25 @@
   }
   &__filter {
     position: relative;
-    margin: 80px 0 0;
+    margin: 30px 0 0;
     z-index: 3;
     background: url('../images/liner.svg') no-repeat center;
+    @include mq(tablet, max) {
+      background-size: 100%;
+    }
+    @include mq(tablet) {
+      margin-top: vw(80px);
+    }
+    @include mq(desktop-wide) {
+      margin-top: 80px;
+    }
     &--selects {
       margin: auto;
-      max-width: 320px;
+      max-width: 240px;
       background-color: $background-color;
+      @include mq(tablet) {
+        max-width: 320px;
+      }
     }
     .jcf-select {
       &::after {

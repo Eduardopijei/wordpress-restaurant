@@ -9,6 +9,10 @@
       margin-bottom: 0;
     }
   }
+  @include mq(tablet) {
+    display: flex;
+    flex-direction: column;
+  }
   &__image {
     line-height: 0;
     cursor: pointer;
@@ -61,6 +65,12 @@
     @include mq(tablet, max) {
       padding: 0 20px;
     }
+    @include mq(tablet) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+    }
   }
   &__title {
     margin: 37px 0 13px;
@@ -77,7 +87,7 @@
   &__excerpt {
     @include typography(12px, 14px, 24px, 26px, 400, $f-text, $c-black);
     @include mq(tablet) {
-      margin: 0 auto;
+      margin: 0 auto 20px;
       max-width: vw(430px);
     }
   }
@@ -85,7 +95,7 @@
     margin-top: 15px;
     color: $c-black;
     @include mq(tablet) {
-      margin-top: 20px;
+      margin-top: auto;
     }
     &::after {
       border-bottom-color: $c-black;

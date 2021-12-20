@@ -22,7 +22,9 @@
   &__left {
     padding: 126px 20px 0;
     text-align: center;
-
+    @include when-inside('.no-featured') {
+      padding-top: 50px;
+    }
     @include mq(tablet) {
       flex: 0 0 50%;
       padding: vw(30px) vw(105px);

@@ -1,4 +1,10 @@
 .page-meetings {
+  .venues-module {
+    @include mq(tablet, max) {
+      padding-top: 50px;
+      border-top: 1px solid $c-gray-c4;
+    }
+  }
   .media-content--left {
     .media-content__text {
       @include mq(tablet) {

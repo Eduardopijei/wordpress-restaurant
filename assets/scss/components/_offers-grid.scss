@@ -1,13 +1,12 @@
 .offers-grid {
-  
   .offer-category {
     margin: 0 auto 50px;
     @include mq(tablet) {
-      margin-bottom: vw(120px);
+      margin-bottom: vw(150px);
       max-width: 300px;
     }
     @include mq(desktop-wide) {
-      margin-bottom: 120px;
+      margin-bottom: 150px;
     }
     .jcf-select {
       color: $c-black;
