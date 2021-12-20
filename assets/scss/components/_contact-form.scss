@@ -40,12 +40,79 @@
       flex: 0 0 50%;
       padding: 6px 5px;
     }
-    
+    &.colspan2 {
+      max-width: 355px;
+      @include mq(tablet) {
+        flex-basis: 100%;
+        max-width: 710px;
+      }
+    }
     label {
       display: block;
       margin-bottom: 7px;
       font: 400 14px/21px $f-text;
       color: $c-gray-0d;
+    }
+  }
+  .form-radio__wrapper {
+    display: flex;
+    padding: 12px 15px;
+    align-items: center;
+    > label {
+      margin: 0;
+      font: 700 12px/24px $f-text;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .wpcf7-form-control {
+      label {
+        margin: 0;
+      }
+    }
+  }
+  .form-radio {
+    input {
+      display: none;
+    }
+    input:checked + .wpcf7-list-item-label::after {
+      opacity: 1;
+    }
+    .wpcf7-list-item-label {
+      position: relative;
+      display: block;
+      padding-left: 25px;
+      &::before,
+      &::after {
+        position: absolute;
+        content: '';
+      }
+      &::before {
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        border: 1px solid $primary;
+        border-radius: 50%;
+      }
+      &::after {
+        top: 5px;
+        left: 5px;
+        width: 10px;
+        height: 10px;
+        background-color: $primary;
+        border-radius: 50%;
+        opacity: 0;
+        transform: opacity .3s ease-in-out;
+      }
+    }
+  }
+  .form-file {
+    &::-webkit-file-upload-button {
+      margin-right: 10px;
+      padding: 5px;
+      border: 1px solid $c-gray-4a;
+      font: 400 10px/12px $f-text;
+      color: $c-gray-18;
     }
   }
   .form-control {

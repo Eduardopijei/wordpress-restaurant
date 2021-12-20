@@ -14,8 +14,8 @@
     }
   }
   &__heading {
-    margin-bottom: 15px;
     @include mq(tablet, max) {
+      margin-bottom: 15px;
       padding: 0 20px;
     }
   }

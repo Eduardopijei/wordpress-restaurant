@@ -2,7 +2,13 @@
   .media-content--left {
     .media-content__text {
       @include mq(tablet) {
+        margin-left: auto;
         text-align: right;
+        width: vw(410px);
+        max-width: 410px;
+        .btn {
+          min-width: 230px;
+        }
       }
     }
   }
