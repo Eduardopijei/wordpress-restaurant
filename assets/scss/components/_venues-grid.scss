@@ -6,6 +6,13 @@
       padding: 0;
     }
   }
+  &.no-description {
+    .venues-module__heading {
+      @include mq(tablet) {
+        margin-bottom: 40px;
+      }
+    }
+  }
   &__info {
     margin-bottom: 50px;
     text-align: center;

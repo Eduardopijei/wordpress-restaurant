@@ -11,12 +11,28 @@
             <?php endif; ?>
             <h6 class="loop-venues--title"><?php echo get_the_title( $post ); ?></h6>
             <div class="loop-venues--info">
-                <?php if( $cap = get_field( 'cap', $post ) ): ?>
-                    <span>CAP : <?php echo $cap; ?></span>
-                <?php endif; ?>
-                <?php if( $size = get_field( 'size', $post ) ): ?>
-                    <span><?php echo $size; ?> SQ.FT.</span>
-                <?php endif; ?>
+                <div class="loop-venues--info__mobile">
+                    <span>
+                    <?php 
+                    $cap = get_field( 'cap', $post );
+                    $size = get_field( 'size', $post );
+                    if( $cap ): ?>
+                        CAP : <?php echo $cap; ?>
+                    <?php endif; ?>
+                    <?php if( $cap && $size): ?>&nbsp;&nbsp;|&nbsp;&nbsp;<?php endif; ?>
+                    <?php if( $size ): ?>
+                        <?php echo $size; ?> SQ.FT.
+                    <?php endif; ?>
+                    </span>
+                </div>
+                <div class="loop-venues--info__pc">
+                    <?php if( $cap = get_field( 'cap', $post ) ): ?>
+                        <span>CAP : <?php echo $cap; ?></span>
+                    <?php endif; ?>
+                    <?php if( $size = get_field( 'size', $post ) ): ?>
+                        <span><?php echo $size; ?> SQ.FT.</span>
+                    <?php endif; ?>
+                </div>
             </div>
             <?php if( $matterport = get_field( 'matterport', $post ) ): ?>
                 <a href="<?php echo $matterport; ?>" class="loop-venues--matterport" target="_blank">

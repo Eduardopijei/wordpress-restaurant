@@ -67,6 +67,17 @@
     text-align: right;
     @include typography(10px, 12px, 12px, 14px, 600, $f-text, $c-white);
     letter-spacing: 0.3em;
+    &__mobile {
+      letter-spacing: 0.2em;
+      @include mq(tablet) {
+        display: none;
+      }
+    }
+    &__pc {
+      @include mq(tablet, max) {
+        display: none;
+      }
+    }
 
     span {
       display: inline-block;

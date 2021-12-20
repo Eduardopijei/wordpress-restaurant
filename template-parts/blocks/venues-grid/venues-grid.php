@@ -21,17 +21,23 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 // Load values and assign defaults.
+$heading = get_field( 'heading' );
+$subheading = get_field( 'sub_heading' );
+if( empty( $subheading ) ): 
+    $className .= ' no-description';
+endif;
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <div class="container">
         <div class="venues-module__info">
-            <?php if( $heading = get_field( 'heading' ) ): ?>
+            <?php if( $heading ): ?>
                 <h1 class="venues-module__heading a-up"><?php echo $heading; ?></h1>
             <?php endif; ?>
-            <?php if( $subheading = get_field( 'sub_heading' ) ): ?>
+            <?php if( $subheading ): ?>
                 <h6 class="venues-module__subheading a-up a-delay-1"><?php echo $subheading; ?></h6>
             <?php endif; ?>
             <?php if( get_field( 'type' ) == 'custom' ): ?>
+                </div>
                 <?php if( $venues = get_field( 'venues' ) ): ?>
                     <div class="venues-module__grid">
                         <?php 
@@ -61,15 +67,15 @@ if( !empty($block['align']) ) {
                 </div>
                 <?php endif; ?>
             </div>
-            <?php 
-            $args = array(
-                'post_type'             => 'venue',
-                'post_status'           => 'publish',
-                'ignore_sticky_posts'   => true,
-                'posts_per_page'        => -1
-            ); 
-            $query = new WP_Query($args);
-            if ($query->have_posts()) : ?>
+        <?php 
+        $args = array(
+            'post_type'             => 'venue',
+            'post_status'           => 'publish',
+            'ignore_sticky_posts'   => true,
+            'posts_per_page'        => -1
+        ); 
+        $query = new WP_Query($args);
+        if ($query->have_posts()) : ?>
             <div class="venues-module__grid">
                 <?php while ($query->have_posts()) : $query->the_post(); 
                     global $post;
@@ -78,7 +84,7 @@ if( !empty($block['align']) ) {
             </div>
             <?php endif;
             wp_reset_query(  ); ?>
-            <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'cta', 'o' => 'f', 'c' => 'btn venues-module__cta', 'w' => 'div', 'wc' => 'venues-module__cta--wrapper' ) ); ?>
         <?php endif; ?>
+        <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'cta', 'o' => 'f', 'c' => 'btn venues-module__cta', 'w' => 'div', 'wc' => 'venues-module__cta--wrapper' ) ); ?>
     </div>
 </section>

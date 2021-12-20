@@ -106,7 +106,9 @@
     font-weight: 700;
 
     @include mq(tablet, max) {
-      display: none !important;
+      margin-left: auto;
+      margin-right: 20px;
+      order: -1;
     }
 
     @include mq(tablet) {
@@ -609,13 +611,15 @@
 }
 
 .hamburger {
+  @include mq(tablet, max) {
+     order: -2; 
+  }
   span {
     display: block;
     margin-bottom: 5px;
     width: 40px;
     border: 1px solid $c-white;
     transform-origin: left;
-
     @include mq(tablet) {
       border-color: $c-black;
 

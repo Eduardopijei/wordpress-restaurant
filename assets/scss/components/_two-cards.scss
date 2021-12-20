@@ -1,4 +1,9 @@
 .two-cards {
+  .container {
+    @include mq(tablet, max) {
+      padding: 0;
+    }
+  }
   &__inner {
     @include mq(tablet) {
       display: grid;
