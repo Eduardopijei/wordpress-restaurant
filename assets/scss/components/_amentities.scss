@@ -44,6 +44,14 @@
     @include mq(tablet, max) {
       margin-bottom: 40px;
     }
+    ul {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 5; /* number of lines to show */
+              line-clamp: 5; 
+      -webkit-box-orient: vertical;
+    }
     li {
       margin-bottom: 1em;
       @include typography(12px, 13px, 19px, 21px, 400, $f-text, $c-black);
@@ -143,6 +151,36 @@
     }
     img {
       @include coverImage(); 
+    }
+  }
+  .popup-block {
+    .three-dots {
+      @include mq(tablet) {
+        margin-bottom: vw(50px);
+      }
+      @include mq(desktop-wide) {
+        margin-bottom: 50px;
+      }
+    }
+    &__content {
+      @include mq(tablet) {
+        flex-grow: 1;
+      }
+      &--inner {
+        @include mq(desktop-wide) {
+          padding: 100px ;
+        }
+      }
+      ul {
+        li {
+          margin-bottom: 1em;
+        }
+      }
+      &--footer {
+        .btn {
+          width: 100%;
+        }
+      }
     }
   }
 }

@@ -40,6 +40,7 @@ jQuery(document).ready(function() {
   isElementExist('.venues-module', initVenuesModule);
   isElementExist('.gallery-grid', initGalleryGrid);
   isElementExist('.two-columns-alt', initTwoColumnsAlt);
+  isElementExist('.amentities .popup-block', initAmentitiesPopup);
 
   // viewportCheckerAnimate function
   viewportCheckerAnimate(".a-bg-up", "_animate");
@@ -967,11 +968,11 @@ function initCulinaryForm() {
 }
 
 function initPopup() {
-  setTimeout(() => {
-    $('.popup-block').fadeIn(300);
-    $('html, body').css('overflow', 'hidden');
-    $('.popup-block__slides').slick('setPosition');
-  }, 3000);
+  // setTimeout(() => {
+  //   $('.popup-block').fadeIn(300);
+  //   $('html, body').css('overflow', 'hidden');
+  //   $('.popup-block__slides').slick('setPosition');
+  // }, 3000);
   $('.popup-block__slides').slick({
     arrows: false,
     dots: true,
@@ -995,6 +996,14 @@ function initAmentities() {
       autoplaySpeed: 5000
     })
   }
+}
+
+function initAmentitiesPopup() {
+  $('.btn-view-gallery').on('click', function() {
+    $('.popup-block').fadeIn(300);
+    $('html, body').css('overflow', 'hidden');
+    $('.popup-block__slides').slick('setPosition');
+  });
 }
 
 // 
