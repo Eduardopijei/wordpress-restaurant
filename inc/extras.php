@@ -572,3 +572,34 @@ function loadAjaxVenues_handler() {
 	echo json_encode($res);
 	die;
 }
+
+add_action('wp_ajax_newsletterSignup', 'newsletterSignup_handler');
+add_action('wp_ajax_nopriv_newsletterSignup', 'newsletterSignup_handler');
+
+function newsletterSignup_handler() {
+   $response = wp_remote_post(
+	   'https://www.zdirect.com/api/append_data',
+	   array(
+		   'method' => 'POST',
+		   'headers' => array(),
+		   'body' => array(
+			   'username' => 'BHH.API',
+			   'pass' => 'Amadeus2020%',
+			   'list' => 'Boston Harbor Hotel',
+			   'source' => 'eClub 2021',
+			   'set_optin' => true,
+			   'email' => $POST['email']
+		   )
+	   )
+	);
+	if ( is_wp_error( $response ) ) {
+		$error_message = $response->get_error_message();
+		$res->success = false;
+		$res->message = "Something went wrong: $error_message";
+	} else {
+		$res->success = true;
+		$res->message = "Thanks for your message. It has been sent.";
+	}
+	echo json_encode($res);
+	die;
+}

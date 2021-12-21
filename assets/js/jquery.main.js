@@ -79,6 +79,54 @@ jQuery(document).ready(function() {
     $('#cookie-law-info-bar').fadeOut(300);
   });
 
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
+  $('.newsletter-form').on('submit', function(e) {
+    let email = $('#newsletter_email').val();
+    $('.newsletter-form__wrapper .newsletter-form__notification').remove();
+    if( email && validateEmail(email) ) {
+      $('.newsletter-form__wrapper').removeClass('invalid');
+      $.ajax({
+        url: ajaxurl,
+        type: "POST",
+        data: {
+          action: "newsletterSignup",
+          email
+        },
+        success: function(res) {
+          let json = $.parseJSON(res);
+          if( json.success ) {
+            $('.newsletter-form__wrapper').append('<span class="newsletter-form__notification success">' + json.message + '</span>');
+          } else {
+            $('.newsletter-form__wrapper').append('<span class="newsletter-form__notification error">' + json.message + '</span>');
+          }
+        },
+        complete: function() {
+  
+        },
+        error : function (xhr, ajaxOptions, thrownError){  
+          console.log(xhr.status);          
+          console.log(thrownError);
+        } 
+      });
+    } else {
+      $('.newsletter-form__wrapper').addClass('invalid');
+      if( !email ) {
+        $('.newsletter-form__wrapper').append('<span class="newsletter-form__notification error">This field is required.</span>');
+      } else if( !validateEmail(email) ) {
+        $('.newsletter-form__wrapper').append('<span class="newsletter-form__notification error">Please enter correct email address.</span>');
+      }
+    }
+    e.preventDefault();
+    return false;
+  });
+
 
   // Init fancybox
   Fancybox.bind('[data-fancybox]', {

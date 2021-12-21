@@ -1,27 +1,18 @@
-  <section class="newsletter newsletter--mobile">
-    <div class="container">
-      <div class="newsletter-inner">
-        <?php if( $heading = get_field( 'n_heading', 'options' ) ): ?>
-          <h3 class="newsletter-heading a-up"><?php echo $heading; ?></h3>
-        <?php endif; ?>
-        <?php if( $form = get_field( 'n_form', 'options' ) ): ?>
-        <?php echo do_shortcode($form); ?>
-        <?php endif; ?>
-      </div>
-    </div>
-  </section>
   <section class="instagram-feed">
     <?php echo do_shortcode('[instagram-feed]'); ?>
   </section>
-  <section class="newsletter newsletter--pc">
+  <section class="newsletter">
     <div class="container">
       <div class="newsletter-inner">
         <?php if( $heading = get_field( 'n_heading', 'options' ) ): ?>
           <h3 class="newsletter-heading a-up"><?php echo $heading; ?></h3>
         <?php endif; ?>
-        <?php if( $form = get_field( 'n_form', 'options' ) ): ?>
-        <?php echo do_shortcode($form); ?>
-        <?php endif; ?>
+        <div class="newsletter-form__wrapper">
+          <form class="newsletter-form a-up a-delay-1">
+            <input type="email" class="form-control" id="newsletter_email" name="email" placeholder="Your Email">
+            <input type="submit" class="btn btn--accent form-submit" id="newsletter_submit" value="Stay Connected">
+          </form>
+        </div>
       </div>
     </div>
   </section>

@@ -115,3 +115,10 @@
     content: '-';
   }
 }
+
+main {
+  @include mq(tablet, max) {
+    display: flex;
+    flex-direction: column;
+  }
+}

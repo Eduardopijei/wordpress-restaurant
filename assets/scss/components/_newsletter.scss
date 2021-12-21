@@ -1,17 +1,9 @@
 .newsletter {
   padding: 25px 0 33px;
   text-align: center;
-  &--mobile {
+  @include mq(tablet, max) {
     border-top: 1px solid $border-color;
     border-bottom: 1px solid $border-color;
-    @include mq(tablet) {
-      display: none;
-    }
-  }
-  &--pc {
-    @include mq(tablet, max) {
-      display: none;
-    }
   }
   @include mq(tablet) {
     text-align: left;
@@ -56,6 +48,17 @@
     }
     .wpcf7-not-valid-tip {
       display: none;
+    }
+    &__notification {
+      display: block;
+      margin-top: 10px;
+      font-weight: 700;
+      &.success {
+        color: $c-green;
+      }
+      &.error {
+        color: $c-red;
+      }
     }
   }
   .email {
