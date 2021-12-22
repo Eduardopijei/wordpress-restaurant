@@ -166,6 +166,11 @@ add_image_size( 'offer-image-2x', 800, 940, true );
 add_image_size( 'venue-image', 585, 730, true );
 add_image_size( 'venue-image-2x', 1170, 1460, true ); 
 
+add_image_size( 'loop-press', 330, 410, true );
+add_image_size( 'loop-press-2x', 660, 820, true ); 
+
+
+
 //show_admin_bar(false);
 //define( 'WPCF7_AUTOP', false );
 

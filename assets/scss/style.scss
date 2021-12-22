@@ -11,6 +11,7 @@
 
 @import "layout/header";
 @import "layout/footer";
+@import "layout/pagination";
 
 @import "themes/default";
 
@@ -60,6 +61,7 @@
 @import "components/venues-grid";
 @import "components/event-hero";
 @import "components/gallery-grid";
+@import "components/press";
 
 // Old Blocks
 @import "components/custom-blockquote";
@@ -81,3 +83,4 @@
 @import "pages/error";
 @import "pages/neighborhood";
 @import "pages/meetings";
+@import "pages/archive";

@@ -1,0 +1,256 @@
+.press {
+    text-align: center;
+    &-heading {
+      margin-bottom: 24px;
+      @include mq(tablet) {
+        margin-bottom: 18px;
+      }
+    }
+  
+    &-content {
+      @include mq(tablet, max) {
+        padding: 0 20px;
+      }
+      @include mq(tablet) {
+        margin: 0 auto;
+        width: vw(585px);
+        max-width: 585px;
+      }
+      h6 {
+        margin-bottom: 17px;
+      }
+    }
+
+    &-categories {
+      margin-top: 40px;
+      @include mq(tablet) {
+        margin-top: vw(200px);
+      }
+      @include mq(desktop-wide) {
+        margin-top: 200px;
+      }
+      &__links {
+        display: none;
+        @include mq(tablet) {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-bottom: vw(130px);
+          background-image: url('../images/gradient-line--wide.svg');
+          background-repeat: no-repeat;
+          background-position: top 10px center;
+        }
+        @include mq(desktop-wide) {
+          padding-bottom: 130px;
+        }
+      }
+      &__link {
+        position: relative;
+        margin: 0 20px;
+        @include typography(12px, 14px, 14.4px, 14px, 700, $f-text, $c-gray-0d);
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        white-space: nowrap;
+        &::after {
+            position: absolute;
+            content: '';
+            left: 50%;
+            bottom: -20px;
+            width: 6px;
+            height: 6px;
+            background-color: transparent;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+        &:hover,
+        &.active {
+          color: $primary;
+        }
+        &.active {
+          color: $primary;
+          &::after {
+            background-color: $primary;
+          }
+        }
+      }
+      &__selector {
+        margin-bottom: 40px;
+      background: url('../images/gradient-line--mobile.svg') no-repeat center;
+        @include mq(tablet) {
+          display: none;
+        }
+        .jcf-select {
+          font: 600 10px/28px $f-text;
+          color: $c-black;
+          background-color: $background_color;
+          border: 1px solid $c-black;
+          max-width: 240px;
+          margin: 0 auto;
+          &::after {
+            width: 0;
+            height: 0;
+            position: absolute;
+            margin: 0;
+            border-width: 8px 4.5px 0 4.5px;
+            border-color: $c-black transparent transparent transparent;
+            border-style: solid;
+            background: none;
+          }
+        }
+        .jcf-list-content {
+          padding: 32px 0 16px;
+          max-height: none !important;
+          background-color: $background_color;
+        }
+        .jcf-list li span {
+          padding: 0;
+          font: 600 12px/50px $f-text;
+          text-transform: uppercase;
+          color: #0d0d0d;
+          letter-spacing: 0.3em;
+          text-align: center;
+          border-bottom: 0;
+        }
+      }
+      &-select {
+        margin: 0 -20px 15px;
+        padding: 20px 0;
+        border-bottom: 1px solid #000;
+        @include mq(tablet) {
+          display: none;
+        }
+        @include mq_mobile_landscape() {
+          display: block;
+        }
+        @include when-inside('.general-tab') {
+          margin-bottom: 60px;
+          border-bottom: none;
+          background: url('../images/gradient-line--mobile.svg') no-repeat center;
+        }
+        .jcf-select {
+          font: 600 12px/14.77px $f-text;
+          letter-spacing: 0.3em;
+          color: #0d0d0d;
+          text-align: center;
+          border: none;
+          &::after {
+            position: static;
+            margin-left: 10px;
+            width: 8px;
+            height: 4px;
+            border: none;
+            @include svgBackground(
+              "<svg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M1 1L4.8674 5L8.73481 1' stroke='%230D0D0D'/></svg>"
+            );
+          }
+          @include when-inside('.general-tab') {
+            font: 600 10px/28px $f-text;
+            color: $c-black;
+            background-color: $background_color;
+            border: 1px solid $c-black;
+            max-width: 240px;
+            margin: 0 auto;
+            &::after {
+              width: 0;
+              height: 0;
+              position: absolute;
+              margin: 0;
+              border-width: 8px 4.5px 0 4.5px;
+              border-color: #404040 transparent transparent transparent;
+              border-style: solid;
+              background: none;
+            }
+          }
+        }
+        .jcf-list-content {
+          padding: 32px 0 16px;
+          max-height: none !important;
+          @include when-inside('.general-tab') {
+            background-color: $background_color;
+          }
+        }
+        .jcf-list li span {
+          padding: 0;
+          font: 600 12px/50px $f-text;
+          text-transform: uppercase;
+          color: #0d0d0d;
+          letter-spacing: 0.3em;
+          text-align: center;
+          border-bottom: 0;
+        }
+      }
+    }
+    
+  
+    &-grid {
+      @include mq(tablet, max) {
+        margin-left: -20px;
+        margin-right: -20px;
+      }
+      @include mq(tablet) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: vw(60px) vw(40px);
+      }
+      @include mq(desktop-wide) {
+        grid-gap: 60px 40px;
+      }
+    }
+  
+    &-loop {
+      @include mq(tablet, max) {
+        margin-bottom: svw(63px);
+      }
+      &__img {
+        height: 450px;
+        overflow: hidden;
+        @include mq(tablet) {
+          height: vw(410px);
+          // max-height: 410px;
+        }
+        img {
+          @include coverImage();
+          transition: transform .5s ease-in-out;
+          will-change: transform;
+        }
+        &:hover {
+          img {
+            transform: scale(1.05);
+          }
+        }
+      }
+  
+      &__title {
+        padding: 0 20px;
+        margin-top: 34px;
+        font: 600 14px/16.8px $f-text;
+        @include mq(tablet) {
+          margin-top: vw(27px);
+        }
+        @include mq(desktop) {
+          margin-top: 27px;
+        }
+      }
+  
+      &__excerpt {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        padding: 0 20px;
+        @include max-line();
+        @include mq(tablet) {
+          margin-top: vw(15px);
+          margin-bottom: vw(30px);
+        }
+        @include mq(desktop) {
+          margin-top: 15px;
+          margin-bottom: 30px;
+        }
+      }
+      .link {
+        color: $c-black;
+        &::after {
+          border-bottom-color: $c-black;
+        }
+      }
+    }
+  }

@@ -514,6 +514,28 @@ function my_acf_init_block_types() {
             'icon'              => 'admin-page',
             'keywords'          => array( 'page' ),
         ));
+        
+        // Gallery Grid
+        acf_register_block_type(array( 
+            'name'              => 'gallery_grid',
+            'title'             => __('Gallery Grid'),
+            'description'       => __('Gallery Grid'),
+            'render_template'   => 'template-parts/blocks/gallery-grid/gallery-grid.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'format-gallery',
+            'keywords'          => array( 'gallery', 'grid'),
+        ));
+        
+        // Press
+        acf_register_block_type(array(
+            'name'              => 'press',
+            'title'             => __('Press'),
+            'description'       => __('Press'),
+            'render_template'   => 'template-parts/blocks/press/press.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'admin-post',
+            'keywords'          => array( 'press'),
+        ));
         /*********************************** ****************************************/
         // Register Custom Image Block
         acf_register_block_type(array(
@@ -593,19 +615,6 @@ function my_acf_init_block_types() {
             'icon'              => 'slides',
             'keywords'          => array( 'people', 'slider'),
         ));
-        
-        // Gallery Grid
-        acf_register_block_type(array( 
-            'name'              => 'gallery_grid',
-            'title'             => __('Gallery Grid'),
-            'description'       => __('Gallery Grid'),
-            'render_template'   => 'template-parts/blocks/gallery-grid/gallery-grid.php',
-            'category'          => 'boston-blocks',
-            'icon'              => 'format-gallery',
-            'keywords'          => array( 'gallery', 'grid'),
-        ));
-
-
     }
 }
 

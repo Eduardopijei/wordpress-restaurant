@@ -1,0 +1,32 @@
+.pagination {
+    margin-top: svw(63px);
+    text-align: center;
+    @include mq(tablet) {
+      margin-top: vw(123px);
+    }
+    @include mq(desktop) {
+      margin-top: 123px;
+    }
+    .page-numbers {
+      display: inline-flex;
+      margin: 0 5px;
+      width: 33px;
+      height: 33px;
+      font: 400 18px/1 $f-text;
+      color: $primary;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: all .3s ease-in-out;
+      cursor: pointer;
+      &.current {
+        background-color: $primary;
+        color: $c-white;
+      }
+      &:hover {
+        background-color: $accent;
+        color: $c-white;
+      }
+    }
+  }

@@ -30,7 +30,7 @@
 	<!-- Begin Header  -->
 	<?php 
 	$headerStyle = get_field( 'header_style' );  
-	if (is_404(  )) {
+	if (is_404(  ) || is_archive(  )) {
 		$headerStyle = 'dark';
 	} 
 	?>
