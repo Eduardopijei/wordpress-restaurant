@@ -122,3 +122,25 @@ main {
     flex-direction: column;
   }
 }
+
+// Default WP image block
+.wp-block-image {
+  margin: auto;
+  padding: 0 20px;
+  @include mq(tablet) {
+    padding: 0 vw(120px);
+  }
+  img {
+    display: block;
+    width: 100%;
+  }
+  figcaption {
+    margin-top: 30px;
+    text-align: center;
+    @include typography(12px, 14px, 12px, 14px, 700, $f-text, $c-gray-0d);
+    letter-spacing: 0.15em;
+    @include mq(tablet) {
+      letter-spacing: 0.25em;
+    }
+  }
+}

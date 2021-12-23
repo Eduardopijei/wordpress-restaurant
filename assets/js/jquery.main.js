@@ -128,6 +128,10 @@ jQuery(document).ready(function() {
     return false;
   });
 
+  $('.link-select').on('change', function() {
+    window.location.href = $(this).val();
+  })
+
 
   // Init fancybox
   Fancybox.bind('[data-fancybox]', {
