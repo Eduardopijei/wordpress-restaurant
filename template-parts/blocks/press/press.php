@@ -40,7 +40,7 @@ $content = get_field( 'content' );
         if( $terms ): ?>
             <div class="post-categories press-categories">
                 <ul class="press-categories__links">
-                    <li class="press-categories__link">
+                    <li>
                         <a href="<?php echo esc_url( home_url( '/press' ) ); ?>" class="press-categories__link active">
                             All Press Highlights
                         </a>
@@ -53,9 +53,11 @@ $content = get_field( 'content' );
                                 <span class="separater"></span>
                             </li>
                         <?php endif; ?>
-                        <a href="<?php echo get_term_link($term); ?>" class="press-categories__link">
-                            <?php echo $term->name; ?>
-                        </a>
+                        <li>
+                            <a href="<?php echo get_term_link($term); ?>" class="press-categories__link">
+                                <?php echo $term->name; ?>
+                            </a>
+                        </li>
                     <?php endforeach; ?>
                 </ul>
                 <div class="post-categories__selector press-categories__selector">

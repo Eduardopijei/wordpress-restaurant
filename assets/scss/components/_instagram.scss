@@ -47,6 +47,11 @@
             width: 22px;
             height: 22px;
             margin: 0 0 0 10px;
+            @include mq(tablet, max) {
+              path {
+                fill: #7296B4;
+              }
+            }
             @include mq(tablet) {
               width: 25px;
               height: 25px;

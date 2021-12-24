@@ -2,6 +2,9 @@
   .container {
     @include mq(tablet, max) {
       padding: 0;
+      @include when-inside('.single-post') {
+        padding: 0 20px;
+      }
     }
   }
   &__inner {

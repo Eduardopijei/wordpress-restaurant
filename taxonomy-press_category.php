@@ -13,7 +13,7 @@ $taxonomy = get_queried_object(  )->taxonomy; ?>
         if( $terms ): ?>
             <div class="post-categories press-categories">
                 <ul class="press-categories__links">
-                    <li class="press-categories__link">
+                    <li>
                         <a href="<?php echo esc_url( home_url( '/press' ) ); ?>" class="press-categories__link">                                All Press Highlights
                         </a>
                     </li>
@@ -25,9 +25,11 @@ $taxonomy = get_queried_object(  )->taxonomy; ?>
                                 <span class="separater"></span>
                             </li>
                         <?php endif; ?>
-                        <a href="<?php echo get_term_link($term); ?>" class="press-categories__link <?php if( $term->slug == $slug ) : echo 'active'; endif; ?>">
-                            <?php echo $term->name; ?>
-                        </a>
+                        <li>
+                            <a href="<?php echo get_term_link($term); ?>" class="press-categories__link <?php if( $term->slug == $slug ) : echo 'active'; endif; ?>">
+                                <?php echo $term->name; ?>
+                            </a>
+                        </li>
                     <?php endforeach; ?>
                 </ul>
                 <div class="post-categories__selector press-categories__selector">

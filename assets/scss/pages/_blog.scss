@@ -56,7 +56,6 @@
     }
 
     .jcf-list-content {
-      padding: 32px 0 16px;
       max-height: none !important;
       background-color: $background_color;
     }
@@ -83,11 +82,13 @@
     position: relative;
     margin-bottom: 20px;
     overflow: hidden;
+    height: 450px;
     @include mq(tablet) {
       margin-bottom: 25px;
+      height: vw(730px);
+      max-height: 730px;
     }
     a { 
-      display: block;
       &:hover img {
         transform: scale(1.05);
       }
@@ -99,6 +100,8 @@
   }
   &__category {
     position: absolute;
+    top: 20px;
+    right: 20px;
     padding: 10px;
     @include typography(10px, 12px, 10px, 12px, 700, $f-text, $c-white);
     letter-spacing: 0.3em;
