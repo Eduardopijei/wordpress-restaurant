@@ -36,16 +36,18 @@ if( !empty($block['align']) ) {
             </div>
 
             <div class="gallery-grids">
+                <div class="grid-sizer"></div>
                 <?php while( have_rows( 'galleries' ) ): the_row(); ?>
-                    <div class="gallery-images" data-cat="<?php echo $id . get_row_index(); ?>">
-                        <div class="grid-sizer"></div>
-                        <?php $images = get_sub_field( 'gallery' );
+                    <!-- <div class="gallery-images" > -->
+                        <?php 
+                        $cat = $id . get_row_index();
+                        $images = get_sub_field( 'gallery' );
                         foreach( $images as $image ): ?>
-                            <div class="gallery-image">
+                            <div class="gallery-image" data-cat="<?php echo $cat; ?>">
                                 <img data-fancybox="gallery" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
                             </div>
                         <?php endforeach; ?>
-                    </div>
+                    <!-- </div> -->
                 <?php endwhile; ?>
             </div>
         <?php endif; ?>

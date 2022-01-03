@@ -1431,8 +1431,8 @@ function initVenuesModule() {
 function initGalleryGrid() {
   console.log('init');
   if( window.matchMedia("(min-width: 768px)").matches ) {
-    $('.gallery-images').imagesLoaded( function() {
-      $('.gallery-images').masonry({
+    $('.gallery-grids').imagesLoaded( function() {
+      $('.gallery-grids').masonry({
         columnWidth: '.grid-sizer',
         itemSelector: '.gallery-image',
         percentPosition: true,
@@ -1444,9 +1444,9 @@ function initGalleryGrid() {
   $('.gallery-grid__select').on('change', function() {
     let val = $(this).val();
     if( val == 'all' ) {
-      $('.gallery-images').show();
+      $('.gallery-grids').show();
     } else {
-      $('.gallery-images').each(function() {
+      $('.gallery-image').each(function() {
         if( $(this).attr('data-cat') != val ) {
           $(this).hide();
         } else {
@@ -1454,6 +1454,7 @@ function initGalleryGrid() {
         }
       })
     }
+    initGalleryGrid();
   });
   windowResize(initGalleryGrid);
 }
