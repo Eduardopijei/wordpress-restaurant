@@ -670,7 +670,7 @@ function loadAjaxPeople_handler() {
 		'post_type' => 'people',
 		'post_status' => 'publish',
 		'tax_query' => $tax_query,
-		'posts_per_page' => 3,
+		'posts_per_page' => 9,
 		'paged' => $page + 1
 	);
 	$query = new WP_Query( $args );

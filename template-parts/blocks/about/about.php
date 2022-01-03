@@ -49,7 +49,7 @@ if( !empty($block['align']) ) {
                         'terms'         => $people[0]->term_id   
                     )
                 ),  
-                'posts_per_page'    => 3,
+                'posts_per_page'    => 9,
             );
             $query = new WP_Query( $args );
             if( $query->have_posts() ): ?>
