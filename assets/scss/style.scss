@@ -15,6 +15,14 @@
 
 @import "themes/default";
 
+@import "vendors/slick";
+@import "vendors/jquery.datepicker";
+@import "vendors/tribe-events";
+@import "vendors/jcf";
+@import "vendors/fancybox";
+@import "vendors/wpcf7";
+@import "vendors/gdpr";
+
 @import "components/accordion";
 @import "components/buttons";
 @import "components/card-offer";
@@ -76,7 +84,7 @@
 @import "components/post-two-cols";
 @import "components/page-block";
 
-
+// Pages
 @import "pages/single-room";
 @import "pages/single-culinary";
 @import "pages/rooms";

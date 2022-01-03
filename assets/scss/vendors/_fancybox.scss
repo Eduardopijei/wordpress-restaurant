@@ -1,0 +1,116 @@
+// Fancybox
+.fancybox {
+  &__container {
+    background-color: #0000;
+    z-index: 100000;
+  }
+
+  &__backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+
+    @include mq(tablet) {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  &__caption {
+    margin-top: 18px;
+    padding: 0;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: inherit;
+    z-index: 1000;
+
+    @include mq(tablet) {
+      margin-top: -50px;
+    }
+  }
+
+  &__content {
+    @include mq(tablet) {
+      &::after {
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 188px;
+        background: linear-gradient(0, #000000 0%, rgba(0, 0, 0, 0) 100%);
+      }
+    }
+  }
+
+  &__thumbs {
+    display: none;
+  }
+}
+
+.fancybox__button--close {
+  margin-top: 23px;
+  margin-right: 28px;
+  width: 25px;
+  height: 25px;
+
+  &:hover {
+    path {
+      stroke: $accent;
+    }
+  }
+
+  svg {
+    width: 25px;
+    height: 25px;
+
+    path {
+      transition: stroke .3s ease-in-out;
+    }
+  }
+}
+
+.fancybox__nav .carousel__button {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-radius: 0;
+  transition: border .3s ease-in-out;
+
+  &.is-prev {
+    left: 20px;
+    border-width: 8px 16px 8px 0;
+    border-color: #0000 #fff #0000 #0000;
+
+    @include mq(tablet) {
+      left: vw(80px);
+
+      &:hover {
+        border-right-color: $accent;
+      }
+    }
+
+    @include mq(desktop-wide) {
+      left: 80px;
+    }
+  }
+
+  &.is-next {
+    right: 20px;
+    border-width: 8px 0 8px 16px;
+    border-color: #0000 #0000 #0000 #fff;
+
+    @include mq(tablet) {
+      right: vw(80px);
+
+      &:hover {
+        border-left-color: $accent;
+      }
+    }
+
+    @include mq(desktop-wide) {
+      right: 80px;
+    }
+  }
+
+  svg {
+    display: none;
+  }
+}
