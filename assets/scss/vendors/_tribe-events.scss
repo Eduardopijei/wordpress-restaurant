@@ -29,7 +29,9 @@
 .tribe-events-c-ical {
   display: none;
 }
-
+.tribe-events .tribe-events-c-subscribe-dropdown__container {
+  display: none;
+}
 .tribe-common--breakpoint-medium {
   &.tribe-common {
     .tribe-common-form-control-text__input {
