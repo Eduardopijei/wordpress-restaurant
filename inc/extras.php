@@ -692,6 +692,9 @@ function loadAjaxPeople_handler() {
         $res->has_more_pages = true;
     }
 
+	if( $heading = get_field( 'heading', 'people_category_' . $_POST['category'] ) ): 
+		$res->heading = $heading;
+	endif;
 	echo json_encode($res);
 	die;
 }

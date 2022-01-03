@@ -35,7 +35,9 @@ if( !empty($block['align']) ) {
             </div>
         <?php endif; ?>
         <div class="people-container">
-            <h3 class="people-title">Meet Our Team</h3>
+            <?php if( $heading = get_field( 'heading', 'people_category_' . $people[0]->term_id ) ): ?>
+            <h3 class="people-title"><?php echo $heading; ?></h3>
+            <?php endif; ?>
             <?php 
             $args = array(
                 'post_type'         => 'people',

@@ -1033,6 +1033,7 @@ function initAbout() {
           );
         }
         $('#load-more-people').parent().hide();
+        $('.people-title').hide();
       },
       success: function(res) {
         let json = $.parseJSON(res);
@@ -1042,6 +1043,10 @@ function initAbout() {
         $('#load-more-people').attr( 'data-page', json.page );
         if( json.has_more_pages ) {
           $('#load-more-people').parent().show();
+        }
+        if( json.heading ) {
+          $('.people-title').html(json.heading);
+          $('.people-title').show();
         }
       },
       complete: function() {
