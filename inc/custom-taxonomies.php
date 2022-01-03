@@ -65,7 +65,6 @@ function custom_taxonomies() {
 		    'show_in_rest' => true
         )
     );
-    
     // Venue Type
     register_taxonomy(
         'venue_category',  // The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces).
@@ -85,6 +84,17 @@ function custom_taxonomies() {
     register_taxonomy(
         'press_category',  // The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces).
         'press',             // post type name
+        array(
+            'hierarchical' => true,
+            'label' => 'Categories', // display name
+            'query_var' => true,
+		    'show_in_rest' => true
+        )
+    );
+    // People category
+    register_taxonomy(
+        'people_category',  // The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces).
+        'people',             // post type name
         array(
             'hierarchical' => true,
             'label' => 'Categories', // display name

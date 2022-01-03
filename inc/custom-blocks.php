@@ -536,6 +536,18 @@ function my_acf_init_block_types() {
             'icon'              => 'admin-post',
             'keywords'          => array( 'press'),
         ));
+
+        // About Block
+        acf_register_block_type(array(
+            'name'              => 'about',
+            'title'             => __('About'),
+            'description'       => __('About'),
+            'render_template'   => 'template-parts/blocks/about/about.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'admin-post',
+            'keywords'          => array( 'about' ),
+        ));
+        
         /*********************************** ****************************************/
         // Register Custom Image Block
         acf_register_block_type(array(

@@ -41,6 +41,7 @@ jQuery(document).ready(function() {
   isElementExist('.gallery-grid', initGalleryGrid);
   isElementExist('.two-columns-alt', initTwoColumnsAlt);
   isElementExist('.amentities .popup-block', initAmentitiesPopup);
+  isElementExist('.about-block', initAbout);
 
   // viewportCheckerAnimate function
   viewportCheckerAnimate(".a-bg-up", "_animate");
@@ -1010,6 +1011,60 @@ function initAmentitiesPopup() {
   });
 }
 
+function initAbout() {
+  function ajaxPeople(is_load_more = false) {
+    let $parent = $('.people-grid');
+    let category = $('.people-grid').attr('data-cat');
+    let page = $('#load-more-people').attr( 'data-page' ); 
+    $.ajax({
+      url: ajaxurl,
+      type: "POST",
+      data: {
+        action: "loadAjaxPeople",
+        category: category,
+        page: page
+      },
+      beforeSend: function() {
+        if( is_load_more ) {
+          $parent.after('<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>');
+        } else {
+          $parent.html(
+            '<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>'
+          );
+        }
+        $('#load-more-people').parent().hide();
+      },
+      success: function(res) {
+        let json = $.parseJSON(res);
+        $('.lds-roller').remove();
+        let strHTML = json.output;
+        $parent.append(strHTML);
+        $('#load-more-people').attr( 'data-page', json.page );
+        if( json.has_more_pages ) {
+          $('#load-more-people').parent().show();
+        }
+      },
+      complete: function() {
+
+      }
+    }); 
+  }
+
+  $('.people-filter').on('change', function() {
+    let cat = $(this).val();
+    $('#load-more-people').attr('data-page', 0);
+    $('.people-grid').attr('data-cat', cat);
+    ajaxPeople();
+    return false;
+  });
+
+  $('#load-more-people').on('click', function() {
+    $('.people-grid').attr('data-cat', $('.people-filter').val());
+    ajaxPeople( true );
+    return false;
+  });
+}
+
 // 
 function initJournalSlider() {
   $('.journal-slider__slides').slick({
@@ -1429,7 +1484,6 @@ function initVenuesModule() {
 }
 
 function initGalleryGrid() {
-  console.log('init');
   if( window.matchMedia("(min-width: 768px)").matches ) {
     $('.gallery-grids').imagesLoaded( function() {
       $('.gallery-grids').masonry({

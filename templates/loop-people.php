@@ -1,28 +1,12 @@
 <?php 
 $post = $args['id'];
-$name = get_the_title( $post );
-$role = get_field( 'role', $post );
-$image = get_field( 'image', $post );
-if( $image ) {
-    $image_url = $image['sizes']['people-slider'];
-    $image_url_2x = $image['sizes']['people-slider-2x'];
-}
-$excerpt = get_the_excerpt( $post );
-$link = get_the_permalink( $post );
 ?>
-<article class="loop-people" data-id="<?php echo $post; ?>">
-    <a href="<?php echo $link; ?>">
-        <div class="loop-people__image">
-            <img class="lazyload" data-src="<?php echo $image_url; ?>" 
-                <?php echo $image_url_2x ? 'data-srcset="'. $image_url_2x .' 2x"' : ''; ?> 
-                alt="<?php echo $image['alt'] ?: $name; ?>">
-            <h6 class="loop-people__title"><?php echo $name; ?></h6>
-        </div>
-    </a>
-    <div class="loop-people__content">
-        <?php if( $role ) : ?>
-            <h6 class="loop-people__role"><?php echo $role; ?></h6>
-        <?php endif; ?>
-        <div class="loop-people__excerpt"><?php echo $excerpt; ?></div>
-    </div>
-</article>
+<div class="people gradient-overlay">
+    <?php if( $image = get_field( 'image', $post ) ): ?>
+        <img class="people-image"
+                src="<?php echo $image['sizes']['people-grid']; ?>"
+                srcset="<?php echo $image['sizes']['people-grid-2x']; ?> 2x"
+                alt="<?php echo get_the_title( $post ); ?>">
+    <?php endif; ?>
+    <h6 class="people-name"><?php echo get_the_title( $post ); ?></h6> 
+</div>

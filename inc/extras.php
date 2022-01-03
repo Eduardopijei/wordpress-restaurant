@@ -650,3 +650,48 @@ function get_primary_taxonomy_term($post = 0, $taxonomy = 'category') {
     }
     return $primary_term;
 }
+
+
+// Ajax People
+add_action('wp_ajax_loadAjaxPeople', 'loadAjaxPeople_handler');
+add_action('wp_ajax_nopriv_loadAjaxPeople', 'loadAjaxPeople_handler');
+
+function loadAjaxPeople_handler() {
+    $page = $_POST['page'] ? (int)$_POST['page'] : 0;
+	if( $_POST['category'] ):
+		$tax_query = array(
+			array( 
+				'taxonomy' => 'people_category',
+				'field' => 'term_id',
+				'terms' => $_POST['category']
+			));
+	endif;
+	$args = array(
+		'post_type' => 'people',
+		'post_status' => 'publish',
+		'tax_query' => $tax_query,
+		'posts_per_page' => 3,
+		'paged' => $page + 1
+	);
+	$query = new WP_Query( $args );
+	if( $query->have_posts( ) ): 
+		ob_start(); 
+		while( $query->have_posts( ) ): $query->the_post( ); 
+			get_template_part( 'templates/loop', 'people', array( 'id' => get_the_ID(), 'show_more' => true ) );
+		endwhile;
+	else: ?>
+		<div class="no-people">No people found.</div>
+	<?php endif;
+
+	wp_reset_query(  );
+	$res->output = ob_get_clean();
+
+    $res->has_more_pages = false;
+    if ($query->max_num_pages > ( $page + 1 )) {
+        $res->page = $page + 1;
+        $res->has_more_pages = true;
+    }
+
+	echo json_encode($res);
+	die;
+}

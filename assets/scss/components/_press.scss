@@ -43,6 +43,9 @@
         @include mq(desktop-wide) {
           padding-bottom: 130px;
         }
+        li:last-child {
+          border-left: 1px solid $c-gray-0d;
+        }
       }
       &__link {
         position: relative;
