@@ -1,0 +1,14 @@
+.post-type-archive-tribe_events {
+    .event-info {
+      margin-top: 100px;
+      margin-bottom: 0;
+      @include mq(tablet) {
+        margin-top: 200px;
+        margin-bottom: 30px;
+      }
+      @include mq(desktop-wide) {
+        margin-top: 250px;
+        margin-bottom: 50px;
+      }
+    }
+}

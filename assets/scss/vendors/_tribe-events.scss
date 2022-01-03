@@ -1169,11 +1169,12 @@
       &__event {
         &-date-tag {
           &-datetime {
-            padding: 12px;
+            padding: 12px 12px 22px;
           }
 
           &-daynum {
-            font-size: 36px !important;
+            margin-top: -10px;
+            font-size: 42px !important;
             line-height: 64px !important;
           }
 
@@ -1191,6 +1192,7 @@
         &-title {
           a {
             font: 400 42px/44px $f-heading !important;
+            text-transform: initial;
 
             &:hover {
               color: $primary;
