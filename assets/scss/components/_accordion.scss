@@ -4,6 +4,7 @@
     padding: 0 20px;
     margin-bottom: 45px;
     letter-spacing: -0.04em;
+    line-height: 1.2;
     @include mq(tablet) {
       margin-bottom: vw(47px);
     }
@@ -40,7 +41,7 @@
   &-title {
     position: relative;
     padding: 15px 40px 15px 15px;
-    @include typography(12px, 14px, 12px, 17.23px, 700, $f-text, $c-gray-18);
+    @include typography(12px, 14px, 14px, 17.23px, 700, $f-text, $c-gray-18);
     letter-spacing: 0.2em;
     text-transform: uppercase;
     cursor: pointer;
@@ -112,9 +113,18 @@
       max-width: 350px;
       text-align: left;
       li {
+        &::before {
+          top: 10px;
+        }
         @include mq(tablet, max) {
           text-align: left !important;
         }
+      }
+    }
+    a {
+      color: $primary;
+      &:hover {
+        color: $accent;
       }
     }
   }

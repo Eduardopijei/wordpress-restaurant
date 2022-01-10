@@ -49,6 +49,12 @@
   }
   &--dark::after {
     content: none;
+    @include mq(tablet, max) {
+      @include when-inside('.page-weddings') {
+        content: '';
+        height: 190px;
+      }
+    }
   }
 
   &.sticky {
@@ -334,6 +340,9 @@
         @include when-inside('.header--dark:not(.sticky)') {
           display: block
         }
+        @include when-inside('.page-weddings') {
+          display: none !important;
+        }
       }
       @include mq(tablet) {
         @include when-inside(".sticky") {
@@ -355,6 +364,9 @@
         display: none;
 
         @include when-inside('.sticky:not(.header--room)') {
+          display: block;
+        }
+        @include when-inside('.page-weddings') {
           display: block;
         }
       }
@@ -635,6 +647,11 @@
     @include when-inside(".sticky") {
       @include mq(tablet) {
         border-color: $c-black;
+      }
+    }
+    @include when-inside('.page-weddings') {
+      @include mq(tablet, max) {
+        border-color: $c-white !important;
       }
     }
 

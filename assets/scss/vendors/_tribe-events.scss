@@ -1283,3 +1283,14 @@
     fill: $primary !important;
   }
 }
+
+.tribe-filter-bar .tribe-filter-bar-c-pill--button.tribe-filter-bar-c-pill--has-selections .tribe-filter-bar-c-pill__pill {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.tribe-filter-bar .tribe-filter-bar-c-pill--button .tribe-filter-bar-c-pill__pill:focus, .tribe-filter-bar .tribe-filter-bar-c-pill--button .tribe-filter-bar-c-pill__pill:hover {
+  background-color: #7196B5 !important;
+}
+.tribe-common--breakpoint-medium.tribe-events--filter-bar-horizontal.tribe-events .tribe-events-header--has-event-search .tribe-events-c-events-bar__filter-button {
+  display: none;
+}
