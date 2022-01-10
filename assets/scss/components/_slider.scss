@@ -111,7 +111,8 @@
       text-align: center;
     }
     @include mq(tablet) {
-      max-width: vw(520px);
+      width: vw(455px);
+      max-width: 455px;
     }
   }
   &-title {

@@ -323,7 +323,8 @@
     @include when-inside(".media-content-spa") {
       @include mq(tablet) {
         margin-bottom: vw(40px);
-        max-width: vw(420px);
+        width: vw(420px);
+        max-width: 420px;
       }
 
       @include mq(tablet) {
@@ -331,22 +332,19 @@
       }
     }
 
-    @include when-inside('.media-content-tab') {
-      h6 {
-        // color: #212121;
-      }
-    }
-
     @include when-inside(".media-content-post") {
       margin-bottom: 0;
 
       @include mq(tablet) {
-        max-width: vw(450px);
+        width: vw(450px);
+        max-width: 450px;
       }
     }
     h6 {
-      // color: $c-gray-18;
       margin-bottom: 30px;
+      @include when-inside('.single-post') {
+        margin-bottom: 15px;
+      }
     }
     p {
       letter-spacing: 0.01em;

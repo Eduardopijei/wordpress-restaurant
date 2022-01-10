@@ -44,7 +44,10 @@
       text-align: center;
       z-index: 1;
       @include mq(tablet) {
-        bottom: vw(50px);
+        bottom: vw(30px);
+      }
+      @include mq(desktop-wide) {
+        bottom: 30px;
       }
     }
     &-description {

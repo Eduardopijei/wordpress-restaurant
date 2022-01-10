@@ -55,7 +55,10 @@ function custom_post_type() {
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
-		'menu_icon'				=> 'dashicons-media-text'
+		'menu_icon'				=> 'dashicons-media-text',
+		'rewrite'				=> array(
+			'with_front' 		=> false
+		),
 	);
 	register_post_type( 'offer', $args );
 	// Register Culinary Custom Post Type
@@ -106,7 +109,10 @@ function custom_post_type() {
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
-		'menu_icon'				=> 'dashicons-food'
+		'menu_icon'				=> 'dashicons-food',
+		'rewrite'				=> array(
+			'with_front' 		=> false
+		),
 	);
 	register_post_type( 'culinary', $args );
 	// Register Rooms Custom Post Type
@@ -366,7 +372,8 @@ function custom_post_type() {
 		'has_archive'           => false,
 		'exclude_from_search'   => false,
 		'rewrite'				=> array(
-			'slug'				=> 'venues'
+			'slug'				=> 'venues',
+			'with_front' 		=> false
 		),
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',

@@ -126,7 +126,7 @@ main {
 // Default WP image block
 .wp-block-image {
   margin: auto;
-  padding: 0 20px;
+  padding: 0;
   @include mq(tablet) {
     padding: 0 vw(120px);
   }
