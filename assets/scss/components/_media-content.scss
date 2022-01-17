@@ -363,6 +363,10 @@
     p {
       letter-spacing: 0.01em;
       color: $c-black;
+      a {
+        color: $c-black;
+        @include buttonUnderline(1px, $c-black, 1px);
+      }
     }
     .btn {
       min-width: 230px;
