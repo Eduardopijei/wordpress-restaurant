@@ -172,6 +172,9 @@ add_image_size( 'loop-press-2x', 660, 820, true );
 add_image_size( 'people-grid', 460, 600, true );
 add_image_size( 'people-grid-2x', 920, 1200, true );
 
+add_image_size( 'collection-image', 470, 610, true );
+add_image_size( 'collection-image-2x', 940, 1220, true );
+
 //show_admin_bar(false);
 //define( 'WPCF7_AUTOP', false );
 

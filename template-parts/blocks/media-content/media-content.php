@@ -27,10 +27,24 @@ $video = get_field('video');
 if ($direction == true) $className .= ' media-content--left';
 $className .= ' ' . get_field('vertical_direction') ?: 'middle';
 $className .= (get_field('content_padding') == false) ? ' no-padding' : '';
+$has_slider = get_field( 'has_slider' );
+$className .= $has_slider ? ' has-slider' : '';
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <div class="container">
-        <?php if ($image || $video) : ?>
+        <?php if( $has_slider): ?>
+            <?php if( $images = get_field( 'gallery' ) ): ?>
+            <div class="media-content__media">
+                <?php foreach( $images as $image ): ?>
+                    <?php 
+                        get_template_part( 'templates/content-module', 'media', array(
+                            'image' => $image,
+                        ) );
+                    ?>
+                <?php endforeach; ?>
+            </div>
+            <?php endif; ?>
+        <?php elseif ($image || $video) : ?>
             <div class="media-content__media">
                 <?php 
                     get_template_part( 'templates/content-module', 'media', array(

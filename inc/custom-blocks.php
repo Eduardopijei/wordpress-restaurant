@@ -548,6 +548,18 @@ function my_acf_init_block_types() {
             'keywords'          => array( 'about' ),
         ));
         
+
+        // Collection Block
+        acf_register_block_type(array(
+            'name'              => 'collection-block',
+            'title'             => __('Collection Block'),
+            'description'       => __('Collection Block'),
+            'render_template'   => 'template-parts/blocks/collection-block/collection-block.php',
+            'category'          => 'boston-blocks',
+            'icon'              => 'table-row-before',
+            'keywords'          => array( 'collection' ),
+        ));
+
         /*********************************** ****************************************/
         // Register Custom Image Block
         acf_register_block_type(array(

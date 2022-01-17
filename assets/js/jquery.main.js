@@ -42,6 +42,7 @@ jQuery(document).ready(function() {
   isElementExist('.two-columns-alt', initTwoColumnsAlt);
   isElementExist('.amentities .popup-block', initAmentitiesPopup);
   isElementExist('.about-block', initAbout);
+  isElementExist('.media-content.has-slider', initMediaContentSlider);
 
   // viewportCheckerAnimate function
   viewportCheckerAnimate(".a-bg-up", "_animate");
@@ -1068,6 +1069,15 @@ function initAbout() {
     ajaxPeople( true );
     return false;
   });
+}
+
+function initMediaContentSlider() {
+  $('.media-content.has-slider .media-content__media').slick({
+    arrows: false,
+    dots: true,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  })
 }
 
 // 
