@@ -1,4 +1,9 @@
 .page-rowes {
+  .custom-wysiwig {
+    h1 {
+      margin-bottom: 10px;
+    }
+  }
   #collection-media {
     border-top: 1px solid #C4C4C4;
     border-bottom: 1px solid #C4C4C4;
@@ -11,6 +16,7 @@
       }
     }
     .media-content__content {
+      margin: auto;
       padding: 0 20px;
       text-align: center;
     }
@@ -24,6 +30,9 @@
   }
   #rowes-form {
     .media-content__content {
+      @include mq(tablet, max) {
+        margin-top: 60px;
+      }
       @include mq(tablet) {
         text-align: center;
       }
@@ -37,6 +46,13 @@
     .slick-dots {
       @include mq(tablet) {
         text-align: right;
+      }
+    }
+    .media-content__text {
+      h6 {
+        @include mq(tablet) {
+          margin-bottom: 20px;
+        }
       }
     }
   }
