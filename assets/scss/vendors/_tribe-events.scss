@@ -1317,3 +1317,31 @@
 .tribe-filter-bar.tribe-filter-bar--horizontal, .tribe-filter-bar.tribe-filter-bar--vertical {
   background-color: $background_color;
 }
+.tribe-common--breakpoint-medium.tribe-events--filter-bar-horizontal.tribe-events .tribe-events-header--has-event-search .tribe-events-c-events-bar__filter-button-container {
+  display: none;
+}
+.tribe-events-calendar-month__calendar-event-tooltip-featured-image-wrapper {
+  margin-bottom: 0 !important;
+}
+.tribe-events-calendar-month__calendar-event-tooltip__body {
+  position: relative;
+  padding-top: 23px !important;
+  border: 0.6px solid $c-gray-0d !important;
+  z-index: 1;
+}
+.tribe-events-calendar-month__calendar-event-tooltip__body::after {
+  @include mq(tablet) {
+    position: absolute;
+    content: '';
+    bottom: -30px;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: $background_color;
+    border: 0.6px solid $c-gray-0d;
+    border-left: none;
+    border-top: none;
+    transform: translate(-50%, -50%) rotate(45deg);
+    z-index: -1;
+  }
+}
