@@ -4,11 +4,9 @@
       margin-bottom: 0;
       @include mq(tablet) {
         margin-top: 200px;
-        margin-bottom: 30px;
       }
       @include mq(desktop-wide) {
         margin-top: 250px;
-        margin-bottom: 50px;
       }
     }
 }

@@ -381,7 +381,7 @@
   .tribe-events-calendar-list {
     &__month {
       &-separator {
-        margin-bottom: 100px;
+        margin-bottom: 50px;
 
         @include mq(tablet) {
           margin-bottom: 150px;
@@ -702,7 +702,7 @@
 
     .tribe-events-c {
       &-top-bar {
-        margin-bottom: 88px;
+        margin-bottom: 50px;
 
         &__nav-link {
           &.tribe-common-c-btn-icon {
@@ -915,7 +915,6 @@
 .tooltipster-base.tribe-events-tooltip-theme {
   padding: 0;
   background-color: $background_color;
-
   .tribe-events-calendar-month__calendar-event-tooltip {
     &-featured-image-wrapper {
       margin-bottom: 18px;
@@ -1017,7 +1016,7 @@
   .tribe-events-calendar-list {
     &__month {
       &-separator {
-        margin-bottom: 100px;
+        margin-bottom: 50px;
 
         @include mq(tablet) {
           margin-bottom: 150px;
@@ -1031,6 +1030,7 @@
           font: 600 14px/2 $f-text !important;
           letter-spacing: 0.36px;
           color: $c-gray-0d;
+          text-transform: uppercase;
 
           &::after {
             background-color: #101010;
@@ -1171,6 +1171,7 @@
       &__event {
         &-date-tag {
           &-datetime {
+            margin-top: vw(70px);
             padding: 12px 12px 22px;
           }
 
@@ -1216,13 +1217,19 @@
         }
 
         &-details {
-          padding-right: vw(50px) !important;
-          width: 50%;
+          margin-top: vw(70px);
+          padding-right: vw(100px) !important;
+          width: auto;
+          flex-shrink: 1;
         }
 
         &-featured-image {
           &-wrapper {
+            padding: 0 !important;
             width: 50%;
+            @include mq(desktop-wide) {
+              width: 628px;
+            }
           }
 
           &-label {
@@ -1293,4 +1300,20 @@
 }
 .tribe-common--breakpoint-medium.tribe-events--filter-bar-horizontal.tribe-events .tribe-events-header--has-event-search .tribe-events-c-events-bar__filter-button {
   display: none;
+}
+.tribe-common--breakpoint-medium.tribe-common .tribe-common-l-container {
+  @include mq(desktop) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-list__event {
+  flex-wrap: nowrap;
+}
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-month__day:hover:after {
+  background-color: transparent;
+}
+
+.tribe-filter-bar.tribe-filter-bar--horizontal, .tribe-filter-bar.tribe-filter-bar--vertical {
+  background-color: $background_color;
 }

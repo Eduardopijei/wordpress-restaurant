@@ -47,7 +47,7 @@
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     @include mq(tablet) {
-      padding: 11px 15px;
+      padding: 15px;
       &:hover {
         background-color: $accent;
         color: $c-white;
@@ -109,8 +109,7 @@
 
     @include listStyle();
     ul {
-      margin: 30px auto 0;
-      max-width: 350px;
+      margin: 0 auto;
       text-align: left;
       li {
         &::before {
