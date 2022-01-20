@@ -163,7 +163,10 @@ function custom_post_type() {
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
-		'menu_icon'				=> 'dashicons-building'
+		'menu_icon'				=> 'dashicons-building',
+		'rewrite'				=> array(
+			'with_front' 		=> false
+		),
 	);
 	register_post_type( 'room', $args );
 
@@ -215,7 +218,10 @@ function custom_post_type() {
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
-		'menu_icon'				=> 'dashicons-groups'
+		'menu_icon'				=> 'dashicons-groups',
+		'rewrite'				=> array(
+			'with_front' 		=> false
+		),
 	);
 	register_post_type( 'people', $args );
 
@@ -267,7 +273,10 @@ function custom_post_type() {
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
-		'menu_icon'				=> 'dashicons-book'
+		'menu_icon'				=> 'dashicons-book',
+		'rewrite'				=> array(
+			'with_front' 		=> false
+		),
 	);
 	register_post_type( 'experience', $args );
 
@@ -320,7 +329,10 @@ function custom_post_type() {
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
-		'menu_icon'				=> 'dashicons-location'
+		'menu_icon'				=> 'dashicons-location',
+		'rewrite'				=> array(
+			'with_front' 		=> false
+		),
 	);
 	register_post_type( 'location', $args );
 
@@ -430,7 +442,10 @@ function custom_post_type() {
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'page',
-		'menu_icon'				=> 'dashicons-admin-post'
+		'menu_icon'				=> 'dashicons-admin-post',
+		'rewrite'				=> array(
+			'with_front' 		=> false
+		),
 	);
 	register_post_type( 'press', $args );
 

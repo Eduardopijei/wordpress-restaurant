@@ -1009,6 +1009,7 @@ function initAmentitiesPopup() {
     $('.popup-block').fadeIn(300);
     $('html, body').css('overflow', 'hidden');
     $('.popup-block__slides').slick('setPosition');
+    return false;
   });
 }
 

@@ -17,7 +17,9 @@ global $post;
     <?php endif; ?>
     <h6 class="press-loop__title"><?php echo get_the_title( $post ); ?></h6>
     <p class="press-loop__excerpt"><?php echo get_the_excerpt( $post ); ?></p>
-    <a href="<?php echo get_the_permalink( $post ); ?>" class="link">
-        See Article
-    </a>
+    <?php if( $link = get_field( 'external_link', $post ) ): ?>
+        <a href="<?php echo $link; ?>" class="link" target="_blank">
+            See Article
+        </a>
+    <?php endif; ?>
 </article>
