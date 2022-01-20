@@ -698,3 +698,74 @@ function loadAjaxPeople_handler() {
 	echo json_encode($res);
 	die;
 }
+
+
+// Ajax Venues Popup
+add_action('wp_ajax_venuesPopup', 'venuesPopup_handler');
+add_action('wp_ajax_nopriv_venuesPopup', 'venuesPopup_handler');
+
+function venuesPopup_handler() {
+	$id = $_POST['id'];
+	$args = array(
+		'post_type' => 'venue',
+		'post_status' => 'publish',
+		'p' => $id
+	);
+	$query = new WP_Query( $args );
+	ob_start(); 
+	if( $query->have_posts(  ) ):
+		while( $query->have_posts(  ) ): $query->the_post( ); ?>
+		<div id="venues-popup" class="popup-block">
+			<button class="popup-block__close">
+				<svg viewBox="0 0 40 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<line x1="37.9413" y1="40.0607" x2="1.9413" y2="4.06066" stroke="#2F2F2F" stroke-width="3"/>
+					<line x1="1.93934" y1="37.9393" x2="37.9393" y2="1.93934" stroke="#2F2F2F" stroke-width="3"/>
+				</svg>
+			</button>
+			<div class="popup-block__inner">
+				<div class="popup-block__images">
+					<div class="popup-block__slides">
+						<?php $images = get_field( 'gallery', $id );
+						foreach( $images as $image ): ?>
+						<div class="popup-block__slide">
+							<img class="lazyload" 
+								data-src="<?php echo $image['sizes']['popup']; ?>" 
+								data-srcset="<?php echo $image['sizes']['popup-2x']; ?> 2x" 
+								alt="<?php echo $image['alt']; ?>">
+						</div>
+						<?php endforeach; ?>
+					</div>
+				</div>
+				<div class="popup-block__content">
+					<div class="popup-block__content--inner">
+						<h2 class="popup-block__heading"><?php echo get_the_title( ); ?></h2>
+						<div class="three-dots">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+						<?php if( $details = get_field( 'detail', $id ) ): ?>
+						<div class="popup-block__text"><?php echo $details; ?></div>
+						<?php endif; ?>
+					</div>
+					<?php if( $booking_link = get_field( 'booking_link', $id ) ): ?>
+					<div class="popup-block__content--footer">
+						<a href="<?php echo $booking_link['url']; ?>" 
+							class="btn btn--primary"
+							target="<?php echo $booking_link['target'] ?: '_blank'; ?>">
+							<?php echo $booking_link['title'] ?: 'Inquire'; ?>
+						</a>
+					</div>
+					<?php endif; ?>
+					<?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'cta', 'o' => 'f', 'c' => 'btn btn--primary popup-block__cta', 'w' => 'div', 'wc' => 'popup-block__content--footer' ) ); ?>
+				</div>
+			</div>
+		</div>
+		<?php endwhile;
+	endif;
+	wp_reset_query(  );
+	$res->output = ob_get_clean();
+	echo json_encode($res);
+	die;
+}
+

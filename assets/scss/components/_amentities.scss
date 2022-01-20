@@ -153,34 +153,4 @@
       @include coverImage(); 
     }
   }
-  .popup-block {
-    .three-dots {
-      @include mq(tablet) {
-        margin-bottom: vw(50px);
-      }
-      @include mq(desktop-wide) {
-        margin-bottom: 50px;
-      }
-    }
-    &__content {
-      @include mq(tablet) {
-        flex-grow: 1;
-      }
-      &--inner {
-        @include mq(desktop-wide) {
-          padding: 100px ;
-        }
-      }
-      ul {
-        li {
-          margin-bottom: 1em;
-        }
-      }
-      &--footer {
-        .btn {
-          width: 100%;
-        }
-      }
-    }
-  }
 }

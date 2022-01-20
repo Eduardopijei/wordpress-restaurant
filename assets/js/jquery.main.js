@@ -43,7 +43,7 @@ jQuery(document).ready(function() {
   isElementExist('.amentities .popup-block', initAmentitiesPopup);
   isElementExist('.about-block', initAbout);
   isElementExist('.media-content.has-slider', initMediaContentSlider);
-
+  
   // viewportCheckerAnimate function
   viewportCheckerAnimate(".a-bg-up", "_animate");
   viewportCheckerAnimate(".a-bg-down", "_animate");
@@ -129,6 +129,50 @@ jQuery(document).ready(function() {
     e.preventDefault();
     return false;
   });
+
+  // Show Venues Popup
+  $('.venues-modal__btn').on('click', function() {
+    let id = $(this).attr('data-id');
+    $.ajax({
+      url: ajaxurl,
+      type: "POST",
+      data: {
+        action: "venuesPopup",
+        id
+      },
+      success: function( res ) {
+        let json = $.parseJSON(res);
+        $('body').append(json.output);
+      },
+      complete: function() {
+        $('.popup-block__slide img').lazyload();
+        $('.popup-block__slides').slick({
+          arrows: false,
+          dots: true,
+          autoplay: true,
+          autoplaySpeed: 3000
+        });
+        $('.popup-block').fadeIn(300);
+        $('html, body').css('overflow', 'hidden');
+        $('.popup-block__slides').slick('setPosition');
+      },
+      error : function (xhr, ajaxOptions, thrownError){  
+        console.log(xhr.status);          
+        console.log(thrownError);
+      } 
+    })
+    return false;
+  });
+
+  $(document).on('click', '#venues-popup .popup-block__close', function() {
+    $('#venues-popup').fadeOut(300, function() {
+      $(this).remove();
+      $('html, body').removeAttr('style');
+    });
+    return false;
+  });
+
+
 
   $('.link-select').on('change', function() {
     window.location.href = $(this).val();

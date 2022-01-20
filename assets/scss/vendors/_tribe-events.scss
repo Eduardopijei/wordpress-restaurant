@@ -1309,6 +1309,7 @@
 }
 .tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-list__event {
   flex-wrap: nowrap;
+  justify-content: space-between;
 }
 .tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-month__day:hover:after {
   background-color: transparent;

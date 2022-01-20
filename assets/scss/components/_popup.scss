@@ -273,6 +273,27 @@
         width: 100%;
       }
     }
+    #venues-popup &,
+    .amentities & {
+      @include mq(tablet) {
+        flex-grow: 1;
+      }
+      &--inner {
+        @include mq(desktop-wide) {
+          padding: 100px ;
+        }
+      }
+      ul {
+        li {
+          margin-bottom: 1em;
+        }
+      }
+      &--footer {
+        .btn {
+          width: 100%;
+        }
+      }
+    }
   }
   &__heading {
     margin-bottom: 30px;
@@ -305,6 +326,15 @@
       width: 6px;
       height: 6px;
       background-color: $primary;
+    }
+    .venues-module &,
+    .amentities & {
+      @include mq(tablet) {
+        margin-bottom: vw(50px);
+      }
+      @include mq(desktop-wide) {
+        margin-bottom: 50px;
+      }
     }
   }
 }
