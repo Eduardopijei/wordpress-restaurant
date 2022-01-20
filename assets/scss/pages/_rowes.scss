@@ -1,6 +1,6 @@
 .page-rowes {
   .custom-wysiwig {
-    h1 {
+    h1, h2 {
       margin-bottom: 10px;
     }
   }
@@ -48,10 +48,13 @@
         text-align: right;
       }
     }
+    .media-content__title {
+      margin-bottom: 0;
+    }
     .media-content__text {
       h6 {
         @include mq(tablet) {
-          margin-bottom: 20px;
+          margin-bottom: 10px;
         }
       }
     }
