@@ -29,17 +29,25 @@ $opacity = get_field( 'gradient_opacity' );
             <div class="two-cards__inner a-up">
                 <?php while( have_rows( 'cards' ) ): the_row(); ?>
                     <div class="card">
-                        <div class="card-image">
+                        <?php if( $link = get_sub_field( 'link' ) ): ?>
+                            <a href="<?php echo $link['url']; ?>" class="card-image" target="<?php echo $link['target']; ?>">
+                        <?php else: ?>
+                            <div class="card-image">
+                        <?php endif; ?>                      
                             <?php if( $video = get_sub_field( 'video' ) ): ?>
                                     <video loop autoplay playsinline muted preload="metadata" src="<?php echo $video; ?>" poster="<?php echo $image; ?>">
                                         <source src="<?php echo $video; ?>" type="video/mp4">
                                     </video>
                                 </div>
                             <?php else: ?>
-                                <?php get_template_part_args( 'templates/content-module-image', array( 'v' => 'image', 'is' => 'two-cards', 'w' => 'div', 'wc' => 'card-image gradient-overlay' ) ); ?>
+                                <?php get_template_part_args( 'templates/content-module-image', array( 'v' => 'image', 'is' => 'two-cards' ) ); ?>
                             <?php endif; ?>
                             <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'title', 't' => 'h6', 'tc' => 'card-title' ) ); ?>
-                        </div>
+                        <?php if( $link ): ?>
+                            </a>
+                        <?php else: ?>
+                            </div>
+                        <?php endif; ?>
                         <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'description', 't' => 'p', 'tc' => 'card-description' ) ); ?>
                     </div>
                 <?php endwhile; ?>

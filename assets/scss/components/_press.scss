@@ -138,7 +138,7 @@
         margin-top: 10px;
         margin-bottom: 20px;
         padding: 0 20px;
-        @include max-line();
+        // @include max-line();
         @include mq(tablet) {
           margin-top: vw(15px);
           margin-bottom: vw(30px);
