@@ -46,33 +46,14 @@ endif;
                         endforeach; ?>
                     </div>
                 <?php endif; ?>
-            <?php else: ?>
-                <?php 
-                $terms = get_terms([
-                    'taxonomy'      => 'venue_category',
-                    'hide_empty'    => false,
-                ]);
-                if ($terms) : ?>
-                <div class="venues-module__filter a-up a-delay-3">
-                    <div class="venues-module__filter--selects">
-                        <select class="venues-module__filter--select" jcf>
-                            <option value="">All</option>
-                            <?php foreach ($terms as $term) : ?>
-                                <option value="<?php echo $term->slug; ?>">
-                                    <?php echo $term->name; ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                </div>
-                <?php endif; ?>
+            <?php endif; ?>
             </div>
         <?php 
         $args = array(
             'post_type'             => 'venue',
             'post_status'           => 'publish',
             'ignore_sticky_posts'   => true,
-            'posts_per_page'        => -1
+            'posts_per_page'        => 2
         ); 
         $query = new WP_Query($args);
         if ($query->have_posts()) : ?>
@@ -82,9 +63,12 @@ endif;
                     get_template_part('templates/loop', 'venues', array( 'post' => $post ) );
                 endwhile; ?>
             </div>
-            <?php endif;
-            wp_reset_query(  ); ?>
-        <?php endif; ?>
-        <?php get_template_part_args( 'templates/content-module-cta', array( 'v' => 'cta', 'o' => 'f', 'c' => 'btn venues-module__cta', 'w' => 'div', 'wc' => 'venues-module__cta--wrapper' ) ); ?>
+        <?php endif;
+        if( $query->max_num_pages > 1 ): ?>
+            <div class="venues-module__cta--wrapper">
+                <button class="btn venues-module__cta" id="load-more-venues" data-page="1">Load More</button>
+            </div>
+        <?php endif;
+        wp_reset_query(  ); ?>
     </div>
 </section>

@@ -544,11 +544,13 @@ function loadAjaxVenues_handler() {
 				'terms' => $_POST['category']
 			));
 	endif;
+    $page = $_POST['page'] ? (int)$_POST['page'] : 0;
 	$args = array(
 		'post_type' => 'venue',
 		'post_status' => 'publish',
 		'tax_query' => $tax_query,
-		'posts_per_page' => -1
+		'posts_per_page' => 2,
+		'paged' => $page + 1
 	);
 	$query = new WP_Query( $args );
 	if( $query->have_posts( ) ): 

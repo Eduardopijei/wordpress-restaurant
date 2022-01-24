@@ -32,7 +32,7 @@ $opacity = get_field( 'gradient_opacity' );
                         <?php if( $link = get_sub_field( 'link' ) ): ?>
                             <a href="<?php echo $link['url']; ?>" class="card-image" target="<?php echo $link['target']; ?>">
                         <?php else: ?>
-                            <div class="card-image">
+                            <div class="card-image gradient-overlay">
                         <?php endif; ?>                      
                             <?php if( $video = get_sub_field( 'video' ) ): ?>
                                     <video loop autoplay playsinline muted preload="metadata" src="<?php echo $video; ?>" poster="<?php echo $image; ?>">

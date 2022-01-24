@@ -22,7 +22,9 @@
     }
     &-image {
       position: relative;
+      display: block;
       height: 400px;
+      overflow: hidden;
       @include mq(tablet) {
         height: vw(730px);
         max-height: 730px;
@@ -33,6 +35,12 @@
       img,
       video {
         @include coverImage();
+        transition: all .5s ease-in-out;
+      }
+    }
+    a.card-image:hover {
+      img {
+        transform: scale(1.05);
       }
     }
     &-title {
@@ -42,7 +50,7 @@
       @include typography(14px, 18px, 14px, 18px, 700, $f-text, $c-white);
       letter-spacing: 0.25em;
       text-align: center;
-      z-index: 1;
+      z-index: 2;
       @include mq(tablet) {
         bottom: vw(30px);
       }

@@ -43,6 +43,7 @@ jQuery(document).ready(function() {
   isElementExist('.amentities .popup-block', initAmentitiesPopup);
   isElementExist('.about-block', initAbout);
   isElementExist('.media-content.has-slider', initMediaContentSlider);
+
   
   // viewportCheckerAnimate function
   viewportCheckerAnimate(".a-bg-up", "_animate");
@@ -1512,24 +1513,29 @@ function initOffersGrid() {
 function initVenuesModule() {
   function ajaxVenues() {
     let $parent = $('.venues-module__grid');
-    let category = $('.venues-module__filter--select').val();
+    let page = $('#load-more-venues').attr( 'data-page' ); 
     $.ajax({
       url: ajaxurl,
       type: "POST",
       data: {
         action: "loadAjaxVenues",
-        category: category
+        page: page
       },
       beforeSend: function() {
-        $parent.html(
+        $parent.append(
           '<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>'
         );
+        $('#load-more-venues').parent().hide();
       },
       success: function(res) {
         let json = $.parseJSON(res);
         $('.lds-roller').remove();
         let strHTML = json.output;
         $parent.append(strHTML);
+        $('#load-more-venues').attr( 'data-page', json.page );
+        if( json.has_more_pages ) {
+          $('#load-more-venues').parent().show();
+        }
       },
       complete: function() {
         $('.loop-venues--img img').lazyload();
@@ -1539,6 +1545,11 @@ function initVenuesModule() {
 
   $('.venues-module__filter--select').on('change', function() {
     ajaxVenues();
+    return false;
+  });
+  
+  $('#load-more-venues').on('click', function() {
+    ajaxVenues( );
     return false;
   });
 }
@@ -1575,7 +1586,6 @@ function initGalleryGrid() {
 
 function initTwoColumnsAlt() {
   if(window.matchMedia("(max-width: 768px)").matches) {
-    console.log('init');
     $('.two-columns-alt.only-image .row').slick({
       arrows: false,
       dots: true,
