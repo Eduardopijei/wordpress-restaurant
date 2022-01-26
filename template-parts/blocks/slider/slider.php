@@ -32,7 +32,10 @@ if( !empty($block['align']) ) {
                 <div class="slide">
                     <div class="slide-img">
                         <?php if( $video = get_sub_field( 'video' ) ): ?>
-                            <a href="<?php echo $video; ?>" data-fancybox="gallery" rel="<?php echo $id; ?>"  data-caption="<?php the_sub_field('caption'); ?>">
+                            <video loop autoplay playsinline muted preload="metadata" src="<?php echo $video; ?>">
+                                <source src="<?php echo $video; ?>" type="video/mp4">
+                            </video>
+                            <!-- <a href="<?php echo $video; ?>" data-fancybox="gallery" rel="<?php echo $id; ?>"  data-caption="<?php the_sub_field('caption'); ?>">
                                 <img class="lazyload" data-src="<?php echo $image['sizes']['slide-image']; ?>" alt="<?php echo $image['alt']; ?>">
                                 <span class="play">
                                     <svg width="103" height="103" viewBox="0 0 103 103" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +43,7 @@ if( !empty($block['align']) ) {
                                         <path d="M66.6016 51.5L43.9493 64.5783L43.9493 38.4217L66.6016 51.5Z" fill="#F5F6F1"/>
                                     </svg>
                                 </span>
-                            </a>
+                            </a> -->
                         <?php else: ?>
                             <?php if( $image ): ?>
                                 <a href="<?php echo $image['url']; ?>" data-fancybox="gallery" rel="<?php echo $id; ?>" data-caption="<?php the_sub_field('caption'); ?>">
