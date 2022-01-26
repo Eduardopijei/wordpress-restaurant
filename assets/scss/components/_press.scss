@@ -103,7 +103,13 @@
       @include mq(tablet, max) {
         margin-bottom: svw(63px);
       }
+      @include mq(tablet) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
       &__img {
+        width: 100%;
         height: 450px;
         overflow: hidden;
         @include mq(tablet) {
@@ -150,6 +156,9 @@
       }
       .link {
         color: $c-black;
+        @include mq(tablet) {
+          margin-top: auto;
+        }
         &::after {
           border-bottom-color: $c-black;
         }

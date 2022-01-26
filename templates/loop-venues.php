@@ -1,7 +1,15 @@
-<?php $post = $args['post']; ?>
+<?php 
+$post = $args['post']; 
+$image_type = $args['image_type'];  ?>
 <div class="loop-venues">
     <div class="loop-venues--img gradient-overlay">
-        <?php if( $image = get_field( 'image', $post ) ): ?>
+        <?php 
+        if( $image_type == 'meeting' ) :
+            $image = get_field( 'image', $post );
+        else: 
+            $image = get_field( 'wedding_image', $post );
+        endif;
+        if( $image ): ?>
             <a href="#" class="venues-modal__btn" data-id="<?php echo $post->ID; ?>">
                 <img class="lazyload" 
                     data-src="<?php echo $image['sizes']['venue-image']; ?>" 

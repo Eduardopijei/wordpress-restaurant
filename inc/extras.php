@@ -556,7 +556,8 @@ function loadAjaxVenues_handler() {
 	if( $query->have_posts( ) ): 
 		ob_start(); 
 		while( $query->have_posts( ) ): $query->the_post( ); 
-			get_template_part( 'templates/loop', 'venues', array( 'post' => get_the_ID() ) );
+			global $post;
+			get_template_part( 'templates/loop', 'venues', array( 'post' => $post, 'image_type' => $_POST['type'] ) );
 		endwhile;
 	else: ?>
 		<div class="no-venue">No venues found.</div>

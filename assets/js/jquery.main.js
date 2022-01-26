@@ -132,7 +132,7 @@ jQuery(document).ready(function() {
   });
 
   // Show Venues Popup
-  $('.venues-modal__btn').on('click', function() {
+  $(document).on('click', '.venues-modal__btn', function(e) {
     let id = $(this).attr('data-id');
     $.ajax({
       url: ajaxurl,
@@ -575,7 +575,7 @@ function initHeader() {
     }, 500);
   });
   // Close popup
-  $('.popup-close').on('click', function() {
+  $(document).on('click', '.popup-close', function() {
     $('.popup').fadeOut(300);
   });
 }
@@ -1514,12 +1514,14 @@ function initVenuesModule() {
   function ajaxVenues() {
     let $parent = $('.venues-module__grid');
     let page = $('#load-more-venues').attr( 'data-page' ); 
+    let type = $parent.attr('data-type');
     $.ajax({
       url: ajaxurl,
       type: "POST",
       data: {
         action: "loadAjaxVenues",
-        page: page
+        page: page,
+        type: type
       },
       beforeSend: function() {
         $parent.append(

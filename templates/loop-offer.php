@@ -8,7 +8,7 @@ $excerpt = get_the_excerpt( $id );
 $cta = get_field('cta', $id); 
 $terms = get_the_terms( $id, 'offer_category'); ?>
 <article class="loop-offer" data-id="<?php echo $id; ?>">
-    <a href="<?php echo $cta['url']; ?>" target="<?php echo $cta['target']; ?>">
+    <a href="<?php echo get_permalink( $id ); ?>">
         <div class="loop-offer__image">
             <img data-src="<?php echo $img_src; ?>" 
                 data-srcset="<?php echo $img_src_2x; ?>" 
@@ -26,7 +26,7 @@ $terms = get_the_terms( $id, 'offer_category'); ?>
         </a>
     <?php endif; ?>
     <div class="loop-offer__content">
-        <h6 class="loop-offer__title a-up"><?php echo $title; ?></h6>
+        <a href="<?php echo get_permalink( $id ); ?>"><h6 class="loop-offer__title a-up"><?php echo $title; ?></h6></a>
         <?php if ($excerpt) : ?>
             <p class="loop-offer__excerpt a-up a-delay-1"><?php echo $excerpt; ?></p>
         <?php endif; ?>

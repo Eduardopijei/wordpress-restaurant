@@ -4,14 +4,38 @@
     "fields": [
         {
             "key": "field_6192643d5d021",
-            "label": "Image",
+            "label": "Meeting Image",
             "name": "image",
             "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_61f0233f65c88",
+            "label": "Wedding Image",
+            "name": "wedding_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -163,6 +187,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1642861903,
-    "local_file": "C:UsersHadesLocal Sitesboston-harbourapppublic\/wp-content\/themes\/boston\/acf-json\/group_619264378e2c2.json"
+    "modified": 1643127637
 }

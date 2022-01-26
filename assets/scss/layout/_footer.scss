@@ -145,6 +145,8 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 54px 30px;
+      width: 100%;
+      overflow: hidden;
     }
     @include mq(tablet) {
       display: flex;

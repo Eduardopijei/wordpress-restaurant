@@ -23,11 +23,12 @@ if( !empty($block['align']) ) {
 // Load values and assign defaults.
 $heading = get_field( 'heading' );
 $subheading = get_field( 'sub_heading' );
+$image_type = get_field( 'image_type' );
 if( empty( $subheading ) ): 
     $className .= ' no-description';
 endif;
 ?>
-<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
+<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>" data-type="<?php echo $image_type; ?>">
     <div class="container">
         <div class="venues-module__info">
             <?php if( $heading ): ?>
@@ -36,39 +37,39 @@ endif;
             <?php if( $subheading ): ?>
                 <h6 class="venues-module__subheading a-up a-delay-1"><?php echo $subheading; ?></h6>
             <?php endif; ?>
-            <?php if( get_field( 'type' ) == 'custom' ): ?>
+        </div>
+        <?php if( get_field( 'type' ) == 'custom' ): ?>
+            <?php if( $venues = get_field( 'venues' ) ): ?>
+                <div class="venues-module__grid">
+                    <?php 
+                    foreach( $venues as $venue ): 
+                        get_template_part('templates/loop', 'venues', array( 'post' => $venue, 'image_type' => $image_type ) );
+                    endforeach; ?>
                 </div>
-                <?php if( $venues = get_field( 'venues' ) ): ?>
-                    <div class="venues-module__grid">
-                        <?php 
-                        foreach( $venues as $venue ): 
-                            get_template_part('templates/loop', 'venues', array( 'post' => $venue ) );
-                        endforeach; ?>
-                    </div>
-                <?php endif; ?>
             <?php endif; ?>
-            </div>
-        <?php 
-        $args = array(
-            'post_type'             => 'venue',
-            'post_status'           => 'publish',
-            'ignore_sticky_posts'   => true,
-            'posts_per_page'        => 2
-        ); 
-        $query = new WP_Query($args);
-        if ($query->have_posts()) : ?>
-            <div class="venues-module__grid">
-                <?php while ($query->have_posts()) : $query->the_post(); 
-                    global $post;
-                    get_template_part('templates/loop', 'venues', array( 'post' => $post ) );
-                endwhile; ?>
-            </div>
-        <?php endif;
-        if( $query->max_num_pages > 1 ): ?>
-            <div class="venues-module__cta--wrapper">
-                <button class="btn venues-module__cta" id="load-more-venues" data-page="1">Load More</button>
-            </div>
-        <?php endif;
-        wp_reset_query(  ); ?>
+        <?php else: ?>
+            <?php 
+            $args = array(
+                'post_type'             => 'venue',
+                'post_status'           => 'publish',
+                'ignore_sticky_posts'   => true,
+                'posts_per_page'        => 2
+            ); 
+            $query = new WP_Query($args);
+            if ($query->have_posts()) : ?>
+                <div class="venues-module__grid">
+                    <?php while ($query->have_posts()) : $query->the_post(); 
+                        global $post;
+                        get_template_part('templates/loop', 'venues', array( 'post' => $post, 'image_type' => $image_type ) );
+                    endwhile; ?>
+                </div>
+            <?php endif;
+            if( $query->max_num_pages > 1 ): ?>
+                <div class="venues-module__cta--wrapper">
+                    <button class="btn venues-module__cta" id="load-more-venues" data-page="1">Load More</button>
+                </div>
+            <?php endif;
+            wp_reset_query(  ); ?>
+        <?php endif; ?>
     </div>
 </section>
