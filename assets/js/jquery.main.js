@@ -1571,7 +1571,7 @@ function initGalleryGrid() {
   $('.gallery-grid__select').on('change', function() {
     let val = $(this).val();
     if( val == 'all' ) {
-      $('.gallery-grids').show();
+      $('.gallery-image').show();
     } else {
       $('.gallery-image').each(function() {
         if( $(this).attr('data-cat') != val ) {

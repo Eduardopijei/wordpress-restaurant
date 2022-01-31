@@ -1,4 +1,9 @@
 .gallery-grid {
+  &s {
+    @include mq(tablet) {
+      width: 100% !important;
+    }
+  }
   &__heading {
     margin-bottom: 30px;
     text-align: center;

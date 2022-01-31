@@ -60,12 +60,12 @@ if( !empty($block['align']) ) {
                                                     <video loop autoplay playsinline muted preload="metadata" src="<?php echo $video; ?>">
                                                         <source src="<?php echo $video; ?>" type="video/mp4">
                                                     </video>
-                                                <?php else: ?>
-                                                    <?php if ( $image ): ?>
-                                                        <a href="<?php echo $image['url']; ?>" data-fancybox="gallery" rel="<?php echo $id; ?>" data-caption="<?php the_sub_field('caption'); ?>">
-                                                            <img class="lazyload" data-src="<?php echo $image['sizes']['slide-image']; ?>" alt="<?php echo $image['alt']; ?>">
-                                                        </a>
-                                                    <?php endif; ?>
+                                                <?php elseif( $video = get_sub_field( 'video_url' ) ): ?>
+                                                    <iframe src="https://player.vimeo.com/video/<?php echo $video; ?>?autoplay=true&controls=false&loop=true&muted=true" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                                <?php elseif( $image ): ?>
+                                                    <a href="<?php echo $image['url']; ?>" data-fancybox="gallery" rel="<?php echo $id; ?>" data-caption="<?php the_sub_field('caption'); ?>">
+                                                        <img class="lazyload" data-src="<?php echo $image['sizes']['slide-image']; ?>" alt="<?php echo $image['alt']; ?>">
+                                                    </a>
                                                 <?php endif; ?>
                                                 <?php if ($caption = get_sub_field('caption')) : ?>
                                                     <p class="slide-caption"><?php echo $caption; ?></p>

@@ -22,7 +22,9 @@ if ( ! $event->thumbnail->exists ) {
 
 ?>
 <div class="tribe-events-calendar-list__event-featured-image-wrapper tribe-common-g-col">
-	<a
+	<?php $additional_fields = tribe_get_custom_fields();
+	$tag = ( $additional_fields['Is clickable'] == 'Yes' ) ? 'a' : 'span'; ?>
+	<<?php echo $tag; ?>
 		href="<?php echo esc_url( $event->permalink ); ?>"
 		title="<?php echo esc_attr( $event->title ); ?>"
 		rel="bookmark"
@@ -41,7 +43,7 @@ if ( ! $event->thumbnail->exists ) {
 			<?php endif; ?>
 			class="tribe-events-calendar-list__event-featured-image"
 		/>
-	</a>
+	</<?php echo $tag; ?>>
 	<span class="tribe-events-calendar-list__event-featured-image-label">
 		<?php $this->template( 'list/event/date/featured' ); ?>
 	</span>

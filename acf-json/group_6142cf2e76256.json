@@ -84,6 +84,25 @@
                     "mime_types": ""
                 },
                 {
+                    "key": "field_61f17e1fe6189",
+                    "label": "Video Url",
+                    "name": "video_url",
+                    "type": "text",
+                    "instructions": "You should use vimeo video id only.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
                     "key": "field_6142cf52b0738",
                     "label": "Title",
                     "name": "title",
@@ -160,5 +179,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1639490285
+    "show_in_rest": 0,
+    "modified": 1643216645
 }

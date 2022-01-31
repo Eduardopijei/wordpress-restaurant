@@ -771,4 +771,3 @@ function venuesPopup_handler() {
 	echo json_encode($res);
 	die;
 }
-
