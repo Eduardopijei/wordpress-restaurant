@@ -112,10 +112,6 @@
           &-icon-svg {
             display: none;
           }
-
-          &:last-child input {
-            border-left: 0;
-          }
         }
       }
 
@@ -763,10 +759,6 @@
           &-icon-svg {
             display: none;
           }
-
-          &:last-child input {
-            border-left: 0;
-          }
         }
       }
 
@@ -1349,4 +1341,11 @@
     transform: translate(-50%, -50%) rotate(45deg);
     z-index: -1;
   }
+}
+.tribe-events-calendar-list__event-details .button-groups {
+  margin-top: 20px;
+}
+.tribe-events-calendar-list__event-details .button-groups .cta {
+  margin: 10px;
+  margin-left: 0;
 }

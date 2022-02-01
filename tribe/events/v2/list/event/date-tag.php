@@ -25,23 +25,43 @@ use Tribe__Date_Utils as Dates;
  * If the request date is after the event start date, show the request date to avoid users from seeing dates "in the
  * past" in relation to the date they requested (or today's date).
  */
-$display_date = empty( $is_past ) && ! empty( $request_date )
+$start_date = empty( $is_past ) && ! empty( $request_date )
 	? max( $event->dates->start_display, $request_date )
 	: $event->dates->start_display;
+$end_date = empty( $is_past ) && ! empty( $request_date )
+? max( $event->dates->end_display, $request_date )
+: $event->dates->end_display;
 
-$event_month  = $display_date->format_i18n( 'F' );
-$event_month_mobile   = $display_date->format_i18n( 'M' );
-$event_day_num   = $display_date->format_i18n( 'j' );
-$event_date_attr = $display_date->format( Dates::DBDATEFORMAT );
+$start_event_month  = $start_date->format_i18n( 'F' );
+$start_event_month_mobile   = $start_date->format_i18n( 'M' );
+$start_event_day_num   = $start_date->format_i18n( 'j' );
+$start_event_date_attr = $start_date->format( Dates::DBDATEFORMAT );
+
+if( $end_date ) {
+	$end_event_month  = $end_date->format_i18n( 'F' );
+	$end_event_month_mobile   = $end_date->format_i18n( 'M' );
+	$end_event_day_num   = $end_date->format_i18n( 'j' );
+	$end_event_date_attr = $end_date->format( Dates::DBDATEFORMAT );
+}
 ?>
 <div class="tribe-events-calendar-list__event-date-tag tribe-common-g-col">
-	<time class="tribe-events-calendar-list__event-date-tag-datetime" datetime="<?php echo esc_attr( $event_date_attr ); ?>">
+	<time class="tribe-events-calendar-list__event-date-tag-datetime" 
+		datetime="<?php echo esc_attr( $start_event_date_attr ); ?>"
+		datetime="<?php echo esc_attr( $start_event_date_attr ); ?>">
 		<span class="tribe-events-calendar-list__event-date-tag-daynum">
-			<?php echo esc_html( $event_day_num ); ?>
+			<?php echo esc_html( $start_event_day_num ); ?>
+			<?php 
+			if( $end_date && $end_event_day_num != $start_event_day_num ) {
+				echo ' - ' . esc_html( $end_event_day_num );
+			} ?>
 		</span>
 		<span class="tribe-events-calendar-list__event-date-tag-month">
-			<span class="mobile"><?php echo esc_html( $event_month_mobile ); ?></span>
-			<span class="desktop"><?php echo esc_html( $event_month ); ?></span>
+			<span class="mobile"><?php echo esc_html( $start_event_month_mobile ); ?></span>
+			<span class="desktop"><?php echo esc_html( $start_event_month ); ?></span>
+			<?php if( $end_date && $end_event_month != $start_event_month ) { ?>
+			<span class="mobile"><?php echo esc_html( $end_event_month_mobile ); ?></span>
+			<span class="desktop"><?php echo esc_html( $end_event_month ); ?></span>
+			<?php } ?>
 		</span>
 	</time>
 </div>

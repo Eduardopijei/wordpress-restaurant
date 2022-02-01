@@ -32,7 +32,6 @@ $taxonomy = get_queried_object(  )->taxonomy; ?>
                 </ul>
                 <div class="post-categories__selector press-categories__selector">
                     <select name="" id="" class="press-categories__select link-select" jcf-select>
-                        <option value="<?php echo esc_url( home_url( '/press' ) ); ?>">All Press Highlights</option>
                         <?php foreach( $terms as $term ): ?>
                             <option value="<?php echo get_term_link($term); ?>">    
                                 <?php echo $term->name; ?>
