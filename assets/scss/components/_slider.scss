@@ -87,6 +87,11 @@
     }
 
   }
+  &-video {
+    &::after {
+      content: none;
+    }
+  }
   &-caption {
     position: absolute;
     width: 100%;

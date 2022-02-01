@@ -40,6 +40,19 @@ $event_classes = tribe_get_post_class( [ 'tribe-events-calendar-list__event', 't
 				<?php $this->template( 'list/event/description', [ 'event' => $event ] ); ?>
 				<?php $this->template( 'list/event/cost', [ 'event' => $event ] ); ?>
 
+				<div class="button-groups" style="margin-top: 20px">
+					<?php $additional_fields = tribe_get_custom_fields(); ?>
+					<?php if( $additional_fields['Learn More'] ): ?>
+						<a href="<?php echo $additional_fields['Learn More']; ?>" class="cta">
+							Learn More
+						</a>
+					<?php endif; ?>
+					<?php if( $additional_fields['Book Now'] ): ?>
+						<a href="<?php echo $additional_fields['Book Now']; ?>" class="cta" target="_blank">
+							Book Now
+						</a>
+					<?php endif; ?>
+				</div>
 			</div>
 		</article>
 	</div>

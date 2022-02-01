@@ -89,10 +89,7 @@ function custom_taxonomies() {
             'label' => 'Categories', // display name
             'query_var' => true,
 		    'show_in_rest' => true,
-            'rewrite' => array(
-                'slug' => 'press_category',    // This controls the base slug that will display before each term
-                'with_front' => false  // Don't display the category base before
-            ),
+            'rewrite' => false,
         )
     );
     // People category
@@ -103,7 +100,8 @@ function custom_taxonomies() {
             'hierarchical' => true,
             'label' => 'Categories', // display name
             'query_var' => true,
-		    'show_in_rest' => true
+		    'show_in_rest' => true,
+            'rewrite' => false,
         )
     );
 }
