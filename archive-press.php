@@ -24,7 +24,7 @@ $taxonomy = get_queried_object(  )->taxonomy; ?>
                     $count = count( $terms );
                     foreach( $terms as $term): ?>
                         <li>
-                            <a href="<?php echo get_term_link($term); ?>" class="press-categories__link <?php if( $term->slug == $slug ) : echo 'active'; endif; ?>">
+                            <a href="<?php echo get_term_link($term); ?>" class="press-categories__link <?php if( $term->slug == 'press' ) : echo 'active'; endif; ?>">
                                 <?php echo $term->name; ?>
                             </a>
                         </li>

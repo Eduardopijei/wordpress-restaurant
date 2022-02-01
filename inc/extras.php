@@ -771,3 +771,17 @@ function venuesPopup_handler() {
 	echo json_encode($res);
 	die;
 }
+
+function fwp_archive_per_page( $query ) {
+    if ( $query->is_main_query() && is_post_type_archive( 'press' ) ) {
+		$tax_query = array(
+			array(
+				'taxonomy' => 'press_category',
+				'field' => 'slug',
+				'terms' => 'press'
+			)
+		);
+        $query->set( 'tax_query', $tax_query );
+    }
+}
+add_filter( 'pre_get_posts', 'fwp_archive_per_page' );

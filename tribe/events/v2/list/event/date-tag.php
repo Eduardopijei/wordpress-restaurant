@@ -56,11 +56,12 @@ if( $end_date ) {
 			} ?>
 		</span>
 		<span class="tribe-events-calendar-list__event-date-tag-month">
-			<span class="mobile"><?php echo esc_html( $start_event_month_mobile ); ?></span>
-			<span class="desktop"><?php echo esc_html( $start_event_month ); ?></span>
 			<?php if( $end_date && $end_event_month != $start_event_month ) { ?>
-			<span class="mobile"><?php echo esc_html( $end_event_month_mobile ); ?></span>
-			<span class="desktop"><?php echo esc_html( $end_event_month ); ?></span>
+				<span class="mobile"><?php echo esc_html( $start_event_month_mobile ) . ' - ' . esc_html( $end_event_month_mobile ); ?></span>
+				<span class="desktop"><?php echo esc_html( $start_event_month_mobile ) . ' - ' . esc_html( $end_event_month_mobile ); ?></span>
+			<?php } else { ?>
+				<span class="mobile"><?php echo esc_html( $start_event_month_mobile ); ?></span>
+				<span class="desktop"><?php echo esc_html( $start_event_month ); ?></span>
 			<?php } ?>
 		</span>
 	</time>
