@@ -23,12 +23,12 @@ if( !empty($block['align']) ) {
 // Load values and assign defaults.
 $heading = get_field( 'heading' );
 $subheading = get_field( 'sub_heading' );
-$image_type = get_field( 'image_type' );
+$type = get_field( 'image_type' );
 if( empty( $subheading ) ): 
     $className .= ' no-description';
 endif;
 ?>
-<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>" data-type="<?php echo $image_type; ?>">
+<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <div class="container">
         <div class="venues-module__info">
             <?php if( $heading ): ?>
@@ -40,10 +40,10 @@ endif;
         </div>
         <?php if( get_field( 'type' ) == 'custom' ): ?>
             <?php if( $venues = get_field( 'venues' ) ): ?>
-                <div class="venues-module__grid">
+                <div class="venues-module__grid"  data-type="<?php echo $type; ?>"> 
                     <?php 
                     foreach( $venues as $venue ): 
-                        get_template_part('templates/loop', 'venues', array( 'post' => $venue, 'image_type' => $image_type ) );
+                        get_template_part('templates/loop', 'venues', array( 'post' => $venue, 'image_type' => $type ) );
                     endforeach; ?>
                 </div>
             <?php endif; ?>
@@ -53,14 +53,21 @@ endif;
                 'post_type'             => 'venue',
                 'post_status'           => 'publish',
                 'ignore_sticky_posts'   => true,
+                'tax_query'             => array(
+                    array( 
+                        'taxonomy' => 'venue_category',
+                        'field' => 'slug',
+                        'terms' => $type
+                    )
+                ),
                 'posts_per_page'        => 2
             ); 
             $query = new WP_Query($args);
             if ($query->have_posts()) : ?>
-                <div class="venues-module__grid">
+                <div class="venues-module__grid" data-type="<?php echo $type; ?>">
                     <?php while ($query->have_posts()) : $query->the_post(); 
                         global $post;
-                        get_template_part('templates/loop', 'venues', array( 'post' => $post, 'image_type' => $image_type ) );
+                        get_template_part('templates/loop', 'venues', array( 'post' => $post, 'image_type' => $type ) );
                     endwhile; ?>
                 </div>
             <?php endif;

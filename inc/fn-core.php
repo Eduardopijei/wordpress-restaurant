@@ -227,7 +227,7 @@ function am_add_javascript( ) {
             wp_enqueue_script('am_'.sanitize_title($am_link), $am_link,array('jquery'));
         }  
         $am_files = array(
-            '/assets/js/jquery.daterangepicker.min.js',
+            '/assets/js/custom.daterangepicker.js',
             '/assets/js/jquery.main.js'); // example: array('script1', 'script2');
         foreach($am_files as $am_file){
             wp_enqueue_script('am_'.sanitize_title($am_file), get_theme_file_uri($am_file), array('jquery'), '', true );

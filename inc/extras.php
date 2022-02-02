@@ -536,12 +536,12 @@ add_action('wp_ajax_loadAjaxVenues', 'loadAjaxVenues_handler');
 add_action('wp_ajax_nopriv_loadAjaxVenues', 'loadAjaxVenues_handler');
 
 function loadAjaxVenues_handler() {
-	if( $_POST['category'] ):
+	if( $_POST['type'] ):
 		$tax_query = array(
 			array( 
 				'taxonomy' => 'venue_category',
 				'field' => 'slug',
-				'terms' => $_POST['category']
+				'terms' => $_POST['type']
 			));
 	endif;
     $page = $_POST['page'] ? (int)$_POST['page'] : 0;
