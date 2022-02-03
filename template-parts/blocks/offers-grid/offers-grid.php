@@ -38,7 +38,7 @@ if( !empty($block['align']) ) {
         <?php $args = array(
             'post_type' => 'offer',
             'post_status' => 'publish',
-            'posts_per_page' => 9
+            'posts_per_page' => 6
         );
         $query = new WP_Query( $args );
         if( $query->have_posts() ): ?>

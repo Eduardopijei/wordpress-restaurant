@@ -15,7 +15,7 @@
  *
  * @see tribe_get_event() For the format of the event object.
  */
-
+$additional_fields = tribe_get_custom_fields();
 ?>
 <div class="tribe-events-calendar-month__calendar-event-tooltip-template tribe-common-a11y-hidden">
 	<div
@@ -25,7 +25,9 @@
 	>
 		<?php $this->template( 'month/calendar-body/day/calendar-events/calendar-event/tooltip/featured-image', [ 'event' => $event ] ); ?>
         <div class="tribe-events-calendar-month__calendar-event-tooltip__body">
+			<?php if( $additional_fields['Hide date'] != 'Yes' ): ?>
             <?php $this->template( 'month/calendar-body/day/calendar-events/calendar-event/tooltip/date', [ 'event' => $event ] ); ?>
+			<?php endif; ?>
             <?php $this->template( 'month/calendar-body/day/calendar-events/calendar-event/tooltip/title', [ 'event' => $event ] ); ?>
             <?php $this->template( 'month/calendar-body/day/calendar-events/calendar-event/tooltip/description', [ 'event' => $event ] ); ?>
             <?php $this->template( 'month/calendar-body/day/calendar-events/calendar-event/tooltip/cost', [ 'event' => $event ] ); ?>

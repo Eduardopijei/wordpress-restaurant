@@ -504,7 +504,7 @@ function loadAjaxOffers_handler() {
 		'post_type' => 'offer',
 		'post_status' => 'publish',
 		'tax_query' => $tax_query,
-		'posts_per_page' => 3,
+		'posts_per_page' => 6,
 		'paged' => $page + 1
 	);
 	$query = new WP_Query( $args );
