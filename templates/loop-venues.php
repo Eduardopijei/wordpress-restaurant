@@ -10,7 +10,7 @@ $image_type = $args['image_type'];  ?>
             $image = get_field( 'wedding_image', $post );
         endif;
         if( $image ): ?>
-            <a href="#" class="venues-modal__btn" data-id="<?php echo $post->ID; ?>">
+            <a href="#" class="venues-modal__btn" data-id="<?php echo get_the_ID( $post ); ?>">
                 <img class="lazyload" 
                     data-src="<?php echo $image['sizes']['venue-image']; ?>" 
                     data-srcset="<?php echo $image['sizes']['venue-image-2x']; ?> 2x"
