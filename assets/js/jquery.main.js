@@ -721,8 +721,8 @@ function initTab() {
     $(".tab-link.active", $tab).removeClass("active");
     $(this).addClass("active");
     $(target).addClass("active");
-    var $slider = $(".slides", $(target));
-    if ($slider.length) $slider.slick("setPosition");
+    var $slider = $(".slides-images", $(target));
+    if ($slider.length) $slider.slick("slickGoTo", 0);
     return false;
   });
   $('.tab-select').on('change', function() {
@@ -731,8 +731,8 @@ function initTab() {
     $(".tab-content.active", $tab).removeClass("active");
     $(".tab-link.active", $tab).removeClass("active");
     $(target).addClass("active");
-    var $slider = $(".slides", $(target));
-    if ($slider.length) $slider.slick("setPosition");
+    var $slider = $(".slides-images", $(target));
+    if ($slider.length) $slider.slick("slickGoTo", 0);
   });
 }
 
@@ -1851,27 +1851,32 @@ function anImgUpOnScrollVewportChecker() {
 // function init
 // slick Slider
 function slickSliderInit() {
-  $(".slides-images").slick({
-    dots: true,
-    arrows: true,
-    speed: 1000,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    asNavFor: ".slides-contents",
-    responsive: [{
-      breakpoint: 768,
-      settings: {
-        arrows: false,
-      },
-    }, ],
-  });
-  $(".slides-contents").slick({
-    dots: false,
-    arrows: false,
-    speed: 1000,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    asNavFor: ".slides-images",
+  $(".slides-images").each(function() {
+    let $parent = $(this).closest('.slider'),
+        $contents = $('.slides-contents', $parent),
+        $images = $(this);
+    $images.slick({
+      dots: true,
+      arrows: true,
+      speed: 1000,
+      autoplay: true,
+      autoplaySpeed: 5000,
+      asNavFor: $contents,
+      responsive: [{
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+        },
+      }, ],
+    });
+    $contents.slick({
+      dots: false,
+      arrows: false,
+      speed: 1000,
+      autoplay: true,
+      autoplaySpeed: 5000,
+      asNavFor: $images,
+    });
   });
 }
 
