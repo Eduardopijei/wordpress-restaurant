@@ -6,16 +6,8 @@ $name = get_queried_object(  )->name;
 $taxonomy = get_queried_object(  )->taxonomy; ?>
 <section class="press press-taxonomy">
     <div class="container">
-        <h1 class="press-heading">New &amp; Noteworthy</h1>
-        <div class="press-content">
-            <h6 style="text-align: center;"><strong>HOT OF THE PRESS</strong></h6>
-            <p>&nbsp;</p>
-            <p style="text-align: center;">Keep up with what is new and noteworthy at the Boston Harbor Hotel. From recent news highlights to press releases, you can find all you need to know here.</p>
-            <p>&nbsp;</p>
-            <p style="text-align: center;">Become a <a href="https://www.facebook.com/BostonHarborHotel/">fan of the Boston Harbor Hotel on Facebook</a> and&nbsp;<a href="https://twitter.com/HarborHotel" target="_blank" rel="noopener">follow the Hotel on Twitter @HarborHotel </a>for the latest Boston&nbsp;<a href="https://www.bostonharborhotel.com/experiences">events</a> and <a href="https://www.bostonharborhotel.com/offers">hotel promotions</a>.</p>
-            <p>&nbsp;</p>
-            <p style="text-align: center;">Please contact Kiley Merrill at&nbsp;<a href="mailto:keldemery@bhh.com">kmerrill@bhh.com</a>, with any questions.</p>
-        </div>
+        <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'press_heading', 'o' => 'o', 't' => 'h1', 'tc' => 'press-heading' ) ); ?>
+        <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'press_content', 'o' => 'o', 't' => 'div', 'tc' => 'press-content' ) ); ?>
         <?php $terms = get_terms( 'press_category' );
         if( $terms ): ?>
             <div class="post-categories press-categories">

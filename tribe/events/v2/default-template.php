@@ -17,11 +17,7 @@ use Tribe\Events\Views\V2\Template_Bootstrap;
 get_header();
 ?>
 <div class="event-info custom-wysiwig a-up">
-    <div class="container">
-        <h1 style="text-align: center;">Events</h1>
-        <h6 style="text-align: center;">EVENTS AT BOSTON HARBOR hotel</h6>
-        <p style="text-align: center;">Cras vitae mi euismod, maximus lacus posuere, rutrum est. Mauris vulputate congue massa, malesuada euismod erat rhoncus fringilla. Quisque maximus nulla nisi, ac venenatis quam vehicula sed. Praesent odio arcu, rutrum nec nunc a, tristique hendrerit.</p>
-    </div>
+    <?php get_template_part_args( 'templates/content-module-text', array( 'v' => 'events_content', 'o' => 'o', 't' => 'div', 'tc' => 'container' ) ); ?>
 </div>
 
 <?php
